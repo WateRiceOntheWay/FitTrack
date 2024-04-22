@@ -58,6 +58,33 @@ Page({
         showCancel:false
       })
     }
+    else{
+      // 完成本地检测，上传用户数据
+      var status = this.upload_signup_info({
+        "username": data.detail.value.username,
+        "password": data.detail.value.password
+      })
+      if (status==true){
+        //成功
+        wx.showToast({
+          title: '注册成功',
+          icon: 'success'
+        })
+
+        // TODO
+        // 自动登录
+
+        wx.reLaunch({
+          url:"/pages/index/index"
+        });
+      }else{
+        //失败
+        wx.showToast({
+          title: '出错了，请重试',
+          icon: 'error'
+        })
+      }
+    }
   },
 
   
