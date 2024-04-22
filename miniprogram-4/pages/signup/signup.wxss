@@ -3,7 +3,7 @@ page{
   height: 100%;    /* 使用page的height可以使页面占全屏 */
   background-color: #fafafa;
  }
-.login-container{
+.signup-container{
   padding: 0 10%;
   height: 100%;
 }
@@ -13,7 +13,7 @@ page{
   padding-top: 10%;
   font-weight: bold;
 }
-.login-box{
+.signup-box{
   margin-top: 10%;
   padding: 10% 5%;
   background-color: white;
@@ -28,17 +28,11 @@ page{
   margin: 5% 0 8% 0;
   border-bottom: 1rpx solid lightgray;
 }
-.login-btn{
+.signup-btn{
   width: 100%!important;
   background-color: #2f6afd;
   color: white;
   font-weight: normal;
-}
-.signup-btn{
-  width: 100%!important;
-  background-color: white;
-  color: #2f6afd;
-  font-weight: bold;
 }
 
 .three-line{
@@ -48,3 +42,8 @@ page{
   color: gray;
 }
 
+.notation{
+  font-size: 8%;
+  color: red;
+  margin: 0 0 3% 1%;
+}

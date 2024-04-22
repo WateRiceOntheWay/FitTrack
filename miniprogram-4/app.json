@@ -2,11 +2,12 @@
   "pages": [
     "pages/login/login",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/signup/signup"
   ],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "FitTrack",
     "navigationBarBackgroundColor": "#ffffff"
   },
   "style": "v2",

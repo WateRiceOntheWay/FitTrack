@@ -1,0 +1,26 @@
+<view class="signup-container">
+  <view class="title">新用户注册</view>
+  <view class="signup-box">
+    <form bindsubmit="signup">
+      <view>
+        <label>用户名</label>
+        <text class="notation" id="notation-username"></text>
+      </view>
+      <input name="username" id="input-username" class="login-box-input" placeholder="请输入用户名" />
+
+      <view>
+        <label>密码</label>
+        <text class="notation" id="notation-password">{{notations.password}}</text>
+      </view>
+      <input password="true" class="login-box-input"  name="password" id="input-password" placeholder="请输入密码（大于6位）"/>
+
+      <view>
+        <label>确认密码</label>
+        <text class="notation" id="notation-repassword"></text>
+      </view>
+      <input password="true" class="login-box-input"  name="repassword" id="input-repassword" placeholder="请再次输入密码"/>
+
+      <button class="signup-btn" form-type="submit">注册</button>
+  </form>
+  </view>
+</view>

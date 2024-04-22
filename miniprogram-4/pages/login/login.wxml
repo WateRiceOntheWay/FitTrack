@@ -1,12 +1,15 @@
 <view class="login-container">
-  <view class="title">微信小程序App</view>
+  <view class="title">FitTrack</view>
   <view class="login-box">
-    <label>用户名</label>
-    <input placeholder="请输入用户名"/>
-    <label>密码</label>
-    <input placeholder="请输入密码"/>
-    <button class="login-btn">立即登录</button>
-    <view class="three-line">一一一一一第三方登录一一一一一</view>
+    <form bindsubmit="login_using_password">
+      <label>用户名</label>
+      <input name="username" class="login-box-input" placeholder="请输入用户名"/>
+      <label>密码</label>
+      <input password="true" class="login-box-input"  name="password" placeholder="请输入密码"/>
+      <button class="login-btn" form-type="submit">立即登录</button>
+  </form>
+      <button class="signup-btn" bind:tap="signup">新用户注册</button>
+    <view class="three-line">一一一一一 第三方登录 一一一一一</view>
     <button class="login-btn" style="background-color:green;">微信登录</button>
   </view>
 </view>

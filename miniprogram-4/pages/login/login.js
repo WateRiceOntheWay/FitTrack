@@ -5,9 +5,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    "username":null,
+    "password":null
   },
 
+  login_using_password: (data)=>{
+    console.log("login_with_password")
+    console.log(data.detail.value.username)
+    console.log(data.detail.value.password)
+    
+  },
+
+  login_using_wechat: ()=>{
+    console.log("login using wechat")
+  },
+
+  signup: ()=>{
+    wx.navigateTo({
+      url:"/pages/signup/signup"
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
