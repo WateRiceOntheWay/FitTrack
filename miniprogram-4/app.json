@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/today/today",
     "pages/login/login",
     "pages/index/index",
     "pages/logs/logs",
@@ -10,7 +11,6 @@
     "navigationBarTitleText": "FitTrack",
     "navigationBarBackgroundColor": "#ffffff"
   },
-  "style": "v2",
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"

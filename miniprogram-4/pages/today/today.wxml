@@ -1,0 +1,13 @@
+<!--pages/today.wxml-->
+<view class="signup-container">
+  <view class="margin-sm radius-lg bg-white">
+    <view class="cu-bar">
+      <view class="action sub-title">
+        <text class="text-xxl text-bold text-blue">Today</text>
+        <text class="bg-blue"></text>
+
+        
+      </view>
+    </view>
+  </view>
+</view>
