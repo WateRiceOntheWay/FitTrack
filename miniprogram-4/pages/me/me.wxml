@@ -1,5 +1,31 @@
 <!--pages/me/me.wxml-->
 <text>pages/me/me.wxml</text>
-<view class="solid-bottom text-sl padding">
-        <text class=" cuIcon-roundcheckfill text-green">helloworld</text>
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="content">个人中心01</view>
+</cu-custom>
+
+<view class="">
+  <view class="bg-white">
+    <view class="padding bg-white text-center margin-sm radius-lg">
+    
+      
+    </view>
+    <view class="flex padding">
+      <view class="padding-lr-xs">
+        <view class="cu-avatar lg round" style="background-image:url(https://image.meiye.art/Fha6tqRTIwHtlLW3xuZBJj8ZXSX3?imageMogr2/thumbnail/450x/interlace/1);">
+        </view>
+       
       </view>
+      <view class="margin-left-xs text-xxl text-black">
+        <view>用户A</view>
+      
+        <view class="padding-xxl solid{{size?'s':''}}">用户A</view>
+        <view class="flex">
+          <view class="flex-sub bg-white light padding-xl margin-xs solid">用户1</view>
+          <view class="flex-sub bg-white light padding-xl margin-xs solid">用户2</view>
+          <view class="flex-sub bg-white light padding-xl margin-xs solid">用户3</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
