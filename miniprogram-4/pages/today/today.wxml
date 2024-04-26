@@ -1,14 +1,29 @@
 <!--pages/today.wxml-->
 <view class="signup-container">
   <view class="margin-sm radius-lg bg-white">
-    <view class="cu-bar">
-      <view class="action sub-title">
-        <text class="text-xxl text-bold text-blue">Today</text>
-        <text class="bg-blue"></text>
+  
+    <!-- 标题栏 -->
+      
+      <!-- 布局左右 -->
+      <view class="flex solid-bottom padding-xs justify-between">
 
-        <button class="cu-btn round xxl">超大尺寸</button>
+        <!-- 标题 -->
+        <view class="padding-sm margin-xs radius">
+          <view class="cu-bar">
+            <view class="action sub-title">
+              <text class="text-xxl text-bold text-blue">Today</text>
+              <text class="bg-blue"></text>
+            </view>
+          </view>
+        </view>
         
+
+        <!-- 添加按钮 -->
+        <view class="padding-sm margin-xs radius">
+          <button class="cu-btn margin-bottom-0 icon">
+            <text class="cuIcon-roundadd black"></text>
+          </button>
+        </view>
       </view>
-    </view>
   </view>
 </view>
