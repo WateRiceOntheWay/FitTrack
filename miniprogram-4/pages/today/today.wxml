@@ -6,6 +6,7 @@
         <text class="text-xxl text-bold text-blue">Today</text>
         <text class="bg-blue"></text>
 
+        <button class="cu-btn round xxl">超大尺寸</button>
         
       </view>
     </view>
