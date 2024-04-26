@@ -5,7 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-
   },
 
   /**
@@ -62,5 +61,22 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+
+  showModalAddNewRecord() {
+    /**
+     * 打开 添加新记录的模态框
+     */
+    this.setData({
+      ShowModalAddNewRecord:true
+    });
+  },
+  hideModalAddNewRecord() {
+    /**
+     * 关闭 添加新记录的模态框
+     */
+    this.setData({
+      ShowModalAddNewRecord:false
+    });
   }
 })

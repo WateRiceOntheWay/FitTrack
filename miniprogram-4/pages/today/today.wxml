@@ -1,29 +1,96 @@
 <!--pages/today.wxml-->
 <view class="signup-container">
-  <view class="margin-sm radius-lg bg-white">
-  
-    <!-- 标题栏 -->
-      
-      <!-- 布局左右 -->
-      <view class="flex solid-bottom padding-xs justify-between">
+    <view class="margin-sm radius-lg bg-white shadow">
 
-        <!-- 标题 -->
-        <view class="padding-sm margin-xs radius">
-          <view class="cu-bar">
-            <view class="action sub-title">
-              <text class="text-xxl text-bold text-blue">Today</text>
-              <text class="bg-blue"></text>
+
+
+        <!-- 标题栏 -->
+
+        <!-- 布局左右 -->
+        <view class="flex solid-bottom padding-xs justify-between">
+
+            <!-- 标题 -->
+            <view class="padding-sm margin-xs radius">
+                <view class="cu-bar">
+                    <view class="action sub-title">
+                        <text class="text-xxxl text-bold text-blue">Today</text>
+                        <text class="bg-blue"></text>
+                    </view>
+                </view>
             </view>
-          </view>
-        </view>
-        
 
-        <!-- 添加按钮 -->
-        <view class="padding-sm margin-xs radius">
-          <button class="cu-btn margin-bottom-0 icon">
-            <text class="cuIcon-roundadd black"></text>
-          </button>
+
+            <!-- 添加按钮 -->
+            <view class="padding-sm margin-xs radius">
+                <button class="cu-btn margin-bottom-0 icon" bindtap="showModalAddNewRecord">
+                    <text class="cuIcon-roundadd black"></text>
+                </button>
+            </view>
+
         </view>
-      </view>
-  </view>
+
+        <!-- 添加运动和饮食两张卡片，运动卡片显示卡路里、步数  -->
+        <view class="padding-sm margin-xs animation-slide-bottom" style="animation-delay:0.05s">
+            <view class="bg-green radius-lg">
+                <view class="cu-bar">
+                    <view class="action title">
+                        <text class="text-xxl text-bold text-white">运动</text>
+                    </view>
+                </view>
+                <view class="cu-list menu padding-xs">
+                    <view class="cu-item radius-df">
+                        <view class="content">
+                            <view class="text-green text-bold">消耗卡路里</view>
+                            <view class="text-green text-bold">步数</view>
+                        </view>
+                        <view class="action">
+                            <view class="text-green text-bold">300 kcal</view>
+                            <view class="text-green text-bold">7920 步</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <view class="padding-sm margin-xs animation-slide-bottom" style="animation-delay:0.1s">
+            <view class="cu-card bg-blue shadow-lg radius-lg">
+                <view class="cu-bar">
+                    <view class="action title">
+                        <text class="text-xxl text-bold text-white">饮食</text>
+                    </view>
+                </view>
+                <view class="cu-list menu padding-xs">
+                    <view class="cu-item radius-df">
+                        <view class="content">
+                            <view class="text-blue text-bold">摄入卡路里</view>
+                        </view>
+                        <view class="action">
+                            <view class="text-blue text-bold">300 kcal</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="cu-modal bottom-modal {{ShowModalAddNewRecord?'show':''}}">
+    <view class="cu-dialog">
+        <view class="flex solid-bottom padding-xs justify-center">
+            <view class="action padding-sm " bindtap="hideModal">添加运动</view>
+        </view>
+
+        <view class="flex solid-bottom padding-xs justify-center">
+            <view class="action padding-sm " bindtap="hideModal">添加饮食</view>
+        </view>
+        <view class="flex bg-gray solid-bottom padding-xs justify-center">
+            <view class=""></view>
+        </view>
+        <view class="action flex solid-bottom padding-xs justify-center" bindtap="hideModalAddNewRecord">
+            <view class="padding-sm text-red">取消</view>
+        </view>
+        <view class="flex bg-gray solid-bottom padding-xs justify-center">
+            <view class="padding-sm"></view>
+        </view>
+    </view>
+    </view>
 </view>
