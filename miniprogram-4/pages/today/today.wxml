@@ -1,5 +1,5 @@
 <!--pages/today.wxml-->
-<view class="signup-container">
+<view class="today-container">
     <view class="margin-sm radius-lg bg-white shadow">
 
 
@@ -75,12 +75,12 @@
 
     <view class="cu-modal bottom-modal {{ShowModalAddNewRecord?'show':''}}">
     <view class="cu-dialog">
-        <view class="flex solid-bottom padding-xs justify-center">
-            <view class="action padding-sm " bindtap="hideModal">添加运动</view>
+        <view class="flex solid-bottom padding-xs justify-center" bindtap="addSportRecord">
+            <view class="action padding-sm ">添加运动</view>
         </view>
 
-        <view class="flex solid-bottom padding-xs justify-center">
-            <view class="action padding-sm " bindtap="hideModal">添加饮食</view>
+        <view class="flex solid-bottom padding-xs justify-center" bindtap="addDietRecord">
+            <view class="action padding-sm ">添加饮食</view>
         </view>
         <view class="flex bg-gray solid-bottom padding-xs justify-center">
             <view class=""></view>

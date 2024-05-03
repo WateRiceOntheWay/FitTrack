@@ -1,10 +1,11 @@
-// pages/today.js
+// pages/today/add_diet/add_diet.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+
   },
 
   /**
@@ -61,34 +62,5 @@ Page({
    */
   onShareAppMessage() {
 
-  },
-
-  showModalAddNewRecord() {
-    /**
-     * 打开 添加新记录的模态框
-     */
-    this.setData({
-      ShowModalAddNewRecord:true
-    });
-  },
-  hideModalAddNewRecord() {
-    /**
-     * 关闭 添加新记录的模态框
-     */
-    this.setData({
-      ShowModalAddNewRecord:false
-    });
-  },
-  addSportRecord(){
-        this.hideModalAddNewRecord();
-        wx.navigateTo({
-            url:"/pages/today/add_sport/add_sport"
-        });
-  },
-  addDietRecord(){
-        this.hideModalAddNewRecord();
-        wx.navigateTo({
-            url:"/pages/today/add_diet/add_diet"
-        });
   }
 })

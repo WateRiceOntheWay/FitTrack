@@ -5,7 +5,9 @@
     "pages/login/login",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/signup/signup"
+    "pages/signup/signup",
+    "pages/today/add_sport/add_sport",
+    "pages/today/add_diet/add_diet"
   ],
   "window": {
     "navigationBarTextStyle": "black",
