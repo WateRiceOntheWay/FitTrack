@@ -10,6 +10,9 @@ Page({
 
         //运动时长
         sport_duration: [0, 0, 0],
+        sport_duration_string:"请选择运动时间",
+
+        // 生成时间多项选择列表的项，24/60/60
         duration_array: [
             (()=>{
                 let rg = new Array(24);
@@ -35,7 +38,10 @@ Page({
         ],
 
         //运动距离
-        sport_distance: null,
+        diet_amount: null,
+
+        // 添加按钮是否有效？ 在js函数被调用时使用disableAddButtonIfInvalidElseEnable()函数更改此变量，会使前端页面按钮disable或enable
+        add_button_valid:false
 
 
     },
@@ -44,7 +50,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        console.log(this.data.duration_array)
+
     },
 
     /**
@@ -100,18 +106,99 @@ Page({
         this.setData({
             sport_type_index: e.detail.value
         })
+        this.disableAddButtonIfInvalidElseEnable();
     },
     SportDurationTimeChange(e) {
         this.setData({
             sport_duration: e.detail.value
         })
+
+        // 改变运动时间后，更改显示的字符串
+        this.setSportDurationString();
+
+        this.disableAddButtonIfInvalidElseEnable();
     },
     SportDistanceChange(e){
         this.setData({
-            sport_distance: e.detail.value.replace(/[^\d]/g, '')
+            sport_distance: e.detail.value
         })
+        this.disableAddButtonIfInvalidElseEnable();
     },
     Cancel(){
         wx.navigateBack()
+    },
+
+    // 更改显示的运动时间字符串
+    setSportDurationString(){
+        console.log(this.data.sport_duration);
+
+        // 若时间全为0
+        if(this.data.sport_duration[0]===0&&this.data.sport_duration[1]===0&&this.data.sport_duration[2]===0){
+            this.setData({
+                sport_duration_string: "请选择运动时间"
+            });
+        }
+
+        // 若时间不为0
+        else{
+            this.setData({
+                // " %HH%h %MM%' %SS%'' "
+                sport_duration_string: this.data.duration_array[0][this.data.sport_duration[0]].toString()+"h "+this.data.duration_array[1][this.data.sport_duration[1]].toString()+"' "+this.data.duration_array[2][this.data.sport_duration[2]].toString()+"''"
+            });
+        }
+        this.disableAddButtonIfInvalidElseEnable();
+    },
+
+    // 判断当前数据有效性
+    checkDataValid(){
+        // 若没有选择运动类型
+        if(this.data.sport_type_index===null){
+            return false;
+        }
+
+        let distance_is_valid=false;
+        if (this.data.diet_amount===null||this.data.diet_amount===""){
+            distance_is_valid=false;
+        }
+        else{
+            if(this.data.diet_amount.replace(/[^\d]/g, '').length!==this.data.diet_amount.length){
+                distance_is_valid=false;
+                // 因为有不合法字符，应该直接返回false，不考虑time的情况
+                return false;
+            }
+            else{
+                if(parseInt(this.data.diet_amount,10)<=0){
+                    distance_is_valid=false;
+                    // 因为距离为0，应该直接返回false，不考虑time的情况
+                    return false;
+                }
+                else{
+                    distance_is_valid=true;
+                }
+            }
+        }
+
+        let time_is_valid=false;
+        if(this.data.sport_duration[0]===0&&this.data.sport_duration[1]===0&&this.data.sport_duration[2]===0){
+            time_is_valid=false;
+        }
+        else{
+            time_is_valid=true;
+        }
+
+        return distance_is_valid || time_is_valid;
+    },
+
+    disableAddButtonIfInvalidElseEnable(){
+        if(this.checkDataValid()){
+            this.setData({
+                add_button_valid:true
+            });
+        }
+        else{
+            this.setData({
+                add_button_valid:false
+            });
+        }
     }
 })

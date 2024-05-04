@@ -1,2 +1,59 @@
-<!--pages/today/add_diet/add_diet.wxml-->
-<text>pages/today/add_diet/add_diet.wxml</text>
+<!--pages/today/add_sport/add_sport.wxml-->
+
+<view class="add_diet-container">
+
+<view class="margin-sm radius-lg bg-white shadow">
+
+    <!-- 标题栏 -->
+    <view class="padding-sm">
+    <view class="cu-bar">
+        <view class="action border-title">
+        <text class="text-xxl text-bold text-green">添加饮食</text>
+        <text class="bg-gradual-green" style="width:3rem"></text>
+        </view>
+    </view>
+    </view> 
+
+    <view class="cu-bar bg-white margin-top solids-top">
+        <view class="action">
+        <text class="cuIcon-titles text-blue"></text>
+        <text class="text-bold">详情</text>
+        </view>
+    </view>
+    
+    <view class="cu-form-group solids-top">
+        <view class="title">食品类型</view>
+        <picker bindchange="DietTypePickerChange" value="{{diet_type_index}}" range="{{diet_type_range}}">
+        <view class="picker">
+                    {{diet_type_index?diet_type_range[diet_type_index]:'请选择食品类型'}}
+        </view>
+        </picker>
+     </view>       
+
+    <view class="cu-form-group">
+        <!-- 这里内嵌js，更改标签是mL还是g -->
+        <view class="title">{{diet_type_index===null?'食用量 (g)':(diet_type_is_liquid[diet_type_index]?'食用量 (mL)':'食用量 (g)')}}</view>
+        <input type="number" bindinput="DietAmountChange" placeholder="请输入食用量"></input>
+    </view>
+
+    <view class="cu-bar bg-white solids-top">
+        <view class="action">
+        <text class="cuIcon-titles text-blue"></text>
+        <text class="text-bold">备注</text>
+        </view>
+    </view>
+
+    <view class="cu-form-group solids-top">
+        <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请输入饮食备注（500字以内）"></textarea>
+    </view>
+    
+</view>
+
+
+<view class="cu-bar foot bg-white tabbar border margin-top-xs">
+    <view class="cu-bar btn-group">
+    <button class="cu-btn bg-orange round shadow-blur" bind:tap="Cancel">取消</button>
+    <button class="cu-btn bg-green round shadow-blur" disabled="{{add_button_valid?'':'true'}}" type="">添加</button>
+    </view>
+</view>
+</view>

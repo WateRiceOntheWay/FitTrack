@@ -23,6 +23,7 @@
         
         <view class="cu-form-group solids-top">
             <view class="title">运动类型</view>
+            <!-- 如此处所示               v               使用bindchange属性绑定函数，函数中调参数e，可以拿到页面的值 -->
             <picker bindchange="SportTypePickerChange" value="{{sport_type_index}}" range="{{sport_type_range}}">
             <view class="picker">
                         {{sport_type_index?sport_type_range[sport_type_index]:'请选择运动类型'}}
@@ -31,16 +32,17 @@
          </view>       
 
          <view class="cu-form-group">
-            <view class="title">运动时间</view>
+            <view class="title">运动时间 (h,m,s)</view>
+            <!-- 使用多项选择列表代替原生的时间选择组件，因为原生组件只能选两个项，此处需要hms三个项 -->
             <picker mode="multiSelector" bindchange="SportDurationTimeChange" value="{{sport_duration}}" range="{{duration_array}}">
             <view class="picker">
-                {{duration_array[0][sport_duration[0]]}}h {{duration_array[1][sport_duration[1]]}}' {{duration_array[2][sport_duration[2]]}}''
+                {{sport_duration_string}}
             </view>
             </picker>
         </view>
 
         <view class="cu-form-group">
-            <view class="title">运动距离(m)</view>
+            <view class="title">运动距离 (m)</view>
             <input type="number" bindinput="SportDistanceChange" placeholder="请输入运动距离"></input>
         </view>
 
@@ -51,6 +53,7 @@
             </view>
         </view>
 
+        <!-- 备注部分只有UI，还未使用 -->
         <view class="cu-form-group solids-top">
             <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请输入运动备注（500字以内）"></textarea>
         </view>
@@ -61,7 +64,7 @@
     <view class="cu-bar foot bg-white tabbar border margin-top-xs">
         <view class="cu-bar btn-group">
         <button class="cu-btn bg-orange round shadow-blur" bind:tap="Cancel">取消</button>
-        <button class="cu-btn bg-blue round shadow-blur">添加</button>
+        <button class="cu-btn bg-blue round shadow-blur" disabled="{{add_button_valid?'':'true'}}" type="">添加</button>
         </view>
     </view>
 </view>
