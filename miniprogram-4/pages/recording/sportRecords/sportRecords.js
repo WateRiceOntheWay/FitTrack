@@ -14,7 +14,7 @@ Page({
     var record = event.currentTarget.dataset.record; // 获取记录
     console.log(record);
     wx.navigateTo({
-      url: '../singleSportRecord/singleSportRecord?cal=' + this.data.cal + '&item=' + JSON.stringify(record),
+      url: 'singleSportRecord/singleSportRecord?cal=' + this.data.cal + '&item=' + JSON.stringify(record),
       success: (result) => {},
       fail: (res) => {},
       complete: (res) => {},

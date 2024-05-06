@@ -1,18 +1,22 @@
 {
   "pages": [
-    "pages/today/today",
-    "pages/me/me",
     "pages/login/login",
-    "pages/index/index",
-    "pages/logs/logs",
     "pages/signup/signup",
+
+    "pages/today/today",
     "pages/today/add_sport/add_sport",
     "pages/today/add_diet/add_diet",
+
+    "pages/me/me",
+
     "pages/recording/recording",
-    "pages/sportRecords/sportRecords",
-    "pages/singleSportRecord/singleSportRecord",
-    "pages/dietRecords/dietRecords",
-    "pages/singleDietRecord/singleDietRecord"
+    "pages/recording/sportRecords/sportRecords",
+    "pages/recording/sportRecords/singleSportRecord/singleSportRecord",
+    "pages/recording/dietRecords/dietRecords",
+    "pages/recording/dietRecords/singleDietRecord/singleDietRecord",
+
+    "pages/index/index",
+    "pages/logs/logs"
   ],
   "window": {
     "navigationStyle": "custom"
