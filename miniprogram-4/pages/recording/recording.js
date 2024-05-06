@@ -46,6 +46,9 @@ Page({
     wx.request({
       url: 'https://ea05c617-6cdc-4b66-9f10-e015cb44471b.mock.pstmn.io/sport_getAll',
       method:'GET',
+      headers: {  
+        'Authorization': `Bearer ${jwtToken}`  
+      }, 
       data:[
         {
           "username": that.data.username,
