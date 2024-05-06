@@ -27,14 +27,31 @@
                 </view>
             </view>
 
+            <view class="flex solid-bottom padding-xs justify-end">
+                <!-- 更改目标按钮 -->
+                <view class="padding-sm margin-xs radius">
 
-            <!-- 添加按钮 -->
-            <view class="padding-sm margin-xs radius">
-                <button class="cu-btn margin-bottom-0 icon" bindtap="showModalAddNewRecord">
-                    <text class="cuIcon-roundadd black"></text>
-                </button>
+                    <view>
+                        <button class="cu-btn icon lg" bindtap="showModalAddGoal">
+                            <view class="text-xxxl text-black">
+                                <text class="cuIcon-newshot black"></text>
+                            </view>
+                        </button>
+                    </view>
+                </view>
+
+
+                <!-- 添加按钮 -->
+                <view class="padding-sm margin-xs radius">
+                    <view>
+                        <button class="cu-btn icon lg" bindtap="showModalAddNewRecord">
+                            <view class="text-xxxl text-black">
+                                <text class="cuIcon-add black"></text>
+                            </view>
+                        </button>
+                    </view>
+                </view>
             </view>
-
         </view>
 
         <!-- 添加运动和饮食两张卡片，运动卡片显示卡路里、步数  -->
@@ -86,14 +103,37 @@
             <view class="flex solid-bottom padding-xs justify-center" bindtap="addSportRecord">
                 <view class="action padding-sm ">添加运动</view>
             </view>
-
             <view class="flex solid-bottom padding-xs justify-center" bindtap="addDietRecord">
                 <view class="action padding-sm ">添加饮食</view>
             </view>
+            <view class="flex solid-bottom padding-xs justify-center" bindtap="addBodyRecord">
+                <view class="action padding-sm ">添加身体指标</view>
+            </view>
+
             <view class="flex bg-gray solid-bottom padding-xs justify-center">
                 <view class=""></view>
             </view>
+
             <view class="action flex solid-bottom padding-xs justify-center" bindtap="hideModalAddNewRecord">
+                <view class="padding-sm text-red">取消</view>
+            </view>
+            <view class="flex bg-gray solid-bottom padding-xs justify-center">
+                <view class="padding-sm"></view>
+            </view>
+        </view>
+    </view>
+
+    <view class="cu-modal bottom-modal {{ShowModalAddGoal?'show':''}}">
+        <view class="cu-dialog">
+            <view class="flex solid-bottom padding-xs justify-center" bindtap="addSportRecord">
+                <view class="action padding-sm ">更改每日运动目标</view>
+            </view>
+
+            <view class="flex bg-gray solid-bottom padding-xs justify-center">
+                <view class=""></view>
+            </view>
+
+            <view class="action flex solid-bottom padding-xs justify-center" bindtap="hideModalAddGoal">
                 <view class="padding-sm text-red">取消</view>
             </view>
             <view class="flex bg-gray solid-bottom padding-xs justify-center">

@@ -1,0 +1,26 @@
+<!--pages/today/add_diet/add_diet_success/add_diet_success.wxml-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">FitTrack</view>
+</cu-custom>
+
+<view class="add_diet_success-container">
+    <view class="margin-xxl">
+    </view>
+    <view class="flex padding-xs justify-center animation-scale-up">
+        <view class="margin">
+            <text class="cuIcon-check text-green text-shadow" style="font-size: 800%;"></text>
+        </view>
+    </view>s
+    <view class="flex padding-xs justify-center animation-fade" style="animation-delay:0.05s">
+        <view class="margin">
+            <text class="text-black" style="font-size: 150%;">饮食记录添加成功！</text>
+        </view>
+    </view>
+    <view class="flex padding-xs justify-center animation-fade" style="animation-delay:0.2s">
+        <view class="margin">
+            <button class="cu-btn line-green shadow round xxl">返回主界面</button>
+        </view>
+    </view>
+
+</view>

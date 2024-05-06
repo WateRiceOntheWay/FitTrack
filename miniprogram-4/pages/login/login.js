@@ -29,10 +29,8 @@ Page({
       success(res){
         if (res && res.data) {
           if(res.data.code == 1){
-            that.storageUserInfo()
-            wx.navigateTo({
-              url: '../recording/recording'
-            })
+            that.storageUserInfo();
+            wx.navigateBack();
           }
           else{
             wx.showModal({

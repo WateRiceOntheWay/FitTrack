@@ -1,5 +1,14 @@
+<!--导航栏-->
+
+<cu-custom bgColor="bg-gradual-pink" isBack="{{false}}">
+    <view slot="backText">返回</view>
+    <view slot="content">FitTrack</view>
+</cu-custom>
+
 <view class="login-container">
-  <view class="title">FitTrack</view>
+
+
+  <view class="title">登录 FitTrack</view>
   <view class="login-box">
     <form bindsubmit="login_using_password">
       <label>用户名</label>

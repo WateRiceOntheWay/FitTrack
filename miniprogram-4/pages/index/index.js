@@ -46,4 +46,9 @@ Page({
       }
     })
   },
+  onShow(){
+    wx.redirectTo({
+      url: '/pages/today/today',
+    })
+  }
 })

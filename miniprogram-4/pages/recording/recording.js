@@ -197,5 +197,10 @@ Page({
      wx.redirectTo({
          url:"/pages/today/today"
      })
+ },
+ toCommunity(){
+     wx.redirectTo({
+       url: '/pages',
+     })
  }
 })

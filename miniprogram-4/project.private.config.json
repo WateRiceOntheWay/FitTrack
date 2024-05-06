@@ -9,6 +9,20 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/today/add_diet/add_diet_success/add_diet_success",
+          "pathName": "pages/today/add_diet/add_diet_success/add_diet_success",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/today/add_sport/add_sport",
+          "pathName": "pages/today/add_sport/add_sport",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "",
           "pathName": "pages/recording/recording",
           "query": "",
