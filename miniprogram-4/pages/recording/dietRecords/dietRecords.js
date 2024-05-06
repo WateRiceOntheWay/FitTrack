@@ -14,10 +14,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.setData({
-      username:options
-    })
     let that = this
+    wx.getStorage({
+      key:"username",
+      success(res){
+        console.log("读取本地存储username成功")
+        that.setData({
+          username:res.data
+        })
+      }
+    })
     wx.request({
       url: 'https://834d6e6b-e1e1-459b-a575-8d290d5bbed2.mock.pstmn.io/diet_getAll',
       method:'GET',

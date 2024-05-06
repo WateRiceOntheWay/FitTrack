@@ -29,11 +29,16 @@ Page({
     console.log("This is sportRecords")
     console.log(options)
     */
-    this.setData({
-      username: options
-    })
-
     let that = this
+    wx.getStorage({
+      key:"username",
+      success(res){
+        console.log("读取本地存储username成功")
+        that.setData({
+          username:res.data
+        })
+      }
+    })
     wx.request({
       url: 'https://ea05c617-6cdc-4b66-9f10-e015cb44471b.mock.pstmn.io/sport_getAll',
       method:'GET',

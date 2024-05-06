@@ -18,7 +18,7 @@ Page({
   
   more_records_sport:function(event){
     wx.navigateTo({
-      url: 'sportRecords/sportRecords?username=' + this.data.username,
+      url: 'sportRecords/sportRecords',
       success: (result) => {},
       fail: (res) => {},
       complete: (res) => {},
@@ -27,7 +27,7 @@ Page({
 
   more_records_diet:function(event){
     wx.navigateTo({
-      url: 'dietRecords/dietRecords?username=' + this.data.username,
+      url: 'dietRecords/dietRecords',
       success: (result) => {},
       fail: (res) => {},
       complete: (res) => {},
