@@ -12,7 +12,8 @@ Page({
     ],
     username:"",
     password:"",
-    date:""
+    date:"",
+    jwtToken:""
   },
   
   more_records_sport:function(event){
@@ -37,17 +38,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
- /*   
-    console.log("Recording")
-    console.log(options.username)
-    console.log(options.password)
-*/
     console.log("success")
-    this.setUserInfo({
-      "username":options.username,
-      "password":options.password
-    })
-//    console.log(this.data.username)
+    this.setUserInfo()
+    console.log(this.data.username)
     let that = this
     console.log("success")
     wx.request({
@@ -155,9 +148,47 @@ Page({
   /*
   设置用户名和密码
   */
- setUserInfo(userInfo){
-  this.data.username = userInfo.username;
-  this.data.password = userInfo.password;
+ setUserInfo(){
+   let that = this
+  wx.getStorage({
+    key:'username',
+    success(res){
+      console.log("读取本地用户名：")
+      console.log(res.data)
+      that.setData({
+        username:res.data
+      })
+    },
+    fail(res){
+      console.log("读取本地存储username失败")
+    }
+  })
+  wx.getStorage({
+    key:'password',
+    success(res){
+      console.log("读取本地密码：")
+      console.log(res.data)
+      that.setData({
+        password:res.data
+      })
+    },
+    fail(res){
+      console.log("读取本地存储password失败")
+    }
+  })
+  wx.getStorage({
+    key:'jwtToken',
+    success(res){
+      console.log("读取JWT：")
+      console.log(res.data)
+      that.setData({
+        jwtToken:res.data
+      })
+    },
+    fail(res){
+      console.log("读取本地存储jwtToken失败")
+    }
+  })
  },
  toToday(){
      wx.redirectTo({

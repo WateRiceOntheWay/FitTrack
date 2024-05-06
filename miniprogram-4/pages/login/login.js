@@ -6,7 +6,8 @@ Page({
    */
   data: {
     "username":null,
-    "password":null
+    "password":null,
+    "jwtToken":null
   },
 
   login_using_password: function(data){
@@ -25,8 +26,9 @@ Page({
       success(res){
         if (res && res.data) {
           if(res.data.code == 1){
+            that.storageUserInfo()
             wx.navigateTo({
-              url: '../recording/recording?username=' + that.data.username + '&password=' + that.data.password,
+              url: '../recording/recording'
             })
           }
           else{
@@ -49,6 +51,30 @@ Page({
       }
     })
     
+  },
+  storageUserInfo:function(){
+    console.log("进入函数")
+    wx.setStorage({
+      key:"username",
+      data:`${this.data.username}`,
+      success(res){
+        console.log("存储成功username")
+      }
+    })
+    wx.setStorage({
+      key:"password",
+      data:`${this.data.password}`,
+      success(res){
+        console.log("存储成功password")
+      }
+    })
+    wx.setStorage({
+      key:"jwtToken",
+      data:`${this.data.jwtToken}`,
+      success(res){
+        console.log("存储成功jwtToken")
+      }
+    })
   },
 
   login_using_wechat: ()=>{
