@@ -7,7 +7,7 @@
     "pages/logs/logs",
     "pages/signup/signup",
     "pages/today/add_sport/add_sport",
-    "pages/today/add_diet/add_diet"
+    "pages/today/add_diet/add_diet",
     "pages/recording/recording",
     "pages/sportRecords/sportRecords",
     "pages/singleSportRecord/singleSportRecord",
