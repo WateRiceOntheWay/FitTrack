@@ -1,5 +1,10 @@
 <!--pages/today/add_sport/add_sport.wxml-->
 
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">FitTrack</view>
+</cu-custom>
+
 <view class="add_sport-container">
 
     <view class="margin-sm radius-lg bg-white shadow">

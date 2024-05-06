@@ -1,4 +1,12 @@
 <!--pages/today.wxml-->
+
+<!--导航栏-->
+
+<cu-custom bgColor="bg-gradual-pink" isBack="{{false}}">
+  <view slot="backText">返回</view>
+  <view slot="content">FitTrack</view>
+</cu-custom>
+
 <view class="today-container">
     <view class="margin-sm radius-lg bg-white shadow">
 
