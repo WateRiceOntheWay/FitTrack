@@ -1,0 +1,37 @@
+<!--pages/singleSportRecord/singleSportRecord.wxml-->
+<!--导航栏-->
+
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">FitTrack</view>
+</cu-custom>
+
+<!-- 标题，记录 -->
+
+<view class="flex solid-bottom padding-xs justify-start">
+  <view class="bg-blue light padding-sm margin-xs radius basis-xxl">
+	  <text class="text-xxl text-bold text-blue cuIcon-titles">运动记录</text>
+  </view>
+</view>
+<view class="font ">
+  <view class="margin-sm radius-lg bg-white margin-top-sm">
+    <view class="flex solid-bottom padding-sm align-center">
+          <view class="bg-green light padding-lg margin-xs radius distance"><text>{{item.sportsName}}:{{item.sportsDistance}}m</text></view>
+          <view class="bg-green light padding-sm margin-xs radius exerciseTime">{{item.sportsTime}}</view>
+    </view>
+  </view>
+  <view class="margin-sm radius-lg bg-white margin-top-sm">
+    <view class="flex solid-bottom padding-sm align-center">
+          <view class="bg-green light padding-lg margin-xs radius "><text class="consukcal">消耗卡路里：</text></view>
+          <view class="bg-green light padding-sm margin-xs radius cal">{{cal}}kcal</view>
+    </view>
+  </view>
+  <view class="margin-sm radius-lg bg-white margin-top-sm">
+    <view class="flex solid-bottom padding-sm align-center">
+          <view class="bg-green light padding-lg margin-xs radius "><text class="consukcal">备注：</text></view>
+    </view>
+  </view>
+</view>
+
+
+

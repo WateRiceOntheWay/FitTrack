@@ -1,0 +1,42 @@
+<!--pages/sportRecording/sportRecording.wxml-->
+<!--导航栏-->
+
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">FitTrack</view>
+</cu-custom>
+
+<!-- 标题，记录 -->
+
+<view class="flex solid-bottom padding-xs justify-start">
+  <view class="bg-blue light padding-sm margin-xs radius basis-xxl">
+	  <text class="text-xxl text-bold text-blue cuIcon-titles">运动记录</text>
+  </view>
+</view>
+
+<!--  可视化图表  -->
+<view class="visualization">
+
+</view>
+
+<!--  展示所有运动记录  -->
+
+<scroll-view scroll-y="true" class="more_records radius">
+  <block wx:for="{{sport_records}}">
+    <view class="flex"bindtap="viewDetail" data-record="{{item}}">
+            <view class=" sport-singleRecord flex-sub bg-blue light  margin-xs radius">
+              <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.sportsName}}</text>
+            </view>
+            <view class="sport-singleRecord flex-twice bg-blue light margin-xs radius">
+              <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.sportsDistance}}m</text>
+            </view>
+            <view class="sport-singleRecord flex-twice bg-blue light margin-xs radius">
+              <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.date}}</text>
+            </view>
+            <view class="sport-singleRecord flex-sub bg-blue light margin-xs radius">
+              <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.sportsTime}}
+              </text>
+            </view>
+      </view>
+  </block>
+</scroll-view>

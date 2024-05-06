@@ -1,0 +1,42 @@
+<!--pages/dietRecords/dietRecords.wxml-->
+<!--导航栏-->
+
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">FitTrack</view>
+</cu-custom>
+
+<!-- 标题，记录 -->
+
+<view class="flex solid-bottom padding-xs justify-start">
+  <view class="bg-blue light padding-sm margin-xs radius basis-xxl">
+	  <text class="text-xxl text-bold text-blue cuIcon-titles">饮食记录</text>
+  </view>
+</view>
+
+<!--  可视化图表  -->
+<view class="visualization">
+
+</view>
+
+<!--  展示所有运动记录  -->
+
+<scroll-view scroll-y="true"class="more_records radius">
+  <block wx:for="{{diet_records}}">
+    <view class="flex ">
+          <view class=" singleRecord flex-sub bg-blue light  margin-xs radius">
+            <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.dietName}}</text>
+          </view>
+          <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+            <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.quantity}}g</text>
+          </view>
+          <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+            <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.calories}} kcal</text>
+          </view>
+          <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+            <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.date}}
+            </text>
+          </view>
+    </view>
+  </block>
+</scroll-view>

@@ -1,0 +1,15 @@
+/* pages/sportRecording/sportRecording.wxss */
+.visualization{
+  height: 400rpx;
+}
+
+.more_records{
+  background-color: rgb(234,209,180,0.5);
+  padding: 20rpx;
+}
+
+.sport-singleRecord{
+  font-size: 12px;
+	padding-top: 2%;
+	padding-bottom:2% ;
+}

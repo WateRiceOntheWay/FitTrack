@@ -20,23 +20,7 @@ Page({
     return true;
   },
   signup: function(data){
-    // var that = this;
-    // console.log(that);
-    // that.setData({
-    //   ["notations.username"]:"",
-    //   ["notations.password"]:"",
-    //   ["notations.repassword"]:""
-    // })
-    // for (var notation_key in notations){
-
-    //   notations[notation_key].setData=({
-    //     text:""
-    //   })
-    // }
     if (data.detail.value.password.length<6){
-      // that.setData({
-      //   ["notations.password"]:"密码长度过短！"
-      // })
       console.log("123")
       wx.showModal({
         title:"提示",
@@ -75,7 +59,7 @@ Page({
         // 自动登录
 
         wx.reLaunch({
-          url:"/pages/index/index"
+          url:"../recording/recording?username=" + data.detail.value.username + "&password=" + data.detail.value.password
         });
       }else{
         //失败
@@ -86,7 +70,7 @@ Page({
       }
     }
   },
-
+  
   
   upload_signup_info(signup_info){
     /** 使用此函数上传注册数据
@@ -98,6 +82,28 @@ Page({
      * 
      * 成功返回true, 失败返回false
      */
+      wx.request({
+        url: 'https://2f2b4039-2bd0-474a-98b0-1948754c300d.mock.pstmn.io/signin',
+        method:'POST',
+        data: signup_info,
+        success(res){
+          if(res.data.code == 1){
+            return true
+          }
+          else{
+            return false
+          }
+        },
+        fail(res){
+          wx.showModal({
+            title:"提示",
+            content:"注册失败，请重新注册",
+            showCancel:false
+          })
+        }
+      })
+
+
     return true;
   },
   /**

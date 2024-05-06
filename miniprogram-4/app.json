@@ -8,11 +8,17 @@
     "pages/signup/signup",
     "pages/today/add_sport/add_sport",
     "pages/today/add_diet/add_diet"
+    "pages/recording/recording",
+    "pages/sportRecords/sportRecords",
+    "pages/singleSportRecord/singleSportRecord",
+    "pages/dietRecords/dietRecords",
+    "pages/singleDietRecord/singleDietRecord"
   ],
   "window": {
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "FitTrack",
-    "navigationBarBackgroundColor": "#ffffff"
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom/cu-custom"
   },
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",

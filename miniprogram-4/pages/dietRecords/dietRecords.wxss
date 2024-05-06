@@ -1,0 +1,14 @@
+/* pages/dietRecords/dietRecords.wxss */
+
+.visualization{
+  height: 400rpx;
+}
+.more_records{
+  background-color: rgb(234,209,180,0.5);
+  padding: 5rpx;
+}
+
+.singleRecord{
+  padding-top: 2%;
+	padding-bottom:2% ;
+}

@@ -1,3 +1,9 @@
+<!--导航栏-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">FitTrack</view>
+</cu-custom>
+
 <view class="signup-container">
   <view class="title">新用户注册</view>
   <view class="signup-box">

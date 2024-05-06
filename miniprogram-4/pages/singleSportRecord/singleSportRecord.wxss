@@ -1,0 +1,39 @@
+/* pages/singleSportRecord/singleSportRecord.wxss */
+@font-face {
+  font-family: 'appicon';
+  src: url('//at.alicdn.com/t/font_563860_blx5ch060tlqh0k9.eot');
+  src: url('//at.alicdn.com/t/font_563860_blx5ch060tlqh0k9.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_563860_blx5ch060tlqh0k9.woff') format('woff'),
+  url('//at.alicdn.com/t/font_563860_blx5ch060tlqh0k9.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_563860_blx5ch060tlqh0k9.svg#appicon') format('svg');
+}
+
+.appicon {
+  font-family:"appicon" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-apply:before { content: "\e62e"; }
+
+.appicon {
+  display: inline-block;
+  vertical-align: middle;
+}
+.font{
+  font-size: large;
+  font-style: italic;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.exerciseTime{
+  margin-left: 300rpx;
+}
+.consukcal{
+  font-family: 'SimHei';
+}
+
+.cal{
+  margin-left: 120rpx;
+}
