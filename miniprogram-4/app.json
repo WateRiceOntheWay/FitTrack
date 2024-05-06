@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/today/today",
     "pages/login/login",
     "pages/signup/signup",
 
-    "pages/today/today",
     "pages/today/add_sport/add_sport",
     "pages/today/add_diet/add_diet",
 

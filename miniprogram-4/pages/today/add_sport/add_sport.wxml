@@ -67,6 +67,8 @@
     </view>
 
 
+<!-- 底部按钮，使用tabbar的形式 -->
+<!-- 其中使用foot类型使其贴靠在底部 -->
     <view class="cu-bar foot bg-white tabbar border margin-top-xs">
         <view class="cu-bar btn-group">
         <button class="cu-btn bg-orange round shadow-blur" bind:tap="Cancel">取消</button>

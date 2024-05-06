@@ -158,5 +158,10 @@ Page({
  setUserInfo(userInfo){
   this.data.username = userInfo.username;
   this.data.password = userInfo.password;
+ },
+ toToday(){
+     wx.redirectTo({
+         url:"/pages/today/today"
+     })
  }
 })

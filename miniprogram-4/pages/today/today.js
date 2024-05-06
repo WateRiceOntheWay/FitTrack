@@ -82,13 +82,18 @@ Page({
   addSportRecord(){
         this.hideModalAddNewRecord();
         wx.navigateTo({
-            url:"/pages/today/add_sport/add_sport"
+            url:"add_sport/add_sport"
         });
   },
   addDietRecord(){
         this.hideModalAddNewRecord();
         wx.navigateTo({
-            url:"/pages/today/add_diet/add_diet"
+            url:"add_diet/add_diet"
         });
+  },
+  toRecording(){
+      wx.redirectTo({
+          url:"/pages/recording/recording"
+      })
   }
 })

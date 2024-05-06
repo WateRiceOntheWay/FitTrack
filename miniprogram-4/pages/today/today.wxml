@@ -3,8 +3,8 @@
 <!--导航栏-->
 
 <cu-custom bgColor="bg-gradual-pink" isBack="{{false}}">
-  <view slot="backText">返回</view>
-  <view slot="content">FitTrack</view>
+    <view slot="backText">返回</view>
+    <view slot="content">FitTrack</view>
 </cu-custom>
 
 <view class="today-container">
@@ -82,23 +82,46 @@
     </view>
 
     <view class="cu-modal bottom-modal {{ShowModalAddNewRecord?'show':''}}">
-    <view class="cu-dialog">
-        <view class="flex solid-bottom padding-xs justify-center" bindtap="addSportRecord">
-            <view class="action padding-sm ">添加运动</view>
-        </view>
+        <view class="cu-dialog">
+            <view class="flex solid-bottom padding-xs justify-center" bindtap="addSportRecord">
+                <view class="action padding-sm ">添加运动</view>
+            </view>
 
-        <view class="flex solid-bottom padding-xs justify-center" bindtap="addDietRecord">
-            <view class="action padding-sm ">添加饮食</view>
-        </view>
-        <view class="flex bg-gray solid-bottom padding-xs justify-center">
-            <view class=""></view>
-        </view>
-        <view class="action flex solid-bottom padding-xs justify-center" bindtap="hideModalAddNewRecord">
-            <view class="padding-sm text-red">取消</view>
-        </view>
-        <view class="flex bg-gray solid-bottom padding-xs justify-center">
-            <view class="padding-sm"></view>
+            <view class="flex solid-bottom padding-xs justify-center" bindtap="addDietRecord">
+                <view class="action padding-sm ">添加饮食</view>
+            </view>
+            <view class="flex bg-gray solid-bottom padding-xs justify-center">
+                <view class=""></view>
+            </view>
+            <view class="action flex solid-bottom padding-xs justify-center" bindtap="hideModalAddNewRecord">
+                <view class="padding-sm text-red">取消</view>
+            </view>
+            <view class="flex bg-gray solid-bottom padding-xs justify-center">
+                <view class="padding-sm"></view>
+            </view>
         </view>
     </view>
+
+    <!-- 底部tabbar -->
+
+    <view class="cu-bar foot tabbar  bg-black margin-top-xs">
+        <view class="action text-pink">
+            <view class="cuIcon-formfill"></view> Today
+        </view>
+        <view class="action text-gray" bind:tap="toRecording">
+            <view class="cuIcon-rank"></view> 历史记录
+        </view>
+        <view class="action text-gray" bind:tap="toCommunity">
+            <view class="cuIcon-community">
+                <!-- <view class="cu-tag badge">99</view> -->
+            </view>
+            社区
+        </view>
+        <view class="action text-gray" bind:tap="toMe">
+            <view class="cuIcon-my">
+                <!-- <view class="cu-tag badge"></view> -->
+            </view>
+            我
+        </view>
     </view>
 </view>
