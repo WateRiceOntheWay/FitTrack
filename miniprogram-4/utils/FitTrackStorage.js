@@ -7,7 +7,7 @@
 
 */
 
-const { assert } = require("XrFrame/core/utils");
+// const { assert } = require("XrFrame/core/utils");
 
 class FitTrackStorage {
 
@@ -62,7 +62,7 @@ class FitTrackStorage {
         */
     }
 
-    static getTodayInformation(){
+    static getTodayInformation(after_function) {
         /* 返回值解释
 
         {
@@ -92,109 +92,202 @@ class FitTrackStorage {
         此返回值中"userinfo"项可直接用在 FitTrackRequests.SportAdd() 等方法中
         */
 
-        wx.getStorage({
-            key:"todayInformation",
-            success(res){
-                let infor = res.data;
-                
-                // 判定是否为今天，初始化sport和diet
-                if (data["date"]<new Date()){
-                    infor["sport"] = {
-                        "info": {
-                            "duration": 0,
-                            "distance": 0,
-                            "calories": 0
-                        }
-                    };
-                    infor["diet"]={
-                        "info": {
-                            "calories": 0
-                        }
-                    };
-                    infor["date"] = new Date();
-                }
+        let return_value = {
+            "status": false
+        }
 
-                return {
-                    "status":true,
-                    "value":infor
+            // 设定一个延时，模拟异步操作
+        wx.getStorage({
+            key: "todayInformation",
+            success(res) {
+                let infor = res.data;
+
+                if (infor===undefined){
+
+                    // 如果没有记录就生成初始记录
+                    return_value = {
+                        "status": true,
+                        "value": {
+                            "date": new Date(),
+                            "sport": {
+                                "info": {
+                                    "duration": 0,
+                                    "distance": 0,
+                                    "calories": 0
+                                }
+                            },
+                            "diet": {
+                                "info": {
+                                    "calories": 0
+                                }
+                            },
+                            "body": {
+                                "heartrate": null,
+                                "weight": null,
+                                "bfp": null
+                            }
+                        }
+                    }
+                    console.log(return_value)
+                    FitTrackStorage.setTodayInformation(infor);
                 }
-            },
-            fail(){
-                // 如果没有记录就生成初始记录
-                return {
-                    "status": true,
-                    "value":{
-                        "date": new Date(),
-                        "sport": {
+                else{
+                    // 判定是否为今天，初始化sport和diet
+                    if (infor["date"] < new Date()) {
+                        infor["sport"] = {
                             "info": {
                                 "duration": 0,
                                 "distance": 0,
                                 "calories": 0
                             }
-                        },
-                        "diet": {
+                        };
+                        infor["diet"] = {
                             "info": {
                                 "calories": 0
                             }
-                        },
-                        "body": {
-                            "heartrate": null,
-                            "weight": null,
-                            "bfp": null
-                        }
+                        };
+                        infor["date"] = new Date();
+                    }
+                    FitTrackStorage.setTodayInformation(infor);
+
+                    return_value = {
+                        "status": true,
+                        "value": infor
                     }
                 }
+
+
+            },
+            fail() {
+            },
+            complete(){
+                console.log(after_function);
+                if(after_function!==undefined){
+                    after_function(return_value);
+                }
+            //     运行完毕后执行给定的after_function函数
+                return return_value;
             }
         })
+
+
+
     }
 
-    static addToTodayInformation(struc1, struc2, value){
-        let result = FitTrackStorage.getTodayInformation();
-        if(result["status"]==false){
-            return {
-                "status":false
-            };
-        }
-        let todayInformation = result['value'];
-        let structure={
-            "sport":{
-                "duration":1,
-                "distance":1,
-                "calories":1
+    static setTodayInformation(value,after_function) {
+        /* 参数解释
+
+        value:{
+            "date": Date类型,
+            "sport": {
+                "info": {
+                    "duration": 4632,
+                    "distance": 2700,
+                    "calories": 367
+                }
             },
-            "diet":{
-                "calories":1
+            "diet": {
+                "info": {
+                    "calories": 367
+                }
             },
-            "body":{
-                "heartrate":2,
-                "weight":2,
-                "bfp":2
+            "body": {
+                "heartrate": 101,
+                "weight": 70,
+                "bfp": 43.2
             }
         }
-        assert(structure[struc1][struc2]!==null);
-        if(structure[struc1][struc2]==1){
-            todayInformation[struc1][struc2] += value;
-        }
-        else if(structure[struc1][struc2]==2){
-            todayInformation[struc1][struc2] = value;
-        }
 
+        */
+        let return_value = {
+            "status": false
+        }
 
         wx.setStorage({
-            key:"todayInformation",
-            value:todayInformation,
-            success(res){
-                return {
-                    "status":true
+            key: "todayInformation",
+            data: value,
+            success(res) {
+                return_value = {
+                    "status": true
                 }
             },
-            fail(){
-                return {
-                    "status":false
+            fail() {
+                return_value = {
+                    "status": false
                 }
-            }            
+            },
+            complete(){
+                console.log(after_function);
+                if(after_function!==undefined){
+                    after_function(return_value);
+                }
+                return return_value;
+            }
         })
+
+    }
+
+    static addToTodayInformation(struc1, struc2, value,after_function) {
+        FitTrackStorage.getTodayInformation(
+            function (result){
+                console.log(result)
+                if (result["status"] === false) {
+                    return {
+                        "status": false
+                    };
+                }
+                let todayInformation = result['value'];
+                let structure = {
+                    "sport": {
+                        "duration": 1,
+                        "distance": 1,
+                        "calories": 1
+                    },
+                    "diet": {
+                        "calories": 1
+                    },
+                    "body": {
+                        "heartrate": 2,
+                        "weight": 2,
+                        "bfp": 2
+                    }
+                }
+                // assert(structure[struc1][struc2] !== null);
+                if (structure[struc1][struc2] == 1) {
+                    todayInformation[struc1][struc2] += value;
+                } else if (structure[struc1][struc2] == 2) {
+                    todayInformation[struc1][struc2] = value;
+                }
+
+                let return_value = {
+                    "status": false
+                }
+                wx.setStorage({
+                    key: "todayInformation",
+                    data: todayInformation,
+                    success(res) {
+                        return_value = {
+                            "status": true
+                        }
+                    },
+                    fail() {
+                        return_value = {
+                            "status": false
+                        }
+                    },
+                    complete(){
+                        console.log(after_function);
+                        if(after_function!==undefined){
+                            after_function(return_value);
+                        }
+                        return return_value;
+                    }
+                })
+            }
+        );
+
     }
 
 
 }
+module.exports = FitTrackStorage
