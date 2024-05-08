@@ -73,4 +73,14 @@ Page({
       modalName: null
     })
   },
+  toToday(){
+      wx.redirectTo({
+        url: '/pages/today/today',
+      })
+  },
+  toRecording(){
+      wx.redirectTo({
+        url: '/pages/recording/recording',
+      })
+  }
 })
