@@ -54,10 +54,17 @@ class FitTrackRequests{
         /*
         返回值解释：
         1. 添加成功时：                             */
-        return true; //这里默认返回一个true，用来在其他测试中使用
+        return {
+            "status":true,
+            "value":{
+                "calories":123
+            }
+        }; //这里默认返回一个true，用来在其他测试中使用
                                                     /*
         2. 添加失败时：
-        return false;
+        return {
+            "status":false
+        };
         */
 
     }
@@ -81,10 +88,17 @@ class FitTrackRequests{
         /*
         返回值解释：
         1. 添加成功时：                             */
-        return true;
+        return {
+            "status":true,
+            "value":{
+                "calories":456
+            }
+        };
                                                     /*
         2. 添加失败时：
-        return false;
+        return {
+            "status":false
+        };
         */
 
     }
@@ -108,10 +122,14 @@ class FitTrackRequests{
         /*
         返回值解释：
         1. 添加成功时：                             */
-        return true; 
+        return {
+            "status":true
+        }; 
                                                     /*
         2. 添加失败时：
-        return false;
+        return {
+            "status":false
+        }; 
         */
 
     }
