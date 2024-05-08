@@ -38,6 +38,87 @@ class FitTrackRequests{
 	}
 	static getURL_BodyAdd(){
 		return this.url_base + this.body_add
-	}
+    }
+    
+    static SportAdd(user_info,sport_info){
+        // TODO
+        /*
+        参数解释： 
+        user_info:{
+            "username":"***",
+            "password":"***",
+            "jwtToken":"***"
+        }
+        sport_info:{
+            "type":(int),
+            "duration":(int)/null,
+            "distance":(int)/null,
+        }
+        */
+       
+        /*
+        返回值解释：
+        1. 添加成功时：                             */
+        return true; //这里默认返回一个true，用来在其他测试中使用
+                                                    /*
+        2. 添加失败时：
+        return false;
+        */
+
+    }
+
+    
+    static DietAdd(user_info,diet_info){
+        // TODO
+        /*
+        参数解释： 
+        user_info:{
+            "username":"***",
+            "password":"***",
+            "jwtToken":"***"
+        }
+        diet_info:{
+            "type":(int),
+            "amount":(int)
+        }
+        */
+       
+        /*
+        返回值解释：
+        1. 添加成功时：                             */
+        return true;
+                                                    /*
+        2. 添加失败时：
+        return false;
+        */
+
+    }
+
+    static BodyAdd(user_info,body_info){
+        // TODO
+        /*
+        参数解释： 
+        user_info:{
+            "username":"***",
+            "password":"***",
+            "jwtToken":"***"
+        }
+        diet_info:{
+            "weight":(float),
+            "bfp":(float),     // Body Fat Percentage 体脂率 在0~1之间
+            "heartrate": (int)
+        }
+        */
+       
+        /*
+        返回值解释：
+        1. 添加成功时：                             */
+        return true; 
+                                                    /*
+        2. 添加失败时：
+        return false;
+        */
+
+    }
 }
 module.exports = FitTrackRequests
