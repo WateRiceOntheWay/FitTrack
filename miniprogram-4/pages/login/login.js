@@ -19,6 +19,9 @@ Page({
     wx.request({
       url: 'https://1474c86e-0018-42ca-84a8-d5910a5e81a0.mock.pstmn.io/login',
       method:'POST',
+      headers: {  
+        'Authorization': `Bearer ${jwtToken}`  
+      }, 
       data:{
         "username":that.data.username,
         "password":that.data.password
@@ -26,10 +29,8 @@ Page({
       success(res){
         if (res && res.data) {
           if(res.data.code == 1){
-            that.storageUserInfo()
-            wx.navigateTo({
-              url: '../recording/recording'
-            })
+            that.storageUserInfo();
+            wx.navigateBack();
           }
           else{
             wx.showModal({
