@@ -40,15 +40,10 @@ class FitTrackRequests{
 		return this.url_base + this.body_add
     }
     
-    static SportAdd(user_info,sport_info){
+    static SportAdd(sport_info){
         // TODO
         /*
         参数解释： 
-        user_info:{
-            "username":"***",
-            "password":"***",
-            "jwtToken":"***"
-        }
         sport_info:{
             "type":(int),
             "duration":(int)/null,
@@ -68,7 +63,7 @@ class FitTrackRequests{
     }
 
     
-    static DietAdd(user_info,diet_info){
+    static DietAdd(diet_info){
         // TODO
         /*
         参数解释： 
@@ -94,7 +89,7 @@ class FitTrackRequests{
 
     }
 
-    static BodyAdd(user_info,body_info){
+    static BodyAdd(body_info){
         // TODO
         /*
         参数解释： 
