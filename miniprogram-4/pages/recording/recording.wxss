@@ -1,13 +1,12 @@
 /* pages/recording/recording.wxss */
 
 /*卡片*/
-.singleRecord{
-  font-size: 12px;
-  padding-top: 2%;
-	padding-bottom:2% ;
-}
+
 .wrapper{
 	font-size: 12px;
+}
+.wrapper-body{
+	margin-bottom: 100rpx;
 }
 
 .singleRecord{
@@ -15,10 +14,18 @@
 	padding-bottom:2% ;
 }
 
-
 .tableTitle{
 	font-size: 13px;
 	padding-left: 20%;
+}
+
+.tableTitle-body{
+	font-size: 13px;
+	padding-left: 37%;
+}
+
+.tableTitle-body-BFP{
+	padding-left: 29%;
 }
 
 .tableTitle-date{

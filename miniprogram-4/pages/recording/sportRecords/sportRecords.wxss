@@ -13,3 +13,17 @@
 	padding-top: 2%;
 	padding-bottom:2% ;
 }
+.singleRecord{
+	padding-top: 2%;
+	padding-bottom:2% ;
+}
+
+.tableTitle{
+	font-size: 13px;
+	padding-left: 20%;
+}
+
+.tableTitle-date{
+	font-size: 13px;
+	padding-left: 34%;
+}

@@ -3,20 +3,17 @@
     "pages/today/today",
     "pages/login/login",
     "pages/signup/signup",
-
     "pages/today/add_sport/add_sport",
     "pages/today/add_diet/add_diet",
-
     "pages/me/me",
-
     "pages/recording/recording",
     "pages/recording/sportRecords/sportRecords",
     "pages/recording/sportRecords/singleSportRecord/singleSportRecord",
     "pages/recording/dietRecords/dietRecords",
     "pages/recording/dietRecords/singleDietRecord/singleDietRecord",
-
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/recording/bodyRecords/bodyRecords"
   ],
   "window": {
     "navigationStyle": "custom"

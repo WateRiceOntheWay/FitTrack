@@ -1,136 +1,187 @@
 <!--pages/recording/recording.wxml-->
 <!--导航栏-->
+<view class="wrapper">
+    <cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+        <view slot="backText">返回</view>
+        <view slot="content">FitTrack</view>
+    </cu-custom>
 
-<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
-    <view slot="backText">返回</view>
-    <view slot="content">FitTrack</view>
-</cu-custom>
+    <!-- 标题，记录 -->
 
-<!-- 标题，记录 -->
-
-<view class="flex solid-bottom padding-xs justify-start">
-    <view class="bg-blue light padding-sm margin-xs radius basis-xxl">
-        <text class="text-xxl text-bold text-blue cuIcon-titles">记录</text>
-    </view>
-</view>
-
-<!--  运动卡片 -->
-
-<view class="wrapper margin-sm radius-lg bg-white margin-top-sm">
-
-    <!--	卡片标题	-->
-
-    <view class="test padding-sm text-lg">
-        <text class="cuIcon-title text-blue"></text>运动
-    </view>
-    <!--  卡片表头 -->
-
-    <view class="flex">
-        <view class=" singleRecord flex-sub bg-blue light  margin-xs radius">
-            <text class="tableTitle text-xxl text-bold text-blue ">类型</text>
-        </view>
-        <view class="singleRecord flex-twice bg-blue light margin-xs radius">
-            <text class="tableTitle text-xxl text-bold text-blue ">距离</text>
-        </view>
-        <view class="singleRecord flex-twice bg-blue light margin-xs radius">
-            <text class="tableTitle-date text-xxl text-bold text-blue ">日期</text>
-        </view>
-        <view class="singleRecord flex-sub bg-blue light margin-xs radius">
-            <text class="tableTitle text-xxl text-bold text-blue ">时长
-            </text>
+    <view class="flex solid-bottom padding-xs justify-start">
+        <view class="bg-blue light padding-sm margin-xs radius basis-xxl">
+            <text class="text-xxl text-bold text-blue cuIcon-titles">记录</text>
         </view>
     </view>
 
-    <!--	运动记录		-->
-    <block wx:for="{{sportRecords}}" wx:key="unique">
-        <view>
-            <view class="flex ">
-                <view class=" singleRecord flex-sub bg-blue light  margin-xs radius">
-                    <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.sportsName}}</text>
-                </view>
-                <view class="singleRecord flex-twice bg-blue light margin-xs radius">
-                    <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.sportsDistance}}m</text>
-                </view>
-                <view class="singleRecord flex-twice bg-blue light margin-xs radius">
-                    <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.date}}</text>
-                </view>
-                <view class="singleRecord flex-sub bg-blue light margin-xs radius">
-                    <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.sportsTime}}
-                    </text>
-                </view>
+    <!--  运动卡片 -->
+
+    <view class=" margin-sm radius-lg bg-white margin-top-sm">
+
+        <!--	卡片标题	-->
+
+        <view class="test padding-sm text-lg">
+            <text class="cuIcon-title text-blue"></text>运动
+        </view>
+        <!--  卡片表头 -->
+
+        <view class="flex">
+            <view class=" singleRecord flex-sub bg-blue light  margin-xs radius">
+                <text class="tableTitle text-xxl text-bold text-blue ">类型</text>
+            </view>
+            <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+                <text class="tableTitle text-xxl text-bold text-blue ">距离</text>
+            </view>
+            <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+                <text class="tableTitle-date text-xxl text-bold text-blue ">日期</text>
+            </view>
+            <view class="singleRecord flex-sub bg-blue light margin-xs radius">
+                <text class="tableTitle text-xxl text-bold text-blue ">时长
+                </text>
             </view>
         </view>
 
-    </block>
-    <!--  运动记录展示更多 -->
-    <view class=" ">
-        <view class="flex flex-wrap ">
-            <view class="more basis-xxl bg-blue light margin-xs padding-sm radius"><button class="cu-btn round lg bg-white" bindtap='more_records_sport'><text style="font-size: small;" class="text-xxl text-bold text-blue">更多>></text></button></view>
-        </view>
-    </view>
-
-</view>
-
-<!--  饮食卡片 -->
-
-<view class="wrapper margin-sm radius-lg bg-white margin-top-sm">
-
-    <!--	卡片标题	-->
-
-    <view class="test padding-sm text-lg">
-        <text class="cuIcon-title text-blue"></text>饮食
-    </view>
-    <!--  卡片表头 -->
-
-    <view class="flex">
-        <view class=" singleRecord flex-sub bg-blue light  margin-xs radius">
-            <text class="tableTitle text-xxl text-bold text-blue ">类型</text>
-        </view>
-        <view class="singleRecord flex-twice bg-blue light margin-xs radius">
-            <text class="tableTitle text-xxl text-bold text-blue ">卡路里</text>
-        </view>
-        <view class="singleRecord flex-twice bg-blue light margin-xs radius">
-            <text class="tableTitle-date text-xxl text-bold text-blue ">日期</text>
-        </view>
-        <view class="singleRecord flex-sub bg-blue light margin-xs radius">
-            <text class="tableTitle text-xxl text-bold text-blue ">重量
-            </text>
-        </view>
-    </view>
-
-    <!--	饮食记录		-->
-    <block wx:for="{{dietRecords}}" wx:key="unique">
-        <view>
-            <view class="flex ">
-                <view class=" singleRecord flex-sub bg-blue light  margin-xs radius">
-                    <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.dietName}}</text>
+        <!--	运动记录		-->
+        <block wx:for="{{sportRecords}}" wx:key="unique">
+            <view>
+                <view class="flex ">
+                    <view class=" singleRecord flex-sub bg-blue light  margin-xs radius">
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.sportsName}}</text>
+                    </view>
+                    <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.sportsDistance}}m</text>
+                    </view>
+                    <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.date}}</text>
+                    </view>
+                    <view class="singleRecord flex-sub bg-blue light margin-xs radius">
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.sportsTime}}
+                        </text>
+                    </view>
                 </view>
-                <view class="singleRecord flex-twice bg-blue light margin-xs radius">
-                    <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.calories}}kcal</text>
-                </view>
-                <view class="singleRecord flex-twice bg-blue light margin-xs radius">
-                    <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.date}}</text>
-                </view>
-                <view class="singleRecord flex-sub bg-blue light margin-xs radius">
-                    <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.quantity}}g
-                    </text>
-                </view>
+            </view>
+
+        </block>
+        <!--  运动记录展示更多 -->
+        <view class=" ">
+            <view class="flex flex-wrap ">
+                <view class="more basis-xxl bg-blue light margin-xs padding-sm radius"><button class="cu-btn round lg bg-white" bindtap='more_records_sport'><text style="font-size: small;" class="text-xxl text-bold text-blue">更多>></text></button></view>
             </view>
         </view>
 
-    </block>
-    <!--  饮食记录展示更多 -->
-    <view class=" ">
-        <view class="flex flex-wrap ">
-            <view class="more basis-xxl bg-blue light margin-xs padding-sm radius"><button class="cu-btn round lg bg-white" bindtap='more_records_diet'><text style="font-size: small;" class="text-xxl text-bold text-blue">更多>></text></button></view>
-        </view>
     </view>
 
+    <!--  饮食卡片 -->
+
+    <view class=" margin-sm radius-lg bg-white margin-top-sm">
+
+        <!--	卡片标题	-->
+
+        <view class="test padding-sm text-lg">
+            <text class="cuIcon-title text-blue"></text>饮食
+        </view>
+        <!--  卡片表头 -->
+
+        <view class="flex">
+            <view class=" singleRecord flex-sub bg-blue light  margin-xs radius">
+                <text class="tableTitle text-xxl text-bold text-blue ">类型</text>
+            </view>
+            <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+                <text class="tableTitle text-xxl text-bold text-blue ">卡路里</text>
+            </view>
+            <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+                <text class="tableTitle-date text-xxl text-bold text-blue ">日期</text>
+            </view>
+            <view class="singleRecord flex-sub bg-blue light margin-xs radius">
+                <text class="tableTitle text-xxl text-bold text-blue ">重量
+                </text>
+            </view>
+        </view>
+
+        <!--	饮食记录		-->
+        <block wx:for="{{dietRecords}}" wx:key="unique">
+            <view>
+                <view class="flex ">
+                    <view class=" singleRecord flex-sub bg-blue light  margin-xs radius">
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.dietName}}</text>
+                    </view>
+                    <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.calories}}kcal</text>
+                    </view>
+                    <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.date}}</text>
+                    </view>
+                    <view class="singleRecord flex-sub bg-blue light margin-xs radius">
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.quantity}}g
+                        </text>
+                    </view>
+                </view>
+            </view>
+
+        </block>
+        <!--  饮食记录展示更多 -->
+        <view class=" ">
+            <view class="flex flex-wrap ">
+                <view class="more basis-xxl bg-blue light margin-xs padding-sm radius"><button class="cu-btn round lg bg-white" bindtap='more_records_diet'><text style="font-size: small;" class="text-xxl text-bold text-blue">更多>></text></button></view>
+            </view>
+        </view>
+
+        
+    </view>
     
-</view>
+    <!--  身体状况卡片 -->
+
+    <view class="wrapper-body margin-sm radius-lg bg-white margin-top-sm">
+
+        <!--    卡片标题	-->
+
+        <view class="test padding-sm text-lg">
+            <text class="cuIcon-title text-blue"></text>身体状况
+        </view>
+        <!--  卡片表头 -->
+
+        <view class="flex">
+            <view class=" singleRecord flex-sub bg-blue light  margin-xs radius">
+                <text class="tableTitle-body text-xxl text-bold text-blue ">体重</text>
+            </view>
+            <view class="singleRecord flex-sub bg-blue light margin-xs radius">
+                <text class="tableTitle-body tableTitle-body-BFP text-xxl text-bold text-blue ">体脂率</text>
+            </view>
+            <view class="singleRecord flex-sub bg-blue light margin-xs radius">
+                <text class="tableTitle-body text-xxl text-bold text-blue ">心率
+                </text>
+            </view>
+        </view>
+
+        <!--	身体状况记录		-->
+        <block wx:for="{{dietRecords}}" wx:key="unique">
+            <view>
+                <view class="flex ">
+                    <view class=" singleRecord flex-sub bg-blue light  margin-xs radius">
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.dietName}}</text>
+                    </view>
+                    <view class="singleRecord flex-sub bg-blue light margin-xs radius">
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.calories}}kcal</text>
+                    </view>
+                    <view class="singleRecord flex-sub bg-blue light margin-xs radius">
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.quantity}}g
+                        </text>
+                    </view>
+                </view>
+            </view>
+
+        </block>
+        <!--  身体状况记录展示更多 -->
+        <view class=" ">
+            <view class="flex flex-wrap ">
+                <view class="more basis-xxl bg-blue light margin-xs padding-sm radius"><button class="cu-btn round lg bg-white" bindtap='more_records_body'><text style="font-size: small;" class="text-xxl text-bold text-blue">更多>></text></button></view>
+            </view>
+        </view>
+
+    </view>
+
 
 <!-- 底部tabbar -->
-
 <view class="cu-bar foot tabbar  bg-black margin-top-xs">
         <view class="action text-grey" bind:tap="toToday">
             <view class="cuIcon-form"></view> Today
@@ -151,3 +202,4 @@
             我
         </view>
     </view>
+</view>>

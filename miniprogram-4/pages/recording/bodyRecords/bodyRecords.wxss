@@ -1,4 +1,4 @@
-/* pages/dietRecords/dietRecords.wxss */
+/* pages/recording/bodyRecords/bodyRecords.wxss */
 
 .visualization{
   height: 400rpx;
@@ -9,16 +9,15 @@
 }
 
 .singleRecord{
-	padding-top: 2%;
+  padding-top: 2%;
 	padding-bottom:2% ;
 }
 
 .tableTitle{
 	font-size: 13px;
-	padding-left: 20%;
+	padding-left: 37%;
 }
 
-.tableTitle-date{
-	font-size: 13px;
-	padding-left: 34%;
+.tableTitle-bfp{
+	padding-left: 29%;
 }

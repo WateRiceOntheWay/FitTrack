@@ -19,24 +19,42 @@
 
 </view>
 
-<!--  展示所有运动记录  -->
-
-<scroll-view scroll-y="true"class="more_records radius">
-  <block wx:for="{{diet_records}}">
-    <view class="flex ">
-          <view class=" singleRecord flex-sub bg-blue light  margin-xs radius">
-            <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.dietName}}</text>
-          </view>
-          <view class="singleRecord flex-twice bg-blue light margin-xs radius">
-            <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.quantity}}g</text>
-          </view>
-          <view class="singleRecord flex-twice bg-blue light margin-xs radius">
-            <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.calories}} kcal</text>
-          </view>
-          <view class="singleRecord flex-twice bg-blue light margin-xs radius">
-            <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.date}}
-            </text>
-          </view>
-    </view>
-  </block>
-</scroll-view>
+<!--  展示所有饮食记录  -->
+<view class="margin-sm radius-lg bg-white margin-top-sm more_records radius">
+  <view class="flex">
+            <view class=" singleRecord flex-sub bg-blue light  margin-xs radius">
+                <text class="tableTitle text-xxl text-bold text-blue ">类型</text>
+            </view>
+            <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+                <text class="tableTitle text-xxl text-bold text-blue ">卡路里</text>
+            </view>
+            <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+                <text class="tableTitle-date text-xxl text-bold text-blue ">日期</text>
+            </view>
+            <view class="singleRecord flex-sub bg-blue light margin-xs radius">
+                <text class="tableTitle text-xxl text-bold text-blue ">重量
+                </text>
+            </view>
+  </view>
+  <scroll-view scroll-y="true"class="more_records radius">
+    <block wx:for="{{diet_records}}">
+      <view class="flex ">
+            <view class=" singleRecord flex-sub bg-blue light  margin-xs radius">
+              <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.dietName}}</text>
+            </view>
+            <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+              <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.calories}} kcal</text>
+            </view>
+            <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+              <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.date}}
+              </text>
+            </view>
+            <view class="singleRecord flex-sub bg-blue light margin-xs radius">
+              <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.quantity}}g</text>
+            </view>
+            
+            
+      </view>
+    </block>
+  </scroll-view>
+</view>

@@ -56,6 +56,20 @@
           "query": "username=testName",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/me/me",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/recording/bodyRecords/bodyRecords",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

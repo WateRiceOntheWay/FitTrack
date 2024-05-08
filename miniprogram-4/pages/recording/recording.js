@@ -1,4 +1,5 @@
 // pages/recording/recording.js
+import FitTrackRequests from '../../utils/FitTrackRequests'
 Page({
 
   /**
@@ -13,7 +14,7 @@ Page({
     username:"",
     password:"",
     date:"",
-    jwtToken:""
+	jwtToken:"",
   },
   
   more_records_sport:function(event){
@@ -34,6 +35,15 @@ Page({
     })
   },
 
+  more_records_body:function(event){
+    wx.navigateTo({
+      url: 'bodyRecords/bodyRecords',
+      success: (result) => {},
+      fail: (res) => {},
+      complete: (res) => {},
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -42,7 +52,9 @@ Page({
     this.setUserInfo()
     console.log(this.data.username)
     let that = this
-    console.log("success")
+	console.log("success")
+	let url = FitTrackRequests.getURL_SportGetAll()
+	console.log(url)
     wx.request({
       url: 'https://ea05c617-6cdc-4b66-9f10-e015cb44471b.mock.pstmn.io/sport_getAll',
       method:'GET',
@@ -96,7 +108,9 @@ Page({
       }
     })
   },
+  setURL:function(){
 
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
