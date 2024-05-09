@@ -27,10 +27,11 @@ Page({
    */
   onLoad(options) {
     //设置用户信息
-    FitTrackStorage.getStorage(function(res){
+    let that = this
+    FitTrackStorage.getUserInfo(function(res){
       if(res["status"])
       {
-        this.setData({
+        that.setData({
         userinfo:res["value"]
       })
         console.log("获取用户信息成功")
@@ -40,14 +41,14 @@ Page({
     })
     //这是运动记录数据
     let getAll = true
-    FitTrackRequests.getSportsAll(this.data.userinfo,getAll=true,function(res){
+    FitTrackRequests.getSportsAll(that.data.userinfo,getAll=true,function(res){
       if(res["status"])
       {
-        this.setData({
+        that.setData({
           diet_records:res["value"]
         })
         console.log("获取运动信息成功")
-        console.log(this.data.sport_records)
+        console.log(that.data.sport_records)
       }else
       console.log("获取运动信息失败")
     })

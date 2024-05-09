@@ -1,4 +1,6 @@
 // pages/recording/bodyRecords/bodyRecords.js
+import FitTrackRequests from '../../../utils/FitTrackRequests'
+import FitTrackStorage from '../../../utils/FitTrackStorage'
 Page({
 
   /**
@@ -16,28 +18,29 @@ Page({
    */
   onLoad(options) {
     //设置用户信息
-    FitTrackStorage.getStorage(function(res){
+    let that = this
+    FitTrackStorage.getUserInfo(function(res){
       if(res["status"])
       {
-         this.setData({
+         that.setData({
         userinfo:res["value"]
       })
         console.log("获取用户信息成功,如下")
-        console.log(this.data.userinfo)
+        console.log(that.data.userinfo)
       }
       else
       console.log("获取用户信息失败")
     })
     //设置所有身体状况记录数据
     let getAll = true
-    FitTrackRequests.getBodyAll(this.data.userinfo,getAll=true,function(res){
+    FitTrackRequests.getBodyAll(that.data.userinfo,getAll=true,function(res){
       if(res["status"])
       {
-        this.setData({
+        that.setData({
           body_records:res["value"]
         })
         console.log("获取身体状况信息成功")
-        console.log(this.data.body_records)
+        console.log(that.data.body_records)
       }else
       console.log("获取身体状况信息失败")
     })

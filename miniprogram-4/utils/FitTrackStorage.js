@@ -67,21 +67,26 @@ class FitTrackStorage {
             "jwtToken":"***"
         }
         */
+       let succes = true
        wx.setStorage({
            key:"data",
            data:user_info,
            success(res){
             console.log("存储用户信息成功！")
+            succes = true
            },
            fail(res){
+               succes = false
                console.log("存储用户信息失败")
            },
            complete(res){
             if(after_function!==undefined){
                 after_function({
-                    "status": true
+                    "status": succes
                 })
             }
+            else
+            return true
            }
        })
 
