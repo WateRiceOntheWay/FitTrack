@@ -13,9 +13,16 @@ class FitTrackRequests{
     static username=""
     static jwtToken=""
 	constructor(name){
+        // TODO 是否每一次请求都需要重新获取用户信息？
         FitTrackStorage.getUserInfo(function(result){
-            FitTrackRequests.username = result["value"]["username"]
-            FitTrackRequests.jwtToken = result["value"]["jwtToken"]
+            if(result["status"]) {
+                FitTrackRequests.username = result["value"]["username"]
+                FitTrackRequests.jwtToken = result["value"]["jwtToken"]
+            }
+            else{
+                wx.redirectTo("/pages/login/login");
+                console.log("未登录，跳转到登录页面")
+            }
         })   
 	}
 	static getURL_SportGetAll(){
@@ -107,7 +114,7 @@ class FitTrackRequests{
     }
 
     
-    static DietAdd(diet_info){
+    static DietAdd(diet_info,after_function){
         // TODO
         /*
         参数解释： 
