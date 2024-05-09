@@ -96,7 +96,6 @@ class FitTrackStorage {
             "status": false
         }
 
-            // 设定一个延时，模拟异步操作
         wx.getStorage({
             key: "todayInformation",
             success(res) {
@@ -129,7 +128,7 @@ class FitTrackStorage {
                         }
                     }
                     console.log(return_value)
-                    FitTrackStorage.setTodayInformation(infor);
+                    FitTrackStorage.setTodayInformation(return_value["value"]);
                 }
                 else{
                     // 判定是否为今天，初始化sport和diet
@@ -159,6 +158,33 @@ class FitTrackStorage {
 
             },
             fail() {
+
+                // 如果没有记录就生成初始记录
+                return_value = {
+                    "status": true,
+                    "value": {
+                        "date": new Date(),
+                        "sport": {
+                            "info": {
+                                "duration": 0,
+                                "distance": 0,
+                                "calories": 0
+                            }
+                        },
+                        "diet": {
+                            "info": {
+                                "calories": 0
+                            }
+                        },
+                        "body": {
+                            "heartrate": null,
+                            "weight": null,
+                            "bfp": null
+                        }
+                    }
+                }
+                console.log(return_value)
+                FitTrackStorage.setTodayInformation(return_value["value"]);
             },
             complete(){
                 console.log(after_function);
@@ -286,6 +312,137 @@ class FitTrackStorage {
             }
         );
 
+    }
+
+    static getDailyGoal(after_function) {
+        /* 返回值解释
+
+        {
+            "status": true / false, //成功获取：true，失败：false
+            "value":{
+                "sport": {
+                    "duration": 4632,
+                    "distance": 2700,
+                    "calories": 367
+                },
+                "diet": {
+                    "calories": 367
+                },
+                "body": {
+                    "heartrate": 101,
+                    "weight": 70,
+                    "bfp": 43.2
+                }
+            }
+        }
+
+        此返回值中"userinfo"项可直接用在 FitTrackRequests.SportAdd() 等方法中
+        */
+
+        let return_value = {
+            "status": false
+        }
+
+        wx.getStorage({
+            key: "dailyGoal",
+            success(res) {
+                let infor = res.data;
+
+                if (infor === undefined) {
+                    console.log("1");
+
+                    // 如果没有记录就生成初始记录
+                    return_value = {
+                        "status": true,
+                        "value": {
+                            "use":false,
+                            "info": {
+                                "duration": 0,
+                                "distance": 0,
+                                "calories": 0
+                            }
+                        }
+                    }
+                    console.log(return_value)
+                    FitTrackStorage.setDailyGoal(return_value["value"]);
+                } else {
+                    console.log("2");
+                    return_value = {
+                        "status": true,
+                        "value": infor
+                    }
+                }
+            },
+
+            fail(){
+                console.log("4");
+                // 如果没有记录就生成初始记录
+                return_value = {
+                    "status": true,
+                    "value": {
+                        "use":false,
+                        "info": {
+                            "duration": 0,
+                            "distance": 0,
+                            "calories": 0
+                        }
+                    }
+                }
+                console.log(return_value)
+                FitTrackStorage.setDailyGoal(return_value["value"]);
+            },
+            complete(){
+                console.log("3");
+                console.log(return_value);
+                console.log(after_function);
+                if(after_function!==undefined){
+                    after_function(return_value);
+                }
+                return return_value;
+            }
+
+
+        })
+    }
+
+    static setDailyGoal(value,after_function) {
+        /* 参数解释
+
+        value:{
+            "use":false,
+            "info": {
+                "duration": 4632,
+                "distance": 2700,
+                "calories": 367
+            }
+        }
+
+        */
+        let return_value = {
+            "status": false
+        }
+
+        wx.setStorage({
+            key: "dailyGoal",
+            data: value,
+            success(res) {
+                return_value = {
+                    "status": true
+                }
+            },
+            fail() {
+                return_value = {
+                    "status": false
+                }
+            },
+            complete(){
+                console.log(after_function);
+                if(after_function!==undefined){
+                    after_function(return_value);
+                }
+                return return_value;
+            }
+        })
     }
 
 
