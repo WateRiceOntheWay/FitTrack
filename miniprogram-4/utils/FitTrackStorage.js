@@ -36,20 +36,21 @@ class FitTrackStorage {
 
         此返回值中"value"项可直接用在 FitTrackRequests.SportAdd() 等方法中
         */
-       return_value={}
+       let return_value;
        wx.getStorage({
             key: "data",
             success(res) {
-                return_value=res.data
+                return_value={
+                    "status":true,
+                    "value":res.data
+                }
             },
             fail(err) {
-                reject(err);
+                return_value={
+                    "status":false
+                }
             },
             complete(res){
-                return_value={
-                    "status":"true",
-                    "data":return_value
-                }
                 if(after_function!==undefined)
                 after_function(return_value)
             }
