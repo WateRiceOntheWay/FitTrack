@@ -71,7 +71,10 @@ class FitTrackStorage {
            key:"data",
            data:user_info,
            success(res){
-            console.log("存储成功！")
+            console.log("存储用户信息成功！")
+           },
+           fail(res){
+               console.log("存储用户信息失败")
            },
            complete(res){
             if(after_function!==undefined){

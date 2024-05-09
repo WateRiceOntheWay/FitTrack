@@ -1,4 +1,6 @@
 // pages/signup/signup.js
+import FitTrackRequests from '../../utils/FitTrackRequests'
+import FitTrackStorage from '../../utils/FitTrackStorage'
 Page({
 
   /**
@@ -82,29 +84,16 @@ Page({
      * 
      * 成功返回true, 失败返回false
      */
-      wx.request({
-        url: 'https://2f2b4039-2bd0-474a-98b0-1948754c300d.mock.pstmn.io/signin',
-        method:'POST',
-        data: signup_info,
-        success(res){
-          if(res.data.code == 1){
-            return true
-          }
-          else{
-            return false
-          }
-        },
-        fail(res){
-          wx.showModal({
-            title:"提示",
-            content:"注册失败，请重新注册",
-            showCancel:false
-          })
+      FitTrackRequests.Signup(signup_info,function(res){
+        if(res["status"])
+        {
+          console.log("注册成功")
+          FitTrackStorage.setUserInfo(res["userinfo"])
+          wx.navigateTo({
+          url: '../today/today',
+        })
         }
       })
-
-
-    return true;
   },
   /**
    * 生命周期函数--监听页面加载

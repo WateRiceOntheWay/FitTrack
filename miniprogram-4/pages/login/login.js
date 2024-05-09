@@ -1,6 +1,7 @@
 // pages/login/login.js
+import FitTrackRequests from '../../utils/FitTrackRequests'
+import FitTrackStorage from '../../utils/FitTrackStorage'
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -15,65 +16,18 @@ Page({
       username: data.detail.value.username,
       password: data.detail.value.password
     }) 
-    let that = this;
-    wx.request({
-      url: 'https://1474c86e-0018-42ca-84a8-d5910a5e81a0.mock.pstmn.io/login',
-      method:'POST',
-      headers: {  
-        'Authorization': `Bearer ${jwtToken}`  
-      }, 
-      data:{
-        "username":that.data.username,
-        "password":that.data.password
-      },
-      success(res){
-        if (res && res.data) {
-          if(res.data.code == 1){
-            that.storageUserInfo();
-            wx.navigateBack();
-          }
-          else{
-            wx.showModal({
-              title:"提示",
-              content:"密码错误",
-              showCancel:false
-            })
-          }
-        } else {
-          console.log('请求没有成功，或者返回的数据格式不正确')
-        }
-      },
-      fail(res){
-        wx.showModal({
-          title:"提示",
-          content:"服务器未响应",
-          showCancel:false
+    let login_info={
+        "username": this.username ,
+        "password": this.password
+    }
+    let suc = false
+    FitTrackRequests.Login(login_info,function(res){
+      if(res["status"])
+      {
+        FitTrackStorage.setUserInfo(res["userinfo"])
+        wx.navigateTo({
+          url: '../today/today',
         })
-      }
-    })
-    
-  },
-  storageUserInfo:function(){
-    console.log("进入函数")
-    wx.setStorage({
-      key:"username",
-      data:`${this.data.username}`,
-      success(res){
-        console.log("存储成功username")
-      }
-    })
-    wx.setStorage({
-      key:"password",
-      data:`${this.data.password}`,
-      success(res){
-        console.log("存储成功password")
-      }
-    })
-    wx.setStorage({
-      key:"jwtToken",
-      data:`${this.data.jwtToken}`,
-      success(res){
-        console.log("存储成功jwtToken")
       }
     })
   },
