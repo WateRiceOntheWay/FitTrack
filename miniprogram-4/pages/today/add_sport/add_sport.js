@@ -1,4 +1,7 @@
 // pages/today/add_sport/add_sport.js
+import FitTrackRequests from "../../../utils/FitTrackRequests"
+import FitTrackStorage from "../../../utils/FitTrackStorage"
+
 Page({
 
     /**
@@ -200,5 +203,78 @@ Page({
                 add_button_valid:false
             });
         }
+    },
+
+    addSportInfo(){
+        let that = this;
+
+
+        let result = FitTrackRequests.SportAdd({
+            "type":this.data.sport_type_index,
+            "duration":this.data.sport_duration[0]*3600+this.data.sport_duration[1]*60+this.data.sport_duration[2],
+            "distance":this.data.sport_distance
+        })
+        let calories = null;
+        if(result['status']===true){
+            calories = result['value']['calories'];
+        }else{
+            wx.showToast({
+              title: '添加失败',
+              icon: 'error'
+            })
+            return;
+        }
+        FitTrackStorage.addToTodayInformation('sport','duration',that.data.sport_duration[0]*3600+that.data.sport_duration[1]*60+that.data.sport_duration[2],
+            function (result){
+                if(result['status']){
+                    FitTrackStorage.addToTodayInformation('sport','distance',that.data.sport_distance,
+                        function (result){
+                            if(result['status']){
+                                FitTrackStorage.addToTodayInformation('sport','calories',calories,
+                                    function (result){
+                                        if(result['status']){
+                                            console.log("success");
+                                            wx.navigateTo({
+                                                url:"add_sport_success/add_sport_success"
+                                            });
+                                            return;
+                                        }
+                                        else{
+                                            console.log("fail1");
+
+                                            wx.showToast({
+                                                title: '添加失败',
+                                                icon: 'error'
+                                            })
+                                            return;
+                                        }
+                                    }
+                                )
+                            }
+                            else{
+                                console.log("fail2");
+
+                                wx.showToast({
+                                    title: '添加失败',
+                                    icon: 'error'
+                                })
+                                return;
+                            }
+                        }
+                    )
+                }
+                else{
+                    console.log("fail3");
+
+                    wx.showToast({
+                        title: '添加失败',
+                        icon: 'error'
+                    })
+                    return;
+                }
+            }
+        )
+
+        console.log("here");
     }
 })

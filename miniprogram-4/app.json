@@ -13,13 +13,11 @@
     "pages/recording/dietRecords/singleDietRecord/singleDietRecord",
     "pages/index/index",
     "pages/logs/logs",
-<<<<<<< HEAD
-    "pages/recording/bodyRecords/bodyRecords"
-=======
+    "pages/recording/bodyRecords/bodyRecords",
     "pages/community/community",
     "pages/today/add_diet/add_diet_success/add_diet_success",
-    "pages/today/add_body/add_body"
->>>>>>> e123925966d047de2c4b23d35a7e88f081190394
+    "pages/today/add_body/add_body",
+    "pages/today/add_sport/add_sport_success/add_sport_success"
   ],
   "window": {
     "navigationStyle": "custom"

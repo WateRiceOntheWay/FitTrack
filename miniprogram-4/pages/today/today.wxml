@@ -8,89 +8,135 @@
 </cu-custom>
 
 <view class="today-container">
-    <view class="margin-sm radius-lg bg-white shadow">
 
 
+    <!-- 标题栏 -->
 
-        <!-- 标题栏 -->
+    <!-- 布局左右 -->
+    <view class="flex solid-bottom padding-xs justify-between">
 
-        <!-- 布局左右 -->
-        <view class="flex solid-bottom padding-xs justify-between">
+        <!-- 标题 -->
+        <view class="padding-sm margin-xs radius">
+            <view class="cu-bar">
+                <view class="action sub-title">
+                    <text class="text-xxxl text-bold text-blue">Today</text>
+                    <text class="bg-blue"></text>
+                </view>
+            </view>
+        </view>
 
-            <!-- 标题 -->
+
+        <view class="flex padding-xs justify-end">
+            <!-- 更改目标按钮 -->
             <view class="padding-sm margin-xs radius">
-                <view class="cu-bar">
-                    <view class="action sub-title">
-                        <text class="text-xxxl text-bold text-blue">Today</text>
-                        <text class="bg-blue"></text>
-                    </view>
+
+                <view>
+                    <button class="cu-btn icon bg-white shadow lg" bindtap="showModalAddGoal">
+                        <view class="text-xxxl text-black">
+                            <text class="cuIcon-newshot black"></text>
+                        </view>
+                    </button>
                 </view>
             </view>
 
-            <view class="flex solid-bottom padding-xs justify-end">
-                <!-- 更改目标按钮 -->
-                <view class="padding-sm margin-xs radius">
 
-                    <view>
-                        <button class="cu-btn icon lg" bindtap="showModalAddGoal">
-                            <view class="text-xxxl text-black">
-                                <text class="cuIcon-newshot black"></text>
-                            </view>
-                        </button>
-                    </view>
-                </view>
-
-
-                <!-- 添加按钮 -->
-                <view class="padding-sm margin-xs radius">
-                    <view>
-                        <button class="cu-btn icon lg" bindtap="showModalAddNewRecord">
-                            <view class="text-xxxl text-black">
-                                <text class="cuIcon-add black"></text>
-                            </view>
-                        </button>
-                    </view>
+            <!-- 添加按钮 -->
+            <view class="padding-sm margin-xs radius">
+                <view>
+                    <button class="cu-btn icon bg-white shadow lg" bindtap="showModalAddNewRecord">
+                        <view class="text-xxxl text-black">
+                            <text class="cuIcon-add black"></text>
+                        </view>
+                    </button>
                 </view>
             </view>
         </view>
+    </view>
 
-        <!-- 添加运动和饮食两张卡片，运动卡片显示卡路里、步数  -->
-        <view class="padding-sm margin-xs animation-slide-bottom" style="animation-delay:0.05s">
-            <view class="bg-green radius-lg">
-                <view class="cu-bar">
-                    <view class="action title">
-                        <text class="text-xxl text-bold text-white">运动</text>
-                    </view>
-                </view>
-                <view class="cu-list menu padding-xs">
-                    <view class="cu-item radius-df">
-                        <view class="content">
-                            <view class="text-green text-bold">消耗卡路里</view>
-                            <view class="text-green text-bold">步数</view>
-                        </view>
-                        <view class="action">
-                            <view class="text-green text-bold">300 kcal</view>
-                            <view class="text-green text-bold">7920 步</view>
-                        </view>
-                    </view>
-                </view>
+    <!-- 每日运动目标 -->
+    <view>
+        <!-- 标题 -->
+        <view class="cu-bar">
+            <view class="action">
+                <text class="cuIcon-titles text-blue"></text>
+                <text class="text-xl text-bold">今日目标</text>
             </view>
         </view>
 
-        <view class="padding-sm margin-xs animation-slide-bottom" style="animation-delay:0.1s">
-            <view class="cu-card bg-blue shadow-lg radius-lg">
-                <view class="cu-bar">
-                    <view class="action title">
-                        <text class="text-xxl text-bold text-white">饮食</text>
+
+        <view class="margin-sm radius-lg bg-white shadow">
+
+            <view class="padding-sm">
+                <view class="flex margin-sm" hidden="{{dailyGoal['use']?'true':''}}">
+                    <view class="flex-sub">
+                        <text>您还未设定每日目标。</text>
                     </view>
                 </view>
-                <view class="cu-list menu padding-xs">
-                    <view class="cu-item radius-df">
-                        <view class="content">
-                            <view class="text-blue text-bold">摄入卡路里</view>
+
+                <view hidden="{{dailyGoal['use']?'':'true'}}">
+                    <view class="flex margin-sm" hidden="{{dailyGoal['info']['duration']==0?'true':''}}">
+                        <!-- 此处做了一个判定，根据dailyGoal中项是否为0决定这条是否隐藏 -->
+                        <view class="flex-sub">
+                            <text class="cuIcon-title text-blue"></text>
+                            <text class="text-grey">运动时长</text>
                         </view>
-                        <view class="action">
-                            <view class="text-blue text-bold">300 kcal</view>
+
+                        <view class="flex flex-twice margin-top-xs">
+                            <view class="flex-treble">
+                                <view class="cu-progress round">
+                                    <view class="bg-blue" style="width:{{dailyGoal['info']['duration']>=todayInformation['sport']['info']['duration']?(100*todayInformation['sport']['info']['duration']/dailyGoal['info']['duration']):100}}%;"></view>
+                                    <!-- 内嵌js渲染进度条 -->
+                                </view>
+                            </view>
+
+                            <view class="flex-sub">
+                                <view class="flex justify-end">
+                                    <text class="text-grey">{{dailyGoal['info']['duration']>=todayInformation['sport']['info']['duration']?((1000*todayInformation['sport']['info']['duration']/dailyGoal['info']['duration'])|Int)/10:100}}%</text>
+                                    <!-- 此处使用管道进行保留一位小数 -->
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+
+                    <view class="flex margin-sm" hidden="{{dailyGoal['info']['distance']==0?'true':''}}">
+                        <view class="flex-sub">
+                            <text class="cuIcon-title text-blue"></text>
+                            <text class="text-grey">运动距离</text>
+                        </view>
+                        <view class="flex flex-twice margin-top-xs">
+                            <view class="flex-treble">
+                                <view class="cu-progress round">
+                                    <view class="bg-blue" style="width:{{dailyGoal['info']['distance']>=todayInformation['sport']['info']['distance']?(100*todayInformation['sport']['info']['distance']/dailyGoal['info']['distance']):100}}%;"></view>
+                                    <!-- 内嵌js渲染进度条 -->
+                                </view>
+                            </view>
+                            <view class="flex-sub">
+                                <view class="flex justify-end">
+                                    <text class="text-grey">{{dailyGoal['info']['distance']>=todayInformation['sport']['info']['distance']?((1000*todayInformation['sport']['info']['distance']/dailyGoal['info']['distance'])|Int)/10:100}}%</text>
+                                    <!-- 此处使用管道进行保留一位小数 -->
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+
+                    <view class="flex margin-sm" hidden="{{dailyGoal['info']['calories']==0?'true':''}}">
+                        <view class="flex-sub">
+                            <text class="cuIcon-title text-blue"></text>
+                            <text class="text-grey">消耗卡路里</text>
+                        </view>
+                        <view class="flex flex-twice margin-top-xs">
+                            <view class="flex-treble">
+                                <view class="cu-progress round">
+                                    <view class="bg-blue" style="width:{{dailyGoal['info']['calories']>=todayInformation['sport']['info']['calories']?(100*todayInformation['sport']['info']['calories']/dailyGoal['info']['calories']):100}}%;"></view>
+                                    <!-- 内嵌js渲染进度条 -->
+                                </view>
+                            </view>
+                            <view class="flex-sub">
+                                <view class="flex justify-end">
+                                    <text class="text-grey">{{dailyGoal['info']['calories']>=todayInformation['sport']['info']['calories']?((1000*todayInformation['sport']['info']['calories']/dailyGoal['info']['calories'])|Int)/10:100}}%</text>
+                                    <!-- 此处使用管道进行保留一位小数 -->
+                                </view>
+                            </view>
                         </view>
                     </view>
                 </view>
@@ -98,7 +144,156 @@
         </view>
     </view>
 
-    <view class="cu-modal bottom-modal {{ShowModalAddNewRecord?'show':''}}">
+    <!-- 智能建议 -->
+    <view>
+        <!-- 标题 -->
+        <view class="cu-bar">
+            <view class="action">
+                <text class="cuIcon-titles text-blue"></text>
+                <text class="text-xl text-bold">智能建议</text>
+            </view>
+        </view>
+
+
+        <view class="margin-sm radius-lg bg-white shadow">
+            <view class="padding-sm">
+                <view class="margin-sm">
+                    <text>暂无</text>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 每日信息 -->
+    <view>
+        <!-- 标题 -->
+        <view class="cu-bar">
+            <view class="action">
+                <text class="cuIcon-titles text-blue"></text>
+                <text class="text-xl text-bold">数据</text>
+            </view>
+        </view>
+        <view class="margin-sm radius-lg bg-white shadow">
+
+
+            <!-- 运动 -->
+            <view>
+                <view class="cu-bar">
+                    <view class="action">
+                        <text class="text-xl">运动</text>
+                    </view>
+                </view>
+
+                <view class="cu-list menu">
+
+
+                    <view class="cu-item">
+                        <view class="content">
+                            <text class="cuIcon-timefill text-blue"></text>
+                            <text class="text-grey">运动时长</text>
+                        </view>
+                        <view class="action">
+                            <text class="text-grey text-sm">{{(todayInformation["sport"]["info"]["duration"]-todayInformation["sport"]["info"]["duration"]%3600)/3600}}h {{((todayInformation["sport"]["info"]["duration"]%3600-todayInformation["sport"]["info"]["duration"]%60)/60)}}' {{todayInformation["sport"]["info"]["duration"]%60}}''</text>
+                        </view>
+                    </view>
+
+                    <view class="cu-item">
+                        <view class="content">
+                            <text class="cuIcon-activityfill text-blue"></text>
+                            <text class="text-grey">运动距离</text>
+                        </view>
+                        <view class="action">
+                            <text class="text-grey text-sm">{{todayInformation["sport"]["info"]["distance"]/1000}} km</text>
+                        </view>
+                    </view>
+
+                    <view class="cu-item">
+                        <view class="content">
+                            <text class="cuIcon-hotfill text-blue"></text>
+                            <text class="text-grey">消耗卡路里</text>
+                        </view>
+                        <view class="action">
+                            <text class="text-grey text-sm">{{todayInformation["sport"]["info"]["calories"]}} Cal</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+            <!-- 饮食 -->
+            <view>
+                <view class="cu-bar">
+                    <view class="action">
+                        <text class="text-xl">饮食</text>
+                    </view>
+                </view>
+
+                <view class="cu-list menu">
+
+
+                    <view class="cu-item">
+                        <view class="content">
+                            <text class="cuIcon-hotfill text-green"></text>
+                            <text class="text-grey">摄入卡路里</text>
+                        </view>
+                        <view class="action">
+                            <text class="text-grey text-sm">{{todayInformation["diet"]["info"]["calories"]}} Cal</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+            <!-- 身体指标 -->
+            <view>
+                <view class="cu-bar">
+                    <view class="action">
+                        <text class="text-xl">身体指标</text>
+                    </view>
+                </view>
+
+                <view class="cu-list menu">
+
+                    <view class="cu-item">
+                        <view class="content">
+                            <text class="cuIcon-likefill text-pink"></text>
+                            <text class="text-grey">心率</text>
+                        </view>
+                        <view class="action">
+                            <text class="text-grey text-sm">{{todayInformation["body"]["heartrate"]===null?'无记录':todayInformation["body"]["heartrate"]+' bpm'}}</text>
+                        </view>
+                    </view>
+
+                    <view class="cu-item">
+                        <view class="content">
+                            <text class="cuIcon-emojifill text-pink"></text>
+                            <text class="text-grey">体重</text>
+                        </view>
+                        <view class="action">
+                            <text class="text-grey text-sm">{{todayInformation["body"]["weight"]===null?'无记录':todayInformation["body"]["weight"]+' kg'}}</text>
+                        </view>
+                    </view>
+
+                    <view class="cu-item">
+                        <view class="content">
+                            <text class="cuIcon-babyfill text-pink"></text>
+                            <text class="text-grey">体脂率</text>
+                        </view>
+                        <view class="action">
+                            <text class="text-grey text-sm">{{todayInformation["body"]["bfp"]===null?'无记录':todayInformation["body"]["bfp"]+' %'}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+            <view class="padding-bottom-sm"></view>
+
+        </view>
+    </view>
+
+    <!-- Modal框 -->
+
+    <!-- 添加新记录 -->
+    <!-- ModalName: AddRecord -->
+    <view class="cu-modal bottom-modal {{ModalName=='AddRecord'?'show':''}}">
         <view class="cu-dialog">
             <view class="flex solid-bottom padding-xs justify-center" bindtap="addSportRecord">
                 <view class="action padding-sm ">添加运动</view>
@@ -114,7 +309,7 @@
                 <view class=""></view>
             </view>
 
-            <view class="action flex solid-bottom padding-xs justify-center" bindtap="hideModalAddNewRecord">
+            <view class="action flex solid-bottom padding-xs justify-center" bindtap="hideModals">
                 <view class="padding-sm text-red">取消</view>
             </view>
             <view class="flex bg-gray solid-bottom padding-xs justify-center">
@@ -123,9 +318,11 @@
         </view>
     </view>
 
-    <view class="cu-modal bottom-modal {{ShowModalAddGoal?'show':''}}">
+    <!-- 添加目标 -->
+    <!-- ModalName: AddGoal -->
+    <view class="cu-modal bottom-modal {{ModalName=='AddGoal'?'show':''}}">
         <view class="cu-dialog">
-            <view class="flex solid-bottom padding-xs justify-center" bindtap="addSportRecord">
+            <view class="flex solid-bottom padding-xs justify-center" bindtap="showModalDailyGoal">
                 <view class="action padding-sm ">更改每日运动目标</view>
             </view>
 
@@ -133,7 +330,7 @@
                 <view class=""></view>
             </view>
 
-            <view class="action flex solid-bottom padding-xs justify-center" bindtap="hideModalAddGoal">
+            <view class="action flex solid-bottom padding-xs justify-center" bindtap="hideModals">
                 <view class="padding-sm text-red">取消</view>
             </view>
             <view class="flex bg-gray solid-bottom padding-xs justify-center">
@@ -142,26 +339,84 @@
         </view>
     </view>
 
-    <!-- 底部tabbar -->
+    <!-- 更改每日运动目标 -->
+    <!-- ModalName: DailyGoal -->
+    <view class="cu-modal {{ModalName=='DailyGoal'?'show':''}}">
+        <view class="cu-dialog">
+            <view class="cu-bar bg-white justify-end solids-bottom">
+                <view class="content">
+                    <text class="text-bold">更改每日运动目标</text>
+                </view>
+            </view>
+            <view class="margin-sm">
+                <view class="cu-form-group">
+                    <view class="margin-right-sm">
+                        <text class="cuIcon-time text-blue"></text>
+                    </view>
+                    <view class="title">运动时长 (h,m,s)</view>
+                    <!-- 使用多项选择列表代替原生的时间选择组件，因为原生组件只能选两个项，此处需要hms三个项 -->
+                    <picker mode="multiSelector" bindchange="GoalSportDurationTimeChange" value="{{goal_sport_duration}}" range="{{duration_array}}">
+                        <view class="picker">
+                            {{goal_sport_duration_string}}
+                        </view>
+                    </picker>
+                </view>
 
-    <view class="cu-bar foot tabbar  bg-black margin-top-xs">
-        <view class="action text-pink">
-            <view class="cuIcon-formfill"></view> Today
-        </view>
-        <view class="action text-gray" bind:tap="toRecording">
-            <view class="cuIcon-rank"></view> 历史记录
-        </view>
-        <view class="action text-gray" bind:tap="toCommunity">
-            <view class="cuIcon-community">
-                <!-- <view class="cu-tag badge">99</view> -->
+                <view class="cu-form-group">
+                    <view class="margin-right-sm">
+                        <text class="cuIcon-activity text-blue"></text>
+                    </view>
+                    <view class="title">运动距离 (m)</view>
+                    <input type="number" class="text-right" value="{{goal_sport_distance==0?'':goal_sport_distance}}" bindblur="GoalSportDistanceChange" placeholder="未设定"></input>
+                    <!-- 这部分的逻辑：
+                    1. 当goal的值是0时，会调用placeholder，因此显示未设定
+                    2. 当goal的值不是0，那么将value设为goal
+                    3. 使用bindblur，绑定失去焦点事件，从而在结束编辑后再处理
+                     -->
+                </view>
+
+                <view class="cu-form-group">
+                    <view class="margin-right-sm">
+                        <text class="cuIcon-hot text-blue"></text>
+                    </view>
+                    <view class="title">消耗卡路里 (Cal)</view>
+                    <input type="number" class="text-right" value="{{goal_sport_calories==0?'':goal_sport_calories}}"  bindblur="GoalSportCaloriesChange" placeholder="未设定"></input>
+                </view>
             </view>
-            社区
-        </view>
-        <view class="action text-gray" bind:tap="toMe">
-            <view class="cuIcon-my">
-                <!-- <view class="cu-tag badge"></view> -->
+            <view class="cu-bar bg-white solid-top">
+                <view class="action margin-0 flex-sub solid-left solid-right" bindtap="hideModals">取消</view>
+                <view class="action margin-0 flex-sub text-green solid-left" bindtap="setGoalSportButton">确定</view>
             </view>
-            我
         </view>
+    </view>
+</view>
+
+
+
+<!-- 增加距离防止被tabbar挡住 -->
+<view class="padding-xxl margin-xxl"></view>
+
+<!-- 底部tabbar -->
+
+<view class="cu-bar foot tabbar  bg-black margin-top-xs">
+    <view class="action text-pink">
+        <view class="cuIcon-formfill"></view>
+        Today
+    </view>
+    <view class="action text-gray" bind:tap="toRecording">
+        <view class="cuIcon-rank"></view>
+        历史记录
+    </view>
+    <view class="action text-gray" bind:tap="toCommunity">
+        <view class="cuIcon-community">
+            <!-- <view class="cu-tag badge">99</view> -->
+        </view>
+        社区
+    </view>
+    <view class="action text-gray" bind:tap="toMe">
+        <view class="cuIcon-my">
+            <!-- <view class="cu-tag badge"></view> -->
+        </view>
+        我
     </view>
 </view>

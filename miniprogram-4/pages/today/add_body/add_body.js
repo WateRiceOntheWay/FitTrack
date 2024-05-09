@@ -9,9 +9,6 @@ Page({
         password:null,
         jwtToken:null,
 
-        diet_type_range: ['米饭', '肉类', '蛋类', '豆类', '蔬菜水果', '面食', '果汁', '牛奶', '可乐、雪碧', '水', '咖啡'],
-        diet_type_index: null,
-        diet_type_is_liquid: [false, false, false, false, false, false, true, true, true, true, true],
 
         diet_amount:null,
 
@@ -25,10 +22,11 @@ Page({
      */
     onLoad(options) {
         // 读取本地缓存
+        let that = this;
         wx.getStorage({
             key:"username",
             success(res){
-                this.setData({
+                that.setData({
                     username:res.data
                 })
             }
@@ -36,7 +34,7 @@ Page({
         wx.getStorage({
             key:"password",
             success(res){
-                this.setData({
+                that.setData({
                     password:res.data
                 })
             }
@@ -44,7 +42,7 @@ Page({
         wx.getStorage({
             key:"jwtToken",
             success(res){
-                this.setData({
+                that.setData({
                     jwtToken:res.data
                 })
             }
@@ -103,27 +101,11 @@ Page({
     Cancel() {
         wx.navigateBack()
     },
-    DietTypePickerChange(e) {
-        console.log(e);
-        this.setData({
-            diet_type_index: e.detail.value
-        })
-        this.disableAddButtonIfInvalidElseEnable();
-    },
 
-    DietAmountChange(e){
-        this.setData({
-            diet_amount: e.detail.value
-        })
-        this.disableAddButtonIfInvalidElseEnable();
-    },
 
     // 判断当前数据有效性
     checkDataValid(){
         // 若没有选择运动类型
-        if(this.data.diet_type_index===null){
-            return false;
-        }
 
         let amount_is_valid=false;
         if (this.data.diet_amount===null||this.data.diet_amount===""){

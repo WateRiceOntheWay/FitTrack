@@ -38,7 +38,7 @@
          </view>       
 
          <view class="cu-form-group">
-            <view class="title">运动时间 (h,m,s)</view>
+            <view class="title">运动时长 (h,m,s)</view>
             <!-- 使用多项选择列表代替原生的时间选择组件，因为原生组件只能选两个项，此处需要hms三个项 -->
             <picker mode="multiSelector" bindchange="SportDurationTimeChange" value="{{sport_duration}}" range="{{duration_array}}">
             <view class="picker">
@@ -72,7 +72,7 @@
     <view class="cu-bar foot bg-white tabbar border margin-top-xs">
         <view class="cu-bar btn-group">
         <button class="cu-btn bg-orange round shadow-blur" bind:tap="Cancel">取消</button>
-        <button class="cu-btn bg-blue round shadow-blur" disabled="{{add_button_valid?'':'true'}}" type="">添加</button>
+        <button class="cu-btn bg-blue round shadow-blur" disabled="{{add_button_valid?'':'true'}}" bindtap="addSportInfo" type="">添加</button>
         </view>
     </view>
 </view>
