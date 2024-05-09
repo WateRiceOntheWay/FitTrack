@@ -1,7 +1,7 @@
 import FitTrackStorage from './FitTrackStorage'
 class FitTrackRequests{
 
-    static url_base="http://localhost:8080"
+    static url_base="http://118.178.135.35:8080"
     static sport_get_all = "/sports/"
     static diet_get_all = "/diet/" 
     static body_get_all = "/body/"
@@ -54,7 +54,7 @@ class FitTrackRequests{
         */
        let return_value={}
         wx.request({
-          url: `${FitTrackStorage.getURL_SportAdd()}`,
+          url: `${FitTrackRequests.getURL_SportAdd()}`,
           headers: {  
             'Authorization': `Bearer ${FitTrackRequests.jwtToken}`  
           }, 
@@ -375,6 +375,9 @@ class FitTrackRequests{
         })
     },
     complete(res){
+        console.log({
+            signin_info
+          })
         if(after_function!==undefined)
         after_function(return_value)
     }
