@@ -93,6 +93,9 @@ Page({
           url: '../today/today',
         })
         }
+        else{
+          console.log("注册失败")
+        }
       })
   },
   /**
