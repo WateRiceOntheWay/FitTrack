@@ -1,5 +1,6 @@
 // pages/recording/recording.js
 import FitTrackRequests from '../../utils/FitTrackRequests'
+import FitTrackStorage from '../../utils/FitTrackStorage'
 Page({
 
   /**
@@ -14,7 +15,7 @@ Page({
     username:"",
     password:"",
     date:"",
-	jwtToken:"",
+	  jwtToken:""
   },
   
   more_records_sport:function(event){
@@ -52,9 +53,10 @@ Page({
     this.setUserInfo()
     console.log(this.data.username)
     let that = this
-	console.log("success")
-	let url = FitTrackRequests.getURL_SportGetAll()
-	console.log(url)
+    /*测试url是否正确读取*/
+	  console.log("开始进入")
+    let url = FitTrackRequests.getURL_SportGetAll()
+    console.log(url)
     wx.request({
       url: 'https://ea05c617-6cdc-4b66-9f10-e015cb44471b.mock.pstmn.io/sport_getAll',
       method:'GET',

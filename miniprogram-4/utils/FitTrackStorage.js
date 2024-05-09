@@ -11,10 +11,9 @@
 
 class FitTrackStorage {
 
-    static getUserInfo() {
-
+       static getUserInfo(after_function) {
         //TODO
-
+        /*
         return {
             "status": true,
             "value": {
@@ -23,7 +22,7 @@ class FitTrackStorage {
                 "jwtToken": "ghi_j"
             }
         } //测试数据
-
+        */
         /* 返回值解释
 
         {
@@ -37,11 +36,27 @@ class FitTrackStorage {
 
         此返回值中"value"项可直接用在 FitTrackRequests.SportAdd() 等方法中
         */
-
-
+       return_value={}
+       wx.getStorage({
+            key: "data",
+            success(res) {
+                return_value=res.data
+            },
+            fail(err) {
+                reject(err);
+            },
+            complete(res){
+                return_value={
+                    "status":"true",
+                    "data":return_value
+                }
+                if(after_function!==undefined)
+                after_function(return_value)
+            }
+        });
     }
 
-    static setUserInfo(user_info) {
+    static setUserInfo(user_info, after_function) {
         //TODO
         /*
         参数解释： 
@@ -51,9 +66,22 @@ class FitTrackStorage {
             "jwtToken":"***"
         }
         */
-        return {
-            "status": true
-        } //测试数据
+       wx.setStorage({
+           key:"data",
+           data:user_info,
+           success(res){
+            console.log("存储成功！")
+           },
+           complete(res){
+            if(after_function!==undefined){
+                after_function({
+                    "status": true
+                })
+            }
+           }
+       })
+
+ //测试数据
 
         /* 返回值解释
 
@@ -444,7 +472,10 @@ class FitTrackStorage {
             }
         })
     }
-
-
 }
 module.exports = FitTrackStorage
+
+// FitTrackStorage.getTodayInformation(
+// 	function(result){
+// 		console.log(result);
+// })
