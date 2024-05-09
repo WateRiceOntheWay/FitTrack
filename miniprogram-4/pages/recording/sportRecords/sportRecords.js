@@ -1,4 +1,6 @@
 // pages/sportRecording/sportRecording.js
+import FitTrackRequests from '../../../utils/FitTrackRequests'
+import FitTrackStorage from '../../../utils/FitTrackStorage'
 Page({
 
   /**
@@ -6,15 +8,14 @@ Page({
    */
   data: {
     sport_records:[],
-    cal:100,
-    username:""
+    userinfo:{}
   },
 
   viewDetail:function(event){
     var record = event.currentTarget.dataset.record; // 获取记录
     console.log(record);
     wx.navigateTo({
-      url: 'singleSportRecord/singleSportRecord?cal=' + this.data.cal + '&item=' + JSON.stringify(record),
+      url: 'singleSportRecord/singleSportRecord?item=' + record,
       success: (result) => {},
       fail: (res) => {},
       complete: (res) => {},
@@ -25,49 +26,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    /*
-    console.log("This is sportRecords")
-    console.log(options)
-    */
-    let that = this
-    wx.getStorage({
-      key:"username",
-      success(res){
-        console.log("读取本地存储username成功")
-        that.setData({
-          username:res.data
+    //设置用户信息
+    FitTrackStorage.getStorage(function(res){
+      if(res["status"])
+      {
+        this.setData({
+        userinfo:res["value"]
+      })
+        console.log("获取用户信息成功")
+      }
+      else
+      console.log("获取用户信息失败")
+    })
+    //这是运动记录数据
+    let getAll = true
+    FitTrackRequests.getSportsAll(this.data.userinfo,getAll=true,function(res){
+      if(res["status"])
+      {
+        this.setData({
+          diet_records:res["value"]
         })
-      }
+        console.log("获取运动信息成功")
+        console.log(this.data.sport_records)
+      }else
+      console.log("获取运动信息失败")
     })
-    wx.request({
-      url: 'https://ea05c617-6cdc-4b66-9f10-e015cb44471b.mock.pstmn.io/sport_getAll',
-      method:'GET',
-      data:[
-        {
-          "username": that.data.username,
-          "getAll":true
-        }
-      ],
-      success(res){
-//        console.log(res.data.data)
-        if(res.data.code == 1){
-          that.setData(
-            {
-             sport_records:res.data.data
-            }
-          )
-        }
-        else{
-          console.log("未找到数据")
-        }
-      },
-      fail(res){
-        console.log("请求失败")
-      }
-    })
-
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

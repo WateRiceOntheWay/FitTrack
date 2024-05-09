@@ -15,7 +15,7 @@
 
 .tableTitle{
 	font-size: 13px;
-	padding-left: 37%;
+	padding-left: 20%;
 }
 
 .tableTitle-bfp{

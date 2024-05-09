@@ -9,13 +9,11 @@ Page({
   data: {
     sportRecords:[],
     dietRecords:[],
+    bodyRecords:[],
     dietTitle:[
       {eat:'类型', weight: '重量', kcal: 'kcal', date: '日期', time: '时间'}
     ],
-    username:"",
-    password:"",
-    date:"",
-	  jwtToken:""
+    userinfo:{}
   },
   
   more_records_sport:function(event){
@@ -49,69 +47,77 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    console.log("success")
+    //设置用户信息
     this.setUserInfo()
-    console.log(this.data.username)
+    let getAll = false
+    //获取运动数据
+    FitTrackRequests.getSportsAll(this.data.userinfo,getAll=false,function(res){
+      if(res["status"])
+      {
+        this.setData({
+          sportRecords:res["sportinfo"]
+        })
+        console.log("获取部分运动信息成功")
+        console.log(this.data.sportRecords)
+      }
+      else
+      console.log("获取运动信息失败")
+    })
+    //获取饮食数据
+    FitTrackRequests.getDietAll(this.data.userinfo,getAll=false,function(res){
+      if(res["status"])
+      {
+        this.setData({
+          dietRecords:res["dietinfo"]
+        })
+        console.log("获取部分饮食信息成功")
+        console.log(this.data.dietRecords)
+      }
+      else
+      console.log("获取饮食信息失败")
+    })
+    //获取身体数据
+    FitTrackRequests.getBodyAll(this.data.userinfo,getAll=false,function(res){
+      if(res["status"])
+      {
+        this.setData({
+          bodyRecords:res["bodyinfo"]
+        })
+        console.log("获取部分身体信息成功")
+        console.log(this.data.bodyRecords)
+      }
+      else
+      console.log("获取饮食信息失败")
+    })
+  },
+
+/*
+  设置用户名和密码
+*/
+  setUserInfo(){
     let that = this
-    /*测试url是否正确读取*/
-	  console.log("开始进入")
-    let url = FitTrackRequests.getURL_SportGetAll()
-    console.log(url)
-    wx.request({
-      url: 'https://ea05c617-6cdc-4b66-9f10-e015cb44471b.mock.pstmn.io/sport_getAll',
-      method:'GET',
-      headers: {  
-        'Authorization': `Bearer ${jwtToken}`  
-      }, 
-      data:[
-        {
-          "username": that.data.username,
-          "getAll":false
-        }
-      ],
-      success(res){
-        console.log(res.data)
-        if(res.data.code == 1){
-          that.setData(
-            {
-             sportRecords:res.data.data
-            }
-          )
-          console.log("test")
-          console.log(that.data.sportRecords)
-        }
-        else{
-          console.log("未找到数据")
-        }
-      },
-      fail(res){
-        console.log("请求失败")
+    FitTrackStorage.getUserInfo(function(res){
+      if(res["status"])
+      {
+        that.setData({
+        userinfo:res["value"]
+      })
+      console.log("获取用户信息成功，如下")
+      console.log(that.data.userinfo)
       }
+      else
+      console.log("获取用户信息失败")
     })
-    wx.request({
-      url: 'https://834d6e6b-e1e1-459b-a575-8d290d5bbed2.mock.pstmn.io/diet_getAll',
-      method:'GET',
-      data:{
-        "username" : that.data.username,
-        "getAll":false
-      },
-      success(res){
-        console.log(res.data)
-        if(res.data.code == 1){
-          that.setData(
-            {
-             dietRecords:res.data.data
-            }
-          )
-        }
-        else{
-          console.log("未找到数据")
-        }
-      },
-      fail(res){
-        console.log("请求失败")
-      }
-    })
+  },
+  toToday(){
+      wx.redirectTo({
+          url:"/pages/today/today"
+      })
+  },
+  toCommunity(){
+      wx.redirectTo({
+        url: '/pages',
+      })
   },
   setURL:function(){
 
@@ -163,60 +169,5 @@ Page({
    */
   onShareAppMessage() {
 
-  },
-  /*
-  设置用户名和密码
-  */
- setUserInfo(){
-   let that = this
-  wx.getStorage({
-    key:'username',
-    success(res){
-      console.log("读取本地用户名：")
-      console.log(res.data)
-      that.setData({
-        username:res.data
-      })
-    },
-    fail(res){
-      console.log("读取本地存储username失败")
-    }
-  })
-  wx.getStorage({
-    key:'password',
-    success(res){
-      console.log("读取本地密码：")
-      console.log(res.data)
-      that.setData({
-        password:res.data
-      })
-    },
-    fail(res){
-      console.log("读取本地存储password失败")
-    }
-  })
-  wx.getStorage({
-    key:'jwtToken',
-    success(res){
-      console.log("读取JWT：")
-      console.log(res.data)
-      that.setData({
-        jwtToken:res.data
-      })
-    },
-    fail(res){
-      console.log("读取本地存储jwtToken失败")
-    }
-  })
- },
- toToday(){
-     wx.redirectTo({
-         url:"/pages/today/today"
-     })
- },
- toCommunity(){
-     wx.redirectTo({
-       url: '/pages',
-     })
- }
+  }
 })

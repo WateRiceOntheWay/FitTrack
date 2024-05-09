@@ -28,12 +28,12 @@
             <view class="singleRecord flex-twice bg-blue light margin-xs radius">
                 <text class="tableTitle text-xxl text-bold text-blue ">卡路里</text>
             </view>
-            <view class="singleRecord flex-twice bg-blue light margin-xs radius">
-                <text class="tableTitle-date text-xxl text-bold text-blue ">日期</text>
-            </view>
             <view class="singleRecord flex-sub bg-blue light margin-xs radius">
                 <text class="tableTitle text-xxl text-bold text-blue ">重量
                 </text>
+            </view>
+            <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+                <text class="tableTitle-date text-xxl text-bold text-blue ">日期</text>
             </view>
   </view>
   <scroll-view scroll-y="true"class="more_records radius">
@@ -45,15 +45,13 @@
             <view class="singleRecord flex-twice bg-blue light margin-xs radius">
               <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.calories}} kcal</text>
             </view>
+            <view class="singleRecord flex-sub bg-blue light margin-xs radius">
+              <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.quantity}}g</text>
+            </view> 
             <view class="singleRecord flex-twice bg-blue light margin-xs radius">
               <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.date}}
               </text>
             </view>
-            <view class="singleRecord flex-sub bg-blue light margin-xs radius">
-              <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.quantity}}g</text>
-            </view>
-            
-            
       </view>
     </block>
   </scroll-view>

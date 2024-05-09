@@ -5,8 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    item:[],
-    cal:0
+    item:{},
   },
 
   /**
@@ -14,8 +13,7 @@ Page({
    */
   onLoad(options) {
     this.setData({
-      item: JSON.parse(options.item),
-      cal: options.cal
+      item: options["calories"],
     })
     console.log(this.data.item)
   },

@@ -25,12 +25,15 @@
             <view class=" singleRecord flex-sub bg-blue light  margin-xs radius">
                 <text class="tableTitle text-xxl text-bold text-blue ">体重</text>
             </view>
-            <view class="singleRecord flex-sub bg-blue light margin-xs radius">
+            <view class="singleRecord flex-twice bg-blue light margin-xs radius">
                 <text class="tableTitle tableTitle-bfp text-xxl text-bold text-blue ">体脂率</text>
             </view>
             <view class="singleRecord flex-sub bg-blue light margin-xs radius">
                 <text class="tableTitle text-xxl text-bold text-blue ">心率
                 </text>
+            </view>
+            <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+                <text class="tableTitle tableTitle-bfp text-xxl text-bold text-blue ">日期</text>
             </view>
         </view>
 	<scroll-view scroll-y="true"class="more_records radius ">
@@ -39,12 +42,16 @@
           <view class=" singleRecord flex-sub bg-blue light  margin-xs radius">
             <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.weight}}</text>
           </view>
-          <view class="singleRecord flex-sub bg-blue light margin-xs radius">
+          <view class="singleRecord flex-twice bg-blue light margin-xs radius">
             <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.bfp}}</text>
           </view>
+          
           <view class="singleRecord flex-sub bg-blue light margin-xs radius">
             <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.heartRate}}
             </text>
+          </view>
+          <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+            <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.date}}</text>
           </view>
     </view>
   </block>

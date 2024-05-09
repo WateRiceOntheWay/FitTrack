@@ -23,7 +23,7 @@
   <view class="margin-sm radius-lg bg-white margin-top-sm">
     <view class="flex solid-bottom padding-sm align-center">
           <view class="bg-green light padding-lg margin-xs radius "><text class="consukcal">消耗卡路里：</text></view>
-          <view class="bg-green light padding-sm margin-xs radius cal">{{cal}}kcal</view>
+          <view class="bg-green light padding-sm margin-xs radius cal">{{item.calories}}kcal</view>
     </view>
   </view>
   <view class="margin-sm radius-lg bg-white margin-top-sm">

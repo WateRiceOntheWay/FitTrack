@@ -1,4 +1,6 @@
 // pages/dietRecords/dietRecords.js
+import FitTrackRequests from '../../../utils/FitTrackRequests'
+import FitTrackStorage from '../../../utils/FitTrackStorage'
 Page({
 
   /**
@@ -6,50 +8,39 @@ Page({
    */
   data: {
     diet_records:[],
-    username:"",
-    date:""
+    userinfo:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    let that = this
-    wx.getStorage({
-      key:"username",
-      success(res){
-        console.log("读取本地存储username成功")
-        that.setData({
-          username:res.data
-        })
+    //设置用户信息
+    FitTrackStorage.getStorage(function(res){
+      if(res["status"])
+      {
+         this.setData({
+        userinfo:res["value"]
+      })
+        console.log("获取用户信息成功")
       }
+      else
+      console.log("获取用户信息失败")
     })
-    wx.request({
-      url: 'https://834d6e6b-e1e1-459b-a575-8d290d5bbed2.mock.pstmn.io/diet_getAll',
-      method:'GET',
-      data:{
-        "username" : that.data.username,
-        "getAll": true
-      },
-      success(res){
-        console.log(res.data.data)
-        if(res.data.code == 1){
-          that.setData(
-            {
-             diet_records:res.data.data
-            }
-          )
-        }
-        else{
-          console.log("未找到数据")
-        }
-      },
-      fail(res){
-        console.log("请求失败")
-      }
+    //设置饮食记录数据
+    let getAll = true
+    FitTrackRequests.getDietAll(this.data.userinfo,getAll=true,function(res){
+      if(res["status"])
+      {
+        this.setData({
+          diet_records:res["value"]
+        })
+        console.log("获取饮食信息成功")
+        console.log(this.data.diet_records)
+      }else
+      console.log("获取饮食信息失败")
     })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

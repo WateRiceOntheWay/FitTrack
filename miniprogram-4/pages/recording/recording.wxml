@@ -32,13 +32,14 @@
             <view class="singleRecord flex-twice bg-blue light margin-xs radius">
                 <text class="tableTitle text-xxl text-bold text-blue ">距离</text>
             </view>
-            <view class="singleRecord flex-twice bg-blue light margin-xs radius">
-                <text class="tableTitle-date text-xxl text-bold text-blue ">日期</text>
-            </view>
             <view class="singleRecord flex-sub bg-blue light margin-xs radius">
                 <text class="tableTitle text-xxl text-bold text-blue ">时长
                 </text>
             </view>
+            <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+                <text class="tableTitle-date text-xxl text-bold text-blue ">日期</text>
+            </view>
+ 
         </view>
 
         <!--	运动记录		-->
@@ -51,12 +52,12 @@
                     <view class="singleRecord flex-twice bg-blue light margin-xs radius">
                         <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.sportsDistance}}m</text>
                     </view>
-                    <view class="singleRecord flex-twice bg-blue light margin-xs radius">
-                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.date}}</text>
-                    </view>
                     <view class="singleRecord flex-sub bg-blue light margin-xs radius">
                         <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.sportsTime}}
                         </text>
+                    </view>
+                    <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.date}}</text>
                     </view>
                 </view>
             </view>
@@ -89,13 +90,14 @@
             <view class="singleRecord flex-twice bg-blue light margin-xs radius">
                 <text class="tableTitle text-xxl text-bold text-blue ">卡路里</text>
             </view>
-            <view class="singleRecord flex-twice bg-blue light margin-xs radius">
-                <text class="tableTitle-date text-xxl text-bold text-blue ">日期</text>
-            </view>
             <view class="singleRecord flex-sub bg-blue light margin-xs radius">
                 <text class="tableTitle text-xxl text-bold text-blue ">重量
                 </text>
             </view>
+            <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+                <text class="tableTitle-date text-xxl text-bold text-blue ">日期</text>
+            </view>
+
         </view>
 
         <!--	饮食记录		-->
@@ -108,13 +110,14 @@
                     <view class="singleRecord flex-twice bg-blue light margin-xs radius">
                         <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.calories}}kcal</text>
                     </view>
-                    <view class="singleRecord flex-twice bg-blue light margin-xs radius">
-                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.date}}</text>
-                    </view>
                     <view class="singleRecord flex-sub bg-blue light margin-xs radius">
                         <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.quantity}}g
                         </text>
                     </view>
+                    <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.date}}</text>
+                    </view>
+                    
                 </view>
             </view>
 
@@ -142,15 +145,19 @@
 
         <view class="flex">
             <view class=" singleRecord flex-sub bg-blue light  margin-xs radius">
-                <text class="tableTitle-body text-xxl text-bold text-blue ">体重</text>
+                <text class="tableTitle text-xxl text-bold text-blue ">体重</text>
+            </view>
+            <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+                <text class="tableTitle text-xxl text-bold text-blue ">体脂率</text>
             </view>
             <view class="singleRecord flex-sub bg-blue light margin-xs radius">
-                <text class="tableTitle-body tableTitle-body-BFP text-xxl text-bold text-blue ">体脂率</text>
-            </view>
-            <view class="singleRecord flex-sub bg-blue light margin-xs radius">
-                <text class="tableTitle-body text-xxl text-bold text-blue ">心率
+                <text class="tableTitle text-xxl text-bold text-blue ">心率
                 </text>
             </view>
+            <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+                <text class="tableTitle-date text-xxl text-bold text-blue ">日期</text>
+            </view>
+            
         </view>
 
         <!--	身体状况记录		-->
@@ -158,15 +165,19 @@
             <view>
                 <view class="flex ">
                     <view class=" singleRecord flex-sub bg-blue light  margin-xs radius">
-                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.dietName}}</text>
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.weight}}</text>
+                    </view>
+                    <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.bfp}}kcal</text>
                     </view>
                     <view class="singleRecord flex-sub bg-blue light margin-xs radius">
-                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.calories}}kcal</text>
-                    </view>
-                    <view class="singleRecord flex-sub bg-blue light margin-xs radius">
-                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.quantity}}g
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.heartRate}}
                         </text>
                     </view>
+                    <view class="singleRecord flex-twice bg-blue light margin-xs radius">
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.date}}</text>
+                    </view>
+                    
                 </view>
             </view>
 
