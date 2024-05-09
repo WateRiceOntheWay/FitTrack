@@ -47,11 +47,11 @@ class FitTrackRequests{
             "distance":(int)/null,
         }
         */
-       return_value={}
+       let return_value={}
         wx.request({
           url: `${FitTrackStorage.getURL_SportAdd}`,
           headers: {  
-            'Authorization': `Bearer ${jwtToken}`  
+            'Authorization': `Bearer ${FitTrackRequests.jwtToken}`  
           }, 
           data:{
             "username":FitTrackRequests.username,
