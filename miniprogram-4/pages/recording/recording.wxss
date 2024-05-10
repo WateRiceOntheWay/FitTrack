@@ -6,7 +6,7 @@
 	font-size: 12px;
 }
 .wrapper-body{
-	margin-bottom: 100rpx;
+	margin-bottom: 50rpx;
 }
 
 .singleRecord{
