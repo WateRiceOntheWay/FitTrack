@@ -40,10 +40,18 @@ class FitTrackStorage {
        wx.getStorage({
             key: "data",
             success(res) {
-                return_value={
+                if(res&&res.data&&res.data.code == 1)
+                {
+                    return_value={
                     "status":true,
                     "value":res.data
                 }
+                }else{
+                    return_value={
+                        "status":false
+                    }
+                }
+                
             },
             fail(err) {
                 return_value={
@@ -72,8 +80,15 @@ class FitTrackStorage {
            key:"data",
            data:user_info,
            success(res){
-            console.log("存储用户信息成功！")
-            succes = true
+               if(res&&res.data&&res.data.code == 1)
+               {
+                console.log("存储用户信息成功！")
+                succes = true
+               }
+               else{
+                   succes = false
+               }
+            
            },
            fail(res){
                succes = false
