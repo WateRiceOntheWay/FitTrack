@@ -1,4 +1,5 @@
 // pages/me/me.js
+import FitTrackStorage from "../../utils/FitTrackStorage"
 Page({
 
   /**
@@ -8,6 +9,7 @@ Page({
     imgs: [],
     count: 3,
     ModalName: null,
+    username:null
   },
   bindUpload: function (e) {
     switch (this.data.imgs.length) {
@@ -99,7 +101,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
+    let that = this;
+    FitTrackStorage.getUserInfo(function(result){
+      if(result['status']){
+        that.setData({
+          username:result['value']["username"]
+        })
+      }
+    })
   },
 
   /**
@@ -161,12 +170,12 @@ showModalAddNewRecord() {
     });
 },
 
-showModalAddGoal() {
+showModalLogout() {
     /**
      * 打开 添加目标的模态框
      */
     this.setData({
-        ModalName: 'AddGoal'
+        ModalName: 'logout'
     });
 },
   showModal(e) {
