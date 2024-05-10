@@ -46,57 +46,37 @@ Page({
     }
     else{
       // 完成本地检测，上传用户数据
-      var status = this.upload_signup_info({
-        "username": data.detail.value.username,
-        "password": data.detail.value.password
+      wx.showToast({
+        title: '加载中...',
+        icon:"loading",
+        duration:10000
       })
-      if (status==true){
-        //成功
-        wx.showToast({
-          title: '注册成功',
-          icon: 'success'
-        })
-
-        // TODO
-        // 自动登录
-
-        wx.reLaunch({
-          url:"../recording/recording?username=" + data.detail.value.username + "&password=" + data.detail.value.password
-        });
-      }else{
-        //失败
-        wx.showToast({
-          title: '出错了，请重试',
-          icon: 'error'
-        })
-      }
-    }
-  },
-  
-  
-  upload_signup_info(signup_info){
-    /** 使用此函数上传注册数据
-     * 
-     * {
-     *    "username":,
-     *    "password":
-     * }
-     * 
-     * 成功返回true, 失败返回false
-     */
-      FitTrackRequests.Signup(signup_info,function(res){
+      
+      FitTrackRequests.Signup({
+        "username": data.detail.value.username,
+        "password": data.detail.value.password 
+      },function(res){
         if(res["status"])
         {
+            wx.showToast({
+                title: '注册成功！',
+                icon: 'success'
+              })
           console.log("注册成功")
+        //   自动登录
           FitTrackStorage.setUserInfo(res["userinfo"])
-          wx.navigateTo({
+          wx.redirectTo({
           url: '../today/today',
         })
-        }
-        else{
-          console.log("注册失败")
+        }else{
+
+            wx.showToast({
+                title: '出错了，请重试',
+                icon: 'error'
+              })
         }
       })
+    }
   },
   /**
    * 生命周期函数--监听页面加载

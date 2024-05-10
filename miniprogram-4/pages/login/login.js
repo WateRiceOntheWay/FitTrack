@@ -17,17 +17,35 @@ Page({
       password: data.detail.value.password
     }) 
     let login_info={
-        "username": this.username ,
-        "password": this.password
+        "username": this.data.username ,
+        "password": this.data.password
     }
     let suc = false
+    wx.showToast({
+        title: '加载中...',
+        icon:"loading",
+        duration:10000
+    })
     FitTrackRequests.Login(login_info,function(res){
       if(res["status"])
       {
-        FitTrackStorage.setUserInfo(res["userinfo"])
-        wx.navigateTo({
-          url: '../today/today',
+        wx.showToast({
+            title: '注册成功！',
+            icon: 'success'
+          })
+        FitTrackStorage.setUserInfo(res["userinfo"],
+            function(){
+            wx.redirectTo({
+            url: '../today/today',
+            });
         })
+      }else{
+
+        wx.showToast({
+            title: '出错了，请重试',
+            icon: 'error'
+          })
+
       }
     })
   },
