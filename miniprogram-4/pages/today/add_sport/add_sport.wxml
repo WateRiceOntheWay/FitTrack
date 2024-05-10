@@ -49,7 +49,8 @@
 
         <view class="cu-form-group">
             <view class="title">运动距离 (m)</view>
-            <input type="number" bindinput="SportDistanceChange" placeholder="请输入运动距离"></input>
+            <input type="number" bindinput="SportDistanceChange" class="text-right" placeholder="请输入运动距离"></input>
+            <view class="title">m</view>
         </view>
 
         <view class="cu-bar bg-white solids-top">

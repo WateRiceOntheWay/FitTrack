@@ -9,6 +9,33 @@
     "miniprogram": {
       "list": [
         {
+          "name": "add_body&add_body_success",
+          "pathName": "pages/today/add_body/add_body",
+          "query": "",
+          "launchMode": "default",
+          "scene": null,
+          "partialCompile": {
+            "enabled": false,
+            "pages": [
+              "pages/today/add_body/add_body_success/add_body_success"
+            ]
+          }
+        },
+        {
+          "name": "pages/today/add_body/add_body",
+          "pathName": "pages/today/add_body/add_body",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/today/add_diet/add_diet",
+          "pathName": "pages/today/add_diet/add_diet",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/today/add_diet/add_diet_success/add_diet_success",
           "pathName": "pages/today/add_diet/add_diet_success/add_diet_success",
           "query": "",

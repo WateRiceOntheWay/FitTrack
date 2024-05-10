@@ -23,8 +23,14 @@
   },
   "libVersion": "3.4.1",
   "packOptions": {
-    "ignore": [],
+    "ignore": [
+      {
+        "value": "/minitest",
+        "type": "folder"
+      }
+    ],
     "include": []
   },
-  "appid": "wx456e5d3eaea96364"
+  "appid": "wxaa69089b2d0b3cf3",
+  "testRoot": "minitest/"
 }

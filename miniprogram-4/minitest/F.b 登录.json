@@ -1,0 +1,332 @@
+{
+  "meta": {
+    "caseId": "bd07a570-4671-4f89-b187-20897ab4de8d",
+    "caseName": "F.b 登录",
+    "remarks": "",
+    "version": "0.0.1",
+    "startTime": 1715308508797,
+    "endTime": 1715308525651,
+    "appid": "wx456e5d3eaea96364",
+    "casePath": "",
+    "caseType": "normal",
+    "commonParams": [
+      {
+        "key": "1715308525663",
+        "name": "",
+        "value": ""
+      }
+    ]
+  },
+  "env": {
+    "wxapplibVersion": "3.4.1",
+    "devtoolsVersion": "1.06.2402040",
+    "openid": "o6zAJs1i4asMJo73EyFO-pZ7TsB0",
+    "entry": {
+      "path": "pages/today/today",
+      "query": "",
+      "scene": 1001
+    },
+    "mock": [
+      "request"
+    ],
+    "maxWaitFor": 10000,
+    "ignoreSelectors": [],
+    "mockAPIs": [],
+    "cleanCache": [
+      "none"
+    ],
+    "groupTouch": false,
+    "replaySetting": {
+      "screenshot": "none"
+    },
+    "simulatorType": "wechat",
+    "device": "iPhone XR",
+    "recordAPIs": [
+      "request"
+    ]
+  },
+  "commands": [
+    {
+      "layer": "tool",
+      "commandType": "operate",
+      "command": "startRecord",
+      "waitfor": 0,
+      "timeStamp": 1715308508797,
+      "desc": ""
+    },
+    {
+      "tagName": "input",
+      "command": "touchstart",
+      "target": "/view/view[2]/form/input[1]",
+      "childName": "input",
+      "path": "pages/login/login",
+      "text": "请输入用户名",
+      "eventData": {
+        "detail": {}
+      },
+      "targetCandidates": [
+        "/view/view[2]/form/input[1]"
+      ],
+      "timeStamp": 3810,
+      "waitfor": 3810,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "input",
+      "command": "touchend",
+      "target": "/view/view[2]/form/input[1]",
+      "childName": "input",
+      "path": "pages/login/login",
+      "text": "请输入用户名",
+      "eventData": {
+        "detail": {}
+      },
+      "targetCandidates": [
+        "/view/view[2]/form/input[1]"
+      ],
+      "timeStamp": 3810,
+      "waitfor": 0,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "input",
+      "command": "tap",
+      "target": "/view/view[2]/form/input[1]",
+      "childName": "input",
+      "path": "pages/login/login",
+      "text": "请输入用户名",
+      "eventData": {
+        "detail": {
+          "x": 173.9296875,
+          "y": 257.6562805175781
+        }
+      },
+      "targetCandidates": [
+        "/view/view[2]/form/input[1]"
+      ],
+      "timeStamp": 3811,
+      "waitfor": 1,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "input",
+      "command": "input",
+      "target": "/view/view[2]/form/input[1]",
+      "value": "F.b",
+      "path": "pages/login/login",
+      "text": "",
+      "eventData": {
+        "detail": {
+          "value": "F.b",
+          "cursor": 3,
+          "keyCode": 66
+        }
+      },
+      "targetCandidates": [
+        "/view/view[2]/form/input[1]"
+      ],
+      "timeStamp": 6168,
+      "waitfor": 2357,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "input",
+      "command": "input",
+      "target": "/view/view[2]/form/input[2]",
+      "value": "123456",
+      "path": "pages/login/login",
+      "text": "",
+      "eventData": {
+        "detail": {
+          "value": "123456",
+          "cursor": 6,
+          "keyCode": 54
+        }
+      },
+      "targetCandidates": [
+        "/view/view[2]/form/input[2]"
+      ],
+      "timeStamp": 8675,
+      "waitfor": 2507,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "button",
+      "command": "touchstart",
+      "target": "/view/view[2]/form/button",
+      "value": null,
+      "path": "pages/login/login",
+      "text": "立即登录",
+      "eventData": {
+        "detail": {},
+        "changedTouches": [
+          {
+            "clientX": 286.8359375,
+            "clientY": 398.7890319824219,
+            "force": 1,
+            "pageX": 286.8359375,
+            "pageY": 398.7890319824219,
+            "screenX": 236.5,
+            "screenY": 399.5
+          }
+        ],
+        "touches": [
+          {
+            "clientX": 286.8359375,
+            "clientY": 398.7890319824219,
+            "force": 1,
+            "pageX": 286.8359375,
+            "pageY": 398.7890319824219,
+            "screenX": 236.5,
+            "screenY": 399.5
+          }
+        ]
+      },
+      "targetCandidates": [
+        "/view/view[2]/form/button"
+      ],
+      "timeStamp": 10200,
+      "waitfor": 1525,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "button",
+      "command": "touchend",
+      "target": "/view/view[2]/form/button",
+      "value": null,
+      "path": "pages/login/login",
+      "text": "立即登录",
+      "eventData": {
+        "detail": {},
+        "changedTouches": [
+          {
+            "clientX": 286.8359375,
+            "clientY": 398.7890319824219,
+            "pageX": 286.8359375,
+            "pageY": 398.7890319824219,
+            "screenX": 236.5,
+            "screenY": 399.5
+          }
+        ],
+        "touches": []
+      },
+      "targetCandidates": [
+        "/view/view[2]/form/button"
+      ],
+      "timeStamp": 10318,
+      "waitfor": 118,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "button",
+      "command": "tap",
+      "target": "/view/view[2]/form/button",
+      "value": null,
+      "path": "pages/login/login",
+      "text": "立即登录",
+      "eventData": {
+        "detail": {
+          "x": 286.8359375,
+          "y": 398.7890319824219
+        },
+        "changedTouches": [
+          {
+            "clientX": 286.8359375,
+            "clientY": 398.7890319824219,
+            "force": 1,
+            "pageX": 286.8359375,
+            "pageY": 398.7890319824219,
+            "screenX": 236.5,
+            "screenY": 399.5
+          }
+        ],
+        "touches": [
+          {
+            "clientX": 286.8359375,
+            "clientY": 398.7890319824219,
+            "force": 1,
+            "pageX": 286.8359375,
+            "pageY": 398.7890319824219,
+            "screenX": 236.5,
+            "screenY": 399.5
+          }
+        ]
+      },
+      "targetCandidates": [
+        "/view/view[2]/form/button"
+      ],
+      "timeStamp": 10318,
+      "waitfor": 0,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "layer": "appservice",
+      "command": "mock",
+      "rule": {
+        "ruleId": "d3ac3bf0-7e77-47d7-8f51-c3ceb78d3be4",
+        "ruleName": "request login",
+        "apiName": "request",
+        "enable": true,
+        "verifyFail": false,
+        "isOneTime": true,
+        "filterList": [
+          {
+            "propName": "url",
+            "propRegString": "http://10.16.203.123:8080/login",
+            "filterId": "7e70ba71-3d6e-4529-8a66-8cc849ed3bde",
+            "matchType": "string",
+            "matchTypeLabel": "全匹配"
+          }
+        ],
+        "returnConfig": {
+          "returnType": "succ",
+          "generateType": "manual",
+          "manual": {
+            "succ": {
+              "resStr": "{\"data\":{\"code\":1,\"msg\":\"success\",\"data\":\"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEwLCJ1c2VybmFtZSI6IkYuYiIsImV4cCI6MTcxNTM1MTcyM30.QV9JLUgzocQdDgsOfuA-jyCP1O_0fnrzGiQaWV6xphs\"},\"header\":{\"Transfer-Encoding\":\"chunked\",\"Connection\":\"keep-alive\",\"Content-Type\":\"application/json\",\"Date\":\"Fri, 10 May 2024 02:35:23 GMT\",\"Keep-Alive\":\"timeout=4\",\"Proxy-Connection\":\"keep-alive\",\"Set-Cookie\":\"JSESSIONID=3E991976FE3AF0D40B87257220667CE1; Path=/; HttpOnly\"},\"statusCode\":200,\"cookies\":[\"JSESSIONID=3E991976FE3AF0D40B87257220667CE1; Path=/; HttpOnly\"],\"accelerateType\":\"none\",\"errMsg\":\"request:ok\"}"
+            },
+            "fail": {
+              "resStr": ""
+            }
+          }
+        },
+        "originArgs": [
+          {
+            "url": "http://10.16.203.123:8080/login",
+            "method": "POST",
+            "data": {
+              "username": "F.b",
+              "password": "123456"
+            }
+          }
+        ],
+        "mediaFiles": {}
+      },
+      "desc": ""
+    },
+    {
+      "timeStamp": 16854,
+      "waitfor": 6536,
+      "desc": "",
+      "layer": "tool",
+      "commandType": "operate",
+      "command": "stopRecord"
+    }
+  ]
+}

@@ -7,7 +7,7 @@ class FitTrackRequests{
     static body_get_all = "/body/"
     static sport_add = "/sports/add"
     static diet_add = "/diet/add"
-    static body_add = "/body/add"
+    static body_add = "/healthcare/add"
     static login = "/login"
     static signup = "/signup"
     static username=""
@@ -229,9 +229,10 @@ class FitTrackRequests{
             'Authorization': `Bearer ${FitTrackRequests.jwtToken}`  
           },
           data:{
+             "username": FitTrackRequests.username,
               "weight":body_info["weight"],
               "bodyFatRate":body_info["bfp"],
-              "heartRate":body_info["heartRate"]
+              "heartRate":body_info["heartrate"]
           },
           success(res){
             if(res&&res.data&&res.data.code == 1)

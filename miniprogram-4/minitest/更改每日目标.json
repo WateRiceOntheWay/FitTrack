@@ -1,0 +1,1219 @@
+{
+  "meta": {
+    "caseId": "a772affc-ea2b-4ce2-a77d-64ba9c5c7430",
+    "caseName": "更改每日目标",
+    "remarks": "",
+    "version": "0.0.1",
+    "startTime": 1715308597952,
+    "endTime": 1715308622906,
+    "appid": "wx456e5d3eaea96364",
+    "casePath": "",
+    "caseType": "normal",
+    "commonParams": [
+      {
+        "key": "1715308622921",
+        "name": "",
+        "value": ""
+      }
+    ]
+  },
+  "env": {
+    "wxapplibVersion": "3.4.1",
+    "devtoolsVersion": "1.06.2402040",
+    "openid": "o6zAJs1i4asMJo73EyFO-pZ7TsB0",
+    "entry": {
+      "path": "pages/today/today",
+      "query": "",
+      "scene": 1001
+    },
+    "mock": [
+      "none"
+    ],
+    "maxWaitFor": 10000,
+    "ignoreSelectors": [],
+    "mockAPIs": [],
+    "cleanCache": [
+      "none"
+    ],
+    "groupTouch": false,
+    "replaySetting": {
+      "screenshot": "none"
+    },
+    "simulatorType": "wechat",
+    "device": "iPhone XR",
+    "recordAPIs": []
+  },
+  "commands": [
+    {
+      "layer": "tool",
+      "commandType": "operate",
+      "command": "startRecord",
+      "waitfor": 0,
+      "timeStamp": 1715308597952,
+      "desc": ""
+    },
+    {
+      "tagName": "text",
+      "command": "touchstart",
+      "target": "text.cuIcon-newshot.black",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "",
+      "eventData": {
+        "detail": {},
+        "changedTouches": [
+          {
+            "clientX": 298.9296875,
+            "clientY": 138.3046875,
+            "force": 1,
+            "pageX": 298.9296875,
+            "pageY": 138.3046875,
+            "screenX": 244,
+            "screenY": 238
+          }
+        ],
+        "touches": [
+          {
+            "clientX": 298.9296875,
+            "clientY": 138.3046875,
+            "force": 1,
+            "pageX": 298.9296875,
+            "pageY": 138.3046875,
+            "screenX": 244,
+            "screenY": 238
+          }
+        ]
+      },
+      "targetCandidates": [
+        "text.cuIcon-newshot.black",
+        ".cuIcon-newshot.black",
+        "/view[1]/view[1]/view[2]/view[1]/view/button/view/text"
+      ],
+      "timeStamp": 1309,
+      "waitfor": 1309,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "text",
+      "command": "touchend",
+      "target": "text.cuIcon-newshot.black",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "",
+      "eventData": {
+        "detail": {},
+        "changedTouches": [
+          {
+            "clientX": 298.9296875,
+            "clientY": 138.3046875,
+            "pageX": 298.9296875,
+            "pageY": 138.3046875,
+            "screenX": 244,
+            "screenY": 238
+          }
+        ],
+        "touches": []
+      },
+      "targetCandidates": [
+        "text.cuIcon-newshot.black",
+        ".cuIcon-newshot.black",
+        "/view[1]/view[1]/view[2]/view[1]/view/button/view/text"
+      ],
+      "timeStamp": 1401,
+      "waitfor": 92,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "text",
+      "command": "tap",
+      "target": "text.cuIcon-newshot.black",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "",
+      "eventData": {
+        "detail": {
+          "x": 298.9296875,
+          "y": 138.3046875
+        },
+        "changedTouches": [
+          {
+            "clientX": 298.9296875,
+            "clientY": 138.3046875,
+            "force": 1,
+            "pageX": 298.9296875,
+            "pageY": 138.3046875,
+            "screenX": 244,
+            "screenY": 238
+          }
+        ],
+        "touches": [
+          {
+            "clientX": 298.9296875,
+            "clientY": 138.3046875,
+            "force": 1,
+            "pageX": 298.9296875,
+            "pageY": 138.3046875,
+            "screenX": 244,
+            "screenY": 238
+          }
+        ]
+      },
+      "targetCandidates": [
+        "text.cuIcon-newshot.black",
+        ".cuIcon-newshot.black",
+        "/view[1]/view[1]/view[2]/view[1]/view/button/view/text"
+      ],
+      "timeStamp": 1402,
+      "waitfor": 1,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "view",
+      "command": "touchstart",
+      "target": "/view[1]/view[6]/view/view[1]/view",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "更改每日运动目标",
+      "eventData": {
+        "detail": {},
+        "changedTouches": [
+          {
+            "clientX": 250.546875,
+            "clientY": 785.0780029296875,
+            "force": 1,
+            "pageX": 250.546875,
+            "pageY": 785.0780029296875,
+            "screenX": 214,
+            "screenY": 639
+          }
+        ],
+        "touches": [
+          {
+            "clientX": 250.546875,
+            "clientY": 785.0780029296875,
+            "force": 1,
+            "pageX": 250.546875,
+            "pageY": 785.0780029296875,
+            "screenX": 214,
+            "screenY": 639
+          }
+        ]
+      },
+      "targetCandidates": [
+        "/view[1]/view[6]/view/view[1]/view"
+      ],
+      "timeStamp": 2459,
+      "waitfor": 1057,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "view",
+      "command": "touchend",
+      "target": "/view[1]/view[6]/view/view[1]/view",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "更改每日运动目标",
+      "eventData": {
+        "detail": {},
+        "changedTouches": [
+          {
+            "clientX": 250.546875,
+            "clientY": 785.0780029296875,
+            "pageX": 250.546875,
+            "pageY": 785.0780029296875,
+            "screenX": 214,
+            "screenY": 639
+          }
+        ],
+        "touches": []
+      },
+      "targetCandidates": [
+        "/view[1]/view[6]/view/view[1]/view"
+      ],
+      "timeStamp": 2569,
+      "waitfor": 110,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "view",
+      "command": "tap",
+      "target": "/view[1]/view[6]/view/view[1]/view",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "更改每日运动目标",
+      "eventData": {
+        "detail": {
+          "x": 250.546875,
+          "y": 785.0780029296875
+        },
+        "changedTouches": [
+          {
+            "clientX": 250.546875,
+            "clientY": 785.0780029296875,
+            "force": 1,
+            "pageX": 250.546875,
+            "pageY": 785.0780029296875,
+            "screenX": 214,
+            "screenY": 639
+          }
+        ],
+        "touches": [
+          {
+            "clientX": 250.546875,
+            "clientY": 785.0780029296875,
+            "force": 1,
+            "pageX": 250.546875,
+            "pageY": 785.0780029296875,
+            "screenX": 214,
+            "screenY": 639
+          }
+        ]
+      },
+      "targetCandidates": [
+        "/view[1]/view[6]/view/view[1]/view"
+      ],
+      "timeStamp": 2569,
+      "waitfor": 0,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "view",
+      "command": "touchstart",
+      "target": "view.picker",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {},
+        "changedTouches": [
+          {
+            "clientX": 329.578125,
+            "clientY": 400.3984680175781,
+            "force": 1,
+            "pageX": 329.578125,
+            "pageY": 400.3984680175781,
+            "screenX": 263,
+            "screenY": 400.5
+          }
+        ],
+        "touches": [
+          {
+            "clientX": 329.578125,
+            "clientY": 400.3984680175781,
+            "force": 1,
+            "pageX": 329.578125,
+            "pageY": 400.3984680175781,
+            "screenX": 263,
+            "screenY": 400.5
+          }
+        ]
+      },
+      "targetCandidates": [
+        "view.picker",
+        ".picker",
+        "/view[1]/view[7]/view/view[2]/view[1]/picker/view"
+      ],
+      "timeStamp": 3515,
+      "waitfor": 946,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "view",
+      "command": "touchend",
+      "target": "view.picker",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {},
+        "changedTouches": [
+          {
+            "clientX": 329.58062744140625,
+            "clientY": 398.3871154785156,
+            "pageX": 329.58062744140625,
+            "pageY": 398.3871154785156,
+            "screenX": 263,
+            "screenY": 399.5
+          }
+        ],
+        "touches": []
+      },
+      "targetCandidates": [
+        "view.picker",
+        ".picker",
+        "/view[1]/view[7]/view/view[2]/view[1]/picker/view"
+      ],
+      "timeStamp": 3603,
+      "waitfor": 88,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "view",
+      "command": "tap",
+      "target": "view.picker",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {
+          "x": 329.58062744140625,
+          "y": 398.3871154785156
+        },
+        "changedTouches": [
+          {
+            "clientX": 329.578125,
+            "clientY": 400.3984680175781,
+            "force": 1,
+            "pageX": 329.578125,
+            "pageY": 400.3984680175781,
+            "screenX": 263,
+            "screenY": 400.5
+          }
+        ],
+        "touches": [
+          {
+            "clientX": 329.578125,
+            "clientY": 400.3984680175781,
+            "force": 1,
+            "pageX": 329.578125,
+            "pageY": 400.3984680175781,
+            "screenX": 263,
+            "screenY": 400.5
+          }
+        ]
+      },
+      "targetCandidates": [
+        "view.picker",
+        ".picker",
+        "/view[1]/view[7]/view/view[2]/view[1]/picker/view"
+      ],
+      "timeStamp": 3603,
+      "waitfor": 0,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "picker",
+      "command": "columnchange",
+      "target": "/view[1]/view[7]/view/view[2]/view[1]/picker",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {
+          "column": 0,
+          "value": 1
+        },
+        "changedTouches": [],
+        "touches": []
+      },
+      "targetCandidates": [
+        "/view[1]/view[7]/view/view[2]/view[1]/picker"
+      ],
+      "timeStamp": 4751,
+      "waitfor": 1148,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "picker",
+      "command": "columnchange",
+      "target": "/view[1]/view[7]/view/view[2]/view[1]/picker",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {
+          "column": 1,
+          "value": 2
+        },
+        "changedTouches": [],
+        "touches": []
+      },
+      "targetCandidates": [
+        "/view[1]/view[7]/view/view[2]/view[1]/picker"
+      ],
+      "timeStamp": 5807,
+      "waitfor": 1056,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "picker",
+      "command": "columnchange",
+      "target": "/view[1]/view[7]/view/view[2]/view[1]/picker",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {
+          "column": 1,
+          "value": 4
+        },
+        "changedTouches": [],
+        "touches": []
+      },
+      "targetCandidates": [
+        "/view[1]/view[7]/view/view[2]/view[1]/picker"
+      ],
+      "timeStamp": 6289,
+      "waitfor": 482,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "picker",
+      "command": "columnchange",
+      "target": "/view[1]/view[7]/view/view[2]/view[1]/picker",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {
+          "column": 1,
+          "value": 7
+        },
+        "changedTouches": [],
+        "touches": []
+      },
+      "targetCandidates": [
+        "/view[1]/view[7]/view/view[2]/view[1]/picker"
+      ],
+      "timeStamp": 6770,
+      "waitfor": 481,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "picker",
+      "command": "columnchange",
+      "target": "/view[1]/view[7]/view/view[2]/view[1]/picker",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {
+          "column": 1,
+          "value": 9
+        },
+        "changedTouches": [],
+        "touches": []
+      },
+      "targetCandidates": [
+        "/view[1]/view[7]/view/view[2]/view[1]/picker"
+      ],
+      "timeStamp": 7337,
+      "waitfor": 567,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "picker",
+      "command": "columnchange",
+      "target": "/view[1]/view[7]/view/view[2]/view[1]/picker",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {
+          "column": 1,
+          "value": 11
+        },
+        "changedTouches": [],
+        "touches": []
+      },
+      "targetCandidates": [
+        "/view[1]/view[7]/view/view[2]/view[1]/picker"
+      ],
+      "timeStamp": 7896,
+      "waitfor": 559,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "picker",
+      "command": "columnchange",
+      "target": "/view[1]/view[7]/view/view[2]/view[1]/picker",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {
+          "column": 1,
+          "value": 13
+        },
+        "changedTouches": [],
+        "touches": []
+      },
+      "targetCandidates": [
+        "/view[1]/view[7]/view/view[2]/view[1]/picker"
+      ],
+      "timeStamp": 8504,
+      "waitfor": 608,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "picker",
+      "command": "columnchange",
+      "target": "/view[1]/view[7]/view/view[2]/view[1]/picker",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {
+          "column": 1,
+          "value": 16
+        },
+        "changedTouches": [],
+        "touches": []
+      },
+      "targetCandidates": [
+        "/view[1]/view[7]/view/view[2]/view[1]/picker"
+      ],
+      "timeStamp": 9058,
+      "waitfor": 554,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "picker",
+      "command": "columnchange",
+      "target": "/view[1]/view[7]/view/view[2]/view[1]/picker",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {
+          "column": 1,
+          "value": 18
+        },
+        "changedTouches": [],
+        "touches": []
+      },
+      "targetCandidates": [
+        "/view[1]/view[7]/view/view[2]/view[1]/picker"
+      ],
+      "timeStamp": 9702,
+      "waitfor": 644,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "picker",
+      "command": "columnchange",
+      "target": "/view[1]/view[7]/view/view[2]/view[1]/picker",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {
+          "column": 1,
+          "value": 20
+        },
+        "changedTouches": [],
+        "touches": []
+      },
+      "targetCandidates": [
+        "/view[1]/view[7]/view/view[2]/view[1]/picker"
+      ],
+      "timeStamp": 10351,
+      "waitfor": 649,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "picker",
+      "command": "columnchange",
+      "target": "/view[1]/view[7]/view/view[2]/view[1]/picker",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {
+          "column": 1,
+          "value": 22
+        },
+        "changedTouches": [],
+        "touches": []
+      },
+      "targetCandidates": [
+        "/view[1]/view[7]/view/view[2]/view[1]/picker"
+      ],
+      "timeStamp": 10956,
+      "waitfor": 605,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "picker",
+      "command": "columnchange",
+      "target": "/view[1]/view[7]/view/view[2]/view[1]/picker",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {
+          "column": 1,
+          "value": 24
+        },
+        "changedTouches": [],
+        "touches": []
+      },
+      "targetCandidates": [
+        "/view[1]/view[7]/view/view[2]/view[1]/picker"
+      ],
+      "timeStamp": 11570,
+      "waitfor": 614,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "picker",
+      "command": "columnchange",
+      "target": "/view[1]/view[7]/view/view[2]/view[1]/picker",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {
+          "column": 1,
+          "value": 26
+        },
+        "changedTouches": [],
+        "touches": []
+      },
+      "targetCandidates": [
+        "/view[1]/view[7]/view/view[2]/view[1]/picker"
+      ],
+      "timeStamp": 12119,
+      "waitfor": 549,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "picker",
+      "command": "columnchange",
+      "target": "/view[1]/view[7]/view/view[2]/view[1]/picker",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {
+          "column": 1,
+          "value": 28
+        },
+        "changedTouches": [],
+        "touches": []
+      },
+      "targetCandidates": [
+        "/view[1]/view[7]/view/view[2]/view[1]/picker"
+      ],
+      "timeStamp": 12531,
+      "waitfor": 412,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "picker",
+      "command": "columnchange",
+      "target": "/view[1]/view[7]/view/view[2]/view[1]/picker",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {
+          "column": 1,
+          "value": 30
+        },
+        "changedTouches": [],
+        "touches": []
+      },
+      "targetCandidates": [
+        "/view[1]/view[7]/view/view[2]/view[1]/picker"
+      ],
+      "timeStamp": 13995,
+      "waitfor": 1464,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "timeStamp": 14506,
+      "waitfor": 511,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "native",
+      "command": "hidePickerView",
+      "target": "/view[1]/view[7]/view/view[2]/view[1]/picker"
+    },
+    {
+      "tagName": "input",
+      "command": "touchstart",
+      "target": "/view[1]/view[7]/view/view[2]/view[2]/input",
+      "childName": "input",
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {}
+      },
+      "targetCandidates": [
+        "/view[1]/view[7]/view/view[2]/view[2]/input"
+      ],
+      "timeStamp": 15208,
+      "waitfor": 702,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "input",
+      "command": "touchend",
+      "target": "/view[1]/view[7]/view/view[2]/view[2]/input",
+      "childName": "input",
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {}
+      },
+      "targetCandidates": [
+        "/view[1]/view[7]/view/view[2]/view[2]/input"
+      ],
+      "timeStamp": 15223,
+      "waitfor": 15,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "input",
+      "command": "tap",
+      "target": "/view[1]/view[7]/view/view[2]/view[2]/input",
+      "childName": "input",
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {
+          "x": 348.1250305175781,
+          "y": 455.2343444824219
+        }
+      },
+      "targetCandidates": [
+        "/view[1]/view[7]/view/view[2]/view[2]/input"
+      ],
+      "timeStamp": 15224,
+      "waitfor": 1,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "picker",
+      "command": "change",
+      "target": "/view[1]/view[7]/view/view[2]/view[1]/picker",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {
+          "value": [
+            1,
+            30,
+            0
+          ]
+        },
+        "changedTouches": [],
+        "touches": []
+      },
+      "targetCandidates": [
+        "/view[1]/view[7]/view/view[2]/view[1]/picker"
+      ],
+      "timeStamp": 15508,
+      "waitfor": 284,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "input",
+      "command": "input",
+      "target": "/view[1]/view[7]/view/view[2]/view[2]/input",
+      "value": "1000",
+      "path": "pages/today/today",
+      "text": "",
+      "eventData": {
+        "detail": {
+          "value": "1000",
+          "cursor": 4,
+          "keyCode": 48
+        }
+      },
+      "targetCandidates": [
+        "/view[1]/view[7]/view/view[2]/view[2]/input"
+      ],
+      "timeStamp": 18371,
+      "waitfor": 2863,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "input",
+      "command": "touchstart",
+      "target": "/view[1]/view[7]/view/view[2]/view[3]/input",
+      "childName": "input",
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {}
+      },
+      "targetCandidates": [
+        "/view[1]/view[7]/view/view[2]/view[3]/input"
+      ],
+      "timeStamp": 19526,
+      "waitfor": 1155,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "input",
+      "command": "touchend",
+      "target": "/view[1]/view[7]/view/view[2]/view[3]/input",
+      "childName": "input",
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {}
+      },
+      "targetCandidates": [
+        "/view[1]/view[7]/view/view[2]/view[3]/input"
+      ],
+      "timeStamp": 19610,
+      "waitfor": 84,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "input",
+      "command": "tap",
+      "target": "/view[1]/view[7]/view/view[2]/view[3]/input",
+      "childName": "input",
+      "path": "pages/today/today",
+      "text": "未设定",
+      "eventData": {
+        "detail": {
+          "x": 346.51611328125,
+          "y": 504.8387145996094
+        }
+      },
+      "targetCandidates": [
+        "/view[1]/view[7]/view/view[2]/view[3]/input"
+      ],
+      "timeStamp": 19611,
+      "waitfor": 1,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "input",
+      "command": "input",
+      "target": "/view[1]/view[7]/view/view[2]/view[3]/input",
+      "value": "500",
+      "path": "pages/today/today",
+      "text": "",
+      "eventData": {
+        "detail": {
+          "value": "500",
+          "cursor": 3,
+          "keyCode": 48
+        }
+      },
+      "targetCandidates": [
+        "/view[1]/view[7]/view/view[2]/view[3]/input"
+      ],
+      "timeStamp": 20743,
+      "waitfor": 1132,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "view",
+      "command": "touchstart",
+      "target": "view.action.margin-0.flex-sub.text-green.solid-left",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "确定",
+      "eventData": {
+        "detail": {},
+        "changedTouches": [
+          {
+            "clientX": 302.9609375,
+            "clientY": 563.3046875,
+            "force": 1,
+            "pageX": 302.9609375,
+            "pageY": 563.3046875,
+            "screenX": 246.5,
+            "screenY": 501.5
+          }
+        ],
+        "touches": [
+          {
+            "clientX": 302.9609375,
+            "clientY": 563.3046875,
+            "force": 1,
+            "pageX": 302.9609375,
+            "pageY": 563.3046875,
+            "screenX": 246.5,
+            "screenY": 501.5
+          }
+        ]
+      },
+      "targetCandidates": [
+        "view.action.margin-0.flex-sub.text-green.solid-left",
+        ".action.margin-0.flex-sub.text-green.solid-left",
+        "/view[1]/view[7]/view/view[3]/view[2]"
+      ],
+      "timeStamp": 21727,
+      "waitfor": 984,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "view",
+      "command": "touchend",
+      "target": "view.action.margin-0.flex-sub.text-green.solid-left",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "确定",
+      "eventData": {
+        "detail": {},
+        "changedTouches": [
+          {
+            "clientX": 302.9609375,
+            "clientY": 563.3046875,
+            "pageX": 302.9609375,
+            "pageY": 563.3046875,
+            "screenX": 246.5,
+            "screenY": 501.5
+          }
+        ],
+        "touches": []
+      },
+      "targetCandidates": [
+        "view.action.margin-0.flex-sub.text-green.solid-left",
+        ".action.margin-0.flex-sub.text-green.solid-left",
+        "/view[1]/view[7]/view/view[3]/view[2]"
+      ],
+      "timeStamp": 21824,
+      "waitfor": 97,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "view",
+      "command": "tap",
+      "target": "view.action.margin-0.flex-sub.text-green.solid-left",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "确定",
+      "eventData": {
+        "detail": {
+          "x": 302.9609375,
+          "y": 563.3046875
+        },
+        "changedTouches": [
+          {
+            "clientX": 302.9609375,
+            "clientY": 563.3046875,
+            "force": 1,
+            "pageX": 302.9609375,
+            "pageY": 563.3046875,
+            "screenX": 246.5,
+            "screenY": 501.5
+          }
+        ],
+        "touches": [
+          {
+            "clientX": 302.9609375,
+            "clientY": 563.3046875,
+            "force": 1,
+            "pageX": 302.9609375,
+            "pageY": 563.3046875,
+            "screenX": 246.5,
+            "screenY": 501.5
+          }
+        ]
+      },
+      "targetCandidates": [
+        "view.action.margin-0.flex-sub.text-green.solid-left",
+        ".action.margin-0.flex-sub.text-green.solid-left",
+        "/view[1]/view[7]/view/view[3]/view[2]"
+      ],
+      "timeStamp": 21824,
+      "waitfor": 0,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "view",
+      "command": "touchstart",
+      "target": "/view[1]/view[3]/view[1]",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "智能建议",
+      "eventData": {
+        "detail": {},
+        "changedTouches": [
+          {
+            "clientX": 373.9297180175781,
+            "clientY": 412.5000305175781,
+            "force": 1,
+            "pageX": 373.9297180175781,
+            "pageY": 412.5000305175781,
+            "screenX": 290.5,
+            "screenY": 408
+          }
+        ],
+        "touches": [
+          {
+            "clientX": 373.9297180175781,
+            "clientY": 412.5000305175781,
+            "force": 1,
+            "pageX": 373.9297180175781,
+            "pageY": 412.5000305175781,
+            "screenX": 290.5,
+            "screenY": 408
+          }
+        ]
+      },
+      "targetCandidates": [
+        "/view[1]/view[3]/view[1]"
+      ],
+      "timeStamp": 22770,
+      "waitfor": 946,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "view",
+      "command": "touchend",
+      "target": "/view[1]/view[3]/view[1]",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "智能建议",
+      "eventData": {
+        "detail": {},
+        "changedTouches": [
+          {
+            "clientX": 373.1290283203125,
+            "clientY": 412.0967712402344,
+            "pageX": 373.1290283203125,
+            "pageY": 412.0967712402344,
+            "screenX": 290,
+            "screenY": 408
+          }
+        ],
+        "touches": []
+      },
+      "targetCandidates": [
+        "/view[1]/view[3]/view[1]"
+      ],
+      "timeStamp": 22864,
+      "waitfor": 94,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "tagName": "view",
+      "command": "tap",
+      "target": "/view[1]/view[3]/view[1]",
+      "value": null,
+      "path": "pages/today/today",
+      "text": "智能建议",
+      "eventData": {
+        "detail": {
+          "x": 373.1290283203125,
+          "y": 412.0967712402344
+        },
+        "changedTouches": [
+          {
+            "clientX": 373.9297180175781,
+            "clientY": 412.5000305175781,
+            "force": 1,
+            "pageX": 373.9297180175781,
+            "pageY": 412.5000305175781,
+            "screenX": 290.5,
+            "screenY": 408
+          }
+        ],
+        "touches": [
+          {
+            "clientX": 373.9297180175781,
+            "clientY": 412.5000305175781,
+            "force": 1,
+            "pageX": 373.9297180175781,
+            "pageY": 412.5000305175781,
+            "screenX": 290.5,
+            "screenY": 408
+          }
+        ]
+      },
+      "targetCandidates": [
+        "/view[1]/view[3]/view[1]"
+      ],
+      "timeStamp": 22865,
+      "waitfor": 1,
+      "desc": "",
+      "commandType": "operate",
+      "layer": "pageframe"
+    },
+    {
+      "timeStamp": 24954,
+      "waitfor": 2089,
+      "desc": "",
+      "layer": "tool",
+      "commandType": "operate",
+      "command": "stopRecord"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "startTime": 1715308726853,
+  "endTime": 1715308741839,
+  "numTotalTests": 3,
+  "numTodoTests": 2,
+  "testResults": [],
+  "success": false,
+  "numPassedTests": 0,
+  "numFailedTests": 0,
+  "env": {
+    "wxapplibVersion": "3.4.1",
+    "simulatorType": "wechat",
+    "devtoolsVersion": "1.06.2402040",
+    "openid": "o6zAJs1i4asMJo73EyFO-pZ7TsB0",
+    "device": "iPhone XR"
+  }
+}

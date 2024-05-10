@@ -1,0 +1,1397 @@
+{
+  "replayResult": "failed",
+  "startTime": 1715308710014,
+  "endTime": 1715308741877,
+  "replayResults": [
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 0,
+      "status": "processing",
+      "command": {
+        "layer": "tool",
+        "commandType": "operate",
+        "command": "startRecord",
+        "waitfor": 0,
+        "timeStamp": 1715308544938,
+        "desc": ""
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 1,
+      "replayResult": "failed",
+      "message": "[pageframe] path error: pages/login/login not equal to pages/today/today",
+      "status": "processing",
+      "commandName": "touchstart",
+      "received": "<page><cu-custom is=\"colorui/components/cu-custom/cu-custom\"><view class=\"cu-custom custom--cu-custom\" style=\"height:84px;z-index: 99999;\"><view class=\"cu-bar custom--cu-bar fixed custom--fixed bg-gradual-pink custom--bg-gradual-pink\" style=\"height:84px;padding-top:44px;\"><view class=\"content custom--content text-center custom--text-center text-lg custom--text-lg text-cut custom--text-cut\" style=\"top:44px; width: 176px;\"><view>FitTrack</view></view></view></view></cu-custom><view class=\"login-container\"><view class=\"title\">登录 FitTrack</view><view class=\"login-box\"><form><label>用户名</label><input class=\"login-box-input\" name=\"username\" placeholder=\"请输入用户名\">请输入用户名</input><label>密码</label><input class=\"login-box-input\" name=\"password\" password=\"\" placeholder=\"请输入密码\">请输入密码</input><button class=\"login-btn\" form-type=\"submit\" role=\"button\" aria-disabled=\"false\">立即登录</button></form><button class=\"signup-btn\" role=\"button\" aria-disabled=\"false\">新用户注册</button><view class=\"three-line\">一一一一一 第三方登录 一一一一一</view><button class=\"login-btn\" style=\"background-color:green;\" role=\"button\" aria-disabled=\"false\">微信登录</button></view></view></page>",
+      "command": {
+        "tagName": "text",
+        "command": "touchstart",
+        "target": "text.cuIcon-add.black",
+        "value": null,
+        "path": "pages/today/today",
+        "text": "",
+        "eventData": {
+          "detail": {},
+          "changedTouches": [
+            {
+              "clientX": 359.4140625,
+              "clientY": 131.8515625,
+              "force": 1,
+              "pageX": 359.4140625,
+              "pageY": 131.8515625,
+              "screenX": 281.5,
+              "screenY": 234
+            }
+          ],
+          "touches": [
+            {
+              "clientX": 359.4140625,
+              "clientY": 131.8515625,
+              "force": 1,
+              "pageX": 359.4140625,
+              "pageY": 131.8515625,
+              "screenX": 281.5,
+              "screenY": 234
+            }
+          ]
+        },
+        "targetCandidates": [
+          "text.cuIcon-add.black",
+          ".cuIcon-add.black",
+          "/view[1]/view[1]/view[2]/view[2]/view/button/view/text"
+        ],
+        "timeStamp": 1437,
+        "waitfor": 1437,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe",
+        "useExparserEvent": true,
+        "pageId": 21
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 2,
+      "replayResult": "failed",
+      "message": "[pageframe] path error: pages/login/login not equal to pages/today/today",
+      "status": "processing",
+      "commandName": "touchend",
+      "received": "<page><cu-custom is=\"colorui/components/cu-custom/cu-custom\"><view class=\"cu-custom custom--cu-custom\" style=\"height:84px;z-index: 99999;\"><view class=\"cu-bar custom--cu-bar fixed custom--fixed bg-gradual-pink custom--bg-gradual-pink\" style=\"height:84px;padding-top:44px;\"><view class=\"content custom--content text-center custom--text-center text-lg custom--text-lg text-cut custom--text-cut\" style=\"top:44px; width: 176px;\"><view>FitTrack</view></view></view></view></cu-custom><view class=\"login-container\"><view class=\"title\">登录 FitTrack</view><view class=\"login-box\"><form><label>用户名</label><input class=\"login-box-input\" name=\"username\" placeholder=\"请输入用户名\">请输入用户名</input><label>密码</label><input class=\"login-box-input\" name=\"password\" password=\"\" placeholder=\"请输入密码\">请输入密码</input><button class=\"login-btn\" form-type=\"submit\" role=\"button\" aria-disabled=\"false\">立即登录</button></form><button class=\"signup-btn\" role=\"button\" aria-disabled=\"false\">新用户注册</button><view class=\"three-line\">一一一一一 第三方登录 一一一一一</view><button class=\"login-btn\" style=\"background-color:green;\" role=\"button\" aria-disabled=\"false\">微信登录</button></view></view></page>",
+      "command": {
+        "tagName": "text",
+        "command": "touchend",
+        "target": "text.cuIcon-add.black",
+        "value": null,
+        "path": "pages/today/today",
+        "text": "",
+        "eventData": {
+          "detail": {},
+          "changedTouches": [
+            {
+              "clientX": 359.4140625,
+              "clientY": 131.8515625,
+              "pageX": 359.4140625,
+              "pageY": 131.8515625,
+              "screenX": 281.5,
+              "screenY": 234
+            }
+          ],
+          "touches": []
+        },
+        "targetCandidates": [
+          "text.cuIcon-add.black",
+          ".cuIcon-add.black",
+          "/view[1]/view[1]/view[2]/view[2]/view/button/view/text"
+        ],
+        "timeStamp": 1523,
+        "waitfor": 86,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe",
+        "useExparserEvent": true,
+        "pageId": 21
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 3,
+      "replayResult": "failed",
+      "message": "[pageframe] path error: pages/login/login not equal to pages/today/today",
+      "status": "processing",
+      "commandName": "tap",
+      "received": "<page><cu-custom is=\"colorui/components/cu-custom/cu-custom\"><view class=\"cu-custom custom--cu-custom\" style=\"height:84px;z-index: 99999;\"><view class=\"cu-bar custom--cu-bar fixed custom--fixed bg-gradual-pink custom--bg-gradual-pink\" style=\"height:84px;padding-top:44px;\"><view class=\"content custom--content text-center custom--text-center text-lg custom--text-lg text-cut custom--text-cut\" style=\"top:44px; width: 176px;\"><view>FitTrack</view></view></view></view></cu-custom><view class=\"login-container\"><view class=\"title\">登录 FitTrack</view><view class=\"login-box\"><form><label>用户名</label><input class=\"login-box-input\" name=\"username\" placeholder=\"请输入用户名\">请输入用户名</input><label>密码</label><input class=\"login-box-input\" name=\"password\" password=\"\" placeholder=\"请输入密码\">请输入密码</input><button class=\"login-btn\" form-type=\"submit\" role=\"button\" aria-disabled=\"false\">立即登录</button></form><button class=\"signup-btn\" role=\"button\" aria-disabled=\"false\">新用户注册</button><view class=\"three-line\">一一一一一 第三方登录 一一一一一</view><button class=\"login-btn\" style=\"background-color:green;\" role=\"button\" aria-disabled=\"false\">微信登录</button></view></view></page>",
+      "command": {
+        "tagName": "text",
+        "command": "tap",
+        "target": "text.cuIcon-add.black",
+        "value": null,
+        "path": "pages/today/today",
+        "text": "",
+        "eventData": {
+          "detail": {
+            "x": 359.4140625,
+            "y": 131.8515625
+          },
+          "changedTouches": [
+            {
+              "clientX": 359.4140625,
+              "clientY": 131.8515625,
+              "force": 1,
+              "pageX": 359.4140625,
+              "pageY": 131.8515625,
+              "screenX": 281.5,
+              "screenY": 234
+            }
+          ],
+          "touches": [
+            {
+              "clientX": 359.4140625,
+              "clientY": 131.8515625,
+              "force": 1,
+              "pageX": 359.4140625,
+              "pageY": 131.8515625,
+              "screenX": 281.5,
+              "screenY": 234
+            }
+          ]
+        },
+        "targetCandidates": [
+          "text.cuIcon-add.black",
+          ".cuIcon-add.black",
+          "/view[1]/view[1]/view[2]/view[2]/view/button/view/text"
+        ],
+        "timeStamp": 1524,
+        "waitfor": 1,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe",
+        "useExparserEvent": true,
+        "pageId": 21
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 4,
+      "replayResult": "failed",
+      "message": "[pageframe] path error: pages/login/login not equal to pages/today/today",
+      "status": "processing",
+      "commandName": "touchstart",
+      "received": "<page><cu-custom is=\"colorui/components/cu-custom/cu-custom\"><view class=\"cu-custom custom--cu-custom\" style=\"height:84px;z-index: 99999;\"><view class=\"cu-bar custom--cu-bar fixed custom--fixed bg-gradual-pink custom--bg-gradual-pink\" style=\"height:84px;padding-top:44px;\"><view class=\"content custom--content text-center custom--text-center text-lg custom--text-lg text-cut custom--text-cut\" style=\"top:44px; width: 176px;\"><view>FitTrack</view></view></view></view></cu-custom><view class=\"login-container\"><view class=\"title\">登录 FitTrack</view><view class=\"login-box\"><form><label>用户名</label><input class=\"login-box-input\" name=\"username\" placeholder=\"请输入用户名\">请输入用户名</input><label>密码</label><input class=\"login-box-input\" name=\"password\" password=\"\" placeholder=\"请输入密码\">请输入密码</input><button class=\"login-btn\" form-type=\"submit\" role=\"button\" aria-disabled=\"false\">立即登录</button></form><button class=\"signup-btn\" role=\"button\" aria-disabled=\"false\">新用户注册</button><view class=\"three-line\">一一一一一 第三方登录 一一一一一</view><button class=\"login-btn\" style=\"background-color:green;\" role=\"button\" aria-disabled=\"false\">微信登录</button></view></view></page>",
+      "command": {
+        "tagName": "view",
+        "command": "touchstart",
+        "target": "/view[1]/view[5]/view/view[1]/view",
+        "value": null,
+        "path": "pages/today/today",
+        "text": "添加运动",
+        "eventData": {
+          "detail": {},
+          "changedTouches": [
+            {
+              "clientX": 224.734375,
+              "clientY": 662.5,
+              "force": 1,
+              "pageX": 224.734375,
+              "pageY": 662.5,
+              "screenX": 198,
+              "screenY": 563
+            }
+          ],
+          "touches": [
+            {
+              "clientX": 224.734375,
+              "clientY": 662.5,
+              "force": 1,
+              "pageX": 224.734375,
+              "pageY": 662.5,
+              "screenX": 198,
+              "screenY": 563
+            }
+          ]
+        },
+        "targetCandidates": [
+          "/view[1]/view[5]/view/view[1]/view"
+        ],
+        "timeStamp": 2522,
+        "waitfor": 998,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe",
+        "useExparserEvent": true,
+        "pageId": 21
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 5,
+      "replayResult": "failed",
+      "message": "[pageframe] path error: pages/login/login not equal to pages/today/today",
+      "status": "processing",
+      "commandName": "touchend",
+      "received": "<page><cu-custom is=\"colorui/components/cu-custom/cu-custom\"><view class=\"cu-custom custom--cu-custom\" style=\"height:84px;z-index: 99999;\"><view class=\"cu-bar custom--cu-bar fixed custom--fixed bg-gradual-pink custom--bg-gradual-pink\" style=\"height:84px;padding-top:44px;\"><view class=\"content custom--content text-center custom--text-center text-lg custom--text-lg text-cut custom--text-cut\" style=\"top:44px; width: 176px;\"><view>FitTrack</view></view></view></view></cu-custom><view class=\"login-container\"><view class=\"title\">登录 FitTrack</view><view class=\"login-box\"><form><label>用户名</label><input class=\"login-box-input\" name=\"username\" placeholder=\"请输入用户名\">请输入用户名</input><label>密码</label><input class=\"login-box-input\" name=\"password\" password=\"\" placeholder=\"请输入密码\">请输入密码</input><button class=\"login-btn\" form-type=\"submit\" role=\"button\" aria-disabled=\"false\">立即登录</button></form><button class=\"signup-btn\" role=\"button\" aria-disabled=\"false\">新用户注册</button><view class=\"three-line\">一一一一一 第三方登录 一一一一一</view><button class=\"login-btn\" style=\"background-color:green;\" role=\"button\" aria-disabled=\"false\">微信登录</button></view></view></page>",
+      "command": {
+        "tagName": "view",
+        "command": "touchend",
+        "target": "/view[1]/view[5]/view/view[1]/view",
+        "value": null,
+        "path": "pages/today/today",
+        "text": "添加运动",
+        "eventData": {
+          "detail": {},
+          "changedTouches": [
+            {
+              "clientX": 224.734375,
+              "clientY": 662.5,
+              "pageX": 224.734375,
+              "pageY": 662.5,
+              "screenX": 198,
+              "screenY": 563
+            }
+          ],
+          "touches": []
+        },
+        "targetCandidates": [
+          "/view[1]/view[5]/view/view[1]/view"
+        ],
+        "timeStamp": 2611,
+        "waitfor": 89,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe",
+        "useExparserEvent": true,
+        "pageId": 21
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 6,
+      "replayResult": "failed",
+      "message": "[pageframe] path error: pages/login/login not equal to pages/today/today",
+      "status": "processing",
+      "commandName": "tap",
+      "received": "<page><cu-custom is=\"colorui/components/cu-custom/cu-custom\"><view class=\"cu-custom custom--cu-custom\" style=\"height:84px;z-index: 99999;\"><view class=\"cu-bar custom--cu-bar fixed custom--fixed bg-gradual-pink custom--bg-gradual-pink\" style=\"height:84px;padding-top:44px;\"><view class=\"content custom--content text-center custom--text-center text-lg custom--text-lg text-cut custom--text-cut\" style=\"top:44px; width: 176px;\"><view>FitTrack</view></view></view></view></cu-custom><view class=\"login-container\"><view class=\"title\">登录 FitTrack</view><view class=\"login-box\"><form><label>用户名</label><input class=\"login-box-input\" name=\"username\" placeholder=\"请输入用户名\">请输入用户名</input><label>密码</label><input class=\"login-box-input\" name=\"password\" password=\"\" placeholder=\"请输入密码\">请输入密码</input><button class=\"login-btn\" form-type=\"submit\" role=\"button\" aria-disabled=\"false\">立即登录</button></form><button class=\"signup-btn\" role=\"button\" aria-disabled=\"false\">新用户注册</button><view class=\"three-line\">一一一一一 第三方登录 一一一一一</view><button class=\"login-btn\" style=\"background-color:green;\" role=\"button\" aria-disabled=\"false\">微信登录</button></view></view></page>",
+      "command": {
+        "tagName": "view",
+        "command": "tap",
+        "target": "/view[1]/view[5]/view/view[1]/view",
+        "value": null,
+        "path": "pages/today/today",
+        "text": "添加运动",
+        "eventData": {
+          "detail": {
+            "x": 224.734375,
+            "y": 662.5
+          },
+          "changedTouches": [
+            {
+              "clientX": 224.734375,
+              "clientY": 662.5,
+              "force": 1,
+              "pageX": 224.734375,
+              "pageY": 662.5,
+              "screenX": 198,
+              "screenY": 563
+            }
+          ],
+          "touches": [
+            {
+              "clientX": 224.734375,
+              "clientY": 662.5,
+              "force": 1,
+              "pageX": 224.734375,
+              "pageY": 662.5,
+              "screenX": 198,
+              "screenY": 563
+            }
+          ]
+        },
+        "targetCandidates": [
+          "/view[1]/view[5]/view/view[1]/view"
+        ],
+        "timeStamp": 2612,
+        "waitfor": 1,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe",
+        "useExparserEvent": true,
+        "pageId": 21
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 7,
+      "replayResult": "failed",
+      "message": "[pageframe] path error: pages/login/login not equal to pages/today/add_sport/add_sport",
+      "status": "processing",
+      "commandName": "touchstart",
+      "received": "<page><cu-custom is=\"colorui/components/cu-custom/cu-custom\"><view class=\"cu-custom custom--cu-custom\" style=\"height:84px;z-index: 99999;\"><view class=\"cu-bar custom--cu-bar fixed custom--fixed bg-gradual-pink custom--bg-gradual-pink\" style=\"height:84px;padding-top:44px;\"><view class=\"content custom--content text-center custom--text-center text-lg custom--text-lg text-cut custom--text-cut\" style=\"top:44px; width: 176px;\"><view>FitTrack</view></view></view></view></cu-custom><view class=\"login-container\"><view class=\"title\">登录 FitTrack</view><view class=\"login-box\"><form><label>用户名</label><input class=\"login-box-input\" name=\"username\" placeholder=\"请输入用户名\">请输入用户名</input><label>密码</label><input class=\"login-box-input\" name=\"password\" password=\"\" placeholder=\"请输入密码\">请输入密码</input><button class=\"login-btn\" form-type=\"submit\" role=\"button\" aria-disabled=\"false\">立即登录</button></form><button class=\"signup-btn\" role=\"button\" aria-disabled=\"false\">新用户注册</button><view class=\"three-line\">一一一一一 第三方登录 一一一一一</view><button class=\"login-btn\" style=\"background-color:green;\" role=\"button\" aria-disabled=\"false\">微信登录</button></view></view></page>",
+      "command": {
+        "tagName": "view",
+        "command": "touchstart",
+        "target": "/view/view[1]/view[3]/picker/view",
+        "value": null,
+        "path": "pages/today/add_sport/add_sport",
+        "text": "请选择运动类型",
+        "eventData": {
+          "detail": {},
+          "changedTouches": [
+            {
+              "clientX": 315.8671875,
+              "clientY": 277.8203430175781,
+              "force": 1,
+              "pageX": 315.8671875,
+              "pageY": 277.8203430175781,
+              "screenX": 254.5,
+              "screenY": 324.5
+            }
+          ],
+          "touches": [
+            {
+              "clientX": 315.8671875,
+              "clientY": 277.8203430175781,
+              "force": 1,
+              "pageX": 315.8671875,
+              "pageY": 277.8203430175781,
+              "screenX": 254.5,
+              "screenY": 324.5
+            }
+          ]
+        },
+        "targetCandidates": [
+          "/view/view[1]/view[3]/picker/view"
+        ],
+        "timeStamp": 4226,
+        "waitfor": 1614,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe",
+        "useExparserEvent": true,
+        "pageId": 21
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 8,
+      "replayResult": "failed",
+      "message": "[pageframe] path error: pages/login/login not equal to pages/today/add_sport/add_sport",
+      "status": "processing",
+      "commandName": "touchend",
+      "received": "<page><cu-custom is=\"colorui/components/cu-custom/cu-custom\"><view class=\"cu-custom custom--cu-custom\" style=\"height:84px;z-index: 99999;\"><view class=\"cu-bar custom--cu-bar fixed custom--fixed bg-gradual-pink custom--bg-gradual-pink\" style=\"height:84px;padding-top:44px;\"><view class=\"content custom--content text-center custom--text-center text-lg custom--text-lg text-cut custom--text-cut\" style=\"top:44px; width: 176px;\"><view>FitTrack</view></view></view></view></cu-custom><view class=\"login-container\"><view class=\"title\">登录 FitTrack</view><view class=\"login-box\"><form><label>用户名</label><input class=\"login-box-input\" name=\"username\" placeholder=\"请输入用户名\">请输入用户名</input><label>密码</label><input class=\"login-box-input\" name=\"password\" password=\"\" placeholder=\"请输入密码\">请输入密码</input><button class=\"login-btn\" form-type=\"submit\" role=\"button\" aria-disabled=\"false\">立即登录</button></form><button class=\"signup-btn\" role=\"button\" aria-disabled=\"false\">新用户注册</button><view class=\"three-line\">一一一一一 第三方登录 一一一一一</view><button class=\"login-btn\" style=\"background-color:green;\" role=\"button\" aria-disabled=\"false\">微信登录</button></view></view></page>",
+      "command": {
+        "tagName": "view",
+        "command": "touchend",
+        "target": "/view/view[1]/view[3]/picker/view",
+        "value": null,
+        "path": "pages/today/add_sport/add_sport",
+        "text": "请选择运动类型",
+        "eventData": {
+          "detail": {},
+          "changedTouches": [
+            {
+              "clientX": 315.8671875,
+              "clientY": 277.8203430175781,
+              "pageX": 315.8671875,
+              "pageY": 277.8203430175781,
+              "screenX": 254.5,
+              "screenY": 324.5
+            }
+          ],
+          "touches": []
+        },
+        "targetCandidates": [
+          "/view/view[1]/view[3]/picker/view"
+        ],
+        "timeStamp": 4324,
+        "waitfor": 98,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe",
+        "useExparserEvent": true,
+        "pageId": 21
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 9,
+      "replayResult": "failed",
+      "message": "[pageframe] path error: pages/login/login not equal to pages/today/add_sport/add_sport",
+      "status": "processing",
+      "commandName": "tap",
+      "received": "<page><cu-custom is=\"colorui/components/cu-custom/cu-custom\"><view class=\"cu-custom custom--cu-custom\" style=\"height:84px;z-index: 99999;\"><view class=\"cu-bar custom--cu-bar fixed custom--fixed bg-gradual-pink custom--bg-gradual-pink\" style=\"height:84px;padding-top:44px;\"><view class=\"content custom--content text-center custom--text-center text-lg custom--text-lg text-cut custom--text-cut\" style=\"top:44px; width: 176px;\"><view>FitTrack</view></view></view></view></cu-custom><view class=\"login-container\"><view class=\"title\">登录 FitTrack</view><view class=\"login-box\"><form><label>用户名</label><input class=\"login-box-input\" name=\"username\" placeholder=\"请输入用户名\">请输入用户名</input><label>密码</label><input class=\"login-box-input\" name=\"password\" password=\"\" placeholder=\"请输入密码\">请输入密码</input><button class=\"login-btn\" form-type=\"submit\" role=\"button\" aria-disabled=\"false\">立即登录</button></form><button class=\"signup-btn\" role=\"button\" aria-disabled=\"false\">新用户注册</button><view class=\"three-line\">一一一一一 第三方登录 一一一一一</view><button class=\"login-btn\" style=\"background-color:green;\" role=\"button\" aria-disabled=\"false\">微信登录</button></view></view></page>",
+      "command": {
+        "tagName": "view",
+        "command": "tap",
+        "target": "/view/view[1]/view[3]/picker/view",
+        "value": null,
+        "path": "pages/today/add_sport/add_sport",
+        "text": "请选择运动类型",
+        "eventData": {
+          "detail": {
+            "x": 315.8671875,
+            "y": 277.8203430175781
+          },
+          "changedTouches": [
+            {
+              "clientX": 315.8671875,
+              "clientY": 277.8203430175781,
+              "force": 1,
+              "pageX": 315.8671875,
+              "pageY": 277.8203430175781,
+              "screenX": 254.5,
+              "screenY": 324.5
+            }
+          ],
+          "touches": [
+            {
+              "clientX": 315.8671875,
+              "clientY": 277.8203430175781,
+              "force": 1,
+              "pageX": 315.8671875,
+              "pageY": 277.8203430175781,
+              "screenX": 254.5,
+              "screenY": 324.5
+            }
+          ]
+        },
+        "targetCandidates": [
+          "/view/view[1]/view[3]/picker/view"
+        ],
+        "timeStamp": 4324,
+        "waitfor": 0,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe",
+        "useExparserEvent": true,
+        "pageId": 21
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 10,
+      "replayResult": "failed",
+      "message": "target /view/view[1]/view[3]/picker not found",
+      "status": "processing",
+      "commandName": "hidePickerView",
+      "command": {
+        "timeStamp": 5743,
+        "waitfor": 1419,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "native",
+        "command": "hidePickerView",
+        "data": {
+          "value": "0"
+        },
+        "target": "/view/view[1]/view[3]/picker",
+        "useExparserEvent": true
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 11,
+      "replayResult": "failed",
+      "message": "[pageframe] path error: pages/login/login not equal to pages/today/add_sport/add_sport",
+      "status": "processing",
+      "commandName": "change",
+      "received": "<page><cu-custom is=\"colorui/components/cu-custom/cu-custom\"><view class=\"cu-custom custom--cu-custom\" style=\"height:84px;z-index: 99999;\"><view class=\"cu-bar custom--cu-bar fixed custom--fixed bg-gradual-pink custom--bg-gradual-pink\" style=\"height:84px;padding-top:44px;\"><view class=\"content custom--content text-center custom--text-center text-lg custom--text-lg text-cut custom--text-cut\" style=\"top:44px; width: 176px;\"><view>FitTrack</view></view></view></view></cu-custom><view class=\"login-container\"><view class=\"title\">登录 FitTrack</view><view class=\"login-box\"><form><label>用户名</label><input class=\"login-box-input\" name=\"username\" placeholder=\"请输入用户名\">请输入用户名</input><label>密码</label><input class=\"login-box-input\" name=\"password\" password=\"\" placeholder=\"请输入密码\">请输入密码</input><button class=\"login-btn\" form-type=\"submit\" role=\"button\" aria-disabled=\"false\">立即登录</button></form><button class=\"signup-btn\" role=\"button\" aria-disabled=\"false\">新用户注册</button><view class=\"three-line\">一一一一一 第三方登录 一一一一一</view><button class=\"login-btn\" style=\"background-color:green;\" role=\"button\" aria-disabled=\"false\">微信登录</button></view></view></page>",
+      "command": {
+        "tagName": "picker",
+        "command": "change",
+        "target": "/view/view[1]/view[3]/picker",
+        "value": null,
+        "path": "pages/today/add_sport/add_sport",
+        "text": "请选择运动类型",
+        "eventData": {
+          "detail": {
+            "value": "0"
+          },
+          "changedTouches": [],
+          "touches": []
+        },
+        "targetCandidates": [
+          "/view/view[1]/view[3]/picker"
+        ],
+        "timeStamp": 6745,
+        "waitfor": 1002,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe",
+        "useExparserEvent": true,
+        "pageId": 21
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 12,
+      "replayResult": "failed",
+      "message": "[pageframe] path error: pages/login/login not equal to pages/today/add_sport/add_sport",
+      "status": "processing",
+      "commandName": "touchstart",
+      "received": "<page><cu-custom is=\"colorui/components/cu-custom/cu-custom\"><view class=\"cu-custom custom--cu-custom\" style=\"height:84px;z-index: 99999;\"><view class=\"cu-bar custom--cu-bar fixed custom--fixed bg-gradual-pink custom--bg-gradual-pink\" style=\"height:84px;padding-top:44px;\"><view class=\"content custom--content text-center custom--text-center text-lg custom--text-lg text-cut custom--text-cut\" style=\"top:44px; width: 176px;\"><view>FitTrack</view></view></view></view></cu-custom><view class=\"login-container\"><view class=\"title\">登录 FitTrack</view><view class=\"login-box\"><form><label>用户名</label><input class=\"login-box-input\" name=\"username\" placeholder=\"请输入用户名\">请输入用户名</input><label>密码</label><input class=\"login-box-input\" name=\"password\" password=\"\" placeholder=\"请输入密码\">请输入密码</input><button class=\"login-btn\" form-type=\"submit\" role=\"button\" aria-disabled=\"false\">立即登录</button></form><button class=\"signup-btn\" role=\"button\" aria-disabled=\"false\">新用户注册</button><view class=\"three-line\">一一一一一 第三方登录 一一一一一</view><button class=\"login-btn\" style=\"background-color:green;\" role=\"button\" aria-disabled=\"false\">微信登录</button></view></view></page>",
+      "command": {
+        "tagName": "view",
+        "command": "touchstart",
+        "target": "/view/view[1]/view[4]/picker/view",
+        "value": null,
+        "path": "pages/today/add_sport/add_sport",
+        "text": "请选择运动时间",
+        "eventData": {
+          "detail": {},
+          "changedTouches": [
+            {
+              "clientX": 323.125,
+              "clientY": 333.4609680175781,
+              "force": 1,
+              "pageX": 323.125,
+              "pageY": 333.4609680175781,
+              "screenX": 259,
+              "screenY": 359
+            }
+          ],
+          "touches": [
+            {
+              "clientX": 323.125,
+              "clientY": 333.4609680175781,
+              "force": 1,
+              "pageX": 323.125,
+              "pageY": 333.4609680175781,
+              "screenX": 259,
+              "screenY": 359
+            }
+          ]
+        },
+        "targetCandidates": [
+          "/view/view[1]/view[4]/picker/view"
+        ],
+        "timeStamp": 7260,
+        "waitfor": 515,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe",
+        "useExparserEvent": true,
+        "pageId": 21
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 13,
+      "replayResult": "failed",
+      "message": "[pageframe] path error: pages/login/login not equal to pages/today/add_sport/add_sport",
+      "status": "processing",
+      "commandName": "touchend",
+      "received": "<page><cu-custom is=\"colorui/components/cu-custom/cu-custom\"><view class=\"cu-custom custom--cu-custom\" style=\"height:84px;z-index: 99999;\"><view class=\"cu-bar custom--cu-bar fixed custom--fixed bg-gradual-pink custom--bg-gradual-pink\" style=\"height:84px;padding-top:44px;\"><view class=\"content custom--content text-center custom--text-center text-lg custom--text-lg text-cut custom--text-cut\" style=\"top:44px; width: 176px;\"><view>FitTrack</view></view></view></view></cu-custom><view class=\"login-container\"><view class=\"title\">登录 FitTrack</view><view class=\"login-box\"><form><label>用户名</label><input class=\"login-box-input\" name=\"username\" placeholder=\"请输入用户名\">请输入用户名</input><label>密码</label><input class=\"login-box-input\" name=\"password\" password=\"\" placeholder=\"请输入密码\">请输入密码</input><button class=\"login-btn\" form-type=\"submit\" role=\"button\" aria-disabled=\"false\">立即登录</button></form><button class=\"signup-btn\" role=\"button\" aria-disabled=\"false\">新用户注册</button><view class=\"three-line\">一一一一一 第三方登录 一一一一一</view><button class=\"login-btn\" style=\"background-color:green;\" role=\"button\" aria-disabled=\"false\">微信登录</button></view></view></page>",
+      "command": {
+        "tagName": "view",
+        "command": "touchend",
+        "target": "/view/view[1]/view[4]/picker/view",
+        "value": null,
+        "path": "pages/today/add_sport/add_sport",
+        "text": "请选择运动时间",
+        "eventData": {
+          "detail": {},
+          "changedTouches": [
+            {
+              "clientX": 323.125,
+              "clientY": 333.4609680175781,
+              "pageX": 323.125,
+              "pageY": 333.4609680175781,
+              "screenX": 259,
+              "screenY": 359
+            }
+          ],
+          "touches": []
+        },
+        "targetCandidates": [
+          "/view/view[1]/view[4]/picker/view"
+        ],
+        "timeStamp": 7359,
+        "waitfor": 99,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe",
+        "useExparserEvent": true,
+        "pageId": 21
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 14,
+      "replayResult": "failed",
+      "message": "[pageframe] path error: pages/login/login not equal to pages/today/add_sport/add_sport",
+      "status": "processing",
+      "commandName": "tap",
+      "received": "<page><cu-custom is=\"colorui/components/cu-custom/cu-custom\"><view class=\"cu-custom custom--cu-custom\" style=\"height:84px;z-index: 99999;\"><view class=\"cu-bar custom--cu-bar fixed custom--fixed bg-gradual-pink custom--bg-gradual-pink\" style=\"height:84px;padding-top:44px;\"><view class=\"content custom--content text-center custom--text-center text-lg custom--text-lg text-cut custom--text-cut\" style=\"top:44px; width: 176px;\"><view>FitTrack</view></view></view></view></cu-custom><view class=\"login-container\"><view class=\"title\">登录 FitTrack</view><view class=\"login-box\"><form><label>用户名</label><input class=\"login-box-input\" name=\"username\" placeholder=\"请输入用户名\">请输入用户名</input><label>密码</label><input class=\"login-box-input\" name=\"password\" password=\"\" placeholder=\"请输入密码\">请输入密码</input><button class=\"login-btn\" form-type=\"submit\" role=\"button\" aria-disabled=\"false\">立即登录</button></form><button class=\"signup-btn\" role=\"button\" aria-disabled=\"false\">新用户注册</button><view class=\"three-line\">一一一一一 第三方登录 一一一一一</view><button class=\"login-btn\" style=\"background-color:green;\" role=\"button\" aria-disabled=\"false\">微信登录</button></view></view></page>",
+      "command": {
+        "tagName": "view",
+        "command": "tap",
+        "target": "/view/view[1]/view[4]/picker/view",
+        "value": null,
+        "path": "pages/today/add_sport/add_sport",
+        "text": "请选择运动时间",
+        "eventData": {
+          "detail": {
+            "x": 323.125,
+            "y": 333.4609680175781
+          },
+          "changedTouches": [
+            {
+              "clientX": 323.125,
+              "clientY": 333.4609680175781,
+              "force": 1,
+              "pageX": 323.125,
+              "pageY": 333.4609680175781,
+              "screenX": 259,
+              "screenY": 359
+            }
+          ],
+          "touches": [
+            {
+              "clientX": 323.125,
+              "clientY": 333.4609680175781,
+              "force": 1,
+              "pageX": 323.125,
+              "pageY": 333.4609680175781,
+              "screenX": 259,
+              "screenY": 359
+            }
+          ]
+        },
+        "targetCandidates": [
+          "/view/view[1]/view[4]/picker/view"
+        ],
+        "timeStamp": 7359,
+        "waitfor": 0,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe",
+        "useExparserEvent": true,
+        "pageId": 21
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 15,
+      "replayResult": "failed",
+      "message": "[pageframe] path error: pages/login/login not equal to pages/today/add_sport/add_sport",
+      "status": "processing",
+      "commandName": "columnchange",
+      "received": "<page><cu-custom is=\"colorui/components/cu-custom/cu-custom\"><view class=\"cu-custom custom--cu-custom\" style=\"height:84px;z-index: 99999;\"><view class=\"cu-bar custom--cu-bar fixed custom--fixed bg-gradual-pink custom--bg-gradual-pink\" style=\"height:84px;padding-top:44px;\"><view class=\"content custom--content text-center custom--text-center text-lg custom--text-lg text-cut custom--text-cut\" style=\"top:44px; width: 176px;\"><view>FitTrack</view></view></view></view></cu-custom><view class=\"login-container\"><view class=\"title\">登录 FitTrack</view><view class=\"login-box\"><form><label>用户名</label><input class=\"login-box-input\" name=\"username\" placeholder=\"请输入用户名\">请输入用户名</input><label>密码</label><input class=\"login-box-input\" name=\"password\" password=\"\" placeholder=\"请输入密码\">请输入密码</input><button class=\"login-btn\" form-type=\"submit\" role=\"button\" aria-disabled=\"false\">立即登录</button></form><button class=\"signup-btn\" role=\"button\" aria-disabled=\"false\">新用户注册</button><view class=\"three-line\">一一一一一 第三方登录 一一一一一</view><button class=\"login-btn\" style=\"background-color:green;\" role=\"button\" aria-disabled=\"false\">微信登录</button></view></view></page>",
+      "command": {
+        "tagName": "picker",
+        "command": "columnchange",
+        "target": "/view/view[1]/view[4]/picker",
+        "value": null,
+        "path": "pages/today/add_sport/add_sport",
+        "text": "请选择运动时间",
+        "eventData": {
+          "detail": {
+            "column": 1,
+            "value": 2
+          },
+          "changedTouches": [],
+          "touches": []
+        },
+        "targetCandidates": [
+          "/view/view[1]/view[4]/picker"
+        ],
+        "timeStamp": 8264,
+        "waitfor": 905,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe",
+        "useExparserEvent": true,
+        "pageId": 21
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 16,
+      "replayResult": "failed",
+      "message": "[pageframe] path error: pages/login/login not equal to pages/today/add_sport/add_sport",
+      "status": "processing",
+      "commandName": "columnchange",
+      "received": "<page><cu-custom is=\"colorui/components/cu-custom/cu-custom\"><view class=\"cu-custom custom--cu-custom\" style=\"height:84px;z-index: 99999;\"><view class=\"cu-bar custom--cu-bar fixed custom--fixed bg-gradual-pink custom--bg-gradual-pink\" style=\"height:84px;padding-top:44px;\"><view class=\"content custom--content text-center custom--text-center text-lg custom--text-lg text-cut custom--text-cut\" style=\"top:44px; width: 176px;\"><view>FitTrack</view></view></view></view></cu-custom><view class=\"login-container\"><view class=\"title\">登录 FitTrack</view><view class=\"login-box\"><form><label>用户名</label><input class=\"login-box-input\" name=\"username\" placeholder=\"请输入用户名\">请输入用户名</input><label>密码</label><input class=\"login-box-input\" name=\"password\" password=\"\" placeholder=\"请输入密码\">请输入密码</input><button class=\"login-btn\" form-type=\"submit\" role=\"button\" aria-disabled=\"false\">立即登录</button></form><button class=\"signup-btn\" role=\"button\" aria-disabled=\"false\">新用户注册</button><view class=\"three-line\">一一一一一 第三方登录 一一一一一</view><button class=\"login-btn\" style=\"background-color:green;\" role=\"button\" aria-disabled=\"false\">微信登录</button></view></view></page>",
+      "command": {
+        "tagName": "picker",
+        "command": "columnchange",
+        "target": "/view/view[1]/view[4]/picker",
+        "value": null,
+        "path": "pages/today/add_sport/add_sport",
+        "text": "请选择运动时间",
+        "eventData": {
+          "detail": {
+            "column": 0,
+            "value": 2
+          },
+          "changedTouches": [],
+          "touches": []
+        },
+        "targetCandidates": [
+          "/view/view[1]/view[4]/picker"
+        ],
+        "timeStamp": 8929,
+        "waitfor": 665,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe",
+        "useExparserEvent": true,
+        "pageId": 21
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 17,
+      "command": {
+        "timeStamp": 9942,
+        "waitfor": 1013,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "native",
+        "command": "hidePickerView",
+        "target": "/view/view[1]/view[4]/picker"
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 18,
+      "command": {
+        "tagName": "view",
+        "command": "touchstart",
+        "target": "/view/view[1]/view[4]/picker/view",
+        "value": null,
+        "path": "pages/today/add_sport/add_sport",
+        "text": "请选择运动时间",
+        "eventData": {
+          "detail": {},
+          "changedTouches": [
+            {
+              "clientX": 327.9609375,
+              "clientY": 339.9140319824219,
+              "force": 1,
+              "pageX": 327.9609375,
+              "pageY": 339.9140319824219,
+              "screenX": 262,
+              "screenY": 363
+            }
+          ],
+          "touches": [
+            {
+              "clientX": 327.9609375,
+              "clientY": 339.9140319824219,
+              "force": 1,
+              "pageX": 327.9609375,
+              "pageY": 339.9140319824219,
+              "screenX": 262,
+              "screenY": 363
+            }
+          ]
+        },
+        "targetCandidates": [
+          "/view/view[1]/view[4]/picker/view"
+        ],
+        "timeStamp": 10475,
+        "waitfor": 533,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe"
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 19,
+      "command": {
+        "tagName": "view",
+        "command": "touchend",
+        "target": "/view/view[1]/view[4]/picker/view",
+        "value": null,
+        "path": "pages/today/add_sport/add_sport",
+        "text": "请选择运动时间",
+        "eventData": {
+          "detail": {},
+          "changedTouches": [
+            {
+              "clientX": 327.9609375,
+              "clientY": 339.9140319824219,
+              "pageX": 327.9609375,
+              "pageY": 339.9140319824219,
+              "screenX": 262,
+              "screenY": 363
+            }
+          ],
+          "touches": []
+        },
+        "targetCandidates": [
+          "/view/view[1]/view[4]/picker/view"
+        ],
+        "timeStamp": 10578,
+        "waitfor": 103,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe"
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 20,
+      "command": {
+        "tagName": "view",
+        "command": "tap",
+        "target": "/view/view[1]/view[4]/picker/view",
+        "value": null,
+        "path": "pages/today/add_sport/add_sport",
+        "text": "请选择运动时间",
+        "eventData": {
+          "detail": {
+            "x": 327.9609375,
+            "y": 339.9140319824219
+          },
+          "changedTouches": [
+            {
+              "clientX": 327.9609375,
+              "clientY": 339.9140319824219,
+              "force": 1,
+              "pageX": 327.9609375,
+              "pageY": 339.9140319824219,
+              "screenX": 262,
+              "screenY": 363
+            }
+          ],
+          "touches": [
+            {
+              "clientX": 327.9609375,
+              "clientY": 339.9140319824219,
+              "force": 1,
+              "pageX": 327.9609375,
+              "pageY": 339.9140319824219,
+              "screenX": 262,
+              "screenY": 363
+            }
+          ]
+        },
+        "targetCandidates": [
+          "/view/view[1]/view[4]/picker/view"
+        ],
+        "timeStamp": 10588,
+        "waitfor": 10,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe"
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 21,
+      "command": {
+        "tagName": "picker",
+        "command": "change",
+        "target": "/view/view[1]/view[4]/picker",
+        "value": null,
+        "path": "pages/today/add_sport/add_sport",
+        "text": "请选择运动时间",
+        "eventData": {
+          "detail": {
+            "value": [
+              2,
+              2,
+              0
+            ]
+          },
+          "changedTouches": [],
+          "touches": []
+        },
+        "targetCandidates": [
+          "/view/view[1]/view[4]/picker"
+        ],
+        "timeStamp": 10943,
+        "waitfor": 355,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe"
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 22,
+      "command": {
+        "timeStamp": 11992,
+        "waitfor": 1049,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "native",
+        "command": "hidePickerView",
+        "target": "/view/view[1]/view[4]/picker"
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 23,
+      "command": {
+        "tagName": "input",
+        "command": "touchstart",
+        "target": "input.text-right",
+        "childName": "input",
+        "path": "pages/today/add_sport/add_sport",
+        "text": "请输入运动距离",
+        "eventData": {
+          "detail": {}
+        },
+        "targetCandidates": [
+          "input.text-right",
+          ".text-right",
+          "/view/view[1]/view[5]/input"
+        ],
+        "timeStamp": 12545,
+        "waitfor": 553,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe"
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 24,
+      "command": {
+        "tagName": "input",
+        "command": "touchend",
+        "target": "input.text-right",
+        "childName": "input",
+        "path": "pages/today/add_sport/add_sport",
+        "text": "请输入运动距离",
+        "eventData": {
+          "detail": {}
+        },
+        "targetCandidates": [
+          "input.text-right",
+          ".text-right",
+          "/view/view[1]/view[5]/input"
+        ],
+        "timeStamp": 12647,
+        "waitfor": 102,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe"
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 25,
+      "command": {
+        "tagName": "input",
+        "command": "tap",
+        "target": "input.text-right",
+        "childName": "input",
+        "path": "pages/today/add_sport/add_sport",
+        "text": "请输入运动距离",
+        "eventData": {
+          "detail": {
+            "x": 328.7741394042969,
+            "y": 394.3548278808594
+          }
+        },
+        "targetCandidates": [
+          "input.text-right",
+          ".text-right",
+          "/view/view[1]/view[5]/input"
+        ],
+        "timeStamp": 12647,
+        "waitfor": 0,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe"
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 26,
+      "command": {
+        "tagName": "picker",
+        "command": "change",
+        "target": "/view/view[1]/view[4]/picker",
+        "value": null,
+        "path": "pages/today/add_sport/add_sport",
+        "text": "02h 02' 00''",
+        "eventData": {
+          "detail": {
+            "value": [
+              2,
+              2,
+              0
+            ]
+          },
+          "changedTouches": [],
+          "touches": []
+        },
+        "targetCandidates": [
+          "/view/view[1]/view[4]/picker"
+        ],
+        "timeStamp": 12993,
+        "waitfor": 346,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe"
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 27,
+      "command": {
+        "tagName": "input",
+        "command": "input",
+        "target": "input.text-right",
+        "value": "1234",
+        "path": "pages/today/add_sport/add_sport",
+        "text": "",
+        "eventData": {
+          "detail": {
+            "value": "1234",
+            "cursor": 4,
+            "keyCode": 52
+          }
+        },
+        "targetCandidates": [
+          "input.text-right",
+          ".text-right",
+          "/view/view[1]/view[5]/input"
+        ],
+        "timeStamp": 14705,
+        "waitfor": 1712,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe"
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 28,
+      "command": {
+        "tagName": "button",
+        "command": "touchstart",
+        "target": "button.cu-btn.bg-blue.round.shadow-blur",
+        "value": null,
+        "path": "pages/today/add_sport/add_sport",
+        "text": "添加",
+        "eventData": {
+          "detail": {},
+          "changedTouches": [
+            {
+              "clientX": 293.2890625,
+              "clientY": 855.234375,
+              "force": 1,
+              "pageX": 293.2890625,
+              "pageY": 855.234375,
+              "screenX": 240.5,
+              "screenY": 682.5
+            }
+          ],
+          "touches": [
+            {
+              "clientX": 293.2890625,
+              "clientY": 855.234375,
+              "force": 1,
+              "pageX": 293.2890625,
+              "pageY": 855.234375,
+              "screenX": 240.5,
+              "screenY": 682.5
+            }
+          ]
+        },
+        "targetCandidates": [
+          "button.cu-btn.bg-blue.round.shadow-blur",
+          ".cu-btn.bg-blue.round.shadow-blur",
+          "/view/view[2]/view/button[2]"
+        ],
+        "timeStamp": 15479,
+        "waitfor": 774,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe"
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 29,
+      "command": {
+        "tagName": "button",
+        "command": "touchend",
+        "target": "button.cu-btn.bg-blue.round.shadow-blur",
+        "value": null,
+        "path": "pages/today/add_sport/add_sport",
+        "text": "添加",
+        "eventData": {
+          "detail": {},
+          "changedTouches": [
+            {
+              "clientX": 293.2890625,
+              "clientY": 855.234375,
+              "pageX": 293.2890625,
+              "pageY": 855.234375,
+              "screenX": 240.5,
+              "screenY": 682.5
+            }
+          ],
+          "touches": []
+        },
+        "targetCandidates": [
+          "button.cu-btn.bg-blue.round.shadow-blur",
+          ".cu-btn.bg-blue.round.shadow-blur",
+          "/view/view[2]/view/button[2]"
+        ],
+        "timeStamp": 15566,
+        "waitfor": 87,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe"
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 30,
+      "command": {
+        "tagName": "button",
+        "command": "tap",
+        "target": "button.cu-btn.bg-blue.round.shadow-blur",
+        "value": null,
+        "path": "pages/today/add_sport/add_sport",
+        "text": "添加",
+        "eventData": {
+          "detail": {
+            "x": 293.2890625,
+            "y": 855.234375
+          },
+          "changedTouches": [
+            {
+              "clientX": 293.2890625,
+              "clientY": 855.234375,
+              "force": 1,
+              "pageX": 293.2890625,
+              "pageY": 855.234375,
+              "screenX": 240.5,
+              "screenY": 682.5
+            }
+          ],
+          "touches": [
+            {
+              "clientX": 293.2890625,
+              "clientY": 855.234375,
+              "force": 1,
+              "pageX": 293.2890625,
+              "pageY": 855.234375,
+              "screenX": 240.5,
+              "screenY": 682.5
+            }
+          ]
+        },
+        "targetCandidates": [
+          "button.cu-btn.bg-blue.round.shadow-blur",
+          ".cu-btn.bg-blue.round.shadow-blur",
+          "/view/view[2]/view/button[2]"
+        ],
+        "timeStamp": 15566,
+        "waitfor": 0,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe"
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 31,
+      "command": {
+        "layer": "appservice",
+        "command": "mock",
+        "rule": {
+          "ruleId": "3f5b1aa9-0453-47bd-95a0-09a9c5cf5e49",
+          "ruleName": "request add",
+          "apiName": "request",
+          "enable": true,
+          "verifyFail": false,
+          "isOneTime": true,
+          "filterList": [
+            {
+              "propName": "url",
+              "propRegString": "http://10.16.203.123:8080/sports/add",
+              "filterId": "feac1e19-45bb-4074-b5eb-39675de22062",
+              "matchType": "string",
+              "matchTypeLabel": "全匹配"
+            }
+          ],
+          "returnConfig": {
+            "returnType": "succ",
+            "generateType": "manual",
+            "manual": {
+              "succ": {
+                "resStr": "{\"data\":{\"code\":1,\"msg\":\"success\",\"data\":{\"id\":null,\"username\":\"F.b\",\"sportsTime\":7320,\"sportsDistance\":1234,\"calories\":61700,\"createTime\":\"2024-05-10T10:36:04.674\",\"gamesName\":0}},\"header\":{\"Transfer-Encoding\":\"chunked\",\"Connection\":\"keep-alive\",\"Content-Type\":\"application/json\",\"Date\":\"Fri, 10 May 2024 02:36:04 GMT\",\"Keep-Alive\":\"timeout=4\",\"Proxy-Connection\":\"keep-alive\"},\"statusCode\":200,\"cookies\":[],\"accelerateType\":\"none\",\"errMsg\":\"request:ok\"}"
+              },
+              "fail": {
+                "resStr": ""
+              }
+            }
+          },
+          "originArgs": [
+            {
+              "url": "http://10.16.203.123:8080/sports/add",
+              "method": "POST",
+              "headers": {
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEwLCJ1c2VybmFtZSI6IkYuYiIsImV4cCI6MTcxNTM1MTcyM30.QV9JLUgzocQdDgsOfuA-jyCP1O_0fnrzGiQaWV6xphs"
+              },
+              "data": {
+                "username": "F.b",
+                "gamesName": "0",
+                "sportsTime": 7320,
+                "sportsDistance": "1234"
+              }
+            }
+          ],
+          "mediaFiles": {}
+        },
+        "desc": ""
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 32,
+      "command": {
+        "tagName": "button",
+        "command": "touchstart",
+        "target": "button.cu-btn.line-green.shadow.round.xxl",
+        "value": null,
+        "path": "pages/today/add_sport/add_sport_success/add_sport_success",
+        "text": "返回主界面",
+        "eventData": {
+          "detail": {},
+          "changedTouches": [
+            {
+              "clientX": 219.8984375,
+              "clientY": 431.0468444824219,
+              "force": 1,
+              "pageX": 219.8984375,
+              "pageY": 431.0468444824219,
+              "screenX": 195,
+              "screenY": 419.5
+            }
+          ],
+          "touches": [
+            {
+              "clientX": 219.8984375,
+              "clientY": 431.0468444824219,
+              "force": 1,
+              "pageX": 219.8984375,
+              "pageY": 431.0468444824219,
+              "screenX": 195,
+              "screenY": 419.5
+            }
+          ]
+        },
+        "targetCandidates": [
+          "button.cu-btn.line-green.shadow.round.xxl",
+          ".cu-btn.line-green.shadow.round.xxl",
+          "/view/view[4]/view/button"
+        ],
+        "timeStamp": 22371,
+        "waitfor": 6805,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe"
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 33,
+      "command": {
+        "tagName": "button",
+        "command": "touchend",
+        "target": "button.cu-btn.line-green.shadow.round.xxl",
+        "value": null,
+        "path": "pages/today/add_sport/add_sport_success/add_sport_success",
+        "text": "返回主界面",
+        "eventData": {
+          "detail": {},
+          "changedTouches": [
+            {
+              "clientX": 219.8984375,
+              "clientY": 431.0468444824219,
+              "pageX": 219.8984375,
+              "pageY": 431.0468444824219,
+              "screenX": 195,
+              "screenY": 419.5
+            }
+          ],
+          "touches": []
+        },
+        "targetCandidates": [
+          "button.cu-btn.line-green.shadow.round.xxl",
+          ".cu-btn.line-green.shadow.round.xxl",
+          "/view/view[4]/view/button"
+        ],
+        "timeStamp": 22474,
+        "waitfor": 103,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe"
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 34,
+      "command": {
+        "tagName": "button",
+        "command": "tap",
+        "target": "button.cu-btn.line-green.shadow.round.xxl",
+        "value": null,
+        "path": "pages/today/add_sport/add_sport_success/add_sport_success",
+        "text": "返回主界面",
+        "eventData": {
+          "detail": {
+            "x": 219.8984375,
+            "y": 431.0468444824219
+          },
+          "changedTouches": [
+            {
+              "clientX": 219.8984375,
+              "clientY": 431.0468444824219,
+              "force": 1,
+              "pageX": 219.8984375,
+              "pageY": 431.0468444824219,
+              "screenX": 195,
+              "screenY": 419.5
+            }
+          ],
+          "touches": [
+            {
+              "clientX": 219.8984375,
+              "clientY": 431.0468444824219,
+              "force": 1,
+              "pageX": 219.8984375,
+              "pageY": 431.0468444824219,
+              "screenX": 195,
+              "screenY": 419.5
+            }
+          ]
+        },
+        "targetCandidates": [
+          "button.cu-btn.line-green.shadow.round.xxl",
+          ".cu-btn.line-green.shadow.round.xxl",
+          "/view/view[4]/view/button"
+        ],
+        "timeStamp": 22474,
+        "waitfor": 0,
+        "desc": "",
+        "commandType": "operate",
+        "layer": "pageframe"
+      }
+    },
+    {
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "commandIndex": 35,
+      "command": {
+        "timeStamp": 26165,
+        "waitfor": 3691,
+        "desc": "",
+        "layer": "tool",
+        "commandType": "operate",
+        "command": "stopRecord"
+      }
+    }
+  ]
+}

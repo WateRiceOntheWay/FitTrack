@@ -38,7 +38,8 @@
     <view class="cu-form-group">
         <!-- 这里内嵌js，更改标签是mL还是g -->
         <view class="title">{{diet_type_index===null?'食用量 (g)':(diet_type_is_liquid[diet_type_index]?'食用量 (mL)':'食用量 (g)')}}</view>
-        <input type="number" bindinput="DietAmountChange" placeholder="请输入食用量"></input>
+        <input type="number" class="text-right" bindinput="DietAmountChange" placeholder="请输入食用量"></input>
+            <view class="title">{{diet_type_index===null?'g':(diet_type_is_liquid[diet_type_index]?'mL':'g')}}</view>
     </view>
 
     <view class="cu-bar bg-white solids-top">
@@ -59,7 +60,7 @@
 <view class="cu-bar foot bg-white tabbar border margin-top-xs">
     <view class="cu-bar btn-group">
     <button class="cu-btn bg-orange round shadow-blur" bind:tap="Cancel">取消</button>
-    <button class="cu-btn bg-green round shadow-blur" disabled="{{add_button_valid?'':'true'}}" type="">添加</button>
+    <button class="cu-btn bg-green round shadow-blur" disabled="{{add_button_valid?'':'true'}}" type="" bind:tap="addDietInfo">添加</button>
     </view>
 </view>
 </view>

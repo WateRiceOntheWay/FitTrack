@@ -1,4 +1,4 @@
-// pages/today/add_diet/add_diet_success/add_diet_success.js
+// pages/today/add_body/add_body_success/add_body_success.js
 Page({
 
   /**
