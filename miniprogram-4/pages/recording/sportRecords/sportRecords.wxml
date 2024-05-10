@@ -42,7 +42,7 @@
     <block wx:for="{{sport_records}}">
       <view class="flex"bindtap="viewDetail" data-record="{{item}}">
               <view class=" sport-singleRecord flex-sub bg-blue light  margin-xs radius">
-                <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.sportsName}}</text>
+                <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.gamesName}}</text>
               </view>
               <view class="sport-singleRecord flex-twice bg-blue light margin-xs radius">
                 <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.sportsDistance}}m</text>
@@ -52,7 +52,7 @@
                 </text>
               </view>
               <view class="sport-singleRecord flex-twice bg-blue light margin-xs radius">
-                <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.date}}</text>
+                <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.createTime}}</text>
               </view>
               
         </view>

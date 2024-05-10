@@ -40,16 +40,16 @@
     <block wx:for="{{diet_records}}">
       <view class="flex ">
             <view class=" singleRecord flex-sub bg-blue light  margin-xs radius">
-              <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.dietName}}</text>
+              <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.foodName}}</text>
             </view>
             <view class="singleRecord flex-twice bg-blue light margin-xs radius">
               <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.calories}} kcal</text>
             </view>
             <view class="singleRecord flex-sub bg-blue light margin-xs radius">
-              <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.quantity}}g</text>
+              <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.weight}}g</text>
             </view> 
             <view class="singleRecord flex-twice bg-blue light margin-xs radius">
-              <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.date}}
+              <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.createTime}}
               </text>
             </view>
       </view>

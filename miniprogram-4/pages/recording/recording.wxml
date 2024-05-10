@@ -47,7 +47,7 @@
             <view>
                 <view class="flex ">
                     <view class=" singleRecord flex-sub bg-blue light  margin-xs radius">
-                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.sportsName}}</text>
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.gamesName}}</text>
                     </view>
                     <view class="singleRecord flex-twice bg-blue light margin-xs radius">
                         <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.sportsDistance}}m</text>
@@ -57,7 +57,7 @@
                         </text>
                     </view>
                     <view class="singleRecord flex-twice bg-blue light margin-xs radius">
-                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.date}}</text>
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.createTime}}</text>
                     </view>
                 </view>
             </view>
@@ -105,17 +105,17 @@
             <view>
                 <view class="flex ">
                     <view class=" singleRecord flex-sub bg-blue light  margin-xs radius">
-                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.dietName}}</text>
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.foodName}}</text>
                     </view>
                     <view class="singleRecord flex-twice bg-blue light margin-xs radius">
                         <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.calories}}kcal</text>
                     </view>
                     <view class="singleRecord flex-sub bg-blue light margin-xs radius">
-                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.quantity}}g
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.weight}}g
                         </text>
                     </view>
                     <view class="singleRecord flex-twice bg-blue light margin-xs radius">
-                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.date}}</text>
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.createTime}}</text>
                     </view>
                     
                 </view>
@@ -168,14 +168,14 @@
                         <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.weight}}</text>
                     </view>
                     <view class="singleRecord flex-twice bg-blue light margin-xs radius">
-                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.bfp}}kcal</text>
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.bodyFatRate}}</text>
                     </view>
                     <view class="singleRecord flex-sub bg-blue light margin-xs radius">
                         <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.heartRate}}
                         </text>
                     </view>
                     <view class="singleRecord flex-twice bg-blue light margin-xs radius">
-                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.date}}</text>
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.createTime}}</text>
                     </view>
                     
                 </view>

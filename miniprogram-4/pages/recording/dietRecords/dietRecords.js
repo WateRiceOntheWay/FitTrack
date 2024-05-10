@@ -30,11 +30,11 @@ Page({
     })
     //设置饮食记录数据
     let getAll = true
-    FitTrackRequests.getDietAll(that.data.userinfo,getAll=true,function(res){
+    FitTrackRequests.getDietAll(that.data.userinfo,getAll,function(res){
       if(res["status"])
       {
         that.setData({
-          diet_records:res["value"]
+          diet_records:res["dietinfo"]
         })
         console.log("获取饮食信息成功")
         console.log(that.data.diet_records)

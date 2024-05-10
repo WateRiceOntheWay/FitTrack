@@ -43,7 +43,7 @@
             <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.weight}}</text>
           </view>
           <view class="singleRecord flex-twice bg-blue light margin-xs radius">
-            <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.bfp}}</text>
+            <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.bodyFatRate}}</text>
           </view>
           
           <view class="singleRecord flex-sub bg-blue light margin-xs radius">
@@ -51,7 +51,7 @@
             </text>
           </view>
           <view class="singleRecord flex-twice bg-blue light margin-xs radius">
-            <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.date}}</text>
+            <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.createTime}}</text>
           </view>
     </view>
   </block>
