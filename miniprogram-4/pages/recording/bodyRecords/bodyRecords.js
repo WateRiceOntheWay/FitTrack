@@ -33,11 +33,11 @@ Page({
     })
     //设置所有身体状况记录数据
     let getAll = true
-    FitTrackRequests.getBodyAll(that.data.userinfo,getAll=true,function(res){
+    FitTrackRequests.getBodyAll(that.data.userinfo,getAll,function(res){
       if(res["status"])
       {
         that.setData({
-          body_records:res["value"]
+          body_records:res["bodyinfo"]
         })
         console.log("获取身体状况信息成功")
         console.log(that.data.body_records)

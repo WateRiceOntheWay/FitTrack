@@ -12,10 +12,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    console.log(options)
+    let record = JSON.parse(options.item); // 将 JSON 字符串解析为对象
     this.setData({
-      item: options["calories"],
+      item: record,
     })
-    console.log(this.data.item)
+    console.log("单条记录的详细记录")
+    console.log(record)
   },
 
   /**

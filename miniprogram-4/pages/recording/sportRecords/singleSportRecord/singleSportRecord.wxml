@@ -16,8 +16,8 @@
 <view class="font ">
   <view class="margin-sm radius-lg bg-white margin-top-sm">
     <view class="flex solid-bottom padding-sm align-center">
-          <view class="bg-green light padding-lg margin-xs radius distance"><text>{{item.sportsName}}:{{item.sportsDistance}}m</text></view>
-          <view class="bg-green light padding-sm margin-xs radius exerciseTime">{{item.sportsTime}}</view>
+          <view class="bg-green light padding-lg margin-xs radius distance"><text>{{item.gamesName}}:{{item.sportsDistance}}m</text></view>
+          <view class="bg-green light padding-sm margin-xs radius exerciseTime">{{item.sportsTime}}s</view>
     </view>
   </view>
   <view class="margin-sm radius-lg bg-white margin-top-sm">
