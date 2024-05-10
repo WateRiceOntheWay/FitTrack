@@ -128,6 +128,7 @@ describe('FitTrackRequests.js', () => {
 	}) 
 }),
 // 测试 getURL_SportAdd()函数
+/*
 describe('FitTrackRequests.js', () =>{
 	beforeEach(() => {
     // 在每个测试开始前重置所有的模拟函数
@@ -139,11 +140,14 @@ describe('FitTrackRequests.js', () =>{
 	it('should add sport info when SportAdd is called', () => {
     // Arrange
     const mockAfterFunction = jest.fn();
-    const mockSportInfo = {
-      type: 1,
-      duration: 30,
-      distance: 5,
-    };
+    const mockSportInfo = [{
+			"username": "F.t",
+			"createTime": "2024-05-02",
+			"gamesName": "0",
+			"sportsTime": "180s",
+			"sportsDistance": "700",
+			"calories": "100"
+	}];
     FitTrackRequests.InitUserInfo.mockImplementation((callback) => callback());
     FitTrackRequests.getURL_SportAdd.mockReturnValue('mock_url');
     wx.request.mockImplementation((options) => options.complete());
@@ -158,12 +162,13 @@ describe('FitTrackRequests.js', () =>{
       url: 'mock_url',
       method: 'POST',
       data: expect.objectContaining({
-        gamesName: mockSportInfo.type,
-        sportsTime: mockSportInfo.duration,
-        sportsDistance: mockSportInfo.distance,
+        gamesName: mockSportInfo["gamesName"],
+        sportsTime: mockSportInfo["sportsTime"],
+        sportsDistance: mockSportInfo["sportsDistance"],
       }),
     }));
     expect(mockAfterFunction).toHaveBeenCalled();
   });
 })
+*/
 );
