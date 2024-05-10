@@ -6,115 +6,111 @@
     <view slot="content">FitTrack</view>
 </cu-custom>
 
-<view class="signup-container">
-    <view class="margin-sm radius-lg bg-white shadow">
-        <!-- 标题栏 -->
-        <!-- 布局左右 -->
-        <view class="flex solid-bottom padding-xs justify-between">
-
-            <!-- 标题 -->
-            <view class="padding-sm margin-xs radius">
-              <view class="cu-bar">
-                    <view class="action sub-title">
-                       <text class="text-xxxl text-black text-black test-bold">个人中心</text>
-                       <text class="text-ABC text-black">个人中心</text>
-                         <!-- last-child选择器-->
-                       </view>
-                       
-                    </view>
-            </view>
-        </view>
-        <view class="flex">
+<view class="me-container">
     
-          <!--头像点击-->
-          <view class="flex-sub bg-white padding-xs margin-xs ">
-            <view class="cu-bar btn-group ">
-                <button class="cu-btn round text-black line-black shadow" bindtap="showModal"data-target="RadioModal" style="height: 84rpx;"><text class="text-lg">头像</text></button>
+       <!--个人中心标题-->
+        <view class="padding-sm margin-xs radius">
+            <view class="cu-bar">
+              <view class="action sub-title">
+                <text class="text-xxxl text-bold text-blue">个人中心</text>
+                <text class="bg-blue"></text>
+              </view>
             </view>
-          </view>
-
-         <view class="cu-modal {{modalName=='RadioModal'?'show':''}}" bindtap="hideModal">
-            <view class="cu-dialog" catchtap>
-              <radio-group class="block">
-                <view class="cu-list menu  text-left">
-                  <view class="cu-item" wx:for="{{5}}" wx:key="item">
-                      <label class="flex justify-between align-center flex-sub">
-                        <view class="flex-sub">选项 {{index +1}}</view>
-                        <radio class="round"></radio>
-                      </label>
-                  </view>
-                </view>
-              </radio-group>
-            </view>
-          </view>
-          <view class="flex-twice padding-xs margin-xs animation-slide-bottom" style="animation-delay:0.05s">
-              <view class="bg-blue radius-lg ">
-                  <view class="cu-bar">
-                      <view class="action title">
-                        <text class="text-xxl  text-white padding-right-xl">用户A</text>
-                      </view>
+        </view>
+        <view class="margin-sm radius-lg bg-white shadow">
+        <view class="">
+        <!--头像点击-->
+          <view class="bg-white">
+            <view class="flex padding">
               
+              <view class="img-wrap">
+                <view class="imglist">
+                  <view class="item" wx:for="{{imgs}}" wx:key="item">
+                    <image src="{{item}}" alt=""></image>
+                    <view class='delete' bindtap='deleteImg' data-index="{{index}}">
+                      <image src="../../../images/icon.png"></image>
+                    </view>
                   </view>
-             </view>
+                  <view class="last-item" wx:if="{{imgs.length >= 3 ? false : true}}" bindtap="bindUpload">
+                    <!--头像大小-->
+                    <text class="sign cu-avatar sm round margin-left bg-blue text-xl">头像</text>
+                  </view>
+                </view>
+              </view>
+            <view class="padding-xs text-xl text-black">
+              <view class="flex padding-xs justify-end">
+                <!-- 用户A按钮 -->
+                <view class="padding-sm margin-xs radius">
+                  <view>
+                    <button class="cu-btn icon bg-white shadow lg" bindtap="showModalAddGoal">
+                        <view class="text-xxxl text-black">
+                          <text class="text-xs text-bold text-blue">用户A</text>
+                        </view>
+                    </button>
+                  </view>
+                </view>
+              </view>
+      
+            </view>
           </view>
         </view>
+          <!-- 基本数据 -->
+        <view class="cu-list grid col-3 no-border padding-lr-xs radius-lg-bottom">
+          <!--累计消耗卡路里-->
+          <view class="cu-item">
+            <view class="content">
+                <text class="cuIcon-hotfill text-blue"></text>
+                <text class="text-grey">累计消耗卡路里</text>
+            </view>
+            <view class="action">
+              <text class="text-grey text-sm">{{todayInformation["sport"]["info"]["calories"]}} Cal</text>
+            </view>
+          </view>
+          <!--累计运动里程-->
+          <view class="cu-item">
+            <view class="content">
+              <text class="cuIcon-activityfill text-blue"></text>
+              <text class="text-grey">累计运动里程</text>
+            </view>
+            <view class="action">
+              <text class="text-grey text-sm">{{todayInformation["sport"]["info"]["distance"]/1000}} km</text>
+            </view>
+          </view>
+          <!--累计运动时长-->
+          <view class="cu-item">
+            <view class="content">
+              <text class="cuIcon-timefill text-blue"></text>
+              <text class="text-grey">累计运动时长</text>
+            </view>
+            <view class="action">
+              <text class="text-grey text-sm">{{(todayInformation["sport"]["info"]["duration"]-todayInformation["sport"]["info"]["duration"]%3600)/3600}}h {{((todayInformation["sport"]["info"]["duration"]%3600-todayInformation["sport"]["info"]["duration"]%60)/60)}}' {{todayInformation["sport"]["info"]["duration"]%60}}''</text>
+            </view>
+          </view>
+        </view>
+           <!--按钮退出登录和取消-->
+        <view class="cu-modal bottom-modal {{ModalName=='AddGoal'?'show':''}}">
+          <view class="cu-dialog">
+            <view class="flex solid-bottom padding-xs justify-center" bindtap="showModalDailyGoal">
+                <view class="action padding-sm text-red">退出登录</view>
+            </view>
 
-        <!--添加累计消耗卡路里和累计里程和???卡片-->
-        <!--添加消耗卡路里卡片-->
-        <view class="flex">
-          <view class="flex-sub padding-sm margin-xs animation-slide-bottom" style="animation-delay:0.1s">
-            <view class="cu-card  bg-blue shadow-lg radius-lg ">
-                <view class="cu-bar">
-                    <view class="action title">
-                        <text class="text-xl text-bold text-white">累计消耗卡路里</text>
-                    </view>
-                </view>
-                <view class="cu-list menu padding-xs">
-                    <view class="cu-item radius-df">
-                        <view class="action">
-                            <view class="text-blue text-bold">300 kcal</view>
-                        </view>
-                    </view>
-                </view>
+            <view class="flex bg-gray solid-bottom padding-xs justify-center">
+                <view class=""></view>
             </view>
-            
-          </view>
-          <!--添加消耗里程卡片-->
-          <view class="flex-sub padding-sm margin-xs animation-slide-bottom" style="animation-delay:0.1s">
-            <view class="cu-card  bg-blue shadow-lg radius-lg ">
-                <view class="cu-bar">
-                    <view class="action title">
-                        <text class="text-xxl text-bold text-white">累计里程</text>
-                    </view>
-                </view>
-                <view class="cu-list menu padding-xs">
-                    <view class="cu-item radius-df">
-                        <view class="action">
-                            <view class="text-blue text-bold">300km</view>
-                        </view>
-                    </view>
-                </view>
+
+            <view class="action flex solid-bottom padding-xs justify-center" bindtap="hideModals">
+                <view class="padding-sm ">取消</view>
+            </view>
+            <view class="flex bg-gray solid-bottom padding-xs justify-center">
+                <view class="padding-sm"></view>
             </view>
           </view>
-          <!--添加未知功能卡片-->
-          <view class="flex-sub padding-sm margin-xs animation-slide-bottom" style="animation-delay:0.1s">
-            <view class="cu-card  bg-blue shadow-lg radius-lg ">
-                <view class="cu-bar">
-                    <view class="action title">
-                        <text class="text-xxl text-bold text-white">???</text>
-                    </view>
-                </view>
-                <view class="cu-list menu padding-xs">
-                    <view class="cu-item radius-df">
-                        <view class="action">
-                            <view class="text-blue text-bold">?</view>
-                        </view>
-                    </view>
-                </view>
-            </view>
-          </view>
-        </view>
-    </view>
+        </view> 
+
+
+
+
+  </view></view>
 </view>
 
 <!-- 增加距离防止被tabbar挡住 -->
