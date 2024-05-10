@@ -1,0 +1,8 @@
+{
+  "name": "miniprogram-exparser",
+  "version": "2.29.1",
+  "description": "exparser",
+  "main": "exparser.min.js",
+  "author": "wechat-miniprogram",
+  "license": "MIT"
+}

@@ -1,6 +1,6 @@
 // pages/recording/recording.js
-import FitTrackRequests from '../../utils/FitTrackRequests'
-import FitTrackStorage from '../../utils/FitTrackStorage'
+const FitTrackStorage = require('../../utils/FitTrackStorage');
+const FitTrackRequests = require('../../utils/FitTrackRequests');
 Page({
 
   /**
@@ -174,3 +174,4 @@ Page({
 
   }
 })
+module.exports = Page

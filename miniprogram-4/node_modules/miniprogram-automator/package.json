@@ -1,0 +1,55 @@
+{
+  "name": "miniprogram-automator",
+  "version": "0.12.1",
+  "description": "",
+  "main": "./out/index",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "dev": "tsc -w --inlineSourceMap",
+    "build": "tsc && gulp build",
+    "format": "prettier src/**/*.ts test/*.js *.js --write",
+    "lint": "npm run tslint && npm run eslint",
+    "tslint": "tslint src/**/*.ts",
+    "eslint": "eslint test/*.js",
+    "test": "node ./test",
+    "lint:fix": "npm run tslint -- --fix && npm run eslint -- --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.code.oa.com:devtools/automator.git"
+  },
+  "files": [
+    "out/"
+  ],
+  "author": "redhoodsu",
+  "license": "MIT",
+  "devDependencies": {
+    "@tencent/eslint-config-wxapp": "^0.5.2",
+    "@tencent/tslint-config-wxapp": "0.0.2",
+    "@types/debug": "^4.1.1",
+    "@types/node": "^11.9.3",
+    "@types/ws": "^6.0.1",
+    "@types/babel__traverse": "7.17.0",
+    "commander": "^2.20.0",
+    "eslint": "^7.13.0",
+    "eslint-config-prettier": "^6.15.0",
+    "gulp": "^4.0.0",
+    "gulp-terser": "^1.1.7",
+    "jest": "^24.7.1",
+    "prettier": "^1.16.4",
+    "ts-loader": "^5.3.3",
+    "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.17.0",
+    "typescript": "^3.2.4"
+  },
+  "dependencies": {
+    "debug": "^4.1.1",
+    "jimp": "^0.6.4",
+    "licia": "^1.4.4",
+    "qrcode-reader": "^1.0.4",
+    "qrcode-terminal": "^0.12.0",
+    "ws": "^6.1.3"
+  }
+}

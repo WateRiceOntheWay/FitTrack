@@ -1,6 +1,6 @@
-import FitTrackStorage from './FitTrackStorage'
+// FitTrackRequests.js
+const FitTrackStorage = require('./FitTrackStorage');
 class FitTrackRequests{
-
     static url_base="http://10.16.203.123:8080"
     static sport_get_all = "/sports"
     static diet_get_all = "/diet" 
@@ -22,7 +22,9 @@ class FitTrackRequests{
           FitTrackRequests.jwtToken = result["value"]["jwtToken"]
       }
       else{
-          wx.redirectTo("/pages/login/login")
+          wx.redirectTo({
+            url:"/pages/login/login"
+          })
           console.log("未登录，跳转到登录页面")
       }
       after_function();

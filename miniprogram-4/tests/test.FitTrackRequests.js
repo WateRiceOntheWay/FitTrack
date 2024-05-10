@@ -1,1 +1,0 @@
-const automator = require('miniprogram-automator')

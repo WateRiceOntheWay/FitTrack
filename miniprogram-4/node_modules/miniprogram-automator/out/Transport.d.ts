@@ -1,0 +1,9 @@
+/// <reference types="node" />
+import WebSocket from 'ws';
+import { EventEmitter } from 'events';
+export default class Transport extends EventEmitter {
+    private ws;
+    constructor(ws: WebSocket);
+    send(message: string): void;
+    close(): void;
+}

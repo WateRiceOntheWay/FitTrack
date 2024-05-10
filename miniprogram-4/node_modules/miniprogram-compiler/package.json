@@ -1,0 +1,29 @@
+{
+  "name": "miniprogram-compiler",
+  "version": "0.2.3",
+  "description": "compiler",
+  "main": "index.js",
+  "author": "wechat-miniprogram",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest ./test/* --bail"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "testURL": "https://jest.test",
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
+  },
+  "devDependencies": {
+    "jest": "^23.6.0"
+  },
+  "dependencies": {
+    "glob": "^7.1.3",
+    "unescape-js": "^1.1.1"
+  }
+}

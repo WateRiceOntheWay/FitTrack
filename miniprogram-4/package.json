@@ -1,0 +1,20 @@
+{
+  "name": "miniprogram-4",
+  "version": "1.0.0",
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "miniprogram-automator": "^0.12.1",
+    "miniprogram-simulate": "^1.6.1"
+  }
+}
