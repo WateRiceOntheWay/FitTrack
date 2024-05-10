@@ -44,7 +44,7 @@
             <text class="text-grey">累计运动记录次数</text>
           </view>
           <view class="action">
-            <text class="text-grey text-sm">{{todayInformation["sport"]["info"]["calories"]}} Cal</text>
+            <text class="text-grey text-sm">{{todayInformation["sport"]["info"]["calories"]}}</text>
           </view>
         </view>
         <!--累计运动里程-->
@@ -54,7 +54,7 @@
             <text class="text-grey">饮食记录次数</text>
           </view>
           <view class="action">
-            <text class="text-grey text-sm">{{todayInformation["sport"]["info"]["distance"]/1000}} km</text>
+            <text class="text-grey text-sm">{{todayInformation["sport"]["info"]["distance"]/1000}}</text>
           </view>
         </view>
         <!--累计运动时长-->
@@ -71,7 +71,7 @@
       <!--按钮退出登录和取消-->
       <view class="cu-modal bottom-modal {{ModalName=='logout'?'show':''}}">
         <view class="cu-dialog">
-          <view class="flex solid-bottom padding-xs justify-center" bindtap="showModalDailyGoal">
+          <view class="flex solid-bottom padding-xs justify-center" bindtap="Logout">
             <view class="action padding-sm text-red">退出登录</view>
           </view>
 

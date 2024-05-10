@@ -119,8 +119,13 @@ Page({
   },
   toCommunity(){
       wx.redirectTo({
-        url: '/pages',
+        url: '/pages/community/community',
       })
+  },
+  toMe(){
+    wx.redirectTo({
+      url: '/pages/me/me',
+    })
   },
   setURL:function(){
 
