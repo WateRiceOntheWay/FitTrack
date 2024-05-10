@@ -161,7 +161,7 @@
         </view>
 
         <!--	身体状况记录		-->
-        <block wx:for="{{dietRecords}}" wx:key="unique">
+        <block wx:for="{{bodyRecords}}" wx:key="unique">
             <view>
                 <view class="flex ">
                     <view class=" singleRecord flex-sub bg-blue light  margin-xs radius">
