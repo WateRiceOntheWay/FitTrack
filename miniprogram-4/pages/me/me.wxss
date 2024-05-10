@@ -1,1 +1,9 @@
 /* pages/me/me.wxss */
+#font{
+	font-size: 50rpx;
+}
+
+.username{
+	margin-top: 5rpx;
+	margin-left: 30rpx;
+}

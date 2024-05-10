@@ -1,4 +1,5 @@
 // pages/me/me.js
+import FitTrackRequests from "../../utils/FitTrackRequests"
 import FitTrackStorage from "../../utils/FitTrackStorage"
 
 Page({
@@ -10,7 +11,10 @@ Page({
         imgs: [],
         count: 3,
         ModalName: null,
-        username: null
+        username: null,
+        sports_count:null,
+        diet_count:null,
+        body_count:null
     },
     bindUpload: function (e) {
         switch (this.data.imgs.length) {
@@ -108,6 +112,44 @@ Page({
                 that.setData({
                     username: result['value']["username"]
                 })
+                console.log("获取用户信息成功")
+            }
+            else {
+                console.log("获取用户信息失败")
+            }
+           
+        })
+        FitTrackRequests.getSportsAll(null,true,function(res){
+            if(res["status"]){
+                that.setData({
+                    sports_count:res["sportinfo"].length
+                })
+                console.log("获取总运动次数成功")
+            }
+            else{
+                console.log("获取总运动次数失败")
+            }
+        })
+        FitTrackRequests.getDietAll(null,true,function(res){
+            if(res["status"]){
+                that.setData({
+                    diet_count:res["dietinfo"].length
+                })
+                console.log("获取总饮食次数成功")
+            }
+            else{
+                console.log("获取总饮食次数失败")
+            }
+        })
+        FitTrackRequests.getBodyAll(null,true,function(res){
+            if(res["status"]){
+                that.setData({
+                    body_count:res["bodyinfo"].length
+                })
+                console.log("获取总身体记录次数成功")
+            }
+            else{
+                console.log("获取总身体记录次数失败")
             }
         })
     },

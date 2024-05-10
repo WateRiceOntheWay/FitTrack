@@ -18,6 +18,7 @@
     </view>
   </view>
   <view class="margin-sm radius-lg bg-white shadow">
+		<view class="padding-top"></view>
     <view class="">
       <!--头像点击-->
       <view class="bg-white">
@@ -26,9 +27,9 @@
             <view class="cu-avatar lg round" style="background-image:url(https://image.meiye.art/Fha6tqRTIwHtlLW3xuZBJj8ZXSX3?imageMogr2/thumbnail/450x/interlace/1);">
             </view>
           </view>
-          <view class="padding-xs text-xl text-black" bind:tap="showModalLogout"> 
-            <view>{{username===null?'用户未登录':username}}</view>
-            
+          <view class="padding-xs text-xl text-black username" bind:tap="showModalLogout"> 
+            <view class="text-bold">{{username===null?'用户未登录':username}}</view>
+            <text class="text-sm text-grey">点击退出登录 ></text>
           </view>
         </view>
       </view>
@@ -36,7 +37,7 @@
 
      
       <!-- 基本数据 -->
-      <view class="cu-list grid col-3 no-border padding-lr-xs radius-lg-bottom">
+      <view class="cu-list grid col-3 border padding-lr-xs radius-lg-bottom solid-top" id="font">
         <!--累计消耗卡路里-->
         <view class="cu-item">
           <view class="content">
@@ -44,17 +45,18 @@
             <text class="text-grey">累计运动记录次数</text>
           </view>
           <view class="action">
-            <text class="text-grey text-sm">{{todayInformation["sport"]["info"]["calories"]}}</text>
+            <text class="text-grey text-sm text-bold" id="font">{{sports_count}}</text>
           </view>
         </view>
         <!--累计运动里程-->
+				
         <view class="cu-item">
           <view class="content">
             <text class="cuIcon-hotfill text-blue"></text>
             <text class="text-grey">饮食记录次数</text>
           </view>
-          <view class="action">
-            <text class="text-grey text-sm">{{todayInformation["sport"]["info"]["distance"]/1000}}</text>
+          <view class="action text-xl">
+            <text class="text-grey text-sm text-bold " id="font">{{diet_count}}</text>
           </view>
         </view>
         <!--累计运动时长-->
@@ -64,7 +66,7 @@
             <text class="text-grey">身体指标记录次数</text>
           </view>
           <view class="action">
-            <text class="text-grey text-sm">{{(todayInformation["sport"]["info"]["duration"]-todayInformation["sport"]["info"]["duration"]%3600)/3600}}h {{((todayInformation["sport"]["info"]["duration"]%3600-todayInformation["sport"]["info"]["duration"]%60)/60)}}' {{todayInformation["sport"]["info"]["duration"]%60}}''</text>
+            <text class="text-grey text-sm text-bold " id="font">{{body_count}}</text>
           </view>
         </view>
       </view>
