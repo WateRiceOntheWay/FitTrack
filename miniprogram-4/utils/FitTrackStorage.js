@@ -40,7 +40,7 @@ class FitTrackStorage {
        wx.getStorage({
             key: "data",
             success(res) {
-                if(res&&res.data&&res.data.code == 1)
+                if(res&&res.data)
                 {
                     return_value={
                     "status":true,
