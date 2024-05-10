@@ -62,5 +62,10 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+  backToHome(){
+      wx.redirectTo({
+        url: '/pages/today/today'
+      })
   }
 })

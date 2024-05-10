@@ -1,0 +1,19 @@
+{
+  "treeData": [
+    {
+      "title": "F.b 登录",
+      "caseId": "bd07a570-4671-4f89-b187-20897ab4de8d",
+      "rootPath": ""
+    },
+    {
+      "title": "F.b 添加运动数据",
+      "caseId": "d87e12de-9a46-423a-8eaf-90b97bccbe31",
+      "rootPath": ""
+    },
+    {
+      "title": "更改每日目标",
+      "caseId": "a772affc-ea2b-4ce2-a77d-64ba9c5c7430",
+      "rootPath": ""
+    }
+  ]
+}

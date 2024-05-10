@@ -1,24 +1,18 @@
-// pages/singleSportRecord/singleSportRecord.js
+// pages/today/add_body/add_body_success/add_body_success.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    item:{},
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    console.log(options)
-    let record = JSON.parse(options.item); // 将 JSON 字符串解析为对象
-    this.setData({
-      item: record,
-    })
-    console.log("单条记录的详细记录")
-    console.log(record)
+
   },
 
   /**
@@ -68,5 +62,10 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+  backToHome(){
+      wx.redirectTo({
+        url: '/pages/today/today'
+      })
   }
 })

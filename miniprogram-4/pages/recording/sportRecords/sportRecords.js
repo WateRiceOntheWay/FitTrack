@@ -13,9 +13,10 @@ Page({
 
   viewDetail:function(event){
     var record = event.currentTarget.dataset.record; // 获取记录
+    console.log("单个记录")
     console.log(record);
     wx.navigateTo({
-      url: 'singleSportRecord/singleSportRecord?item=' + record,
+      url: 'singleSportRecord/singleSportRecord?item=' + JSON.stringify(record),
       success: (result) => {},
       fail: (res) => {},
       complete: (res) => {},
@@ -41,13 +42,14 @@ Page({
     })
     //这是运动记录数据
     let getAll = true
-    FitTrackRequests.getSportsAll(that.data.userinfo,getAll=true,function(res){
+    FitTrackRequests.getSportsAll(that.data.userinfo,getAll,function(res){
       if(res["status"])
       {
         that.setData({
-          diet_records:res["value"]
+          sport_records:res["sportinfo"]
         })
         console.log("获取运动信息成功")
+        console.log(res)
         console.log(that.data.sport_records)
       }else
       console.log("获取运动信息失败")

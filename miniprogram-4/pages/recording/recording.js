@@ -50,41 +50,44 @@ Page({
     //设置用户信息
     this.setUserInfo()
     let getAll = false
+    let that = this
     //获取运动数据
-    FitTrackRequests.getSportsAll(this.data.userinfo,getAll=false,function(res){
+    FitTrackRequests.getSportsAll(that.data.userinfo,getAll,function(res){
       if(res["status"])
       {
-        this.setData({
+        that.setData({
           sportRecords:res["sportinfo"]
         })
         console.log("获取部分运动信息成功")
-        console.log(this.data.sportRecords)
+        console.log("传入数据")
+        console.log(res["sportinfo"])
+        console.log(that.data.sportRecords)
       }
       else
       console.log("获取运动信息失败")
     })
     //获取饮食数据
-    FitTrackRequests.getDietAll(this.data.userinfo,getAll=false,function(res){
+    FitTrackRequests.getDietAll(that.data.userinfo,getAll,function(res){
       if(res["status"])
       {
-        this.setData({
+        that.setData({
           dietRecords:res["dietinfo"]
         })
         console.log("获取部分饮食信息成功")
-        console.log(this.data.dietRecords)
+        console.log(that.data.dietRecords)
       }
       else
       console.log("获取饮食信息失败")
     })
     //获取身体数据
-    FitTrackRequests.getBodyAll(this.data.userinfo,getAll=false,function(res){
+    FitTrackRequests.getBodyAll(that.data.userinfo,getAll,function(res){
       if(res["status"])
       {
-        this.setData({
+        that.setData({
           bodyRecords:res["bodyinfo"]
         })
         console.log("获取部分身体信息成功")
-        console.log(this.data.bodyRecords)
+        console.log(that.data.bodyRecords)
       }
       else
       console.log("获取饮食信息失败")

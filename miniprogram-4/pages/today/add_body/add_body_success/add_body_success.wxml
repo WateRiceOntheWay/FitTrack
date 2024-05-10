@@ -14,7 +14,7 @@
     </view>s
     <view class="flex padding-xs justify-center animation-fade" style="animation-delay:0.05s">
         <view class="margin">
-            <text class="text-black" style="font-size: 150%;">饮食记录添加成功！</text>
+            <text class="text-black" style="font-size: 150%;">身体指标记录添加成功！</text>
         </view>
     </view>
     <view class="flex padding-xs justify-center animation-fade" style="animation-delay:0.2s">

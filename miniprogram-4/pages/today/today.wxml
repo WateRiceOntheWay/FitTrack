@@ -258,7 +258,7 @@
                             <text class="text-grey">心率</text>
                         </view>
                         <view class="action">
-                            <text class="text-grey text-sm">{{todayInformation["body"]["heartrate"]===null?'无记录':todayInformation["body"]["heartrate"]+' bpm'}}</text>
+                            <text class="text-grey text-sm">{{todayInformation["body"]["info"]["heartrate"]===null?'无记录':todayInformation["body"]["info"]["heartrate"]+' bpm'}}</text>
                         </view>
                     </view>
 
@@ -268,7 +268,7 @@
                             <text class="text-grey">体重</text>
                         </view>
                         <view class="action">
-                            <text class="text-grey text-sm">{{todayInformation["body"]["weight"]===null?'无记录':todayInformation["body"]["weight"]+' kg'}}</text>
+                            <text class="text-grey text-sm">{{todayInformation["body"]["info"]["weight"]===null?'无记录':todayInformation["body"]["info"]["weight"]+' kg'}}</text>
                         </view>
                     </view>
 
@@ -278,7 +278,7 @@
                             <text class="text-grey">体脂率</text>
                         </view>
                         <view class="action">
-                            <text class="text-grey text-sm">{{todayInformation["body"]["bfp"]===null?'无记录':todayInformation["body"]["bfp"]+' %'}}</text>
+                            <text class="text-grey text-sm">{{todayInformation["body"]["info"]["bfp"]===null?'无记录':todayInformation["body"]["info"]["bfp"]+' %'}}</text>
                         </view>
                     </view>
                 </view>
@@ -357,7 +357,7 @@
                     <!-- 使用多项选择列表代替原生的时间选择组件，因为原生组件只能选两个项，此处需要hms三个项 -->
                     <picker mode="multiSelector" bindchange="GoalSportDurationTimeChange" value="{{goal_sport_duration}}" range="{{duration_array}}">
                         <view class="picker">
-                            {{goal_sport_duration_string}}
+                            {{((goal_sport_duration[0]===0)&&(goal_sport_duration[1]===0)&&(goal_sport_duration[2]===0))?"未设定":goal_sport_duration[0]+"h "+goal_sport_duration[1]+"' "+goal_sport_duration[2]+"''"}}
                         </view>
                     </picker>
                 </view>

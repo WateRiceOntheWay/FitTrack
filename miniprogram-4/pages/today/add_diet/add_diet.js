@@ -1,13 +1,13 @@
 // pages/today/add_diet/add_diet.js
+import FitTrackStorage from "../../../utils/FitTrackStorage";
+import FitTrackRequests from "../../../utils/FitTrackRequests";
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        username:null,
-        password:null,
-        jwtToken:null,
 
         diet_type_range: ['米饭', '肉类', '蛋类', '豆类', '蔬菜水果', '面食', '果汁', '牛奶', '可乐、雪碧', '水', '咖啡'],
         diet_type_index: null,
@@ -24,31 +24,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        // 读取本地缓存
-        wx.getStorage({
-            key:"username",
-            success(res){
-                this.setData({
-                    username:res.data
-                })
-            }
-        });
-        wx.getStorage({
-            key:"password",
-            success(res){
-                this.setData({
-                    password:res.data
-                })
-            }
-        });
-        wx.getStorage({
-            key:"jwtToken",
-            success(res){
-                this.setData({
-                    jwtToken:res.data
-                })
-            }
-        });
         
     },
 
@@ -162,6 +137,68 @@ Page({
                 add_button_valid:false
             });
         }
+    },
+
+    addDietInfo(){
+        let that = this;
+
+        wx.showToast({
+            title: '上传数据中...',
+            icon: 'loading',
+            duration: 10000
+        });
+
+        let result = FitTrackRequests.DietAdd({
+            "type": this.data.diet_type_index,
+            "amount": this.data.diet_amount
+        },function(result){
+            if(result['status']){
+                let calories = null;
+                if (result['status'] === true) {
+                    calories = result['value']['calories'];
+                } else {
+                    wx.showToast({
+                        title: '上传失败',
+                        icon: 'error'
+                    })
+                    return;
+                }
+                FitTrackStorage.addToTodayInformation('diet','amount',that.data.diet_amount,function(result){
+                    if(result['status']){
+                        FitTrackStorage.addToTodayInformation('diet','calories',calories,function(result){
+                            if(result['status']){
+                                wx.showToast({
+                                    title: '上传成功',
+                                    icon: 'success'
+                                })
+                                wx.navigateTo({
+                                    url:"add_diet_success/add_diet_success"
+                                });
+                            }
+                            else{
+                                wx.showToast({
+                                    title: '上传失败',
+                                    icon: 'error'
+                                })
+                            }
+                        })
+                    }
+                    else{
+                        wx.showToast({
+                            title: '上传失败',
+                            icon: 'error'
+                        });
+                    }
+                })
+            }
+            else{
+                wx.showToast({
+                    title: '上传失败',
+                    icon: 'error'
+                });
+            }
+        });
+
     }
 
 })

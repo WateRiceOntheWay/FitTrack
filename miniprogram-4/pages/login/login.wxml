@@ -7,7 +7,6 @@
 
 <view class="login-container">
 
-
   <view class="title">登录 FitTrack</view>
   <view class="login-box">
     <form bindsubmit="login_using_password">

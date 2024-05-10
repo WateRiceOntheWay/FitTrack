@@ -1,38 +1,49 @@
 import FitTrackStorage from './FitTrackStorage'
 class FitTrackRequests{
 
-    static url_base="http://118.178.135.35:8080"
-    static sport_get_all = "/sports/"
-    static diet_get_all = "/diet/" 
-    static body_get_all = "/body/"
-    static sport_add = "sports/add"
+    static url_base="http://10.16.203.123:8080"
+    static sport_get_all = "/sports"
+    static diet_get_all = "/diet" 
+    static body_get_all = "/healthcare"
+    static sport_add = "/sports/add"
     static diet_add = "/diet/add"
-    static body_add = "/body/add"
+    static body_add = "/healthcare/add"
     static login = "/login"
     static signup = "/signup"
     static username=""
     static jwtToken=""
 	constructor(name){
         // TODO 是否每一次请求都需要重新获取用户信息？
-        FitTrackStorage.getUserInfo(function(result){
-            if(result["status"]) {
-                FitTrackRequests.username = result["value"]["username"]
-                FitTrackRequests.jwtToken = result["value"]["jwtToken"]
-            }
-            else{
-                wx.redirectTo("/pages/login/login");
-                console.log("未登录，跳转到登录页面")
-            }
-        })   
-	}
+  }
+  static InitUserInfo(after_function){
+    FitTrackStorage.getUserInfo(function(result){
+      if(result["status"]) {
+          FitTrackRequests.username = result["value"]["username"]
+          FitTrackRequests.jwtToken = result["value"]["jwtToken"]
+      }
+      else{
+          wx.redirectTo("/pages/login/login")
+          console.log("未登录，跳转到登录页面")
+      }
+      after_function();
+  })
+  }
 	static getURL_SportGetAll(){
-		return FitTrackRequests.url_base + FitTrackRequests.sport_get_all + FitTrackRequests.username
+    //localhost:8080/diet?username=F.t&getAll=True
+    let url = FitTrackRequests.url_base + FitTrackRequests.sport_get_all +'?' +"username="+FitTrackRequests.username + "&getAll="
+    console.log(url)
+		return url
 	}
 	static getURL_DietGetAll(){
-		return  FitTrackRequests.url_base +  FitTrackRequests.diet_get_all + FitTrackRequests.username
+    let url = FitTrackRequests.url_base +  FitTrackRequests.diet_get_all +'?' +"username="+FitTrackRequests.username + "&getAll="
+    console.log(url)
+		return  url
 	}
 	static getURL_BodyGetAll(){
-		return  FitTrackRequests.url_base +  FitTrackRequests.body_get_all + FitTrackRequests.username
+    let url = FitTrackRequests.url_base +  FitTrackRequests.body_get_all + '?' +"username="+FitTrackRequests.username + "&getAll="
+    console.log("饮食")
+    console.log(url)
+		return  url
 	}
 	static getURL_SportAdd(){
 		return  FitTrackRequests.url_base +  FitTrackRequests.sport_add
@@ -60,8 +71,10 @@ class FitTrackRequests{
         }
         */
        let return_value={}
+       FitTrackRequests.InitUserInfo(function(){
         wx.request({
           url: `${FitTrackRequests.getURL_SportAdd()}`,
+          method:'POST',
           headers: {  
             'Authorization': `Bearer ${FitTrackRequests.jwtToken}`  
           }, 
@@ -72,13 +85,22 @@ class FitTrackRequests{
             "sportsDistance":sport_info["distance"]
           },
           success(res){
-            return_value={
+            if(res&&res.data&&res.data.code == 1)
+            {
+              return_value={
                 "status":true,
                 "value":{
                     "calories":res.data["data"]["calories"]
                 }
             }
             console.log("添加成功")
+            }
+            else{
+              return_value={
+                "status":false
+              }
+              console.log("添加失败")
+            }
           },
           fail(res){
               return_value={
@@ -90,7 +112,7 @@ class FitTrackRequests{
               if(after_function!==undefined)
               after_function(return_value)
           }
-        })
+        })})
         
         /*
 
@@ -132,24 +154,35 @@ class FitTrackRequests{
         }
         */
        let return_value={}
+       FitTrackRequests.InitUserInfo(function(){
        wx.request({
          url: FitTrackRequests.getURL_DietAdd(),
          header:{
             'Authorization': `Bearer ${FitTrackRequests.jwtToken}`  
          },
+         method:'POST',
          data:{
             "username":FitTrackRequests.username,
             "foodName":diet_info["type"],
             "weight":diet_info["amount"]
          },
          success(res){
+           if(res&&res.data&&res.data.code == 1)
+           {
             return_value={
-                "status":true,
-                "value":{
-                    "calories":res.data["data"]["calories"]
-                }
+              "status":true,
+              "value":{
+                  "calories":res.data["data"]["calories"]
+              }
+          }
+          console.log("成功添加食物")
+           }
+            else{
+              return_value={
+                "status":false
+              }
+              console.log("添加失败")
             }
-            console.log("成功添加食物")
          },
          fail(res){
              return_value={
@@ -161,7 +194,7 @@ class FitTrackRequests{
              if(after_function!==undefined)
              after_function(return_value)
          }
-       })
+       })})
         /*
         返回值解释：
         1. 添加成功时：                             */
@@ -196,31 +229,40 @@ class FitTrackRequests{
         }
         */
        let return_value={}
+       FitTrackRequests.InitUserInfo(function(){
        wx.request({
          url: FitTrackRequests.getURL_BodyAdd(),
+         method:'POST',
          headers: {  
             'Authorization': `Bearer ${FitTrackRequests.jwtToken}`  
           },
           data:{
+             "username": FitTrackRequests.username,
               "weight":body_info["weight"],
               "bodyFatRate":body_info["bfp"],
-              "heartRate":body_info["heartRate"]
+              "heartRate":body_info["heartrate"]
           },
           success(res){
+            if(res&&res.data&&res.data.code == 1)
+            {
               return_value={
                 "status":true
               }
+              console.log("身体指标添加成功")
+            }
+             
           },
           fail(res){
               return_value={
                   "status":false
               }
+              console.log("添加身体失败")
           },
           complete(res){
               if(after_function!==undefined)
               after_function(return_value)
           }
-       })
+       })})
         /*
         返回值解释：
         1. 添加成功时：                             */
@@ -260,6 +302,7 @@ class FitTrackRequests{
     }
     */
    let return_value={}
+   FitTrackRequests.InitUserInfo(function(){
    wx.request({
     url: FitTrackRequests.getURL_Login(),
     method:'POST',
@@ -310,7 +353,7 @@ class FitTrackRequests{
         if(after_function!==undefined)
         after_function(return_value)
     }
-  })
+  })})
     }
     static Signup(signin_info,after_function){
     /* 输入参数*/
@@ -337,6 +380,7 @@ class FitTrackRequests{
     }
     */
    let return_value={}
+   FitTrackRequests.InitUserInfo(function(){
    wx.request({
     url: FitTrackRequests.getURL_Signup(),
     method:'POST',
@@ -391,7 +435,7 @@ class FitTrackRequests{
         if(after_function!==undefined)
         after_function(return_value)
     }
-  })
+  })})
     }
     static getSportsAll(userinfo, getAll, after_function){
     /* 输入参数*/
@@ -422,27 +466,27 @@ class FitTrackRequests{
     }
     */
    let return_value = {}
+   let getAll_b = (getAll == "true")
+   
+   FitTrackRequests.InitUserInfo(function(){
    wx.request({
-    url: `${FitTrackRequests.getURL_SportGetAll()}/${getAll}`,
+    url: `${FitTrackRequests.getURL_SportGetAll()}${getAll}`,
     method:'GET',
     headers: {  
       'Authorization': `Bearer ${FitTrackRequests.jwtToken}`  
     }, 
     data:[
       {
-        "username": userinfo["username"],
-        "getAll":getAll,
-        "jwtToken":userinfo["jwtToken"]
+        "username": FitTrackRequests.username,
+        "getAll":getAll_b,
       }
     ],
     success(res){
       console.log(res.data)
-      if(res.data.code == 1){
+      if(res&&res.data&&res.data.code == 1){
         return_value={
             "status":true,
-            "sportinfo":{
-                "username":res.data["data"]
-            }
+            "sportinfo":res.data["data"]
         }
       }
       else{
@@ -459,7 +503,7 @@ class FitTrackRequests{
         if(after_function!==undefined)
         after_function(return_value)
     }
-  })
+  })})
     }
     static getDietAll(userinfo, getAll, after_function){
         /* 输入参数*/
@@ -489,27 +533,34 @@ class FitTrackRequests{
         }
         */
        let return_value = {}
+       let getAll_b = (getAll == "true")
+       
+       FitTrackRequests.InitUserInfo(function(){
+        console.log("测试")
+        console.log(`${FitTrackRequests.getURL_DietGetAll()}${getAll}`)
+        console.log({
+         "username": FitTrackRequests.username,
+         "getAll":getAll_b,
+       })
        wx.request({
-        url: `${FitTrackRequests.getURL_DietGetAll()}/${getAll}`,
+         
+        url: `${FitTrackRequests.getURL_DietGetAll()}${getAll}`,
         method:'GET',
         headers: {  
           'Authorization': `Bearer ${FitTrackRequests.jwtToken}`  
         }, 
         data:[
           {
-            "username": userinfo["username"],
-            "getAll":getAll,
-            "jwtToken":userinfo["jwtToken"]
+            "username": FitTrackRequests.username,
+            "getAll":getAll_b,
           }
         ],
         success(res){
           console.log(res.data)
-          if(res.data.code == 1){
+          if(res&&res.data&&res.data.code == 1){
             return_value={
                 "status":true,
-                "dietinfo":{
-                    "username":res.data["data"]
-                }
+                "dietinfo":res.data["data"]
             }
           }
           else{
@@ -526,7 +577,7 @@ class FitTrackRequests{
             if(after_function!==undefined)
             after_function(return_value)
         }
-      })
+      })})
     }
 
     static getBodyAll(userinfo, getAll, after_function){
@@ -557,27 +608,27 @@ class FitTrackRequests{
         }
         */
        let return_value = {}
+       let getAll_b = (getAll == "true")
+       FitTrackRequests.InitUserInfo(function(){
        wx.request({
-        url: `${FitTrackRequests.getURL_BodyGetAll()}/${getAll}`,
+        url: `${FitTrackRequests.getURL_BodyGetAll()}${getAll}`,
         method:'GET',
         headers: {  
           'Authorization': `Bearer ${FitTrackRequests.jwtToken}`  
         }, 
         data:[
           {
-            "username": userinfo["username"],
-            "getAll":getAll,
-            "jwtToken":userinfo["jwtToken"]
+            "username": FitTrackRequests.username,
+            "getAll":getAll_b,
           }
         ],
         success(res){
+          console.log("从服务器获取的身体数据")
           console.log(res.data)
-          if(res.data.code == 1){
+          if(res&&res.data&&res.data.code == 1){
             return_value={
                 "status":true,
-                "bodyinfo":{
-                    "username":res.data["data"]
-                }
+                "bodyinfo":res.data["data"]
             }
           }
           else{
@@ -594,7 +645,7 @@ class FitTrackRequests{
             if(after_function!==undefined)
             after_function(return_value)
         }
-      })
+      })})
     }
 }
 module.exports = FitTrackRequests

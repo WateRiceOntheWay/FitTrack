@@ -40,10 +40,18 @@ class FitTrackStorage {
        wx.getStorage({
             key: "data",
             success(res) {
-                return_value={
+                if(res&&res.data)
+                {
+                    return_value={
                     "status":true,
                     "value":res.data
                 }
+                }else{
+                    return_value={
+                        "status":false
+                    }
+                }
+                
             },
             fail(err) {
                 return_value={
@@ -72,8 +80,8 @@ class FitTrackStorage {
            key:"data",
            data:user_info,
            success(res){
-            console.log("存储用户信息成功！")
-            succes = true
+                console.log("存储用户信息成功！")
+                succes = true
            },
            fail(res){
                succes = false
@@ -139,12 +147,13 @@ class FitTrackStorage {
                 let infor = res.data;
 
                 if (infor===undefined){
+                    console.log(infor);
 
                     // 如果没有记录就生成初始记录
                     return_value = {
                         "status": true,
                         "value": {
-                            "date": new Date(),
+                            "date": new Date(new Date().toDateString("yyyy-MM-dd")),
                             "sport": {
                                 "info": {
                                     "duration": 0,
@@ -169,7 +178,8 @@ class FitTrackStorage {
                 }
                 else{
                     // 判定是否为今天，初始化sport和diet
-                    if (infor["date"] < new Date()) {
+                    console.log(infor["date"] < new Date(new Date().toDateString("yyyy-MM-dd")));
+                    if (infor["date"] < new Date(new Date().toDateString("yyyy-MM-dd"))) {
                         infor["sport"] = {
                             "info": {
                                 "duration": 0,
@@ -184,12 +194,15 @@ class FitTrackStorage {
                         };
                         infor["date"] = new Date();
                     }
+                    console.log(infor);
                     FitTrackStorage.setTodayInformation(infor);
 
                     return_value = {
                         "status": true,
                         "value": infor
                     }
+
+
                 }
 
 
@@ -200,7 +213,7 @@ class FitTrackStorage {
                 return_value = {
                     "status": true,
                     "value": {
-                        "date": new Date(),
+                        "date": new Date(new Date().toDateString("yyyy-MM-dd")),
                         "sport": {
                             "info": {
                                 "duration": 0,
@@ -214,9 +227,11 @@ class FitTrackStorage {
                             }
                         },
                         "body": {
-                            "heartrate": null,
-                            "weight": null,
-                            "bfp": null
+                            "info": {
+                                "heartrate": null,
+                                "weight": null,
+                                "bfp": null
+                            }
                         }
                     }
                 }
@@ -224,6 +239,7 @@ class FitTrackStorage {
                 FitTrackStorage.setTodayInformation(return_value["value"]);
             },
             complete(){
+                console.log(return_value);
                 console.log(after_function);
                 if(after_function!==undefined){
                     after_function(return_value);
@@ -317,9 +333,9 @@ class FitTrackStorage {
                 }
                 // assert(structure[struc1][struc2] !== null);
                 if (structure[struc1][struc2] == 1) {
-                    todayInformation[struc1][struc2] += value;
+                    todayInformation[struc1]["info"][struc2] += value;
                 } else if (structure[struc1][struc2] == 2) {
-                    todayInformation[struc1][struc2] = value;
+                    todayInformation[struc1]["info"][struc2] = value;
                 }
 
                 let return_value = {
@@ -329,6 +345,7 @@ class FitTrackStorage {
                     key: "todayInformation",
                     data: todayInformation,
                     success(res) {
+                        console.log("success");
                         return_value = {
                             "status": true
                         }
