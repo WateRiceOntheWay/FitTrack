@@ -48,7 +48,7 @@
                 <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.sportsDistance}}m</text>
               </view>
               <view class="sport-singleRecord flex-sub bg-blue light margin-xs radius">
-                <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.sportsTime}}
+                <text class="text-xxl text-bold text-blue cuIcon-titles">{{(item.sportsTime-item.sportsTime%3600)/3600}}:{{((item.sportsTime%3600-item.sportsTime%60)/60)}}:{{item.sportsTime%60}}
                 </text>
               </view>
               <view class="sport-singleRecord flex-twice bg-blue light margin-xs radius">

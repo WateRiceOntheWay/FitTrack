@@ -53,7 +53,7 @@
                         <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.sportsDistance}}m</text>
                     </view>
                     <view class="singleRecord flex-sub bg-blue light margin-xs radius">
-                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{item.sportsTime}}
+                        <text class="text-xxl text-bold text-blue cuIcon-titles">{{(item.sportsTime-item.sportsTime%3600)/3600}}:{{((item.sportsTime%3600-item.sportsTime%60)/60)}}:{{item.sportsTime%60}}
                         </text>
                     </view>
                     <view class="singleRecord flex-twice bg-blue light margin-xs radius">
@@ -161,7 +161,7 @@
         </view>
 
         <!--	身体状况记录		-->
-        <block wx:for="{{dietRecords}}" wx:key="unique">
+        <block wx:for="{{bodyRecords}}" wx:key="unique">
             <view>
                 <view class="flex ">
                     <view class=" singleRecord flex-sub bg-blue light  margin-xs radius">
@@ -191,6 +191,8 @@
 
     </view>
 
+<!-- 增加距离防止被tabbar挡住 -->
+<view class="padding-xxl margin-xxl"></view>
 
 <!-- 底部tabbar -->
 <view class="cu-bar foot tabbar  bg-black margin-top-xs">
@@ -213,4 +215,4 @@
             我
         </view>
     </view>
-</view>>
+</view>
