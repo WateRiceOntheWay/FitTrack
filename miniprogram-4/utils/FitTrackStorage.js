@@ -107,6 +107,26 @@ class FitTrackStorage {
         */
     }
 
+    static clearUserInfo(after_function) {
+        wx.removeStorage({
+            key: 'data',
+            success(res) {
+                console.log("清除用户信息成功")
+                if(after_function!==undefined)
+                after_function({
+                    "status": true
+                })
+            },
+            fail(res) {
+                console.log("清除用户信息失败")
+                if(after_function!==undefined)
+                after_function({
+                    "status": false
+                })
+            }
+        })
+    }
+
     static getTodayInformation(after_function) {
         /* 返回值解释
 

@@ -2,115 +2,97 @@
 <!--导航栏-->
 
 <cu-custom bgColor="bg-gradual-pink" isBack="{{false}}">
-    <view slot="backText">返回</view>
-    <view slot="content">FitTrack</view>
+  <view slot="backText">返回</view>
+  <view slot="content">FitTrack</view>
 </cu-custom>
 
 <view class="me-container">
-    
-       <!--个人中心标题-->
-        <view class="padding-sm margin-xs radius">
-            <view class="cu-bar">
-              <view class="action sub-title">
-                <text class="text-xxxl text-bold text-blue">个人中心</text>
-                <text class="bg-blue"></text>
-              </view>
+
+  <!--个人中心标题-->
+  <view class="padding-sm margin-xs radius">
+    <view class="cu-bar">
+      <view class="action sub-title">
+        <text class="text-xxxl text-bold text-blue">个人中心</text>
+        <text class="bg-blue"></text>
+      </view>
+    </view>
+  </view>
+  <view class="margin-sm radius-lg bg-white shadow">
+    <view class="">
+      <!--头像点击-->
+      <view class="bg-white">
+        <view class="flex padding">
+          <view class="padding-lr-xs">
+            <view class="cu-avatar lg round" style="background-image:url(https://image.meiye.art/Fha6tqRTIwHtlLW3xuZBJj8ZXSX3?imageMogr2/thumbnail/450x/interlace/1);">
             </view>
-        </view>
-        <view class="margin-sm radius-lg bg-white shadow">
-        <view class="">
-        <!--头像点击-->
-          <view class="bg-white">
-            <view class="flex padding">
-              
-              <view class="img-wrap">
-                <view class="imglist">
-                  <view class="item" wx:for="{{imgs}}" wx:key="item">
-                    <image src="{{item}}" alt=""></image>
-                    <view class='delete' bindtap='deleteImg' data-index="{{index}}">
-                      <image src="../../../images/icon.png"></image>
-                    </view>
-                  </view>
-                  <view class="last-item" wx:if="{{imgs.length >= 3 ? false : true}}" bindtap="bindUpload">
-                    <!--头像大小-->
-                    <text class="sign cu-avatar sm round margin-left bg-blue text-xl">头像</text>
-                  </view>
-                </view>
-              </view>
-            <view class="padding-xs text-xl text-black">
-              <view class="flex padding-xs justify-end">
-                <!-- 用户A按钮 -->
-                <view class="padding-sm margin-xs radius">
-                  <view>
-                    <button class="cu-btn icon bg-white shadow lg" bindtap="showModalAddGoal">
-                        <view class="text-xxxl text-black">
-                          <text class="text-xs text-bold text-blue">用户A</text>
-                        </view>
-                    </button>
-                  </view>
-                </view>
-              </view>
-      
-            </view>
+          </view>
+          <view class="padding-xs text-xl text-black" bind:tap="showModalLogout"> 
+            <view>{{username===null?'用户未登录':username}}</view>
+            
           </view>
         </view>
-          <!-- 基本数据 -->
-        <view class="cu-list grid col-3 no-border padding-lr-xs radius-lg-bottom">
-          <!--累计消耗卡路里-->
-          <view class="cu-item">
-            <view class="content">
-                <text class="cuIcon-hotfill text-blue"></text>
-                <text class="text-grey">累计消耗卡路里</text>
-            </view>
-            <view class="action">
-              <text class="text-grey text-sm">{{todayInformation["sport"]["info"]["calories"]}} Cal</text>
-            </view>
+      </view>
+
+
+     
+      <!-- 基本数据 -->
+      <view class="cu-list grid col-3 no-border padding-lr-xs radius-lg-bottom">
+        <!--累计消耗卡路里-->
+        <view class="cu-item">
+          <view class="content">
+            <text class="cuIcon-activityfill text-blue"></text>
+            <text class="text-grey">累计运动记录次数</text>
           </view>
-          <!--累计运动里程-->
-          <view class="cu-item">
-            <view class="content">
-              <text class="cuIcon-activityfill text-blue"></text>
-              <text class="text-grey">累计运动里程</text>
-            </view>
-            <view class="action">
-              <text class="text-grey text-sm">{{todayInformation["sport"]["info"]["distance"]/1000}} km</text>
-            </view>
-          </view>
-          <!--累计运动时长-->
-          <view class="cu-item">
-            <view class="content">
-              <text class="cuIcon-timefill text-blue"></text>
-              <text class="text-grey">累计运动时长</text>
-            </view>
-            <view class="action">
-              <text class="text-grey text-sm">{{(todayInformation["sport"]["info"]["duration"]-todayInformation["sport"]["info"]["duration"]%3600)/3600}}h {{((todayInformation["sport"]["info"]["duration"]%3600-todayInformation["sport"]["info"]["duration"]%60)/60)}}' {{todayInformation["sport"]["info"]["duration"]%60}}''</text>
-            </view>
+          <view class="action">
+            <text class="text-grey text-sm">{{todayInformation["sport"]["info"]["calories"]}}</text>
           </view>
         </view>
-           <!--按钮退出登录和取消-->
-        <view class="cu-modal bottom-modal {{ModalName=='AddGoal'?'show':''}}">
-          <view class="cu-dialog">
-            <view class="flex solid-bottom padding-xs justify-center" bindtap="showModalDailyGoal">
-                <view class="action padding-sm text-red">退出登录</view>
-            </view>
-
-            <view class="flex bg-gray solid-bottom padding-xs justify-center">
-                <view class=""></view>
-            </view>
-
-            <view class="action flex solid-bottom padding-xs justify-center" bindtap="hideModals">
-                <view class="padding-sm ">取消</view>
-            </view>
-            <view class="flex bg-gray solid-bottom padding-xs justify-center">
-                <view class="padding-sm"></view>
-            </view>
+        <!--累计运动里程-->
+        <view class="cu-item">
+          <view class="content">
+            <text class="cuIcon-hotfill text-blue"></text>
+            <text class="text-grey">饮食记录次数</text>
           </view>
-        </view> 
+          <view class="action">
+            <text class="text-grey text-sm">{{todayInformation["sport"]["info"]["distance"]/1000}}</text>
+          </view>
+        </view>
+        <!--累计运动时长-->
+        <view class="cu-item">
+          <view class="content">
+            <text class="cuIcon-timefill text-blue"></text>
+            <text class="text-grey">身体指标记录次数</text>
+          </view>
+          <view class="action">
+            <text class="text-grey text-sm">{{(todayInformation["sport"]["info"]["duration"]-todayInformation["sport"]["info"]["duration"]%3600)/3600}}h {{((todayInformation["sport"]["info"]["duration"]%3600-todayInformation["sport"]["info"]["duration"]%60)/60)}}' {{todayInformation["sport"]["info"]["duration"]%60}}''</text>
+          </view>
+        </view>
+      </view>
+      <!--按钮退出登录和取消-->
+      <view class="cu-modal bottom-modal {{ModalName=='logout'?'show':''}}">
+        <view class="cu-dialog">
+          <view class="flex solid-bottom padding-xs justify-center" bindtap="Logout">
+            <view class="action padding-sm text-red">退出登录</view>
+          </view>
+
+          <view class="flex bg-gray solid-bottom padding-xs justify-center">
+            <view class=""></view>
+          </view>
+
+          <view class="action flex solid-bottom padding-xs justify-center" bindtap="hideModals">
+            <view class="padding-sm ">取消</view>
+          </view>
+          <view class="flex bg-gray solid-bottom padding-xs justify-center">
+            <view class="padding-sm"></view>
+          </view>
+        </view>
+      </view>
 
 
 
 
-  </view></view>
+    </view>
+  </view>
 </view>
 
 <!-- 增加距离防止被tabbar挡住 -->
@@ -119,24 +101,24 @@
 <!-- 底部tabbar -->
 
 <view class="cu-bar foot tabbar  bg-black margin-top-xs">
-    <view class="action text-gray" bind:tap="toToday">
-        <view class="cuIcon-formfill"></view>
-        Today
+  <view class="action text-gray" bind:tap="toToday">
+    <view class="cuIcon-formfill"></view>
+    Today
+  </view>
+  <view class="action text-gray" bind:tap="toRecording">
+    <view class="cuIcon-rank"></view>
+    历史记录
+  </view>
+  <view class="action text-gray" bind:tap="toCommunity">
+    <view class="cuIcon-community">
+      <!-- <view class="cu-tag badge">99</view> -->
     </view>
-    <view class="action text-gray" bind:tap="toRecording">
-        <view class="cuIcon-rank"></view>
-        历史记录
+    社区
+  </view>
+  <view class="action text-pink">
+    <view class="cuIcon-my">
+      <!-- <view class="cu-tag badge"></view> -->
     </view>
-    <view class="action text-gray" bind:tap="toCommunity">
-        <view class="cuIcon-community">
-            <!-- <view class="cu-tag badge">99</view> -->
-        </view>
-        社区
-    </view>
-    <view class="action text-pink">
-        <view class="cuIcon-my">
-            <!-- <view class="cu-tag badge"></view> -->
-        </view>
-        我
-    </view>
+    我
+  </view>
 </view>
