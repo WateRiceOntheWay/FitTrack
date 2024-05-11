@@ -1,36 +1,32 @@
 {
-  "compileType": "miniprogram",
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
   "setting": {
-    "coverView": true,
+    "urlCheck": true,
     "es6": true,
     "postcss": true,
     "minified": true,
-    "enhance": true,
-    "showShadowRootInWxmlPanel": true,
-    "packNpmRelationList": [],
+    "newFeature": true,
+    "autoAudits": false,
+    "coverView": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
-    },
-    "condition": false,
-    "ignoreUploadUnusedFiles": true
+    }
   },
+  "compileType": "miniprogram",
+  "libVersion": "3.4.3",
+  "appid": "wx76f06fe3aaa132fe",
+  "projectname": "zhku_app",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
   "condition": {},
   "editorSetting": {
-    "tabIndent": "auto",
+    "tabIndent": "insertSpaces",
     "tabSize": 2
-  },
-  "libVersion": "3.4.1",
-  "packOptions": {
-    "ignore": [
-      {
-        "value": "/minitest",
-        "type": "folder"
-      }
-    ],
-    "include": []
-  },
-  "appid": "wxaa69089b2d0b3cf3",
-  "testRoot": "minitest/"
+  }
 }
