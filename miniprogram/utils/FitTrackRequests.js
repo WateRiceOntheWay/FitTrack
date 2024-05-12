@@ -10,6 +10,8 @@ class FitTrackRequests{
     static body_add = "/healthcare/add"
     static login = "/login"
     static signup = "/signup"
+
+    static summarize = "/user/summarize"
     static username=""
     static jwtToken=""
 	constructor(name){
@@ -61,6 +63,9 @@ class FitTrackRequests{
     }
     static getURL_Login(){
 		return  FitTrackRequests.url_base +  FitTrackRequests.login
+    }
+    static getURL_Summarize(){
+        return  FitTrackRequests.url_base +  FitTrackRequests.summarize
     }
     static SportAdd(sport_info, after_function){
         // TODO
@@ -648,6 +653,45 @@ class FitTrackRequests{
             after_function(return_value)
         }
       })})
+    }
+
+    static getSummarize(after_function){
+        let return_value = {}
+        FitTrackRequests.InitUserInfo(function(){
+        wx.request({
+            url: FitTrackRequests.getURL_Summarize(),
+            method:'POST',
+            headers: {
+                'Authorization': `Bearer ${FitTrackRequests.jwtToken}`
+            },
+            data:[
+                {
+                    "username": FitTrackRequests.username
+                }
+            ],
+            success(res){
+                console.log(res.data)
+                if(res&&res.data&&res.data.code == 1){
+                    return_value={
+                        "status":true,
+                        "summarize":res.data["data"]
+                    }
+                }
+                else{
+                    console.log("未找到数据")
+                }
+            },
+            fail(res){
+                return_value={
+                    "status":false
+                }
+                console.log("获取总结数据请求失败")
+            },
+            complete(res){
+                if(after_function!==undefined)
+                after_function(return_value)
+            }
+        })})
     }
 }
 module.exports = FitTrackRequests

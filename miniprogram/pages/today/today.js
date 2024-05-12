@@ -75,6 +75,7 @@ Page({
         })
 
 
+
     },
 
     /**
@@ -117,6 +118,18 @@ Page({
                     console.log('获取数据失败');
                 }
             })
+
+    //     获取智能建议数据
+        FitTrackStorage.getSummarize(function(result){
+            if(result['status'] === true){
+                that.setData({
+                    summarize: result['value']
+                })
+            }else{
+                console.log("未能获取智能建议")
+            }
+
+        })
     },
 
     /**
