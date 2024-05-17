@@ -1,0 +1,9 @@
+{
+  "name": "cloudfunctions",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {},
+  "dependencies": {
+    "wx-server-sdk": "^3.0.1"
+  }
+}

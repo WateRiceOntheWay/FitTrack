@@ -1,5 +1,11 @@
 {
+  "appid": "wx84c52e1bd7462049",
   "compileType": "miniprogram",
+  "libVersion": "3.4.3",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
   "setting": {
     "coverView": true,
     "es6": true,
@@ -13,24 +19,11 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "condition": false,
     "ignoreUploadUnusedFiles": true
   },
   "condition": {},
   "editorSetting": {
-    "tabIndent": "auto",
+    "tabIndent": "insertSpaces",
     "tabSize": 2
-  },
-  "libVersion": "3.4.1",
-  "packOptions": {
-    "ignore": [
-      {
-        "value": "/minitest",
-        "type": "folder"
-      }
-    ],
-    "include": []
-  },
-  "appid": "wxaa69089b2d0b3cf3",
-  "testRoot": "minitest/"
+  }
 }
