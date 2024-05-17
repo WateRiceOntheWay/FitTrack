@@ -6,6 +6,7 @@
     "ignore": [],
     "include": []
   },
+  "cloudfunctionRoot": "cloudfunctions/",
   "setting": {
     "coverView": true,
     "es6": true,
