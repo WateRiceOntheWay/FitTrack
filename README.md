@@ -14,9 +14,9 @@ FitTrack - 健身跟踪应用
 - [接口文档](documents/架构设计/接口文档.md)
 
 ## 单元测试代码
-- **服务器请求工具类的单元测试**：[test.FitTrackRequests.js](miniprogram/__tests__/test.FitTrackRequests.js)
-- **本地缓存工具类的单元测试**：[test.FitTrackStorage.js](miniprogram/__tests__/test.FitTrackStorage.js)
+- **服务器请求工具类的单元测试**：[test.FitTrackRequests.js](src/__tests__/test.FitTrackRequests.js)
+- **本地缓存工具类的单元测试**：[test.FitTrackStorage.js](src/__tests__/test.FitTrackStorage.js)
 
 ## 代码
-- [前端代码](miniprogram)
+- [前端代码](FitTrack)
 - [后端代码](BackEnd-v1)
