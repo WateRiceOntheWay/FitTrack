@@ -20,9 +20,7 @@
 <view wx:if="{{!userInfo}}" class="no-user">
   <!-- <view class="renzheng"> </view> -->
   <view class="row">
-    <view>
-      <image class="userhead" src="cloud://zhku-01.7a68-zhku-01-1258022644/home/logo1.jpg"></image>
-    </view>
+
     <view class="col">
       <view class="username" style="color:red;font-weight:600;">仲恺微校园</view>
 

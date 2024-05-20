@@ -5,7 +5,7 @@ Page({
     wallData: [],
     showZan: -1, //显示点赞按钮
     showPinLun: false,
-    nmAvator: '/image/pyq/ng.jpg',
+    nmAvator: '/miniprogram/image/pyq/ng.jpg',
     commentValue: '',
     placeholderPL: '评论',
     userInfo: undefined,
@@ -15,11 +15,11 @@ Page({
     shareObg: {
       title: '仲恺校友圈',
       desc: '',
-      path: '/pages/pyq/circle/index',
-      imageUrl: "/image/pyq/pyq03.jpg",
+      path: '/miniprogram/pages/pyq/circle/index',
+      imageUrl: "/miniprogram/image/pyq/pyq03.jpg",
     } //转发样式
   },
-
+  
 
   getcomment(e) {
     // console.log(e)
@@ -57,8 +57,10 @@ Page({
   },
 
   dianzan(e) {
+	console.log("测试点赞1")
     console.log(e.currentTarget.dataset)
-    console.log(e.currentTarget.dataset.indexn)
+	console.log(e.currentTarget.dataset.indexn)
+	console.log("测试点赞4")
     if (!this.data.userInfo) {
       wx.pageScrollTo({
         scrollTop: 200,
@@ -71,15 +73,21 @@ Page({
     }
 
     wx.cloud.callFunction({
-      name: 'login'
+      name: 'login',
+      config:{
+        env:'fittrack-7gp6es5nf242fb26'
+      }
     }).then(res => {
+		console.log("测试点赞2")
       console.log(res.result.openid)
       var isZan = this.data.wallData[e.currentTarget.dataset.indexn].zans.some(a => {
         return a.openid === res.result.openid
-      })
+	  })
+	  console.log("测试点赞3")
       console.log(isZan)
       //未点赞
       if (!isZan) {
+		console.log("测试点赞5")
         var data = this.data.wallData
         data[e.currentTarget.dataset.indexn].zans.push({
           name: this.data.userInfo.nickName
@@ -92,6 +100,9 @@ Page({
         })
         wx.cloud.callFunction({
           name: 'chat',
+          config:{
+            env:'fittrack-7gp6es5nf242fb26'
+          },
           data: {
             type: 'zan',
             collectionname: 'circle',
@@ -157,6 +168,9 @@ Page({
     }
     wx.cloud.callFunction({
       name: 'chat',
+      config:{
+        env:'fittrack-7gp6es5nf242fb26'
+      },
       data: {
         type: 'comment',
         collectionname: 'circle',
@@ -170,6 +184,7 @@ Page({
         }
       }
     }).then(res => {
+		console.log("测试这个评论功能")
       console.log(res)
 
       //更新这条数据
@@ -222,6 +237,9 @@ Page({
         if (res.confirm) {
           wx.cloud.callFunction({
             name: 'chat',
+            config:{
+              env:'fittrack-7gp6es5nf242fb26'
+            },
             data: {
               type: 'delete',
               collectionname: 'circle',
@@ -285,6 +303,7 @@ Page({
   },
 
   onLoad: function(options) {
+
     var that = this
     console.log(options)
     this.setData({
@@ -390,14 +409,14 @@ Page({
     var that = this
     var item = e.target.dataset.item
     console.log(item)
-    var imageUrl = "/image/pyq/pyq03.jpg"
+    var imageUrl = "/miniprogram/image/pyq/pyq03.jpg"
     if (item.images.length > 0) {
 
     }
     var shareObg = {
       // title: '仲恺校友圈',
       desc: item.content,
-      path: '/pages/pyq/circle/index',
+      path: '/miniprogram/pages/pyq/circle/index',
       imageUrl: imageUrl,
     } //转发
     return shareObg

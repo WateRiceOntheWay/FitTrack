@@ -2,9 +2,10 @@
   <text bindtap="toHome" class='iconfont icon-arrow-right1 r-left'></text>
   <text bindtap="toEdit" class='iconfont icon-xiangji r-right'></text>
 </view>
-
+<view>
+</view>
 <view class="top-relate">
-  <image class="img-top" mode="widthFix" src="/image/pyq/1.jpg"> </image>
+  <!-- <image class="img-top" mode="widthFix" src="/miniprogram/image/pyq/1.jpg"></image> -->
 </view>
 
 <view class="tab">
@@ -47,10 +48,10 @@
             <view class='zan-pinglun' wx:if="{{showZan == indexN}}">
               <button data-item='{{itemName}}' data-index="{{indexN}}" class="share-btn" open-type="share" size='mini'>分享</button>
 
-              <text class='iconfont icon-xin' data-indexN="{{indexN}}" data-_id="{{itemName._id}}" catchtap='dianzan'> 赞</text>
+              <text class='iconfont icon-xin' data-indexN="{{indexN}}" data-_id="{{itemName._id}}" bindtap='dianzan'> 赞</text>
               <text bindtap="showPinLun" class='iconfont icon-pinglun'>留言</text>
             </view>
-            <image class="dd-icon" src="/image/pyq/dd-icon.png" data-index="{{indexN}}" bindtap="toShowZan"></image>
+            <image class="dd-icon" src="/miniprogram/image/pyq/dd-icon.png" data-index="{{indexN}}" bindtap="toShowZan"></image>
 
           </view>
         </view>
@@ -59,7 +60,7 @@
           <view wx:if='{{itemName.zans.length>0}}'>
             <view class="r"></view>
             <view class="zan">
-              <image class="love-icon" src="/image/pyq/love-icon.png"></image>
+              <image class="love-icon" src="/miniprogram/image/pyq/love-icon.png"></image>
               <text class="like">{{itemName.zanText}}</text>
             </view>
           </view>

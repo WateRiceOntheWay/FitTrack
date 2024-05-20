@@ -18,7 +18,10 @@ Page({
       title: '加载中',
     })
     wx.cloud.callFunction({
-      name: "wxparse",
+      name: 'wxparse',
+      config:{
+        env:'fittrack-7gp6es5nf242fb26'
+      },
       data: {
         url: options.url
       }

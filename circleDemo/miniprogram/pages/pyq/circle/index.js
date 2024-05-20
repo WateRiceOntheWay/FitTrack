@@ -136,10 +136,15 @@ Page({
     wx.cloud.callFunction({
       name: 'login'
     }).then(res => {
-      console.log(res.result.openid)
+	  console.log("测试点赞1")
+	  console.log(res)
+      console.log(res.result.userInfo.openId)
       var isZan = this.data.wallData[e.currentTarget.dataset.indexn].zans.some(a => {
+		  console.log(a)
+		  console.log(res.result.userInfo.openId)
+		  console.log("HEAR")
         return a.openid === res.result.openid
-      })
+	  })
       console.log(isZan)
       //未点赞
       if (!isZan) {
@@ -554,7 +559,10 @@ Page({
     this.getWallData(0, 10, false)
 
     wx.cloud.callFunction({
-      name: 'login'
+      name: 'login',
+      config:{
+        env:'fittrack-7gp6es5nf242fb26'
+      }
     }).then(res => {
       console.log(res.result.openid)
 
