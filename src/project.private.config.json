@@ -9,8 +9,8 @@
         "miniprogram": {
             "list": [
                 {
-                    "name": "pages/pyq/index",
-                    "pathName": "pages/pyq/index",
+                    "name": "pages/pyq/circle/index",
+                    "pathName": "pages/pyq/circle/index",
                     "query": "",
                     "launchMode": "default",
                     "scene": null
