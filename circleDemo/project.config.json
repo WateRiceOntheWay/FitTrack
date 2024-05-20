@@ -83,10 +83,6 @@
 	"editorSetting": {
 		"tabIndent": "tab",
 		"tabSize": 4
-<<<<<<< Updated upstream
-	}
-=======
 	},
 	"cloudfunctionTemplateRoot": "cloudfunctionTemplate/"
->>>>>>> Stashed changes
 }

@@ -1,0 +1,40 @@
+{
+    "compileType": "miniprogram",
+    "libVersion": "3.4.1",
+    "miniprogramRoot": "miniprogram/",
+    "cloudfunctionRoot": "cloudfunctions/",
+    "setting": {
+        "coverView": true,
+        "es6": true,
+        "postcss": true,
+        "minified": true,
+        "enhance": true,
+        "showShadowRootInWxmlPanel": true,
+        "packNpmRelationList": [],
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        },
+        "condition": false,
+        "ignoreUploadUnusedFiles": true
+    },
+    "condition": {},
+    "editorSetting": {
+        "tabIndent": "auto",
+        "tabSize": 4
+    },
+    "packOptions": {
+        "ignore": [
+            {
+                "value": "/miniprogram/minitest",
+                "type": "folder"
+            }
+        ],
+        "include": []
+    },
+    "appid": "wxaa69089b2d0b3cf3",
+    "testRoot": "miniprogram/minitest/",
+    "projectname": "FitTrack",
+    "srcMiniprogramRoot": "miniprogram/"
+}
