@@ -1,9 +1,12 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
-cloud.init()
+cloud.init({
+  env: 'fittrack-7gp6es5nf242fb26'
+})
 
 // 云函数入口函数
 exports.main = async(event, context) => {
+	console.log("进入调用")
   const wxContext = cloud.getWXContext()
   const db = cloud.database()
   const _ = db.command
@@ -15,47 +18,65 @@ exports.main = async(event, context) => {
   } = event;
 
   const loveCollection = db.collection(collectionname);
-  switch (type) {
-    case "zan":
-      return await loveCollection.doc(data._id).update({
-        data: {
-          zans: _.push({
-            openid: wxContext.OPENID,
-            name: data.username,
-            createTime: db.serverDate()
-          })
+  console.log(type)
+  try {
+    switch (type) {
+      case "zan":
+		  console.log("开始点赞")
+        return await loveCollection.doc(data._id).update({
+          data: {
+            zans: _.push({
+              openid: wxContext.OPENID,
+              name: data.username,
+              createTime: db.serverDate()
+            })
+          }
+        })
+
+      case "comment":
+        return await loveCollection.doc(data._id).update({
+          data: {
+            comments: _.push({
+              openid: wxContext.OPENID,
+              comment: data.comment,
+              createTime: db.serverDate(),
+              username: data.username,
+              userInfo: data.userInfo,
+              toName: data.toName
+            })
+          }
+        })
+
+      case "delete":
+        const result = await cloud.deleteFile({
+          fileList: data.fileIDs,
+        })
+        return await loveCollection.doc(data._id).remove()
+
+      case "top":
+        return await loveCollection.doc(data._id).update({
+          data: {
+            isTop: data.isTop
+          },
+        })
+
+      default:
+        return {
+          code: 400,
+          message: 'Invalid type'
         }
-      })
-
-    case "comment":
-      return await loveCollection.doc(data._id).update({
-        data: {
-          comments: _.push({
-            openid: wxContext.OPENID,
-            comment: data.comment,
-            createTime: db.serverDate(),
-            username: data.username,
-            userInfo: data.userInfo,
-            toName: data.toName
-          })
-        }
-      })
-
-    case "delete":
-      const result = cloud.deleteFile({
-        fileList: data.fileIDs,
-      })
-      return await loveCollection.doc(data._id).remove()
-
-    case "top":
-      return await loveCollection.doc(data._id).update({
-        data: {
-          isTop: data.isTop
-        },
-      })
-
-
+    }
+  } catch (e) {
+	  console.log("出错啦！！！")
+    console.error(e)
+    return {
+      code: 500,
+      message: 'Internal server error',
+      error: e
+    }
   }
+}
+
 
   // return {
   //   event,
@@ -63,4 +84,3 @@ exports.main = async(event, context) => {
   //   appid: wxContext.APPID,
   //   unionid: wxContext.UNIONID,
   // }
-}

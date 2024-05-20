@@ -136,7 +136,7 @@ Page({
     wx.cloud.callFunction({
       name: 'login'
     }).then(res => {
-      console.log(res.result.openid)
+      console.log(res.result.userInfo.openId)
       var isZan = this.data.wallData[e.currentTarget.dataset.indexn].zans.some(a => {
         return a.openid === res.result.openid
       })
@@ -146,7 +146,8 @@ Page({
         var data = this.data.wallData
         data[e.currentTarget.dataset.indexn].zans.push({
           name: this.data.userInfo.nickName
-        })
+		})
+		console.log(this.data.userInfo.nickName)
         data[e.currentTarget.dataset.indexn].zanText = data[e.currentTarget.dataset.indexn].zans.map(a => {
           return a.name
         }).join(", ")
@@ -164,6 +165,8 @@ Page({
             }
           }
         }).then(res => {
+			console.log("打印点赞调用结果")
+			console.log(res)
           //刷新此项数据
           // const db = wx.cloud.database()
           // db.collection("circle").doc(e.currentTarget.dataset._id).get().then(

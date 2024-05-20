@@ -19,7 +19,9 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"condition": false
+		"condition": false,
+		"packNpmRelationList": [],
+		"ignoreUploadUnusedFiles": true
 	},
 	"appid": "wxa8235991125853d2",
 	"projectname": "ksb_open",

@@ -33,8 +33,9 @@
         ],
         "include": []
     },
-    "appid": "wxaa69089b2d0b3cf3",
+    "appid": "wxa8235991125853d2",
     "testRoot": "miniprogram/minitest/",
     "projectname": "FitTrack",
-    "srcMiniprogramRoot": "miniprogram/"
+    "srcMiniprogramRoot": "miniprogram/",
+    "cloudfunctionTemplateRoot": "cloudfunctionTemplate/"
 }

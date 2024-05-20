@@ -1,5 +1,5 @@
 {
-  "appid": "wx84c52e1bd7462049",
+  "appid": "wx456e5d3eaea96364",
   "compileType": "miniprogram",
   "libVersion": "3.4.3",
   "packOptions": {
@@ -18,7 +18,8 @@
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
-    }
+    },
+    "condition": false
   },
   "condition": {},
   "editorSetting": {
