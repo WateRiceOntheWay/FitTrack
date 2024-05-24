@@ -140,9 +140,6 @@ Page({
 	  console.log(res)
       console.log(res.result.userInfo.openId)
       var isZan = this.data.wallData[e.currentTarget.dataset.indexn].zans.some(a => {
-		  console.log(a)
-		  console.log(res.result.userInfo.openId)
-		  console.log("HEAR")
         return a.openid === res.result.openid
 	  })
       console.log(isZan)

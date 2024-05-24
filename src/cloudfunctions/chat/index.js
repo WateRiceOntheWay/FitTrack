@@ -16,9 +16,12 @@ exports.main = async(event, context) => {
     collectionname,
     data //{_id,username}
   } = event;
-
+  const log = cloud.logger()
   const loveCollection = db.collection(collectionname);
-  console.log(type)
+  log.info({
+	  name:"测试日志",
+	  type:type
+  })
   try {
     switch (type) {
       case "zan":
@@ -29,9 +32,14 @@ exports.main = async(event, context) => {
               openid: wxContext.OPENID,
               name: data.username,
               createTime: db.serverDate()
-            })
+            }),
+            test :{
+              test : "测试返回"
+            }
           }
-        })
+        },
+
+        )
 
       case "comment":
         return await loveCollection.doc(data._id).update({
