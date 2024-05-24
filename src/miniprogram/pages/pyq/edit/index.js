@@ -176,9 +176,7 @@ Page({
   },
 
   saveEditOrNot(e) {
-    wx.switchTab({
-      url: '../circle/index',
-    })
+    wx.navigateBack()
     // wx.showModal({
     //   title: '将此次编辑保留',
     //   content: '',
