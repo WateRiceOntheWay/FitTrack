@@ -1,3 +1,8 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">FitTrack</view>
+</cu-custom>
+
 <view class='edit-header'>
   <button class='header-cancel' bindtap="saveEditOrNot" size="mini">取消</button>
   <button class='header-delive' size="mini" bindtap="formSubmit">发布</button>
