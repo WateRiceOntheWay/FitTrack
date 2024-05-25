@@ -3,5 +3,60 @@
 	"projectname": "ksb_open",
 	"setting": {
 		"compileHotReLoad": true
+	},
+	"condition": {
+		"miniprogram": {
+			"list": [
+				{
+					"name": "pages/doc/list",
+					"pathName": "pages/doc/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"name": "pages/doc/index",
+					"pathName": "pages/doc/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"name": "pages/doc/show",
+					"pathName": "pages/doc/show",
+					"query": "",
+					"scene": null
+				},
+				{
+					"name": "pages/home/index/index",
+					"pathName": "pages/home/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"name": "pages/pyq/edit/index",
+					"pathName": "pages/pyq/edit/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"name": "pages/code/article/index",
+					"pathName": "pages/code/article/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"name": "pages/pyq/edit/index",
+					"pathName": "pages/pyq/edit/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"name": "",
+					"pathName": "pages/pyq/circle/index",
+					"query": "",
+					"launchMode": "default",
+					"scene": null
+				}
+			]
+		}
 	}
 }

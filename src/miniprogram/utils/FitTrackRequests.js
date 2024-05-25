@@ -1,7 +1,7 @@
 // FitTrackRequests.js
 const FitTrackStorage = require('./FitTrackStorage');
 class FitTrackRequests{
-    static url_base="http://118.178.135.35:8080"
+    static url_base="http://10.16.204.156:8080"
     static sport_get_all = "/sports"
     static diet_get_all = "/diet" 
     static body_get_all = "/healthcare"
@@ -27,6 +27,7 @@ class FitTrackRequests{
           wx.redirectTo({
             url:"/pages/login/login"
           })
+          console.log(result)
           console.log("未登录，跳转到登录页面")
       }
       after_function();
@@ -310,6 +311,7 @@ class FitTrackRequests{
     */
    let return_value={}
    FitTrackRequests.InitUserInfo(function(){
+     console.log("进入登录请求")
    wx.request({
     url: FitTrackRequests.getURL_Login(),
     method:'POST',
@@ -318,6 +320,7 @@ class FitTrackRequests{
       "password":login_info["password"]
     },
     success(res){
+      console.log("HEAR1")
       if (res && res.data) {
         if(res.data.code == 1){
             return_value={
@@ -328,6 +331,7 @@ class FitTrackRequests{
                     "jwtToken":res.data["data"]
                 }
             }
+            console.log("HEAR2")
         }
         else{
             return_value={
@@ -350,6 +354,7 @@ class FitTrackRequests{
         return_value={
             "status":false
         }
+        console.log("HEAR3")
         wx.showModal({
             title:"提示",
             content:"服务器未响应",

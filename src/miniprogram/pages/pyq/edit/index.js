@@ -6,7 +6,10 @@ Page({
     textareaTxt: undefined,
     article: undefined,
     files: [],
-    
+    adminInfo: {
+      avatarUrl: "cloud://zhku-01.7a68-zhku-01-1258022644/home/logo1.jpg", //官方账号头像 
+      nickName: "仲恺微校园" //官方账号名称
+    },
     userInfo: undefined,
     sendList: [{
       name: "默认",
@@ -66,7 +69,7 @@ Page({
     if (e.currentTarget.dataset.index === 1) {
       this.setData({
         userInfo: {
-          
+          avatarUrl: "cloud://zhku-01.7a68-zhku-01-1258022644/home/logo1.jpg",
           nickName: "仲恺微校园"
         }
       })
@@ -120,7 +123,10 @@ Page({
       })
     }
     wx.cloud.callFunction({
-      name: 'login'
+      name: 'login',
+      config:{
+        env:'fittrack-7gp6es5nf242fb26'
+      }
     }).then(res => {
       console.log(res.result.openid)
       if (res.result.openid === that.data.adminOpenid) {
@@ -151,6 +157,9 @@ Page({
       console.log("从")
       wx.cloud.callFunction({
         name: 'wxparse',
+        config:{
+          env:'fittrack-7gp6es5nf242fb26'
+        },
         data: {
           url: e.detail.value
         }
@@ -176,9 +185,7 @@ Page({
   },
 
   saveEditOrNot(e) {
-    wx.switchTab({
-      url: '../circle/index',
-    })
+    wx.navigateBack()
     // wx.showModal({
     //   title: '将此次编辑保留',
     //   content: '',
@@ -187,6 +194,7 @@ Page({
     //   success(res) {
     //     if (res.confirm) {
     //       console.log('用户点击确定')
+    //       wx.navigateBack()
     //     } else if (res.cancel) {
     //       wx.navigateBack({
     //         delta: 1
@@ -274,36 +282,33 @@ Page({
       })
       var tempIds = [];
       const db = wx.cloud.database()
-      if (that.data.files.length === 0) {
-        //内容安全检测
-        db.collection('circle').add({
-          data: {
-            userInfo: this.data.userInfo,
-            createTime: db.serverDate(),
-            content: this.data.textareaTxt,
-            time: new Date().getTime(),
-            zans: [],
-            images: [],
-            comments: [],
-            tab: tab,
-            isTop: false,
-            article: this.data.article,
-          },
-          success: res => {
-            wx.hideLoading()
-            wx.showToast({
-              title: '提交成功',
-              icon: 'success'
-            })
-            wx.reLaunch({
-              url: '../circle/index',
-            })
-          }
-        })
-      }
+      // db.collection('circle').add({
+      // data: {
+      //   userInfo: this.data.userInfo,
+      //   createTime: db.serverDate(),
+      //   content: this.data.textareaTxt,
+      //   time: new Date().getTime(),
+      //   zans: [],
+      //   images: [],
+      //   comments: [],
+      //   tab: tab,
+      //   isTop: false,
+      //   article: this.data.article,
+      // },
+      // success: res => {
+      //   wx.hideLoading()
+      //   wx.showToast({
+      // 	title: '提交成功',
+      // 	icon: 'success'
+      //   })
+      //   wx.reLaunch({
+      // 	url: '../circle/index',
+      //   })
+      // }
+      // })
 
       if (that.data.files.length > 0) {
-        var tempIds = [];
+        // var tempIds = [];
         for (var i = 0; i < that.data.files.length; i++) {
           const filePath = that.data.files[i]
           var rn = Math.floor(Math.random() * 10000 + 1) //随机数
@@ -315,44 +320,50 @@ Page({
             success: res => {
               console.log(res)
               tempIds.push(res.fileID)
+              console.log("图片列表")
+              console.log(tempIds)
               num = num + 1
               if (num === that.data.files.length) {
-                console.log(that.data.textareaTxt)
-                var con = that.data.textareaTxt
-                if (!con) {
-                  con = 123
+                  console.log(that.data.textareaTxt)
+                  var con = that.data.textareaTxt
+                  if (!con) {
+                    con = 123
+                  }
                 }
-                db.collection('circle').add({
-                  data: {
-                    userInfo: this.data.userInfo,
-                    content: this.data.textareaTxt,
-                    createTime: db.serverDate(),
-                    time: new Date().getTime(),
-                    zans: [],
-                    images: tempIds,
-                    comments: [],
-                    tab: tab,
-                    isTop: false,
-                    article: this.data.article,
-
-
-                  },
-                  success: res => {
-                    wx.hideLoading()
-                    wx.showToast({
-                      title: '提交成功',
-                      icon: 'success'
-                    })
-                    wx.reLaunch({
-                      url: '../circle/index',
-                    })
-                  },
-                })
               }
-            },
-          })
+            })
+            console.log("HEAR6")
+          } 
         }
-      }
+        console.log("HEAR!!!")
+        db.collection('circle').add({
+          data: {
+            userInfo: this.data.userInfo,
+            content: this.data.textareaTxt,
+            createTime: db.serverDate(),
+            time: new Date().getTime(),
+            zans: [],
+            images: tempIds,
+            comments: [],
+            tab: tab,
+            isTop: false,
+            article: this.data.article,
+          },
+          success: res => {
+            console.log("添加数据库成功")
+            wx.hideLoading()
+            wx.showToast({
+            title: '提交成功',
+            icon: 'success'
+            })
+            wx.reLaunch({
+            url: '../circle/index',
+            })
+          },
+          fail:res=>{
+            console.log("添加数据库失败")
+          }
+          })
     }
   },
 

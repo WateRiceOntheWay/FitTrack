@@ -136,6 +136,7 @@ Page({
     wx.cloud.callFunction({
       name: 'login'
     }).then(res => {
+      console.log("测试openid")
       console.log(res.result.userInfo.openId)
       var isZan = this.data.wallData[e.currentTarget.dataset.indexn].zans.some(a => {
         return a.openid === res.result.openid
@@ -306,6 +307,8 @@ Page({
       name: 'login'
     }).then(res => {
       const db = wx.cloud.database()
+      console.log("HEAR")
+      console.log(res.result.openid)
       db.collection("circle").where({
         _openid: res.result.openid
       }).get().then(res => {

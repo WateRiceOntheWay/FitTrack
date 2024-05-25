@@ -54,6 +54,7 @@ class FitTrackStorage {
                 
             },
             fail(err) {
+                console.log(err)
                 return_value={
                     "status":false
                 }
@@ -517,7 +518,8 @@ class FitTrackStorage {
                 return return_value;
             }
         })
-    }
+	}
+	
 }
 module.exports = FitTrackStorage
 
