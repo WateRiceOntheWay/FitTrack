@@ -14,7 +14,10 @@ Page({
         username: null,
         sports_count:null,
         diet_count:null,
-        body_count:null
+		body_count:null,
+		appreciate_count:null,
+		post_count:null,
+		comment_count:null
     },
     bindUpload: function (e) {
         switch (this.data.imgs.length) {

@@ -4,6 +4,7 @@
 }
 
 .username{
-	margin-top: 5rpx;
+	margin-top: -10rpx;
 	margin-left: 30rpx;
+	line-height: normal;
 }

@@ -38,7 +38,7 @@
      
       <!-- 基本数据 -->
       <view class="cu-list grid col-3 border padding-lr-xs radius-lg-bottom solid-top" id="font">
-        <!--累计消耗卡路里-->
+        <!--累计运动记录次数-->
         <view class="cu-item">
           <view class="content">
             <text class="cuIcon-activityfill text-blue"></text>
@@ -48,7 +48,7 @@
             <text class="text-grey text-sm text-bold" id="font">{{sports_count}}</text>
           </view>
         </view>
-        <!--累计运动里程-->
+        <!--累计饮食记录次数-->
 				
         <view class="cu-item">
           <view class="content">
@@ -59,7 +59,7 @@
             <text class="text-grey text-sm text-bold " id="font">{{diet_count}}</text>
           </view>
         </view>
-        <!--累计运动时长-->
+        <!--累计身体指标记录次数-->
         <view class="cu-item">
           <view class="content">
             <text class="cuIcon-timefill text-blue"></text>
@@ -69,6 +69,37 @@
             <text class="text-grey text-sm text-bold " id="font">{{body_count}}</text>
           </view>
         </view>
+		<!-- 累计发布贴子数 -->
+		<view class="cu-item text-black">
+          <view class="content">
+            <text class="cuIcon-edit xl"></text>
+			<text class="text-gray">累计发布帖子数</text>
+          </view>
+		  <view class="action">
+            <text class="text-grey text-sm text-bold " id="font">{{post_count}}</text>
+          </view>
+        </view>
+
+		<!-- 发布的帖子的累计获赞数 -->
+      <view class="cu-item text-black">
+          <view class="content">
+            <text class="cuIcon-appreciatefill xl"></text>
+			    <text class="text-gray">发布帖子累计获赞数</text>
+          </view>
+		      <view class="action">
+            <text class="text-grey text-sm text-bold " id="font">{{appreciate_count}}</text>
+          </view>
+      </view>
+    <!-- 累计获得评论数 -->
+      <view class="cu-item text-black">
+          <view class="content">
+            <text class="cuIcon-comment xl"></text>
+			      <text class="text-gray">累计获得评论数</text>
+          </view>
+		      <view class="action">
+            <text class="text-grey text-sm text-bold " id="font">{{comment_count}}</text>
+          </view>
+      </view>
       </view>
       <!--按钮退出登录和取消-->
       <view class="cu-modal bottom-modal {{ModalName=='logout'?'show':''}}">
@@ -89,7 +120,7 @@
           </view>
         </view>
       </view>
-
+      
 
 
 
