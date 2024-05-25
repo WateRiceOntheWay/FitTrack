@@ -1,227 +1,141 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">FitTrack</view>
+</cu-custom>
 <view class='header'>
-  <text bindtap="toHome" class='iconfont icon-arrow-right1 r-left'></text>
-  <text bindtap="toEdit" class='iconfont icon-xiangji r-right'></text>
-</view>
-
-<view class="top-relate">
-  <image class="img-top" mode="widthFix" src="/image/pyq/1.jpg"> </image>
-  <!-- <text decode='true' space class="nickName">& {{userInfo?userInfo.nickName:"匿名"}}</text>
-  <image src="{{userInfo?userInfo.avatarUrl:nmAvator}}" class="useravatar" bindtap="toHome"></image> -->
-</view>
-
-<view class="tab">
-  <block wx:for="{{tabList}}" wx:key='{{index}}'>
-    <view bindtap='bindChangeTab' data-index='{{index}}' class='{{item.isSelect?"tab-se":"tab-no"}}'>{{item.name}}</view>
-  </block>
+    <text bindtap="toHome" class='iconfont icon-arrow-right1 r-left'></text>
+    <text bindtap="toEdit" class='iconfont icon-xiangji r-right'></text>
 </view>
 
 
+<scroll-view scroll-x class="bg-white nav text-center">
+    <view class="cu-item {{index==tabIndex?'text-blue cur':''}}" wx:for="{{tabList}}" wx:key="{{index}}"
+          bindtap="bindChangeTab" data-id="{{index}}">
+        {{item.name}}
+    </view>
+</scroll-view>
 
 <view wx:if="{{!userInfo}}" class="no-user">
-  <!-- <view class="renzheng"> </view> -->
-  <view class="row">
-
-    <view class="col">
-      <view class="username" style="color:red;font-weight:600;">仲恺微校园</view>
-
-      <view class="content">
-        <text>发布、点赞、评论功能需授权小程序使用您的头像和昵称。\n\n发布违规信息将被永久封禁。\n\n</text>
-        <button class='open-btn' open-type="getUserInfo" bindgetuserinfo="getUserInfo" size='mini'> 点击此处获取头像昵称 </button>
-        <!-- <text class="text-right" style="color:#576b95;">小程序</text> -->
-      </view>
-      <view class='timeArea'>
-        <text>2019/08/09</text>
-        <view class='timeArea-right'>
-          <image class="dd-icon" src="/image/pyq/dd-icon.png" data-index="{{index}}"></image>
-        </view>
-      </view>
-    </view>
-  </view>
-</view>
-
-
-
-
-
-<view class="top-circle" wx:if="{{tabIndex===3}}">
-  <view class="circle" wx:for="{{topData}}" wx:key="{{index}}" wx:for-item="itemName" wx:for-index="indexN">
+    <!-- <view class="renzheng"> </view> -->
     <view class="row">
-      <view>
-        <image class="userhead" src="{{itemName.userInfo.avatarUrl}}"></image>
-      </view>
-      <view class="col">
-        <view class="username" style="font-weight:600;">{{itemName.userInfo.nickName}}</view>
-        <view class="toTop">置顶</view>
 
+        <view class="col">
+            <view class="username" style="color:red;font-weight:600;">仲恺微校园</view>
 
-        <view bindtap="lookDetail" data-index="{{itemName._id}}" class="content" data-text="{{itemName.content}}">
-          <text>{{itemName.content}}</text>
-          <text bindtap="lookDetail" data-index="{{itemName._id}}" wx:if="{{itemName.isOver}}" style="color:#576b95;">\n查看全文</text>
-        </view>
-
-        <view class="article" wx:if='{{itemName.article}}' bindtap="lookArticle" data-url="{{itemName.article.url}}">
-          <image class="msg_cover" src="{{itemName.article.msg_cover}}"></image>
-          <text class="article-title">{{itemName.article.title}}</text>
-        </view>
-
-
-        <view class="li-imgs">
-          <block wx:for="{{itemName.images}}" wx:key="{{index}}">
-            <view>
-              <image data-images="{{itemName.images}}" bindtap="previewImage" id="{{item}}" class="li-img-one" src="{{item}}" mode="aspectFill" />
+            <view class="content">
+                <text>发布、点赞、评论功能需授权小程序使用您的头像和昵称。\n\n发布违规信息将被永久封禁。\n\n</text>
+                <button class='open-btn' open-type="getUserInfo" bindgetuserinfo="getUserInfo" size='mini'>
+                    点击此处获取头像昵称
+                </button>
+                <!-- <text class="text-right" style="color:#576b95;">小程序</text> -->
             </view>
-          </block>
-        </view>
-        <view class='timeArea'>
-          <text>{{itemName.time}}</text>
-
-          <text bindtap="deletePyq" data-item='{{itemName}}' data-index="{{indexN}}" class="timeArea-delete" wx:if='{{openid===itemName._openid}}'>删除</text>
-          <text bindtap="cancleTop" data-item='{{itemName}}' data-index="{{indexN}}" class="admin-delete" wx:if='{{openid===adminOpenid}}'>取消置顶</text>
-          <!--  <text bindtap="adminDeletePyq" data-item='{{itemName}}' data-index="{{indexN}}" class="admin-delete" wx:if='{{openid===adminOpenid}}'>删除</text> -->
-
-          <view class='timeArea-right'>
-            <!-- <view class='zan-pinglun' wx:if="{{showZan == indexN}}">
-              <button data-item='{{itemName}}' data-index="{{indexN}}" class="share-btn" open-type="share" size='mini'>分享</button>
-
-              <text class='iconfont icon-xin' data-indexN="{{indexN}}" data-_id="{{itemName._id}}" catchtap='dianzan'> 赞</text>
-              <text bindtap="showPinLun" class='iconfont icon-pinglun'>留言</text>
-            </view> -->
-            <image class="dd-icon" src="/image/pyq/dd-icon.png" data-index="{{indexN}}" bindtap="lookDetail" data-index="{{itemName._id}}"></image>
-
-          </view>
-        </view>
-        <view class="comm-zan" bindtap="lookDetail" data-index="{{itemName._id}}">
-          <!-- 点赞 -->
-          <view wx:if='{{itemName.zans.length>0}}'>
-            <view class="r"></view>
-            <view class="zan">
-              <image class="love-icon" src="/image/pyq/love-icon.png"></image>
-              <text class="like">{{itemName.zanText}}</text>
-            </view>
-          </view>
-          <!-- 留言 -->
-          <view wx:if='{{itemName.comments.length>0}}'>
-            <view wx:if='{{itemName.zans.length<=0}}' class="r"></view>
-
-            <view class="comments">
-              <view wx:for="{{itemName.comments}}" wx:key='{{index}}' data-index="{{index}}" data-indexN="{{indexN}}" data-name="{{item.username}}">
-
-                <view class="tt-row" wx:if='{{!item.toName}}'>
-                  <text class="blueColor">{{item.username+': '}}</text>
-                  <text class="noblueColor">{{item.comment}}</text>
+            <view class='timeArea'>
+                <text>2019/08/09</text>
+                <view class='timeArea-right'>
+                    <image class="dd-icon" src="/image/pyq/dd-icon.png" data-index="{{index}}"></image>
                 </view>
-
-                <view wx:if='{{item.toName}}'>
-                  <text class="blueColor">{{item.username}}</text>
-                  <text class="noblueColor"> 回复</text>
-                  <text class="blueColor">{{item.toName+': '}}</text>
-                  <text class="noblueColor">{{item.comment}}</text>
-                </view>
-              </view>
-
             </view>
-          </view>
         </view>
-
-      </view>
     </view>
-  </view>
+</view>
+
+<view class="community-container">
+    <view class="cu-card dynamic no-card">
+        <view class="cu-item shadow">
+            <view class="cu-list menu-avatar comment solids-top" wx:for="{{wallData}}" wx:key="{{index}}"
+                  wx:for-item="itemName" wx:for-index="indexN">
+                <view class="cu-item solids-top">
+                    <view class="cu-avatar round" style="background-image:url({{itemName.userInfo.avatarUrl}});"></view>
+                    <view class="content">
+                        <view class="text-grey text-bold">{{itemName.userInfo.nickName}}</view>
+                        <view class="text-gray text-df" style="font-size: 24rpx;">{{itemName.time}}</view>
+                        <view class="margin-top-xs"></view>
+                        <view class="text-black text-content text-df" style="font-size: 34rpx;">
+                            {{itemName.content}}
+                        </view>
+
+
+                        <view class="li-imgs">
+                            <block wx:for="{{itemName.images}}" wx:key="{{index}}">
+                                <view>
+                                    <image data-images="{{itemName.images}}" bindtap="previewImage" id="{{item}}"
+                                           class="li-img-one" src="{{item}}" mode="aspectFill"/>
+                                </view>
+                            </block>
+                        </view>
+                        <view wx:for="{{itemName.comments}}" wx:key='{{index}}' data-index="{{index}}" data-indexN="{{indexN}}" >
+                            <view class="bg-gray padding-sm radius margin-top-sm  text-sm">
+                                <view class="flex">
+                                    <view>{{item.username}}：</view>
+                                    <view class="flex-sub">{{item.comment}}</view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="margin-top-sm">
+                            <view>
+                                <text class="cuIcon-appreciatefill text-{{itemName.zans.length==0?'gray':'red'}}" style="font-size: 42rpx;"  data-indexN="{{indexN}}" data-_id="{{itemName._id}}" catchtap='dianzan'></text>
+                                <text class="text-red margin-left-xs margin-bottom-xs" style="font-size: 38rpx;" hidden="{{itemName.zans.length==0?'true':''}}">{{itemName.zans.length}}</text>
+                                <text class="margin-left-xs margin-right-xs"></text>
+                                <text class="cuIcon-messagefill text-gray margin-left-sm" style="font-size: 42rpx;"  data-indexN="{{indexN}}" data-_id="{{itemName._id}}" bindtap="StartComment" ></text>
+                                <text class="margin-left-xs margin-right-xs"></text>
+                                <button open-type="share" class="margin-left-xs padding-sm cu-btn icon bg-white" data-item="{{itemName}}">
+                                <text class="cuIcon-forward text-gray" style="font-size: 42rpx;"></text>
+                            </button>
+                                <text class="margin-left-xs margin-right-xs"></text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+
+            </view>
+        </view>
+    </view>
 </view>
 
 
-<view class="top-circle">
-  <view class="circle" wx:for="{{wallData}}" wx:key="{{index}}" wx:for-item="itemName" wx:for-index="indexN">
-    <view class="row">
-      <view>
-        <image class="userhead" src="{{itemName.userInfo.avatarUrl}}"></image>
-      </view>
-      <view class="col">
-        <view class="username" style="font-weight:600;">{{itemName.userInfo.nickName}}</view>
-        <!-- bindlongtap="copyText" -->
-        <view class="content" data-text="{{itemName.content}}">
-          <text>{{itemName.content}}</text>
-          <text bindtap="lookDetail" data-index="{{itemName._id}}" wx:if="{{itemName.isOver}}" style="color:#576b95;">\n查看全文</text>
-        </view>
 
-        <view class="article" wx:if='{{itemName.article}}' bindtap="lookArticle" data-url="{{itemName.article.url}}">
-          <!--/image/doc/line.png-->
-          <image class="msg_cover" src="{{itemName.article.msg_cover}}"></image>
-          <text class="article-title">{{itemName.article.title}}</text>
-        </view>
-
-
-        <view class="li-imgs">
-          <block wx:for="{{itemName.images}}" wx:key="{{index}}">
-            <view>
-              <image data-images="{{itemName.images}}" bindtap="previewImage" id="{{item}}" class="li-img-one" src="{{item}}" mode="aspectFill" />
-            </view>
-          </block>
-        </view>
-        <view class='timeArea'>
-          <text>{{itemName.time}}</text>
-          <text style="padding-left:14rpx;">{{itemName.tab}}</text>
-
-          <!-- <text bindtap="deletePyq" data-item='{{itemName}}' data-index="{{indexN}}" class="timeArea-delete" wx:if='{{openid===itemName._openid}}'>删除</text> -->
-          <text bindtap="adminTopPyq" data-item='{{itemName}}' data-index="{{indexN}}" class="admin-delete" wx:if='{{openid===adminOpenid}}'>置顶</text>
-          <text bindtap="adminDeletePyq" data-item='{{itemName}}' data-index="{{indexN}}" class="admin-delete" wx:if='{{openid===adminOpenid}}'>删除</text>
-
-          <view class='timeArea-right'>
-            <view class='zan-pinglun' wx:if="{{showZan == indexN}}">
-              <button data-item='{{itemName}}' data-index="{{indexN}}" class="share-btn" open-type="share" size='mini'>分享</button>
-
-              <text class='iconfont icon-xin' data-indexN="{{indexN}}" data-_id="{{itemName._id}}" catchtap='dianzan'> 赞</text>
-              <text bindtap="showPinLun" class='iconfont icon-pinglun'>留言</text>
-            </view>
-            <image class="dd-icon" src="/image/pyq/dd-icon.png" data-index="{{indexN}}" bindtap="toShowZan"></image>
-
-          </view>
-        </view>
-        <view class="comm-zan">
-          <!-- 点赞 -->
-          <view wx:if='{{itemName.zans.length>0}}'>
-            <view class="r"></view>
-            <view class="zan">
-              <image class="love-icon" src="/image/pyq/love-icon.png"></image>
-              <text class="like">{{itemName.zanText}}</text>
-            </view>
-          </view>
-          <!-- 留言 -->
-          <view wx:if='{{itemName.comments.length>0}}'>
-            <view wx:if='{{itemName.zans.length<=0}}' class="r"></view>
-
-            <view class="comments">
-              <view wx:for="{{itemName.comments}}" wx:key='{{index}}' bindtap="bindComment" data-index="{{index}}" data-indexN="{{indexN}}" data-name="{{item.username}}">
-
-                <view class="tt-row" wx:if='{{!item.toName}}'>
-                  <text class="blueColor">{{item.username+': '}}</text>
-                  <text class="noblueColor">{{item.comment}}</text>
-                </view>
-
-                <view wx:if='{{item.toName}}'>
-                  <text class="blueColor">{{item.username}}</text>
-                  <text class="noblueColor"> 回复</text>
-                  <text class="blueColor">{{item.toName+': '}}</text>
-                  <text class="noblueColor">{{item.comment}}</text>
-                </view>
-              </view>
-
-            </view>
-          </view>
-        </view>
-
-      </view>
-    </view>
-  </view>
+<view class="bg-gray margin">
+    <view class="text-center text-gray">{{btoText}}</view>
 </view>
 
-<view class="r-bottom">{{btoText}}</view>
+<!--评论框-->
+<view class="cu-bar  margin-top-xs foot input {{InputBottom!=0?'cur':''}}" style="bottom:{{InputBottom+100}}px" hidden="{{showComment?'':'true'}}">
+    <input class="solid-bottom" focus="{{inputFocused}}" bindinput="ChangeCommentValue" value="{{commentValue}}" bindblur="EndComment" maxlength="300" cursor-spacing="10" placeholder="写评论"></input>
+    <button class="cu-btn bg-blue shadow-blur"  bindtap="submitComment">发送</button>
+</view>
 
 
-<view wx:if='{{showPinLun}}'>
-  <form report-submit='true' bindsubmit='submitComment'>
-    <view class='liuyan'>
-      <input class='input' auto-focus cursor-spacing="32rpx" value='{{commentValue}}' bindinput='getcomment' placeholder='{{placeholderPL}}'></input>
-      <button class='icon' form-type='submit'>发送</button>
+
+
+
+        <!-- 增加距离防止被tabbar挡住 -->
+<view class="padding-xxl margin-xxl"></view>
+
+        <!-- 底部tabbar -->
+
+<view class="cu-bar foot tabbar  bg-black margin-top-xs">
+    <view class="action text-gray" bind:tap="toToday">
+        <view class="cuIcon-formfill"></view>
+        Today
     </view>
-  </form>
+    <view class="action text-gray" bind:tap="toRecording">
+        <view class="cuIcon-rank"></view>
+        历史记录
+    </view>
+    <view class="action text-gray add-action">
+        <button class="cu-btn cuIcon-add bg-pink shadow" bindtap="toEdit"></button>
+        发布
+    </view>
+    <view class="action text-pink">
+        <view class="cuIcon-community">
+            <!-- <view class="cu-tag badge">99</view> -->
+        </view>
+        社区
+    </view>
+    <view class="action text-gray" bind:tap="toMe">
+        <view class="cuIcon-my">
+            <!-- <view class="cu-tag badge"></view> -->
+        </view>
+        我
+    </view>
 </view>
