@@ -27,8 +27,8 @@
         </view>
         <view class="weui-uploader__bd">
           <view class="weui-uploader__files" id="uploaderFiles">
-            <block wx:for="{{files}}" wx:key="index">
-              <view class="weui-uploader__file" bindlongtap="deleteImg" data-index="index" bindtap="previewImage" id="{{item}}">
+            <block wx:for="{{files}}" wx:key="{{index}}">
+              <view class="weui-uploader__file" bindlongtap="deleteImg" data-index="{{index}}" bindtap="previewImage" id="{{item}}">
                 <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
               </view>
             </block>
@@ -45,16 +45,16 @@
 
 <view class='tab-tip'>选择标签</view>
 <view class="tab">
-  <block wx:for="{{tabList}}" wx:key='index'>
-    <view bindtap='bindChangeTab' data-index='index' class='{{item.isSelect?"tab-se":"tab-no"}}'>{{item.name}}</view>
+  <block wx:for="{{tabList}}" wx:key='{{index}}'>
+    <view bindtap='bindChangeTab' data-index='{{index}}' class='{{item.isSelect?"tab-se":"tab-no"}}'>{{item.name}}</view>
   </block>
 </view>
 
 <view wx:if='{{openid===adminOpenid}}'>
   <view class='tab-tip'>选择身份</view>
   <view class="tab">
-    <block wx:for="{{sendList}}" wx:key='index'>
-      <view bindtap='bindChangeUser' data-index='index' class='{{item.isSelect?"tab-se":"tab-no"}}'>{{item.name}}</view>
+    <block wx:for="{{sendList}}" wx:key='{{index}}'>
+      <view bindtap='bindChangeUser' data-index='{{index}}' class='{{item.isSelect?"tab-se":"tab-no"}}'>{{item.name}}</view>
     </block>
   </view>
 </view>
