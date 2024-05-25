@@ -9,16 +9,22 @@
  * - 经过微信鉴权直接可信的用户唯一标识 openid 
  * 
  */
+const cloud = require('wx-server-sdk')
+
+cloud.init({
+	env: 'fittrack-7gp6es5nf242fb26'
+  })
 exports.main = (event, context) => {
 	console.log("进入登录调用")
 	console.log(event)
 	console.log(context)
-  
+	const wxContext = cloud.getWXContext()
+	console.log(wxContext)
 	// 可执行其他自定义逻辑
 	// console.log 的内容可以在云开发云函数调用日志查看
   
 	return {
-	  openid: event.userInfo.openId,
+	  openid: wxContext.OPENID,
 	}
   }
   

@@ -241,132 +241,124 @@ Page({
 
 
   formSubmit: function(e) {
-    var that = this
-    var num = 0
-    var tabList = that.data.tabList
-    var tab = undefined
-    for (let i = 0; i < tabList.length; i++) {
-      if (tabList[i].isSelect) {
-        tab = tabList[i].name
-      }
-    }
-    if (!tab) {
-      wx.showToast({
-        title: '请选择一个标签',
-        icon: 'none',
-      })
-      return
-    }
-    console.log(tab)
-    if (!this.data.userInfo) {
-      wx.showToast({
-        title: '未授权,2秒后跳转授权页面',
-        icon: 'none',
-      })
-      setTimeout(() => {
-        wx.reLaunch({
-          url: '../circle/index',
-        })
-      }, 2000)
-      return
-    }
-    if (!that.data.textareaTxt && that.data.files.length <= 0) {
-      wx.showToast({
-        title: '内容为空',
-        icon: 'none',
-      })
-    } else {
-      wx.showNavigationBarLoading()
-      wx.showLoading({
-        title: '正在提交数据',
-      })
-      var tempIds = [];
-      const db = wx.cloud.database()
-      // db.collection('circle').add({
-      // data: {
-      //   userInfo: this.data.userInfo,
-      //   createTime: db.serverDate(),
-      //   content: this.data.textareaTxt,
-      //   time: new Date().getTime(),
-      //   zans: [],
-      //   images: [],
-      //   comments: [],
-      //   tab: tab,
-      //   isTop: false,
-      //   article: this.data.article,
-      // },
-      // success: res => {
-      //   wx.hideLoading()
-      //   wx.showToast({
-      // 	title: '提交成功',
-      // 	icon: 'success'
-      //   })
-      //   wx.reLaunch({
-      // 	url: '../circle/index',
-      //   })
-      // }
-      // })
-
-      if (that.data.files.length > 0) {
-        // var tempIds = [];
-        for (var i = 0; i < that.data.files.length; i++) {
-          const filePath = that.data.files[i]
-          var rn = Math.floor(Math.random() * 10000 + 1) //随机数
-          var name = Date.parse(new Date()) / 1000; //时间戳
-          const cloudPath = 'circle/' + that.data.userInfo.nickName + "/" + rn + name + filePath.match(/\.[^.]+?$/)[0]
-          wx.cloud.uploadFile({
-            cloudPath: cloudPath,
-            filePath: filePath,
-            success: res => {
-              console.log(res)
-              tempIds.push(res.fileID)
-              console.log("图片列表")
-              console.log(tempIds)
-              num = num + 1
-              if (num === that.data.files.length) {
-                  console.log(that.data.textareaTxt)
-                  var con = that.data.textareaTxt
-                  if (!con) {
-                    con = 123
-                  }
-                }
-              }
-            })
-            console.log("HEAR6")
-          } 
-        }
-        console.log("HEAR!!!")
-        db.collection('circle').add({
-          data: {
-            userInfo: this.data.userInfo,
-            content: this.data.textareaTxt,
-            createTime: db.serverDate(),
-            time: new Date().getTime(),
-            zans: [],
-            images: tempIds,
-            comments: [],
-            tab: tab,
-            isTop: false,
-            article: this.data.article,
-          },
-          success: res => {
-            console.log("添加数据库成功")
-            wx.hideLoading()
-            wx.showToast({
-            title: '提交成功',
-            icon: 'success'
-            })
-            wx.reLaunch({
-            url: '../circle/index',
-            })
-          },
-          fail:res=>{
-            console.log("添加数据库失败")
-          }
-          })
-    }
+	var that = this
+	var num = 0
+	var tabList = that.data.tabList
+	var tab = undefined
+	for (let i = 0; i < tabList.length; i++) {
+	  if (tabList[i].isSelect) {
+		tab = tabList[i].name
+	  }
+	}
+	if (!tab) {
+	  wx.showToast({
+		title: '请选择一个标签',
+		icon: 'none',
+	  })
+	  return
+	}
+	console.log(tab)
+	if (!this.data.userInfo) {
+	  wx.showToast({
+		title: '未授权,2秒后跳转授权页面',
+		icon: 'none',
+	  })
+	  setTimeout(() => {
+		wx.reLaunch({
+		  url: '../circle/index',
+		})
+	  }, 2000)
+	  return
+	}
+	if (!that.data.textareaTxt && that.data.files.length <= 0) {
+	  wx.showToast({
+		title: '内容为空',
+		icon: 'none',
+	  })
+	} else {
+	  wx.showNavigationBarLoading()
+	  wx.showLoading({
+		title: '正在提交数据',
+	  })
+	  var tempIds = [];
+	  const db = wx.cloud.database()
+	  if (that.data.files.length > 0) {
+		var tempIds = [];
+		for (var i = 0; i < that.data.files.length; i++) {
+		  const filePath = that.data.files[i]
+		  var rn = Math.floor(Math.random() * 10000 + 1) //随机数
+		  var name = Date.parse(new Date()) / 1000; //时间戳
+		  const cloudPath = 'circle/' + that.data.userInfo.nickName + "/" + rn + name + filePath.match(/\.[^.]+?$/)[0]
+		  wx.cloud.uploadFile({
+			cloudPath: cloudPath,
+			filePath: filePath,
+			success: res => {
+			  console.log(res)
+			  tempIds.push(res.fileID)
+			  num = num + 1
+			  if (num === that.data.files.length) {
+				console.log(that.data.textareaTxt)
+				var con = that.data.textareaTxt
+				if (!con) {
+				  con = "" // 设置为一个空字符串或者其他默认值
+				}
+				db.collection('circle').add({
+				  data: {
+					userInfo: this.data.userInfo,
+					content: this.data.textareaTxt,
+					createTime: db.serverDate(),
+					time: new Date().getTime(),
+					zans: [],
+					images: tempIds,
+					comments: [],
+					tab: tab,
+					isTop: false,
+					article: this.data.article,
+				  },
+				  success: res => {
+					wx.hideLoading()
+					wx.showToast({
+					  title: '提交成功',
+					  icon: 'success'
+					})
+					wx.reLaunch({
+					  url: '../circle/index',
+					})
+				  },
+				})
+			  }
+			},
+		  })
+		}
+	  } else {
+		db.collection('circle').add({
+		  data: {
+			userInfo: this.data.userInfo,
+			createTime: db.serverDate(),
+			content: this.data.textareaTxt,
+			time: new Date().getTime(),
+			zans: [],
+			images: [],
+			comments: [],
+			tab: tab,
+			isTop: false,
+			article: this.data.article,
+		  },
+		  success: res => {
+			wx.hideLoading()
+			wx.showToast({
+			  title: '提交成功',
+			  icon: 'success'
+			})
+			wx.reLaunch({
+			  url: '../circle/index',
+			})
+		  }
+		})
+	  }
+	}
   },
-
+  
   chooseImage: function(e) {
     var that = this;
     wx.chooseImage({
