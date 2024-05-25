@@ -1,4 +1,4 @@
-<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+<cu-custom class="top_bar" bgColor="bg-gradual-pink" isBack="{{true}}">
     <view slot="backText">返回</view>
     <view slot="content">FitTrack</view>
 </cu-custom>
@@ -7,13 +7,16 @@
     <text bindtap="toEdit" class='iconfont icon-xiangji r-right'></text>
 </view>
 
-
+<view class="switch_bar cu-bar shadow solids foot" style="bottom:{{screen_height-top_bar_height-switch_bar_height+10}}rpx;">
 <scroll-view scroll-x class="bg-white nav text-center">
     <view class="cu-item {{index==tabIndex?'text-blue cur':''}}" wx:for="{{tabList}}" wx:key="{{index}}"
-          bindtap="bindChangeTab" data-id="{{index}}">
+          bindtap="bindChangeTab" data-index="{{index}}">
         {{item.name}}
     </view>
 </scroll-view>
+</view>
+
+<view style="height:{{switch_bar_height}}rpx"></view>
 
 <view wx:if="{{!userInfo}}" class="no-user">
     <!-- <view class="renzheng"> </view> -->
@@ -44,13 +47,13 @@
         <view class="cu-item shadow">
             <view class="cu-list menu-avatar comment solids-top" wx:for="{{wallData}}" wx:key="{{index}}"
                   wx:for-item="itemName" wx:for-index="indexN">
-                <view class="cu-item solids-top">
-                    <view class="cu-avatar round" style="background-image:url({{itemName.userInfo.avatarUrl}});"></view>
+                <view class="cu-item solids-top"  data-_id="{{itemName._id}}" bindtap="seeDetail">
+                    <view class="cu-avatar round" style="background-image:url({{itemName.userInfo.avatarUrl}});" hover-stop-propagation></view>
                     <view class="content">
-                        <view class="text-grey text-bold">{{itemName.userInfo.nickName}}</view>
-                        <view class="text-gray text-df" style="font-size: 24rpx;">{{itemName.time}}</view>
-                        <view class="margin-top-xs"></view>
-                        <view class="text-black text-content text-df" style="font-size: 34rpx;">
+                        <view class="text-grey text-bold" hover-stop-propagation>{{itemName.userInfo.nickName}}</view>
+                        <view class="text-gray text-df" style="font-size: 24rpx;" hover-stop-propagation>{{itemName.time}}</view>
+                        <view class="margin-top-xs" hover-stop-propagation></view>
+                        <view class="text-black text-content text-df" style="font-size: 34rpx;" >
                             {{itemName.content}}
                         </view>
 
@@ -58,7 +61,7 @@
                         <view class="li-imgs">
                             <block wx:for="{{itemName.images}}" wx:key="{{index}}">
                                 <view>
-                                    <image data-images="{{itemName.images}}" bindtap="previewImage" id="{{item}}"
+                                    <image data-images="{{itemName.images}}" catchtap="previewImage" id="{{item}}"
                                            class="li-img-one" src="{{item}}" mode="aspectFill"/>
                                 </view>
                             </block>
@@ -71,14 +74,14 @@
                                 </view>
                             </view>
                         </view>
-                        <view class="margin-top-sm">
+                        <view class="margin-top-sm" hover-stop-propagation>
                             <view>
-                                <text class="cuIcon-appreciatefill text-{{itemName.zans.length==0?'gray':'red'}}" style="font-size: 42rpx;"  data-indexN="{{indexN}}" data-_id="{{itemName._id}}" catchtap='dianzan'></text>
-                                <text class="text-red margin-left-xs margin-bottom-xs" style="font-size: 38rpx;" hidden="{{itemName.zans.length==0?'true':''}}">{{itemName.zans.length}}</text>
+                                <text class="cuIcon-appreciatefill {{itemName[i].i_zanned?'text-red':'text-gray'}}" style="font-size: 42rpx;"  data-indexN="{{indexN}}" data-_id="{{itemName[i]._id}}" catchtap='dianzan'></text>
+                                <text class="text-red margin-left-xs margin-bottom-xs {{itemName[i].i_zanned?'text-red':''}}" style="font-size: 38rpx;" hidden="{{itemName[i].zans.length==0?'true':''}}">{{itemName[i].zans.length}}</text>
                                 <text class="margin-left-xs margin-right-xs"></text>
-                                <text class="cuIcon-messagefill text-gray margin-left-sm" style="font-size: 42rpx;"  data-indexN="{{indexN}}" data-_id="{{itemName._id}}" bindtap="StartComment" ></text>
+                                <text class="cuIcon-messagefill text-gray margin-left-sm" style="font-size: 42rpx;"  data-indexN="{{indexN}}" data-_id="{{itemName._id}}" catchtap="StartComment" ></text>
                                 <text class="margin-left-xs margin-right-xs"></text>
-                                <button open-type="share" class="margin-left-xs padding-sm cu-btn icon bg-white" data-item="{{itemName}}">
+                                <button open-type="share" catchtap class="margin-left-xs padding-sm cu-btn icon bg-white" data-item="{{itemName}}" hover-stop-propagation>
                                 <text class="cuIcon-forward text-gray" style="font-size: 42rpx;"></text>
                             </button>
                                 <text class="margin-left-xs margin-right-xs"></text>

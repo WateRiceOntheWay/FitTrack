@@ -18,6 +18,8 @@ Page({
       path: '/pages/pyq/circle/index',
       imageUrl: "/image/pyq/pyq03.jpg",
     } //转发样式
+    ,
+    InputBottom: 0
   },
 
 
@@ -127,6 +129,42 @@ Page({
       })
     })
 
+  },
+  onReady(){
+    let that = this;
+    let query = wx.createSelectorQuery();
+    query.select('.top_bar').boundingClientRect(rect=>{
+      let clientHeight = rect.height;
+      let clientWidth = rect.width;
+      let ratio = 750 / clientWidth;
+      let height = clientHeight * ratio;
+
+      that.setData({
+        top_bar_height: height
+      })
+    }).exec();
+    query.select('.sender_bar').boundingClientRect(rect=>{
+      let clientHeight = rect.height;
+      let clientWidth = rect.width;
+      let ratio = 750 / clientWidth;
+      let height = clientHeight * ratio;
+
+      that.setData({
+        sender_bar_height: height
+      })
+    }).exec();
+
+    wx.getSystemInfo({
+      success: function (res) {
+        let clientHeight = res.windowHeight;
+        let clientWidth = res.windowWidth;
+        let ratio = 750 / clientWidth;
+        let height = clientHeight * ratio;
+        that.setData({
+          screen_height: height
+        });
+      }
+    });
   },
 
   submitComment(e) {
@@ -368,13 +406,25 @@ Page({
         res.data[i].zanText = res.data[i].zans.map(a => {
           return a.name
         }).join(", ")
+        for (let j = 0; j < res.data[i].comments.length; j++) {
+          res.data[i].comments[j].time = this.parseTime(res.data[i].comments[j].createTime.getTime())
+        }
+        res.data[i].i_zanned = false
+        for (var zan in res.data[i].zans){
+          if (zan.openid == this.data.userInfo.openid){
+            res.data[i].i_zanned = true
+          }
+        }
+
       }
+
       var data = res.data.sort(function(a, b) {
         return b.createTime.getTime() - a.createTime.getTime()
       })
       this.setData({
         wallData: data
       })
+      console.log(this.data.wallData)
       wx.hideNavigationBarLoading()
 
     })
@@ -384,23 +434,38 @@ Page({
     // this.getWallData(0, this.data.wallData.length, false)
 
   },
-  onShareAppMessage: function(e) {
-    console.log(e)
-    console.log(this.data.showZan)
+  onShareAppMessage: function (e) {
     var that = this
-    var item = e.target.dataset.item
-    console.log(item)
-    var imageUrl = "/image/pyq/pyq03.jpg"
-    if (item.images.length > 0) {
-
+    switch(e.from){
+      case 'button':
+        var item = e.target.dataset.item
+        var desc;
+        if (item.content.length > 15){
+          desc = item.content.slice(0, 15) + "…";
+        }
+        else{
+          desc = item.content
+        }
+        var imageUrl = "/image/pyq/2.jpg"
+        console.log(item)
+        if (item.content.length < 2 || !item.content) {
+          desc = item.userInfo.nickName + "给你发来一条消息"
+          console.log("12324")
+        }
+        var shareObg = {
+          title: desc,
+          path: '/pages/pyq/circle/detail?id=' + item._id,
+          imageUrl: imageUrl,
+        } //转发
+        return shareObg
+      case 'menu':
+        var shareObg = {
+          title: 'FitTrack - 健身跟踪',
+          path: '/pages/today/today',
+          imageUrl: "/images/icon.jpeg",
+        } //转发
+        return shareObg
     }
-    var shareObg = {
-      // title: '仲恺校友圈',
-      desc: item.content,
-      path: '/pages/pyq/circle/index',
-      imageUrl: imageUrl,
-    } //转发
-    return shareObg
   },
 
   onPageScroll: function(e) {
@@ -455,6 +520,16 @@ Page({
     return result;
   },
 
+  InputFocus(e) {
+    this.setData({
+      InputBottom: e.detail.height
+    })
+  },
 
+  InputBlur(e) {
+    this.setData({
+      InputBottom: 0
+    })
+  }
 
 })

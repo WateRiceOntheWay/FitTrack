@@ -673,7 +673,13 @@ Page({
         switch(e.from){
             case 'button':
                 var item = e.target.dataset.item
-                var desc = item.content.slice(0, 10)
+                var desc;
+                if (item.content.length > 15){
+                    desc = item.content.slice(0, 15) + "…";
+                }
+                else{
+                    desc = item.content
+                }
                 var imageUrl = "/image/pyq/2.jpg"
                 console.log(item)
                 if (item.content.length < 2 || !item.content) {
@@ -771,7 +777,14 @@ Page({
                 res.data[i].comments = res.data[i].comments.sort(function (a, b) {
                     return a.createTime.getTime() - b.createTime.getTime()
                 })
+                res.data[i].i_zanned = false
+                for (var zan in res.data[i].zans){
+                    if (zan.openid == this.data[i].userInfo.openid){
+                        res.data[i].i_zanned = true
+                    }
+                }
             }
+
 
 
             var data = res.data.sort(function (a, b) {
@@ -822,6 +835,47 @@ Page({
     ChangeCommentValue(e){
         this.setData({
             commentValue: e.detail.value
+        })
+    },
+    onReady() {
+        let that = this;
+        let query = wx.createSelectorQuery();
+        query.select('.top_bar').boundingClientRect(rect=>{
+            let clientHeight = rect.height;
+            let clientWidth = rect.width;
+            let ratio = 750 / clientWidth;
+            let height = clientHeight * ratio;
+
+            that.setData({
+                top_bar_height: height
+            })
+        }).exec();
+        query.select('.switch_bar').boundingClientRect(rect=>{
+            let clientHeight = rect.height;
+            let clientWidth = rect.width;
+            let ratio = 750 / clientWidth;
+            let height = clientHeight * ratio;
+
+            that.setData({
+                switch_bar_height: height
+            })
+        }).exec();
+
+        wx.getSystemInfo({
+            success: function (res) {
+                let clientHeight = res.windowHeight;
+                let clientWidth = res.windowWidth;
+                let ratio = 750 / clientWidth;
+                let height = clientHeight * ratio;
+                that.setData({
+                    screen_height: height
+                });
+            }
+        });
+    },
+    seeDetail(e){
+        wx.navigateTo({
+            url: './detail?id=' + e.currentTarget.dataset._id,
         })
     }
 

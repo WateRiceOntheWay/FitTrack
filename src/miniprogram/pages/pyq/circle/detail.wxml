@@ -1,104 +1,102 @@
-<view class='header'>
-  <text bindtap="toHome" class='iconfont icon-arrow-right1 r-left'></text>
-  <text bindtap="toEdit" class='iconfont icon-xiangji r-right'></text>
+<cu-custom class="top_bar" bgColor=" bg-gradual-pink" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">FitTrack - 动态详情
+    </view>
+
+</cu-custom>
+
+
+<view class="sender_bar cu-bar bg-white flex padding-tb-sm padding-lr-xs justify-between solids shadow foot" style="bottom:{{screen_height-top_bar_height-sender_bar_height}}rpx;">
+    <view class="flex">
+        <view class="cu-avatar round margin-sm " style="background-image:url({{wallData[0].userInfo.avatarUrl}});">
+        </view>
+        <view class="padding-lr-xs text-xl text-black flex justify-center align-center text-bold">
+            <view>{{wallData[0].userInfo.nickName}}</view>
+        </view>
+    </view>
 </view>
 
-<view class="top-relate">
-  <image class="img-top" mode="widthFix" src="/image/pyq/1.jpg"> </image>
-</view>
+<view style="height:{{sender_bar_height}}rpx"></view>
 
-<view class="tab">
-  <block wx:for="{{tabList}}" wx:key='{{index}}'>
-    <view bindtap='bindChangeTab' data-index='{{index}}' class='{{item.isSelect?"tab-se":"tab-no"}}'>{{item.name}}</view>
-  </block>
-</view>
+<view class="scrollPage">
+    <view class="">
+        <!--   page   -->
+        <view class="bg-white">
 
-
-
-<view class="top-circle">
-  <view class="circle" wx:for="{{wallData}}" wx:key="{{index}}" wx:for-item="itemName" wx:for-index="indexN">
-    <view class="row">
-      <view>
-        <image class="userhead" src="{{itemName.userInfo.avatarUrl}}"></image>
-      </view>
-      <view class="col">
-        <view class="username" style="font-weight:600;">{{itemName.userInfo.nickName}}</view>
-        <!-- bindlongtap="copyText" -->
-        <view class="content" data-text="{{itemName.content}}">
-          <text>{{itemName.content}}</text>
-
-        </view>
-        <view class="li-imgs">
-          <block wx:for="{{itemName.images}}" wx:key="{{index}}">
-            <view>
-              <image data-images="{{itemName.images}}" bindtap="previewImage" id="{{item}}" class="li-img-one" src="{{item}}" mode="aspectFill" />
-            </view>
-          </block>
-        </view>
-        <view class='timeArea'>
-          <text>{{itemName.time}}</text>
-          <text style="padding-left:14rpx;">{{itemName.tab}}</text>
-
-          <text bindtap="deletePyq" data-item='{{itemName}}' data-index="{{indexN}}" class="timeArea-delete" wx:if='{{openid===itemName._openid}}'>删除</text>
-          <text bindtap="adminDeletePyq" data-item='{{itemName}}' data-index="{{indexN}}" class="admin-delete" wx:if='{{openid===adminOpenid}}'>置顶</text>
-          <text bindtap="adminDeletePyq" data-item='{{itemName}}' data-index="{{indexN}}" class="admin-delete" wx:if='{{openid===adminOpenid}}'>删除</text>
-
-          <view class='timeArea-right'>
-            <view class='zan-pinglun' wx:if="{{showZan == indexN}}">
-              <button data-item='{{itemName}}' data-index="{{indexN}}" class="share-btn" open-type="share" size='mini'>分享</button>
-
-              <text class='iconfont icon-xin' data-indexN="{{indexN}}" data-_id="{{itemName._id}}" catchtap='dianzan'> 赞</text>
-              <text bindtap="showPinLun" class='iconfont icon-pinglun'>留言</text>
-            </view>
-            <image class="dd-icon" src="/image/pyq/dd-icon.png" data-index="{{indexN}}" bindtap="toShowZan"></image>
-
-          </view>
-        </view>
-        <view class="comm-zan">
-          <!-- 点赞 -->
-          <view wx:if='{{itemName.zans.length>0}}'>
-            <view class="r"></view>
-            <view class="zan">
-              <image class="love-icon" src="/image/pyq/love-icon.png"></image>
-              <text class="like">{{itemName.zanText}}</text>
-            </view>
-          </view>
-          <!-- 留言 -->
-          <view wx:if='{{itemName.comments.length>0}}'>
-            <view wx:if='{{itemName.zans.length<=0}}' class="r"></view>
-
-            <view class="comments">
-              <view wx:for="{{itemName.comments}}" wx:key='{{index}}' bindtap="bindComment" data-index="{{index}}" data-indexN="{{indexN}}" data-name="{{item.username}}">
-
-                <view class="tt-row" wx:if='{{!item.toName}}'>
-                  <text class="blueColor">{{item.username+': '}}</text>
-                  <text class="noblueColor">{{item.comment}}</text>
+            <!--    content -->
+            <view class="padding-lg">
+                <view class="text-black text-content text-df" style="font-size: 34rpx;">
+                    {{wallData[0].content}}
                 </view>
 
-                <view wx:if='{{item.toName}}'>
-                  <text class="blueColor">{{item.username}}</text>
-                  <text class="noblueColor"> 回复</text>
-                  <text class="blueColor">{{item.toName+': '}}</text>
-                  <text class="noblueColor">{{item.comment}}</text>
+                <view class="padding-sm">
+                    <view class="li-imgs">
+                        <block wx:for="{{wallData[0].images}}" wx:key="{{index}}">
+                            <view>
+                                <image data-images="{{wallData[0].images}}" bindtap="previewImage" id="{{item}}"
+                                       class="li-img-one" src="{{item}}" mode="aspectFill"/>
+                            </view>
+                        </block>
+                    </view>
                 </view>
-              </view>
 
+                <view class="margin-sm"></view>
+                <view class="text-gray text-df" style="font-size: 24rpx;">{{wallData[0].time}}</view>
+                <view class="margin-top-xs"></view>
             </view>
-          </view>
-        </view>
+            <view class="cu-bar">
+                <view class="text-black text-xl padding-lr-sm">
+                    热门评论
+                </view>
+            </view>
+            <view class="cu-list menu-avatar solid-bottom padding-bottom-lg" wx:for="{{wallData[0].comments}}"
+                  wx:key='{{index}}' data-index="{{index}}" data-indexN="{{indexN}}" data-name="{{item.username}}">
+                <view class="cu-item">
+                    <view class="cu-avatar round lg"
+                          style="background-image:url({{item.userInfo.avatarUrl}});"></view>
+                    <view class="content">
+                        <view class="text-lg text-bold">
+                            {{item.username}}
+                        </view>
+                        <view class="text-gray text-sm">
+                            {{item.time}}
+                        </view>
+                    </view>
+                </view>
+                <view class="margin-left padding-left-xl text-black">
+                    <view class="margin-lr padding-left" wx:if='{{!item.toName}}'>
+                        <text>{{item.comment}}</text>
+                    </view>
 
-      </view>
+                    <view class="margin-lr padding-left" wx:if='{{item.toName}}'>
+
+                        <text class="text-bold"> 回复</text>
+                        <text class="text-bold text-blue">{{item.toName + ': '}}</text>
+                        <text>{{item.comment}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
     </view>
-  </view>
 </view>
 
 
+<view class="padding-xl margin"></view>
 
-<view wx:if='{{showPinLun}}'>
-  <form report-submit='true' bindsubmit='submitComment'>
-    <view class='liuyan'>
-      <input class='input' auto-focus cursor-spacing="32rpx" value='{{commentValue}}' bindinput='getcomment' placeholder='{{placeholderPL}}'></input>
-      <button class='icon' form-type='submit'>发送</button>
+        <!-- 底部评论 -->
+<view class="cu-bar foot input {{InputBottom!=0?'cur':''}}" style="bottom:{{InputBottom}}px">
+    <view class="action">
+        <text class="cuIcon-write text-gray"></text>
     </view>
-  </form>
+
+    <input class="solid-bottom" placeholder="写评论" bindfocus="InputFocus" bindblur="InputBlur" adjust-position="{{false}}" focus="{{false}}" maxlength="300" cursor-spacing="10"></input>
+
+    <view class="action">
+        <text class="cuIcon-appreciate text-black {{wallData[0].i_zanned?'text-red':''}}"></text>
+        <text class="margin-left-xs margin-right-sm {{wallData[0].i_zanned?'text-red':''}}" hidden="{{wallData[0].zans.length==0?'true':''}}">{{wallData[0].zans.length}}</text>
+
+        <button open-type="share" class="cu-btn icon bg-white" data-item="{{wallData[0]}}">
+            <text class="cuIcon-forward text-black"></text></button>
+    </view>
+
 </view>
