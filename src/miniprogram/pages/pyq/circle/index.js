@@ -1,178 +1,181 @@
 const app = getApp()
 Page({
-  data: {
-    //导航栏
-    tabIndex: 3,
-    tabList: [{
-        name: "迎新",
-        isSelect: false
-      },
-      {
-        name: "社团",
-        isSelect: false
-      },
-      {
-        name: "表白墙",
-        isSelect: false
-      },
-      {
-        name: "全部",
-        isSelect: true
-      },
-      {
-        name: "问与答",
-        isSelect: false
-      },
-      {
-        name: "闲置",
-        isSelect: false
-      },
-      {
-        name: "失物",
-        isSelect: false
-        }
-    ],
-    statusBarHeight: app.globalData.statusBarHeight,
-    wallData: [],
-    showZan: -1, //显示点赞按钮
-    showPinLun: false,
-    nmAvator: '/image/pyq/ng.jpg',
-    commentValue: '',
-    placeholderPL: '评论',
-    userInfo: undefined,
-    batchTimes: undefined, //分页
-    btoText: "正在加载...",
-    adminOpenid: "oOmqu4pDpN-1db4Ms_U0fjmCfBAw",
-    shareObg: {
-        title: '仲恺校友圈',
-        desc: '',
-        path: '/pages/pyq/circle/index',
-        imageUrl: "/image/pyq/pyq03.jpg",
-    } //转发样式
-    ,
+    data: {
+        //导航栏
+        tabIndex: 3,
+        tabList: [{
+            name: "迎新",
+            isSelect: false
+        },
+            {
+                name: "社团",
+                isSelect: false
+            },
+            {
+                name: "表白墙",
+                isSelect: false
+            },
+            {
+                name: "全部",
+                isSelect: true
+            },
+            {
+                name: "问与答",
+                isSelect: false
+            },
+            {
+                name: "闲置",
+                isSelect: false
+            },
+            {
+                name: "失物",
+                isSelect: false
+            }
+        ],
+        statusBarHeight: app.globalData.statusBarHeight,
+        wallData: [],
+        showZan: -1, //显示点赞按钮
+        showPinLun: false,
+        nmAvator: '/image/pyq/ng.jpg',
+        commentValue: '',
+        placeholderPL: '评论',
+        userInfo: undefined,
+        batchTimes: undefined, //分页
+        btoText: "正在加载...",
+        adminOpenid: "oOmqu4pDpN-1db4Ms_U0fjmCfBAw",
+        shareObg: {
+            title: '仲恺校友圈',
+            desc: '',
+            path: '/pages/pyq/circle/index',
+            imageUrl: "/image/pyq/pyq03.jpg",
+        } //转发样式
+        ,
 
-    InputBottom: 0,
-    inputFocused:false,
-    showComment:false,
-    commenting_id:undefined
+        InputBottom: 0,
+        inputFocused: false,
+        showComment: false,
+        commenting_id: undefined
     },
 
-  getUserInfo: function(e) {
-    console.log(e)
-    this.setData({
-      userInfo: e.detail.userInfo,
-    })
-  },
-
-  lookDetail(e) {
-    console.log(e.currentTarget.dataset.index)
-    // var data = JSON.stringify(this.data.wallData[e.currentTarget.dataset.index])
-    wx.navigateTo({
-      url: './detail?id=' + e.currentTarget.dataset.index,
-    })
-  },
-
-  getcomment(e) {
-    // console.log(e)
-    this.setData({
-      commentValue: e.detail.value
-    })
-  },
-
-  bindChangeTab(e) {
-    console.log(e.currentTarget.dataset.index)
-    var tab = this.data.tabList
-    for (var i = 0; i < tab.length; i++) {
-      tab[i].isSelect = false
-    }
-    tab[e.currentTarget.dataset.index].isSelect = true
-    this.setData({
-      tabList: tab,
-      tabIndex: e.currentTarget.dataset.index
-    })
-    this.getWallData(0, 10, false, tab[e.currentTarget.dataset.index].name)
-  },
-
-
-  bindComment(e) {
-    console.log(e.currentTarget.dataset)
-    this.setData({
-      placeholderPL: "回复: " + e.currentTarget.dataset.name,
-      showZan: e.currentTarget.dataset.indexn,
-      showPinLun: true,
-    })
-  },
-
-  lookArticle(e) {
-    wx.navigateTo({
-      url: '/pages/code/article/index?url=' + e.currentTarget.dataset.url,
-    })
-  },
-
-  showPinLun(e) {
-    console.log(e)
-    console.log(this.data.wallData)
-    var main = this.data.wallData[e.currentTarget.dataset.indexn].userInfo.nickName
-    this.setData({
-        commenting_id : e.currentTarget.dataset._id
-    })
-},
-
-  previewImage: function(e) {
-    console.log(e)
-    wx.previewImage({
-      current: e.currentTarget.id, // 当前显示图片的http链接
-      urls: e.currentTarget.dataset.images // 需要预览的图片http链接列表
-    })
-  },
-
-  dianzan(e) {
-      console.log(e)
-    console.log(e.currentTarget.dataset)
-    console.log(e.currentTarget.dataset.indexn)
-    console.log(this.data.userInfo)
-    if (!this.data.userInfo) {
-      wx.pageScrollTo({
-        scrollTop: 200,
-      })
-      wx.showToast({
-        title: '需要授权才能点赞评论,见第一条墙消息.',
-        icon: 'none'
-      })
-      return
-    }
-
-
-    wx.cloud.callFunction({
-        name: 'login'
-    }).then(res => {
-        console.log("登录：res")
-        console.log(res)
-        var isZan = this.data.wallData[e.currentTarget.dataset.indexn].zans.some(a => {
-            return a.openid === res.result.openid
+    getUserInfo: function (e) {
+        console.log(e)
+        this.setData({
+            userInfo: e.detail.userInfo,
         })
-        console.log(isZan)
-        //未点赞
-        if (!isZan) {
-            var data = this.data.wallData
-            data[e.currentTarget.dataset.indexn].zans.push({
-                name: this.data.userInfo.nickName
+    },
+
+    lookDetail(e) {
+        console.log(e.currentTarget.dataset.index)
+        // var data = JSON.stringify(this.data.wallData[e.currentTarget.dataset.index])
+        wx.navigateTo({
+            url: './detail?id=' + e.currentTarget.dataset.index,
+        })
+    },
+
+    getcomment(e) {
+        // console.log(e)
+        this.setData({
+            commentValue: e.detail.value
+        })
+    },
+
+    bindChangeTab(e) {
+        console.log(e.currentTarget.dataset.index)
+        var tab = this.data.tabList
+        for (var i = 0; i < tab.length; i++) {
+            tab[i].isSelect = false
+        }
+        tab[e.currentTarget.dataset.index].isSelect = true
+        this.setData({
+            tabList: tab,
+            tabIndex: e.currentTarget.dataset.index
+        })
+        this.getWallData(0, 10, false, tab[e.currentTarget.dataset.index].name)
+    },
+
+
+    bindComment(e) {
+        console.log(e.currentTarget.dataset)
+        this.setData({
+            placeholderPL: "回复: " + e.currentTarget.dataset.name,
+            showZan: e.currentTarget.dataset.indexn,
+            showPinLun: true,
+        })
+    },
+
+    lookArticle(e) {
+        wx.navigateTo({
+            url: '/pages/code/article/index?url=' + e.currentTarget.dataset.url,
+        })
+    },
+
+    showPinLun(e) {
+        console.log(e)
+        console.log(this.data.wallData)
+        var main = this.data.wallData[e.currentTarget.dataset.indexn].userInfo.nickName
+        this.setData({
+            commenting_id: e.currentTarget.dataset._id
+        })
+    },
+
+    previewImage: function (e) {
+        console.log(e)
+        wx.previewImage({
+            current: e.currentTarget.id, // 当前显示图片的http链接
+            urls: e.currentTarget.dataset.images // 需要预览的图片http链接列表
+        })
+    },
+
+    dianzan(e) {
+        let that = this;
+        console.log(e)
+        console.log(e.currentTarget.dataset)
+        console.log(e.currentTarget.dataset.indexn)
+        console.log(this.data.userInfo)
+        if (!this.data.userInfo) {
+            wx.pageScrollTo({
+                scrollTop: 200,
             })
-            console.log(this.data.userInfo.nickName)
-            data[e.currentTarget.dataset.indexn].zanText = data[e.currentTarget.dataset.indexn].zans.map(a => {
-                return a.name
-            }).join(", ")
-            this.setData({
-                wallData: data
+            wx.showToast({
+                title: '需要授权才能点赞评论,见第一条墙消息.',
+                icon: 'none'
             })
-            wx.cloud.callFunction({
-                name: 'chat',
-                data: {
-                    type: 'zan',
-                    collectionname: 'circle',
+            return
+        }
+
+
+        wx.cloud.callFunction({
+            name: 'login'
+        }).then(res => {
+            console.log("登录：res")
+            console.log(res)
+            var isZan = that.data.wallData[e.currentTarget.dataset.indexn].zans.some(a => {
+                return a.openid === res.result.openid
+            })
+
+            console.log(isZan)
+            //未点赞
+            if (!isZan) {
+                var data = that.data.wallData
+                data[e.currentTarget.dataset.indexn].zans.push({
+                    name: that.data.userInfo.nickName
+                })
+                console.log(that.data.userInfo.nickName)
+                data[e.currentTarget.dataset.indexn].zanText = data[e.currentTarget.dataset.indexn].zans.map(a => {
+                    return a.name
+                }).join(", ")
+                data[e.currentTarget.dataset.indexn].i_zanned = true
+                that.setData({
+                    wallData: data
+                })
+                wx.cloud.callFunction({
+                    name: 'chat',
                     data: {
-                        username: this.data.userInfo.nickName,
-                        _id: e.currentTarget.dataset._id
+                        type: 'zan',
+                        collectionname: 'circle',
+                        data: {
+                            username: that.data.userInfo.nickName,
+                            _id: e.currentTarget.dataset._id
 
 
                         }
@@ -180,24 +183,31 @@ Page({
                 }).then(res => {
                     console.log("打印点赞调用结果")
                     console.log(res)
-                    //刷新此项数据
+                    // 刷新此项数据
                     // const db = wx.cloud.database()
                     // db.collection("circle").doc(e.currentTarget.dataset._id).get().then(
-                    //   res => {
-                    //     console.log(res.data)
-                    //     var data = this.data.wallData
-                    //     data[e.currentTarget.dataset.indexn] = res.data
-                    //     for (let i = 0; i < data.length; i++) {
-                    //       data[i].time = this.parseTime(data[i].createTime.getTime())
-                    //       data[i].zanText = data[i].zans.map(a => {
-                    //         return a.name
-                    //       }).join(", ")
+                    //     res => {
+                    //         console.log(res.data)
+                    //         var data = this.data.wallData
+                    //         data[e.currentTarget.dataset.indexn] = res.data
+                    //         for (let i = 0; i < data.length; i++) {
+                    //             data[i].time = that.parseTime(data[i].createTime.getTime())
+                    //             data[i].zanText = data[i].zans.map(a => {
+                    //                 return a.name
+                    //             }).join(", ")
+                    //             data[i].i_zanned = false
+                    //             for (var zan in data[i].zans) {
+                    //                 if (zan.openid === that.data.userInfo.openid) {
+                    //                     data[i].i_zanned = true
+                    //                 }
+                    //             }
+                    //         }
+                    //         that.setData({
+                    //             wallData: data
+                    //         })
                     //     }
-                    //     this.setData({
-                    //       wallData: data
-                    //     })
-                    //   }
                     // )
+
                 })
             }
             this.setData({
@@ -377,8 +387,8 @@ Page({
 
 
                 res.data[i].i_zanned = false
-                for (var zan in res.data[i].zans){
-                    if (zan.openid === that.data.userInfo.openid){
+                for (var zan in res.data[i].zans) {
+                    if (zan.openid === that.data.userInfo.openid) {
                         res.data[i].i_zanned = true
                     }
                 }
@@ -554,7 +564,8 @@ Page({
                     // }).catch(error => {
                     //   // handle error
                     // })
-                } else if (res.cancel) {}
+                } else if (res.cancel) {
+                }
             }
         })
     },
@@ -589,31 +600,31 @@ Page({
         // wx.cloud.callFunction({
         //     name: 'login'
         // }).then(res => {
-		// 	console.log("第582行中的openid调试")
+        // 	console.log("第582行中的openid调试")
         //     console.log(res.result.openid)
 
         //     that.setData({
         //         openid: res.result.openid
         //     })
-		// })
-		this.getOpenid()
+        // })
+        this.getOpenid()
     },
 
-	async getOpenid() {
-		let that = this;
-		try {
-		  const res = await wx.cloud.callFunction({
-			name: 'login'
-		  });
-		  console.log("第599行中的openid调试");
-		  console.log(res.result.openid);
-		  that.setData({
-			openid: res.result.openid
-		  });
-		} catch (err) {
-		  console.error('云函数调用失败', err);
-		}
-	  },
+    async getOpenid() {
+        let that = this;
+        try {
+            const res = await wx.cloud.callFunction({
+                name: 'login'
+            });
+            console.log("第599行中的openid调试");
+            console.log(res.result.openid);
+            that.setData({
+                openid: res.result.openid
+            });
+        } catch (err) {
+            console.error('云函数调用失败', err);
+        }
+    },
 
     toShowZan(e) {
         if (e.currentTarget.dataset.index === this.data.showZan) {
@@ -627,7 +638,6 @@ Page({
             })
         }
     },
-
 
 
     onPullDownRefresh: function () {
@@ -698,14 +708,13 @@ Page({
 
     onShareAppMessage: function (e) {
         var that = this
-        switch(e.from){
+        switch (e.from) {
             case 'button':
                 var item = e.target.dataset.item
                 var desc;
-                if (item.content.length > 15){
+                if (item.content.length > 15) {
                     desc = item.content.slice(0, 15) + "…";
-                }
-                else{
+                } else {
                     desc = item.content
                 }
                 var imageUrl = "/image/pyq/2.jpg"
@@ -806,13 +815,12 @@ Page({
                     return a.createTime.getTime() - b.createTime.getTime()
                 })
                 res.data[i].i_zanned = false
-                for (var zan in res.data[i].zans){
-                    if (zan.openid == this.data[i].userInfo.openid){
+                for (var zan in res.data[i].zans) {
+                    if (zan.openid == this.data[i].userInfo.openid) {
                         res.data[i].i_zanned = true
                     }
                 }
             }
-
 
 
             var data = res.data.sort(function (a, b) {
@@ -847,9 +855,9 @@ Page({
         this.setData({
             InputBottom: e.detail.height,
             inputFocused: true,
-            showComment:true,
+            showComment: true,
             commenting_id: e.currentTarget.dataset._id,
-            commentValue: e.currentTarget.dataset._id===this.data.commenting_id?this.data.commentValue:''
+            commentValue: e.currentTarget.dataset._id === this.data.commenting_id ? this.data.commentValue : ''
         })
     },
 
@@ -860,7 +868,7 @@ Page({
             showComment: false
         })
     },
-    ChangeCommentValue(e){
+    ChangeCommentValue(e) {
         this.setData({
             commentValue: e.detail.value
         })
@@ -868,7 +876,7 @@ Page({
     onReady() {
         let that = this;
         let query = wx.createSelectorQuery();
-        query.select('.top_bar').boundingClientRect(rect=>{
+        query.select('.top_bar').boundingClientRect(rect => {
             let clientHeight = rect.height;
             let clientWidth = rect.width;
             let ratio = 750 / clientWidth;
@@ -878,7 +886,7 @@ Page({
                 top_bar_height: height
             })
         }).exec();
-        query.select('.switch_bar').boundingClientRect(rect=>{
+        query.select('.switch_bar').boundingClientRect(rect => {
             let clientHeight = rect.height;
             let clientWidth = rect.width;
             let ratio = 750 / clientWidth;
@@ -901,7 +909,7 @@ Page({
             }
         });
     },
-    seeDetail(e){
+    seeDetail(e) {
         wx.navigateTo({
             url: './detail?id=' + e.currentTarget.dataset._id,
         })
