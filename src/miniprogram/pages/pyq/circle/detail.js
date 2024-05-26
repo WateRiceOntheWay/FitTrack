@@ -328,29 +328,32 @@ Page({
     this.setData({
       id: options.id
     })
-    this.getMyWallData(options.id)
+    this.getOpenid().then(()=>{
+      this.getMyWallData(options.id)
 
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo
-      })
-    } else {
-      // 查看是否授权
-      wx.getSetting({
-        success(res) {
-          if (res.authSetting['scope.userInfo']) {
-            // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-            wx.getUserInfo({
-              success(res) {
-                that.setData({
-                  userInfo: res.userInfo
-                })
-              }
-            })
+      if (app.globalData.userInfo) {
+        this.setData({
+          userInfo: app.globalData.userInfo
+        })
+      } else {
+        // 查看是否授权
+        wx.getSetting({
+          success(res) {
+            if (res.authSetting['scope.userInfo']) {
+              // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+              wx.getUserInfo({
+                success(res) {
+                  that.setData({
+                    userInfo: res.userInfo
+                  })
+                }
+              })
+            }
           }
-        }
-      })
-    }
+        })
+      }
+    })
+
 
   },
 
@@ -411,8 +414,8 @@ Page({
           res.data[i].comments[j].time = this.parseTime(res.data[i].comments[j].createTime.getTime())
         }
         res.data[i].i_zanned = false
-        for (var zan in res.data[i].zans){
-          if (zan.openid === that.data.userInfo.openid){
+        for (var zan of res.data[i].zans){
+          if (zan.openid === that.data.openid){
             res.data[i].i_zanned = true
           }
         }
@@ -531,6 +534,21 @@ Page({
     this.setData({
       InputBottom: 0
     })
-  }
+  },
+  async getOpenid() {
+    let that = this;
+    try {
+      const res = await wx.cloud.callFunction({
+        name: 'login'
+      });
+      console.log("第599行中的openid调试");
+      console.log(res.result.openid);
+      that.setData({
+        openid: res.result.openid
+      });
+    } catch (err) {
+      console.error('云函数调用失败', err);
+    }
+  },
 
 })
