@@ -150,7 +150,7 @@ Page({
             console.log("登录：res")
             console.log(res)
             var isZan = that.data.wallData[e.currentTarget.dataset.indexn].zans.some(a => {
-                return a.openid === res.result.openid
+                return a.openid === that.data.openid
             })
 
             console.log(isZan)
