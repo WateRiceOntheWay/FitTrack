@@ -6,14 +6,15 @@
 </cu-custom>
 
 
-<view class="sender_bar cu-bar bg-white flex padding-tb-sm padding-lr-xs justify-between solids shadow foot" style="bottom:{{screen_height-top_bar_height-sender_bar_height}}rpx;">
-    <view class="flex">
+<view class="sender_bar cu-bar bg-white flex padding-tb-sm padding-lr-xs justify-between foot" style="bottom:{{screen_height-top_bar_height-sender_bar_height}}rpx;">
+    <view class="shadow">
+    <view class="flex ">
         <view class="cu-avatar round margin-sm " style="background-image:url({{wallData[0].userInfo.avatarUrl}});">
         </view>
         <view class="padding-lr-xs text-xl text-black flex justify-center align-center text-bold">
             <view>{{wallData[0].userInfo.nickName}}</view>
         </view>
-    </view>
+    </view></view>
 </view>
 
 <view style="height:{{sender_bar_height}}rpx"></view>

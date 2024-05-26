@@ -346,6 +346,8 @@ Page({
     },
 
     getWallData(skip = 0, limit = 10, concat = true, tab = undefined) {
+        let that = this;
+        console.log(this.data.userInfo)
         wx.showNavigationBarLoading()
         wx.showToast({
             title: '加载中',
@@ -369,6 +371,14 @@ Page({
                 res.data[i].zanText = res.data[i].zans.map(a => {
                     return a.name
                 }).join(", ")
+
+
+                res.data[i].i_zanned = false
+                for (var zan in res.data[i].zans){
+                    if (zan.openid === that.data.userInfo.openid){
+                        res.data[i].i_zanned = true
+                    }
+                }
 
                 if (res.data[i].content.length > 100) {
                     res.data[i].isOver = true

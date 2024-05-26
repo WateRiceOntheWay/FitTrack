@@ -391,6 +391,7 @@ Page({
   },
 
   getMyWallData(id) {
+    let that = this;
     console.log(id)
     wx.showNavigationBarLoading()
     const db = wx.cloud.database()
@@ -411,7 +412,7 @@ Page({
         }
         res.data[i].i_zanned = false
         for (var zan in res.data[i].zans){
-          if (zan.openid == this.data.userInfo.openid){
+          if (zan.openid === that.data.userInfo.openid){
             res.data[i].i_zanned = true
           }
         }
