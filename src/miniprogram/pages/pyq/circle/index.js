@@ -127,8 +127,10 @@ Page({
   },
 
   dianzan(e) {
+      console.log(e)
     console.log(e.currentTarget.dataset)
     console.log(e.currentTarget.dataset.indexn)
+    console.log(this.data.userInfo)
     if (!this.data.userInfo) {
       wx.pageScrollTo({
         scrollTop: 200,
@@ -144,7 +146,8 @@ Page({
     wx.cloud.callFunction({
         name: 'login'
     }).then(res => {
-        console.log(res.result.userInfo.openId)
+        console.log("登录：res")
+        console.log(res)
         var isZan = this.data.wallData[e.currentTarget.dataset.indexn].zans.some(a => {
             return a.openid === res.result.openid
         })
@@ -573,19 +576,34 @@ Page({
 
         this.getWallData(0, 10, false)
 
-        wx.cloud.callFunction({
-            name: 'login'
-        }).then(res => {
-            console.log(res.result.openid)
+        // wx.cloud.callFunction({
+        //     name: 'login'
+        // }).then(res => {
+		// 	console.log("第582行中的openid调试")
+        //     console.log(res.result.openid)
 
-            that.setData({
-                openid: res.result.openid
-            })
-        })
-
+        //     that.setData({
+        //         openid: res.result.openid
+        //     })
+		// })
+		this.getOpenid()
     },
 
-
+	async getOpenid() {
+		let that = this;
+		try {
+		  const res = await wx.cloud.callFunction({
+			name: 'login'
+		  });
+		  console.log("第599行中的openid调试");
+		  console.log(res.result.openid);
+		  that.setData({
+			openid: res.result.openid
+		  });
+		} catch (err) {
+		  console.error('云函数调用失败', err);
+		}
+	  },
 
     toShowZan(e) {
         if (e.currentTarget.dataset.index === this.data.showZan) {
