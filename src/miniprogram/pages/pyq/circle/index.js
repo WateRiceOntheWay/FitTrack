@@ -149,8 +149,11 @@ Page({
         }).then(res => {
             console.log("登录：res")
             console.log(res)
+            if (res.result===null){
+                return
+            }
             var isZan = that.data.wallData[e.currentTarget.dataset.indexn].zans.some(a => {
-                return a.openid === that.data.openid
+                return a.openid === res.result.openid
             })
 
             console.log(isZan)
@@ -158,7 +161,8 @@ Page({
             if (!isZan) {
                 var data = that.data.wallData
                 data[e.currentTarget.dataset.indexn].zans.push({
-                    name: that.data.userInfo.nickName
+                    name: that.data.userInfo.nickName,
+                    openid: res.result.openid
                 })
                 console.log(that.data.userInfo.nickName)
                 data[e.currentTarget.dataset.indexn].zanText = data[e.currentTarget.dataset.indexn].zans.map(a => {
@@ -387,8 +391,8 @@ Page({
 
 
                 res.data[i].i_zanned = false
-                for (var zan in res.data[i].zans) {
-                    if (zan.openid === that.data.userInfo.openid) {
+                for (const zan of res.data[i].zans) {
+                    if (zan.openid === that.data.openid) {
                         res.data[i].i_zanned = true
                     }
                 }
@@ -595,7 +599,12 @@ Page({
         }
 
 
-        this.getWallData(0, 10, false)
+        this.getOpenid().then(
+            ()=>{
+                console.log(that.data.openid)
+                that.getWallData(0, 10, false)
+            }
+        )
 
         // wx.cloud.callFunction({
         //     name: 'login'
@@ -607,7 +616,6 @@ Page({
         //         openid: res.result.openid
         //     })
         // })
-        this.getOpenid()
     },
 
     async getOpenid() {
