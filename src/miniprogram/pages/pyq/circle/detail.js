@@ -398,6 +398,7 @@ Page({
     console.log(id)
     wx.showNavigationBarLoading()
     const db = wx.cloud.database()
+
     db.collection("circle").where({
       _id: id
     }).get().then(res => {

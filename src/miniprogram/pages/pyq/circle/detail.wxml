@@ -19,13 +19,16 @@
 
 <view style="height:{{sender_bar_height}}rpx"></view>
 
+<view class="padding-xs">
+
+</view>
 <view class="scrollPage">
     <view class="">
         <!--   page   -->
-        <view class="bg-white">
+        <view class="">
 
             <!--    content -->
-            <view class="padding-lg">
+            <view class="padding-lg bg-white shadow">
                 <view class="text-black text-content text-df" style="font-size: 34rpx;">
                     {{wallData[0].content}}
                 </view>
@@ -45,6 +48,12 @@
                 <view class="text-gray text-df" style="font-size: 24rpx;">{{wallData[0].time}}</view>
                 <view class="margin-top-xs"></view>
             </view>
+
+            <view class="padding-xs">
+
+            </view>
+<!--            comment -->
+            <view class="bg-white shadow">
             <view class="cu-bar">
                 <view class="text-black text-xl padding-lr-sm">
                     热门评论
@@ -76,7 +85,7 @@
                         <text>{{item.comment}}</text>
                     </view>
                 </view>
-            </view>
+            </view></view>
         </view>
     </view>
 </view>
