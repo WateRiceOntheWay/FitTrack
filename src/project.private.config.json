@@ -1,6 +1,6 @@
 {
     "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
-    "projectname": "src",
+    "projectname": "FitTrack",
     "setting": {
         "compileHotReLoad": true,
         "urlCheck": false
@@ -8,6 +8,13 @@
     "condition": {
         "miniprogram": {
             "list": [
+                {
+                    "name": "pages/pyq/circle/detail?id=0af7fd756651ab1d019f0e5a26b7b7b6",
+                    "pathName": "pages/pyq/circle/detail",
+                    "query": "id=0af7fd756651ab1d019f0e5a26b7b7b6",
+                    "launchMode": "default",
+                    "scene": null
+                },
                 {
                     "name": "pages/pyq/circle/index",
                     "pathName": "pages/pyq/circle/index",

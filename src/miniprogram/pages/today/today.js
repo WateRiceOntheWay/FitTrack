@@ -325,5 +325,15 @@ Page({
         wx.redirectTo({
             url: "/pages/me/me"
         })
+    },
+    toCommunity() {
+        wx.redirectTo({
+            url: "/pages/pyq/circle/index"
+        })
+    },
+    toEdit(){
+        wx.navigateTo({
+            url: "/pages/pyq/edit/index"
+        })
     }
 })

@@ -117,10 +117,15 @@ Page({
           url:"/pages/today/today"
       })
   },
-  toCommunity(){
-      wx.redirectTo({
-        url: '/pages/community/community',
-      })
+  toCommunity() {
+    wx.redirectTo({
+      url: "/pages/pyq/circle/index"
+    })
+  },
+  toEdit(){
+    wx.navigateTo({
+      url: "/pages/pyq/edit/index"
+    })
   },
   toMe(){
     wx.redirectTo({

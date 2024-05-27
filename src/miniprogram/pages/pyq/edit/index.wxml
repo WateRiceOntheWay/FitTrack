@@ -3,13 +3,16 @@
   <view slot="content">FitTrack</view>
 </cu-custom>
 
-<view class='edit-header'>
-  <button class='header-cancel' bindtap="saveEditOrNot" size="mini">取消</button>
-  <button class='header-delive' size="mini" bindtap="formSubmit">发布</button>
+<view class="bg-white shadow shadow-lg foot" >
+<view class="flex padding-sm justify-between">
+  <view>
+  <button class="cu-btn round line-pink shadow" bindtap="saveEditOrNot">取消</button></view><view>
+  <button class="cu-btn round bg-pink shadow" bindtap="formSubmit">发布</button></view>
+</view>
 </view>
 
 <view class='edit-main'>
-  <textarea class='edit-text' auto-height placeholder='这一刻的想法...' placeholder-style='color:#888' bindinput="getInputValue"></textarea>
+  <textarea class='edit-text' auto-height placeholder='发布你的FitTrack动态...' placeholder-style='color:#888' bindinput="getInputValue"></textarea>
 </view>
 
 <view class="weui-cells">

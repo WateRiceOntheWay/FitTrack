@@ -259,5 +259,15 @@ Page({
         wx.redirectTo({
             url: '/pages/recording/recording',
         })
+    },
+    toCommunity() {
+        wx.redirectTo({
+            url: "/pages/pyq/circle/index"
+        })
+    },
+    toEdit(){
+        wx.navigateTo({
+            url: "/pages/pyq/edit/index"
+        })
     }
 })

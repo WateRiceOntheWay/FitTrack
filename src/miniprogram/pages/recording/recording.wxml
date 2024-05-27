@@ -202,6 +202,10 @@
         <view class="action text-pink">
             <view class="cuIcon-rankfill"></view> 历史记录
         </view>
+    <view class="action text-gray add-action">
+        <button class="cu-btn cuIcon-add bg-pink shadow" bindtap="toEdit"></button>
+        发布
+    </view>
         <view class="action text-gray" bind:tap="toCommunity">
             <view class="cuIcon-community">
                 <!-- <view class="cu-tag badge">99</view> -->
