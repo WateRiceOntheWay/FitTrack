@@ -25,32 +25,15 @@ exports.main = async(event, context) => {
   try {
     switch (type) {
       case "zan":
-      console.log("开始点赞")
-      loveCollection.doc(data._id).update({
-        data: {
-          zans: _.push({
-            openid: wxContext.OPENID,
-            name: data.username,
-            createTime: db.serverDate()
-          }),
-          test: {
-            test: "测试返回"
+        return await loveCollection.doc(data._id).update({
+          data: {
+            zans: _.push({
+              openid: wxContext.OPENID,
+              name: data.username,
+              createTime: db.serverDate()
+            })
           }
-        }
-      })
-      .then(res => {
-        console.log("点赞成功", res)
-        return res
-      })
-      .catch(err => {
-        console.error("点赞失败", err)
-        return {
-          code: 500,
-          message: 'Internal server error',
-          error: err
-        }
-      })
-      break
+        })
 
 
       case "comment":
