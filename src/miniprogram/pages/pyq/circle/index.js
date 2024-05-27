@@ -155,7 +155,7 @@ Page({
             var isZan = that.data.wallData[e.currentTarget.dataset.indexn].zans.some(a => {
                 return a.openid === res.result.openid
             })
-
+            console.log("是否已点赞：")
             console.log(isZan)
             //未点赞
             if (!isZan) {
@@ -172,6 +172,8 @@ Page({
                 that.setData({
                     wallData: data
                 })
+                console.log("WallData: ")
+                console.log(that.data.wallData)
                 wx.cloud.callFunction({
                     name: 'chat',
                     data: {
@@ -180,13 +182,13 @@ Page({
                         data: {
                             username: that.data.userInfo.nickName,
                             _id: e.currentTarget.dataset._id
-
-
                         }
                     }
                 }).then(res => {
                     console.log("打印点赞调用结果")
                     console.log(res)
+                    console.log("WallData: ")
+                    console.log(that.data.wallData)
                     // 刷新此项数据
                     // const db = wx.cloud.database()
                     // db.collection("circle").doc(e.currentTarget.dataset._id).get().then(
