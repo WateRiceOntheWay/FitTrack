@@ -187,6 +187,9 @@ Page({
                 }).then(res => {
                     console.log("打印点赞调用结果")
                     console.log(res)
+                    wx.vibrateShort({
+                        type: 'heavy'
+                    })
                     // 刷新此项数据
                     // const db = wx.cloud.database()
                     // db.collection("circle").doc(e.currentTarget.dataset._id).get().then(
@@ -649,6 +652,9 @@ Page({
 
 
     onPullDownRefresh: function () {
+        wx.vibrateShort({
+            type: 'light'
+        })
         this.getWallData(0, 10, false, this.data.tabList[this.data.tabIndex].name)
         if (this.data.tabIndex === 3) {
             this.getTopWallData()
