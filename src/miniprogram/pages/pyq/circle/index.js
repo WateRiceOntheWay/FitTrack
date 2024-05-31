@@ -297,10 +297,14 @@ Page({
                         showPinLun: false,
                         commentValue: ""
                     })
+                    let that = this
                     wx.showToast({
                         title: '评论成功',
-                        icon: 'none'
+                        icon: '评论成功'
+                    }).then(res=>{
+                        that.onLoad()
                     })
+                    
                 }
             )
         })
@@ -903,6 +907,8 @@ Page({
             commenting_id: e.currentTarget.dataset._id,
             commentValue: e.currentTarget.dataset._id === this.data.commenting_id ? this.data.commentValue : ''
         })
+        console.log("comment_id:")
+        console.log(this.data.commenting_id)
     },
 
     EndComment(e) {

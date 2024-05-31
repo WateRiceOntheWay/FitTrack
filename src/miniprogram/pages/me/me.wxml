@@ -73,7 +73,7 @@
 		<view class="cu-item text-black">
           <view class="content">
             <text class="cuIcon-edit xl"></text>
-			<text class="text-gray">累计发布帖子数</text>
+			<text class="text-gray">累计发帖数</text>
           </view>
 		  <view class="action">
             <text class="text-grey text-sm text-bold " id="font">{{post_count===null?'未知':post_count}}</text>
@@ -84,7 +84,7 @@
       <view class="cu-item text-black">
           <view class="content">
             <text class="cuIcon-appreciatefill xl"></text>
-			    <text class="text-gray">发布帖子累计获赞数</text>
+			    <text class="text-gray">累计获赞数</text>
           </view>
 		      <view class="action">
             <text class="text-grey text-sm text-bold " id="font">{{appreciate_count===null?'未知':appreciate_count}}</text>
