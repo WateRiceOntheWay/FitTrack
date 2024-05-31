@@ -1,3 +1,4 @@
+const FitTrackStorage = require("../../../utils/FitTrackStorage");
 const app = getApp();
 Page({
   data: {
@@ -10,7 +11,7 @@ Page({
       avatarUrl: "cloud://zhku-01.7a68-zhku-01-1258022644/home/logo1.jpg", //官方账号头像 
       nickName: "仲恺微校园" //官方账号名称
     },
-    userInfo: undefined,
+    userInfo: {},
     sendList: [{
       name: "默认",
       isSelect: true
@@ -20,35 +21,23 @@ Page({
     }],
     //导航栏
     tabList: [{
-        name: "杂谈随想",
+        name: "运动",
         isSelect: false
       }, {
-        name: "迎新",
+        name: "饮食",
         isSelect: false
       },
       {
-        name: "社团",
+        name: "身体指标",
         isSelect: false
       },
       {
-        name: "表白",
+        name: "生活",
         isSelect: false
       },
 
       {
-        name: "问与答",
-        isSelect: false
-      },
-      {
-        name: "闲置",
-        isSelect: false
-      },
-      {
-        name: "失物",
-        isSelect: false
-      },
-      {
-        name: "其它",
+        name: "其他",
         isSelect: false
       }
     ],
@@ -101,48 +90,45 @@ Page({
   },
   onLoad() {
     // 查看是否授权
-    var that = this
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo
-      })
-    } else {
-      wx.getSetting({
-        success(res) {
-          if (res.authSetting['scope.userInfo']) {
-            // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-            wx.getUserInfo({
-              success(res) {
-                that.setData({
-                  userInfo: res.userInfo
-                })
+  let that = this;
+
+  FitTrackStorage.getUserInfo((result) => {
+      if (result['status']) {
+          var userInfo = that.data.userInfo;
+          userInfo.nickName = result['value']['username']
+          that.setData({
+              userInfo: userInfo
+          })
+          wx.cloud.callFunction({
+              name: 'login',
+              config: {
+                  env: 'fittrack-7gp6es5nf242fb26'
               }
-            })
-          }
-        }
-      })
-    }
-    wx.cloud.callFunction({
-      name: 'login',
-      config:{
-        env:'fittrack-7gp6es5nf242fb26'
+          }).then(res => {
+              console.log(res.result.openid)
+              if (res.result.openid === that.data.adminOpenid) {
+                  that.data.tabList.push({
+                      name: "通知公告",
+                      isSelect: false
+                  })
+                  that.setData({
+                      tabList: that.data.tabList
+                  })
+              }
+              that.setData({
+                  openid: res.result.openid
+              })
+          })
       }
-    }).then(res => {
-      console.log(res.result.openid)
-      if (res.result.openid === that.data.adminOpenid) {
-        that.data.tabList.push({
-          name: "通知公告",
-          isSelect: false
-        })
-        that.setData({
-          tabList: that.data.tabList
-        })
+      else {
+          wx.navigateTo({
+              url: '/pages/login/login',
+          })
       }
-      that.setData({
-        openid: res.result.openid
-      })
-    })
-  },
+
+  });
+  }
+      ,
   getInputGzh(e) {
     wx.showToast({
       title: '仅支持认证用户',

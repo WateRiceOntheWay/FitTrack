@@ -45,7 +45,9 @@
                 </view>
 
                 <view class="margin-sm"></view>
-                <view class="text-gray text-df" style="font-size: 24rpx;">{{wallData[0].time}}</view>
+                <view class="flex justify-start">
+                <view class="text-gray text-df" style="font-size: 24rpx;">{{wallData[0].time}}</view>                            <view class="padding-left-lg"></view>
+                    <view class="cu-tag line-{{wallData[0].tabColor}} round text-xs">{{wallData[0].tab}}</view></view>
                 <view class="margin-top-xs"></view>
             </view>
 

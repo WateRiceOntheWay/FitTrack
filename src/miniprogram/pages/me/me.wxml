@@ -27,7 +27,7 @@
             <view class="cu-avatar lg round" style="background-image:url(https://image.meiye.art/Fha6tqRTIwHtlLW3xuZBJj8ZXSX3?imageMogr2/thumbnail/450x/interlace/1);">
             </view>
           </view>
-          <view class="padding-xs text-xl text-black username" bind:tap="showModalLogout"> 
+          <view class="padding-xs padding-bottom-sm text-xl text-black username" bind:tap="showModalLogout">
             <view class="text-bold">{{username===null?'用户未登录':username}}</view>
             <text class="text-sm text-grey">点击退出登录 ></text>
           </view>
@@ -45,7 +45,7 @@
             <text class="text-grey">累计运动记录次数</text>
           </view>
           <view class="action">
-            <text class="text-grey text-sm text-bold" id="font">{{sports_count}}</text>
+            <text class="text-grey text-sm text-bold" id="font">{{sports_count===null?'未知':sports_count}}</text>
           </view>
         </view>
         <!--累计饮食记录次数-->
@@ -56,7 +56,7 @@
             <text class="text-grey">饮食记录次数</text>
           </view>
           <view class="action text-xl">
-            <text class="text-grey text-sm text-bold " id="font">{{diet_count}}</text>
+            <text class="text-grey text-sm text-bold " id="font">{{diet_count===null?'未知':diet_count}}</text>
           </view>
         </view>
         <!--累计身体指标记录次数-->
@@ -66,7 +66,7 @@
             <text class="text-grey">身体指标记录次数</text>
           </view>
           <view class="action">
-            <text class="text-grey text-sm text-bold " id="font">{{body_count}}</text>
+            <text class="text-grey text-sm text-bold " id="font">{{body_count===null?'未知':body_count}}</text>
           </view>
         </view>
 		<!-- 累计发布贴子数 -->
@@ -76,7 +76,7 @@
 			<text class="text-gray">累计发布帖子数</text>
           </view>
 		  <view class="action">
-            <text class="text-grey text-sm text-bold " id="font">{{post_count}}</text>
+            <text class="text-grey text-sm text-bold " id="font">{{post_count===null?'未知':post_count}}</text>
           </view>
         </view>
 
@@ -87,7 +87,7 @@
 			    <text class="text-gray">发布帖子累计获赞数</text>
           </view>
 		      <view class="action">
-            <text class="text-grey text-sm text-bold " id="font">{{appreciate_count}}</text>
+            <text class="text-grey text-sm text-bold " id="font">{{appreciate_count===null?'未知':appreciate_count}}</text>
           </view>
       </view>
     <!-- 累计获得评论数 -->
@@ -97,7 +97,7 @@
 			      <text class="text-gray">累计获得评论数</text>
           </view>
 		      <view class="action">
-            <text class="text-grey text-sm text-bold " id="font">{{comment_count}}</text>
+            <text class="text-grey text-sm text-bold " id="font">{{comment_count===null?'未知':comment_count}}</text>
           </view>
       </view>
       </view>

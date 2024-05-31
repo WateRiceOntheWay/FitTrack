@@ -27,7 +27,7 @@ page {
 
 .tab-se {
   color: #fff;
-  background-color: #06ad56;
+  background-color: #0080fe;
   padding: 2rpx 10rpx;
 }
 

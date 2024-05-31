@@ -1,7 +1,7 @@
 // FitTrackRequests.js
 const FitTrackStorage = require('./FitTrackStorage');
 class FitTrackRequests{
-    static url_base="http://10.16.204.156:8080"
+    static url_base="http://10.16.204.150:8080"
     static sport_get_all = "/sports"
     static diet_get_all = "/diet" 
     static body_get_all = "/healthcare"

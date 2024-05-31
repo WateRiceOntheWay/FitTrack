@@ -16,7 +16,14 @@
 </scroll-view>
 </view>
 
-<view style="height:{{switch_bar_height-10}}rpx"></view>
+<view style="height:{{switch_bar_height-10-90}}rpx"></view>
+
+<view style="height:90rpx" hidden="{{!now_pulling_down}}">
+    <view class="flex align-center">
+        <view class="margin-0 padding-0" style="height:90rpx"></view><view class="flex justify-center" style="width:750rpx">
+    <text class="cuIcon-loading head-loading" style="font-size:40rpx;transform:rotate(90deg)"></text></view></view>
+</view>
+<view style="height:90rpx" hidden="{{now_pulling_down}}"></view>
 
 
 <view class="community-container">
@@ -28,7 +35,12 @@
                     <view class="cu-avatar round" style="background-image:url({{itemName.userInfo.avatarUrl}});" hover-stop-propagation></view>
                     <view class="content">
                         <view class="text-grey text-bold" hover-stop-propagation>{{itemName.userInfo.nickName}}</view>
+                        <view class="flex justify-start">
+
                         <view class="text-gray text-df" style="font-size: 24rpx;" hover-stop-propagation>{{itemName.time}}</view>
+                            <view class="padding-left-lg"></view>
+                            <view class="cu-tag line-{{itemName.tabColor}} round text-xs">{{itemName.tab}}</view>
+                    </view>
                         <view class="margin-top-xs" hover-stop-propagation></view>
                         <view class="text-black text-content text-df" style="font-size: 34rpx;" >
                             {{itemName.content}}
@@ -43,6 +55,9 @@
                                 </view>
                             </block>
                         </view>
+
+
+
                         <view wx:for="{{itemName.comments}}" wx:key='{{index}}' data-index="{{index}}" data-indexN="{{indexN}}" >
                             <view class="bg-gray padding-sm radius margin-top-sm  text-sm">
                                 <view class="flex">
@@ -53,8 +68,8 @@
                         </view>
                         <view class="margin-top-sm" hover-stop-propagation>
                             <view hover-stop-propagation>
-                                <text class="cuIcon-appreciatefill {{itemName.i_zanned?'text-red':'text-gray'}}" style="font-size: 42rpx;"  data-indexN="{{indexN}}" data-_id="{{itemName._id}}" catchtap='dianzan'></text>
-                                <text class="text-red margin-left-xs margin-bottom-xs {{itemName.i_zanned?'text-red':'text-gray'}}" style="font-size: 38rpx;" hidden="{{itemName.zans.length===0?'true':''}}">{{itemName.zans.length}}</text>
+                                <text class="cuIcon-appreciatefill {{itemName.i_zanned?'text-pink':'text-gray'}}" style="font-size: 42rpx;"  data-indexN="{{indexN}}" data-_id="{{itemName._id}}" catchtap='dianzan'></text>
+                                <text class="text-red margin-left-xs margin-bottom-xs {{itemName.i_zanned?'text-pink':'text-gray'}}" style="font-size: 38rpx;" hidden="{{itemName.zans.length===0?'true':''}}">{{itemName.zans.length}}</text>
                                 <text class="margin-left-xs margin-right-xs"></text>
                                 <text class="cuIcon-messagefill text-gray margin-left-sm" style="font-size: 42rpx;"  data-indexN="{{indexN}}" data-_id="{{itemName._id}}" catchtap="StartComment" ></text>
                                 <text class="margin-left-xs margin-right-xs"></text>

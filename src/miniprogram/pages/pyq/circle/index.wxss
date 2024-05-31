@@ -10,3 +10,13 @@
     width: 200rpx;
     height: 200rpx;
 }
+
+
+.head-loading{
+    animation: loading_rotate 2s linear infinite;
+}
+
+@keyframes loading_rotate {
+    0% {transform : rotate(0deg);}
+    100% {transform : rotate(360deg);}
+}

@@ -2,13 +2,35 @@ const app = getApp()
 Page({
 
   data: {
+    tabList:[
+      {
+        name: "运动",
+        color:"blue"
+      },
+      {
+        name: "饮食",
+        color:"green"
+      },
+      {
+        name: "身体指标",
+        color:"pink"
+      },{
+        name: "生活",
+        color:"yellow"
+      },
+      {
+        name: "其他",
+        color:"gray"
+      }
+    ],
+
     wallData: [],
     showZan: -1, //显示点赞按钮
     showPinLun: false,
     nmAvator: '/image/pyq/ng.jpg',
     commentValue: '',
     placeholderPL: '评论',
-    userInfo: undefined,
+    userInfo: {},
     batchTimes: undefined, //分页
     btoText: "正在加载...",
     adminOpenid: "oOmqu4pDpN-1db4Ms_U0fjmCfBAw",
@@ -419,6 +441,18 @@ Page({
           if (zan.openid === that.data.openid){
             res.data[i].i_zanned = true
           }
+        }
+        console.log(res.data[i].tab);
+        console.log(that.data.tabList);
+        let flag=true;
+        for(let j=0;j<that.data.tabList.length && flag;j++){
+          if (that.data.tabList[j].name === res.data[i].tab){
+            res.data[i].tabColor = that.data.tabList[j].color;
+            flag=false;
+          }
+        }
+        if (flag){
+          res.data[i].tabColor = "gray";
         }
 
       }

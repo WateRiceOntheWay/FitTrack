@@ -1,35 +1,38 @@
+const FitTrackStorage = require("../../../utils/FitTrackStorage");
+
 const app = getApp()
 Page({
     data: {
         //导航栏
-        tabIndex: 3,
-        tabList: [{
-            name: "迎新",
-            isSelect: false
-        },
-            {
-                name: "社团",
-                isSelect: false
-            },
-            {
-                name: "表白墙",
-                isSelect: false
-            },
+        tabIndex: 0,
+        tabList: [
             {
                 name: "全部",
                 isSelect: true
             },
             {
-                name: "问与答",
-                isSelect: false
+                name: "运动",
+                isSelect: false,
+                color:"blue"
             },
             {
-                name: "闲置",
-                isSelect: false
+                name: "饮食",
+                isSelect: false,
+                color:"green"
             },
             {
-                name: "失物",
-                isSelect: false
+                name: "身体指标",
+                isSelect: false,
+                color:"pink"
+            },{
+                name: "生活",
+                isSelect: false,
+                color:"yellow"
+            },
+            {
+                name: "其他",
+                isSelect: false,
+                color:"gray"
             }
         ],
         statusBarHeight: app.globalData.statusBarHeight,
@@ -39,7 +42,7 @@ Page({
         nmAvator: '/image/pyq/ng.jpg',
         commentValue: '',
         placeholderPL: '评论',
-        userInfo: undefined,
+        userInfo: {},
         batchTimes: undefined, //分页
         btoText: "正在加载...",
         adminOpenid: "oOmqu4pDpN-1db4Ms_U0fjmCfBAw",
@@ -54,15 +57,10 @@ Page({
         InputBottom: 0,
         inputFocused: false,
         showComment: false,
-        commenting_id: undefined
+        commenting_id: undefined,
+        now_pulling_down: false
     },
 
-    getUserInfo: function (e) {
-        console.log(e)
-        this.setData({
-            userInfo: e.detail.userInfo,
-        })
-    },
 
     lookDetail(e) {
         console.log(e.currentTarget.dataset.index)
@@ -132,16 +130,16 @@ Page({
         console.log(e.currentTarget.dataset)
         console.log(e.currentTarget.dataset.indexn)
         console.log(this.data.userInfo)
-        if (!this.data.userInfo) {
-            wx.pageScrollTo({
-                scrollTop: 200,
-            })
-            wx.showToast({
-                title: '需要授权才能点赞评论,见第一条墙消息.',
-                icon: 'none'
-            })
-            return
-        }
+        // if (!this.data.userInfo) {
+        //     wx.pageScrollTo({
+        //         scrollTop: 200,
+        //     })
+        //     wx.showToast({
+        //         title: '需要授权才能点赞评论,见第一条墙消息.',
+        //         icon: 'none'
+        //     })
+        //     return
+        // }
 
 
         wx.cloud.callFunction({
@@ -409,6 +407,16 @@ Page({
                 res.data[i].comments = res.data[i].comments.sort(function (a, b) {
                     return a.createTime.getTime() - b.createTime.getTime()
                 })
+                let flag=true;
+                for(let j=0;j<that.data.tabList.length && flag;j++){
+                    if (that.data.tabList[j].name === res.data[i].tab){
+                        res.data[i].tabColor = that.data.tabList[j].color;
+                        flag=false;
+                    }
+                }
+                if (flag){
+                    res.data[i].tabColor = "gray";
+                }
             }
 
 
@@ -430,6 +438,9 @@ Page({
             wx.hideToast()
             wx.hideNavigationBarLoading()
             wx.stopPullDownRefresh()
+            this.setData({
+                now_pulling_down: false
+            })
         })
     },
 
@@ -578,36 +589,52 @@ Page({
     },
 
     onLoad: function (options) {
-        var that = this
-        if (app.globalData.userInfo) {
-            this.setData({
-                userInfo: app.globalData.userInfo
-            })
-        } else {
-            // 查看是否授权
-            wx.getSetting({
-                success(res) {
-                    if (res.authSetting['scope.userInfo']) {
-                        // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-                        wx.getUserInfo({
-                            success(res) {
-                                that.setData({
-                                    userInfo: res.userInfo
-                                })
-                            }
-                        })
+        // var that = this
+        // if (app.globalData.userInfo) {
+        //     this.setData({
+        //         userInfo: app.globalData.userInfo
+        //     })
+        // } else {
+        //     // 查看是否授权
+        //     wx.getSetting({
+        //         success(res) {
+        //             if (res.authSetting['scope.userInfo']) {
+        //                 // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+        //                 wx.getUserInfo({
+        //                     success(res) {
+        //                         that.setData({
+        //                             userInfo: res.userInfo
+        //                         })
+        //                     }
+        //                 })
+        //             }
+        //         }
+        //     })
+        // }
+        let that = this;
+
+        FitTrackStorage.getUserInfo((result) => {
+            if (result['status']) {
+                var userInfo = that.data.userInfo;
+                userInfo.nickName = result['value']['username']
+                that.setData({
+                    userInfo: userInfo
+                })
+
+                that.getOpenid().then(
+                    ()=>{
+                        console.log(that.data.openid)
+                        that.getWallData(0, 10, false)
                     }
-                }
-            })
-        }
-
-
-        this.getOpenid().then(
-            ()=>{
-                console.log(that.data.openid)
-                that.getWallData(0, 10, false)
+                )
             }
-        )
+            else{
+                wx.navigateTo("/pages/login/login")
+            }
+        })
+
+
+
 
         // wx.cloud.callFunction({
         //     name: 'login'
@@ -652,6 +679,9 @@ Page({
 
 
     onPullDownRefresh: function () {
+        this.setData({
+            now_pulling_down: true
+        })
         wx.vibrateShort({
             type: 'light'
         })
