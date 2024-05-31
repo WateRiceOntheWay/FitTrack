@@ -8,6 +8,9 @@
 <view class="login-container">
 
   <view class="title">登录 FitTrack</view>
+    <view style="transform: scale(0.5);translate(0,-50%);height:200rpx;">
+    <view class="bg-img padding-xs margin-xs radius-lg" style="background-image: url('/images/icon.png');height: 600rpx;">
+    </view></view>
   <view class="login-box">
     <form bindsubmit="login_using_password">
       <label>用户名</label>
