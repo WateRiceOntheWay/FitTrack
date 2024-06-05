@@ -155,6 +155,15 @@ Page({
                 console.log("获取总身体记录次数失败")
             }
         })
+        
+        FitTrackRequests.getPostAll().then(result=>{
+            console.log("获取到的结果：", result)
+            that.setData({
+                post_count:result.posts,
+                appreciate_count:result.likes,
+                comment_count:result.comments
+            })
+        })
     },
 
     /**

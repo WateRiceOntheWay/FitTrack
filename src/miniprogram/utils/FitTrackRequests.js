@@ -14,6 +14,7 @@ class FitTrackRequests{
     static summarize = "/user/summarize"
     static username=""
     static jwtToken=""
+    static openid=""
 	constructor(name){
         // TODO 是否每一次请求都需要重新获取用户信息？
   }
@@ -698,5 +699,59 @@ class FitTrackRequests{
             }
         })})
     }
+
+    static async getPostAll() {
+      var result = {};
+      var posts = 0;
+      var likes = 0;
+      var comments = 0;
+      try {
+          const loginRes = await wx.cloud.callFunction({
+              name: 'login'
+          });
+          FitTrackRequests.openid = loginRes.result.openid;
+  
+          const db = wx.cloud.database();
+          const MAX_LIMIT = 20;
+          let countResult = await db.collection('circle').where({
+              _openid: FitTrackRequests.openid
+          }).count();
+          const total = countResult.total;
+          const batchTimes = Math.ceil(total / MAX_LIMIT);
+  
+          let tasks = [];
+          for (let i = 0; i < batchTimes; i++) {
+              const promise = db.collection('circle').where({
+                  _openid: FitTrackRequests.openid
+              }).skip(i * MAX_LIMIT).limit(MAX_LIMIT).get();
+              tasks.push(promise);
+          }
+  
+          let responses = await Promise.all(tasks);
+          console.log("responses: ",responses)
+          console.log("total: ", total, "batchTimes: ", batchTimes)
+          let info = responses.reduce((acc, cur) => {
+              return { data: acc.data.concat(cur.data) };
+          }, { data: [] });
+  
+          posts = info.data.length;
+          info.data.forEach(post => {
+              comments += post.comments.length;
+              likes += post.zans.length;
+          });
+  
+          result = {
+              posts: posts,
+              likes: likes,
+              comments: comments
+          };
+      } catch (err) {
+          console.error("查询失败，错误如下：");
+          console.error(err);
+      }
+      return result;
+  }
+  
+  
 }
 module.exports = FitTrackRequests
