@@ -29,6 +29,7 @@ page {
   --gray: #969696;
   --ghostWhite: #f1f1f1;
   --white: #ffffff;
+
   /* 浅色 */
   --redLight: #fadbd9;
   --orangeLight: #fde6d2;

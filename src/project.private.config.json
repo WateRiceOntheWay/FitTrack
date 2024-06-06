@@ -9,6 +9,13 @@
         "miniprogram": {
             "list": [
                 {
+                    "name": "pages/debug/debug",
+                    "pathName": "pages/debug/debug",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
                     "name": "pages/pyq/circle/detail?id=0af7fd756651ab1d019f0e5a26b7b7b6",
                     "pathName": "pages/pyq/circle/detail",
                     "query": "id=0af7fd756651ab1d019f0e5a26b7b7b6",

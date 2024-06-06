@@ -45,6 +45,10 @@ Page({
         goal_sport_distance: null,
         goal_sport_calories: null,
 
+        summarize_display : "",
+        summarize: "",
+        start_print_summarize:false
+
 
     },
 
@@ -83,6 +87,12 @@ Page({
      */
     onReady() {
         let that = this;
+
+        that.setData({
+            summarize_display:"加载中..."
+        })
+
+
         // 获取每日运动目标
         FitTrackStorage.getDailyGoal(
             function (result) {
@@ -123,12 +133,34 @@ Page({
         FitTrackRequests.getSummarize(function(result){
             if(result['status'] === true){
                 that.setData({
-                    summarize: result['value']
+                    summarize: result['summarize'],
+                    start_print_summarize:true
                 })
             }else{
                 console.log("未能获取智能建议")
+                that.setData({
+                    summarize:"当前无法连接到 FitTrack AI 智能建议，请等待一段时间后再尝试。",
+                    start_print_summarize:true
+                })
             }
 
+            new Promise(async ()=>{
+                let sum_dis = ""
+                for(let c of that.data.summarize){
+                    if (!that.data.start_print_summarize){
+                        break;
+                    }
+                    sum_dis = sum_dis + c;
+                    that.setData({
+                        summarize_display:sum_dis
+                    })
+                    await new Promise(r =>setTimeout(r,30));
+                }
+                that.setData({
+                    start_print_summarize:false
+                })
+
+            })
         })
     },
 
