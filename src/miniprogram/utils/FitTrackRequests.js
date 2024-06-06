@@ -1,7 +1,8 @@
 // FitTrackRequests.js
 const FitTrackStorage = require('./FitTrackStorage');
+const FormData = require('wx-formdata-master/formData');
 class FitTrackRequests{
-    static url_base="http://10.16.204.150:8080"
+    static url_base="http://10.16.203.179:8080"
     static sport_get_all = "/sports"
     static diet_get_all = "/diet" 
     static body_get_all = "/healthcare"
@@ -11,7 +12,11 @@ class FitTrackRequests{
     static login = "/login"
     static signup = "/signup"
 
-    static summarize = "/user/summarize"
+    static summarize = "/summarize"
+
+    static changeAvatar = "/user/putimage" // TODO
+
+    static getAvatar = "/user/getimage" // TODO
     static username=""
     static jwtToken=""
     static openid=""
@@ -68,6 +73,14 @@ class FitTrackRequests{
     }
     static getURL_Summarize(){
         return  FitTrackRequests.url_base +  FitTrackRequests.summarize
+    }
+
+    static getURL_ChangeAvatar(){
+        return FitTrackRequests.url_base + FitTrackRequests.changeAvatar
+    }
+
+    static getURL_GetAvatar(){
+        return FitTrackRequests.url_base + FitTrackRequests.getAvatar
     }
     static SportAdd(sport_info, after_function){
         // TODO
@@ -670,21 +683,23 @@ class FitTrackRequests{
             headers: {
                 'Authorization': `Bearer ${FitTrackRequests.jwtToken}`
             },
-            data:[
+            data:
                 {
                     "username": FitTrackRequests.username
-                }
-            ],
+                },
             success(res){
                 console.log(res.data)
-                if(res&&res.data&&res.data.code == 1){
+                if(res&&res.data&&res.data.code == 1&&res.data.data!==undefined){
                     return_value={
                         "status":true,
-                        "summarize":res.data["data"]
+                        "summarize":res.data.data
                     }
                 }
                 else{
                     console.log("未找到数据")
+                    return_value={
+                        "status":false
+                    }
                 }
             },
             fail(res){
@@ -751,7 +766,111 @@ class FitTrackRequests{
       }
       return result;
   }
+
   
-  
+    static ChangeAvatar(username,after_function){
+        let return_value = {}
+        let avatar_file_path = null
+        FitTrackRequests.InitUserInfo(function(){
+            wx.chooseMedia({
+                count: 1,
+                mediaType: ['image'],
+                sourceType: ['album', 'camera'],
+                success(res){
+                    wx.showToast({
+                        title: '上传中',
+                        icon: 'loading',
+                        duration: 10000
+                    })
+                    console.log(res);
+                    avatar_file_path = res.tempFiles[0].tempFilePath;
+                    let fd = new FormData();
+                    fd.append('username',FitTrackRequests.username);
+                    fd.appendFile('image',avatar_file_path);
+                    const data = fd.getData();
+                    console.log(fd.getData());
+                    wx.request({
+                        url: FitTrackRequests.getURL_ChangeAvatar(),
+                        method:'POST',
+                        headers:{
+                            'Authorization': `Bearer ${FitTrackRequests.jwtToken}`,
+                            "Content-Type":data.contentType
+                        },
+                        data:[data.buffer],
+
+                        // TODO
+                        success(res){
+                            console.log(res);
+                            wx.showToast({
+                                title: '上传成功',
+                                icon: 'success',
+                                duration: 1000
+                            })
+                            return_value={
+                                "status":true
+                            }
+                        },
+                        fail(){
+                            wx.showToast({
+                                title: '上传失败',
+                                icon: 'error',
+                                duration: 1000
+                            });
+                            return_value={
+                                "status":false
+                            }
+                        },
+                        complete(){
+                            if(after_function!==undefined){
+                                after_function(return_value);
+                            }
+                        }
+                    })
+                },
+                fail(res){
+                    return_value={
+                        "status":false
+                    };
+                },
+                complete(res){
+                    if(after_function!==undefined){
+                        after_function(return_value);
+                    }
+                }
+            })
+        })
+    }
+
+    static GetAvatarUrl(username,after_function){
+        let return_value = {}
+        FitTrackRequests.InitUserInfo(function(){
+            wx.request({
+                url: FitTrackRequests.getURL_GetAvatar(),
+                method:'GET',
+                headers:{
+                    'Authorization': `Bearer ${FitTrackRequests.jwtToken}`
+                },
+                data:{
+                    "username":username
+                },
+                success(res){
+                    return_value={
+                        "status":true,
+                        "data":res.data["data"]
+                    }
+                },
+                fail(){
+                    return_value={
+                        "status":false
+                    }
+                },
+                complete(){
+                    if(after_function!==undefined){
+                        after_function(return_value);
+                    }
+                }
+            })
+        })
+    }
 }
 module.exports = FitTrackRequests

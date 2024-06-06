@@ -32,7 +32,8 @@
             <view class="cu-list menu-avatar comment solids-top" wx:for="{{wallData}}" wx:key="{{index}}"
                   wx:for-item="itemName" wx:for-index="indexN">
                 <view class="cu-item solids-top"  data-_id="{{itemName._id}}" bindtap="seeDetail">
-                    <view class="cu-avatar round" style="background-image:url({{itemName.userInfo.avatarUrl}});" hover-stop-propagation></view>
+<!--                    <view class="cu-avatar round" style="background-image:url({{itemName.userInfo.avatarUrl}});" hover-stop-propagation></view>-->
+                    <view class="cu-avatar round" style="background-image:url(https://image.meiye.art/Fha6tqRTIwHtlLW3xuZBJj8ZXSX3?imageMogr2/thumbnail/450x/interlace/1);" hover-stop-propagation></view>
                     <view class="content">
                         <view class="text-grey text-bold" hover-stop-propagation>{{itemName.userInfo.nickName}}</view>
                         <view class="flex justify-start">

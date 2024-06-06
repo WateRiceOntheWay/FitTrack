@@ -17,7 +17,7 @@
 
         <!-- 标题 -->
         <view class="padding-sm margin-xs radius">
-            <view class="cu-bar">
+            <view class="cu-bar" style="background-color:var(--custom-gray);">
                 <view class="action sub-title">
                     <text class="text-xxxl text-bold text-blue">Today</text>
                     <text class="bg-blue"></text>
@@ -56,7 +56,7 @@
     <!-- 每日运动目标 -->
     <view>
         <!-- 标题 -->
-        <view class="cu-bar">
+        <view class="cu-bar" style="background-color:var(--custom-gray);">
             <view class="action">
                 <text class="cuIcon-titles text-blue"></text>
                 <text class="text-xl text-bold">今日目标</text>
@@ -148,7 +148,7 @@
     <!-- 每日信息 -->
     <view>
         <!-- 标题 -->
-        <view class="cu-bar">
+        <view class="cu-bar" style="background-color:var(--custom-gray);">
             <view class="action">
                 <text class="cuIcon-titles text-blue"></text>
                 <text class="text-xl text-bold">数据</text>
@@ -160,19 +160,19 @@
             <!-- 运动 -->
             <view>
 
-                <view class="padding-left-xs padding-top-xs">
-                <view class="cu-bar">
+                <view class="padding-left-xs padding-top-xs ">
+                <view class="cu-bar bg-white" style="background-color: var(--custom-bar-background-color);">
                     <view class="action">
-                        <text class="text-xl">运动</text>
+                        <text class="text-xl" >运动</text>
                     </view>
                 </view>
                 </view>
                 <view class="padding-left-sm padding-right-sm">
 
-                <view class="cu-list menu">
+                <view class="cu-list menu" >
 
 
-                    <view class="cu-item ">
+                    <view class="cu-item " style="background-color: var(--custom-bar-background-color);">
                         <view class="content">
                             <text class="cuIcon-timefill text-blue"></text>
                             <text class="text-grey">运动时长</text>
@@ -182,7 +182,7 @@
                         </view>
                     </view>
 
-                    <view class="cu-item">
+                    <view class="cu-item" style="background-color: var(--custom-bar-background-color);">
                         <view class="content">
                             <text class="cuIcon-activityfill text-blue"></text>
                             <text class="text-grey">运动距离</text>
@@ -192,7 +192,7 @@
                         </view>
                     </view>
 
-                    <view class="cu-item">
+                    <view class="cu-item" style="background-color: var(--custom-bar-background-color);">
                         <view class="content">
                             <text class="cuIcon-hotfill text-blue"></text>
                             <text class="text-grey">消耗卡路里</text>
@@ -208,7 +208,7 @@
             <!-- 饮食 -->
             <view>
                 <view class="padding-left-xs padding-top-xs">
-                <view class="cu-bar">
+                <view class="cu-bar" style="background-color: var(--custom-bar-background-color);">
                     <view class="action">
                         <text class="text-xl">饮食</text>
                     </view>
@@ -220,7 +220,7 @@
                 <view class="cu-list menu">
 
 
-                    <view class="cu-item">
+                    <view class="cu-item" style="background-color: var(--custom-bar-background-color);">
                         <view class="content">
                             <text class="cuIcon-hotfill text-green"></text>
                             <text class="text-grey">摄入卡路里</text>
@@ -236,7 +236,7 @@
             <!-- 身体指标 -->
             <view>
                 <view class="padding-left-xs padding-top-xs">
-                <view class="cu-bar">
+                <view class="cu-bar" style="background-color: var(--custom-bar-background-color);">
                     <view class="action">
                         <text class="text-xl">身体指标</text>
                     </view>
@@ -247,7 +247,7 @@
 
                 <view class="cu-list menu">
 
-                    <view class="cu-item">
+                    <view class="cu-item" style="background-color: var(--custom-bar-background-color);">
                         <view class="content">
                             <text class="cuIcon-likefill text-pink"></text>
                             <text class="text-grey">心率</text>
@@ -257,7 +257,7 @@
                         </view>
                     </view>
 
-                    <view class="cu-item">
+                    <view class="cu-item" style="background-color: var(--custom-bar-background-color);">
                         <view class="content">
                             <text class="cuIcon-emojifill text-pink"></text>
                             <text class="text-grey">体重</text>
@@ -267,7 +267,7 @@
                         </view>
                     </view>
 
-                    <view class="cu-item">
+                    <view class="cu-item" style="background-color: var(--custom-bar-background-color);">
                         <view class="content">
                             <text class="cuIcon-babyfill text-pink"></text>
                             <text class="text-grey">体脂率</text>
@@ -289,7 +289,7 @@
     <!-- 智能建议 -->
     <view>
         <!-- 标题 -->
-        <view class="cu-bar">
+        <view class="cu-bar" style="background-color:var(--custom-gray);">
             <view class="action">
                 <text class="cuIcon-titles text-blue"></text>
                 <text class="text-xl text-bold">智能建议</text>
@@ -312,24 +312,24 @@
     <!-- ModalName: AddRecord -->
     <view class="cu-modal bottom-modal {{ModalName=='AddRecord'?'show':''}}">
         <view class="cu-dialog">
-            <view class="flex solid-bottom padding-xs justify-center" bindtap="addSportRecord">
+            <view class="flex solid-bottom padding-xs justify-center bg-white" bindtap="addSportRecord">
                 <view class="action padding-sm ">添加运动</view>
             </view>
-            <view class="flex solid-bottom padding-xs justify-center" bindtap="addDietRecord">
+            <view class="flex solid-bottom padding-xs justify-center bg-white" bindtap="addDietRecord">
                 <view class="action padding-sm ">添加饮食</view>
             </view>
-            <view class="flex solid-bottom padding-xs justify-center" bindtap="addBodyRecord">
+            <view class="flex solid-bottom padding-xs justify-center bg-white" bindtap="addBodyRecord">
                 <view class="action padding-sm ">添加身体指标</view>
             </view>
 
-            <view class="flex bg-gray solid-bottom padding-xs justify-center">
+            <view class="flex solid-bottom padding-xs justify-center" style="background-color:var(--custom-gray);">
                 <view class=""></view>
             </view>
 
-            <view class="action flex solid-bottom padding-xs justify-center" bindtap="hideModals">
+            <view class="action flex solid-bottom padding-xs justify-center bg-white" bindtap="hideModals">
                 <view class="padding-sm text-red">取消</view>
             </view>
-            <view class="flex bg-gray solid-bottom padding-xs justify-center">
+            <view class="flex bg-gray solid-bottom padding-xs justify-center"  style="background-color:var(--custom-gray);">
                 <view class="padding-sm"></view>
             </view>
         </view>
@@ -339,18 +339,18 @@
     <!-- ModalName: AddGoal -->
     <view class="cu-modal bottom-modal {{ModalName=='AddGoal'?'show':''}}">
         <view class="cu-dialog">
-            <view class="flex solid-bottom padding-xs justify-center" bindtap="showModalDailyGoal">
+            <view class="flex solid-bottom padding-xs justify-center  bg-white" bindtap="showModalDailyGoal">
                 <view class="action padding-sm ">更改每日运动目标</view>
             </view>
 
-            <view class="flex bg-gray solid-bottom padding-xs justify-center">
+            <view class="flex bg-gray solid-bottom padding-xs justify-center" style="background-color:var(--custom-gray);">
                 <view class=""></view>
             </view>
 
-            <view class="action flex solid-bottom padding-xs justify-center" bindtap="hideModals">
+            <view class="action flex solid-bottom padding-xs justify-center bg-white" bindtap="hideModals">
                 <view class="padding-sm text-red">取消</view>
             </view>
-            <view class="flex bg-gray solid-bottom padding-xs justify-center">
+            <view class="flex bg-gray solid-bottom padding-xs justify-center" style="background-color:var(--custom-gray);">
                 <view class="padding-sm"></view>
             </view>
         </view>

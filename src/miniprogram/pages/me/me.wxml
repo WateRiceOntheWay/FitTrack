@@ -23,6 +23,7 @@
       <!--头像点击-->
       <view class="bg-white">
         <view class="flex padding">
+<!--          <view class="padding-lr-xs" bindtap="showModalChangeAvatar">-->
           <view class="padding-lr-xs">
             <view class="cu-avatar lg round" style="background-image:url(https://image.meiye.art/Fha6tqRTIwHtlLW3xuZBJj8ZXSX3?imageMogr2/thumbnail/450x/interlace/1);">
             </view>
@@ -101,11 +102,32 @@
           </view>
       </view>
       </view>
+
       <!--按钮退出登录和取消-->
       <view class="cu-modal bottom-modal {{ModalName=='logout'?'show':''}}">
         <view class="cu-dialog">
           <view class="flex solid-bottom padding-xs justify-center" bindtap="Logout">
             <view class="action padding-sm text-red">退出登录</view>
+          </view>
+
+          <view class="flex bg-gray solid-bottom padding-xs justify-center">
+            <view class=""></view>
+          </view>
+
+          <view class="action flex solid-bottom padding-xs justify-center" bindtap="hideModals">
+            <view class="padding-sm ">取消</view>
+          </view>
+          <view class="flex bg-gray solid-bottom padding-xs justify-center">
+            <view class="padding-sm"></view>
+          </view>
+        </view>
+      </view>
+
+      <!--按钮退出登录和取消-->
+      <view class="cu-modal bottom-modal {{ModalName=='ChangeAvatar'?'show':''}}">
+        <view class="cu-dialog">
+          <view class="flex solid-bottom padding-xs justify-center" bindtap="ChangeAvatar">
+            <view class="action padding-sm">更换头像</view>
           </view>
 
           <view class="flex bg-gray solid-bottom padding-xs justify-center">

@@ -17,7 +17,8 @@ Page({
 		body_count:null,
 		appreciate_count:null,
 		post_count:null,
-		comment_count:null
+		comment_count:null,
+        avatar_url : null
     },
     bindUpload: function (e) {
         switch (this.data.imgs.length) {
@@ -249,16 +250,37 @@ Page({
             ModalName: 'logout'
         });
     },
-    showModal(e) {
-        this.setData({
-            modalName: e.currentTarget.dataset.target
-        })
+    // showModal(e) {
+    //     this.setData({
+    //         modalName: e.currentTarget.dataset.target
+    //     })
+    // },
+    showModalChangeAvatar(){
+      this.setData({
+        ModalName: 'ChangeAvatar'
+      });
     },
-    hideModal(e) {
-        this.setData({
-            modalName: null
-        })
+    ChangeAvatar(){
+        let that = this;
+        FitTrackRequests.ChangeAvatar(this.data.username,function (res){
+            if(res["status"]){
+                that.hideModals();
+                FitTrackRequests.GetAvatarUrl(that.data.username,function(res){
+                    if(res["status"]){
+                        that.setData({
+                            avatar_url:res["data"]
+                        })
+                    }
+                });
+            }
+        });
+
     },
+    // hideModal(e) {
+    //     this.setData({
+    //         modalName: null
+    //     })
+    // },
     toToday() {
         wx.redirectTo({
             url: '/pages/today/today',
