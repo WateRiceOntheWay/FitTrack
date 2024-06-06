@@ -1,13 +1,158 @@
 // pages/sportRecording/sportRecording.js
 import FitTrackRequests from '../../../utils/FitTrackRequests'
 import FitTrackStorage from '../../../utils/FitTrackStorage'
+import * as echarts from '../../../components/ec-canvas/echarts.min'
+function processData_line(creatTime, distance){
+  console.log("distance is : ",distance)
+  console.log("createTime is :", creatTime)
+  const data = {}
+  for(let i=0;i<creatTime.length;i++){
+    const time = creatTime[i]
+    const dist = parseFloat(distance[i])
+    if(data[time])
+    {
+      data[time] += dist
+    }
+    else{
+      data[time] = dist
+    }
+  }
+  return Object.entries(data)
+}
+function initChart(canvas, width, height, data, chartType) {
+  const chart = echarts.init(canvas, null, {
+    width: width,
+    height: height
+  });
+  canvas.setChart(chart);
+  console.log("data is: " , data)
+  const xAxisLables = data.map(record => `${record.createTime} \n ${record.gamesName}`);
+  const distances = data.map(record => record.sportsDistance);
+  const createTime = data.map(record =>record.createTime)
+  const time = data.map(record => record.sportsTime)
+  const data_line = processData_line(createTime, distances)
+  console.log("data_line_graphy is : ",data_line)
+  const option = {
+    title: {
+      text: chartType === 'bar'? '运动数据统计\n':'运动距离跟踪',
+      left: 'center',
+      top: 'top'
+    },
+    legend:{
+      data:chartType === 'bar'? ['Distance','Time']:['Distances'],
+      top: '25rpx'
+    },
+    xAxis: chartType==='bar'?{
+      type: 'category',
+      data: xAxisLables
+    }:{
+      type: 'category',
+      boundaryGap: false
+    },
+    yAxis: chartType==='bar'?{
+      type: 'value'
+      
+    }:{
+      type: 'value',
+      boundaryGap: [0, '30%'], // 调整 boundaryGap
+      axisLabel: {
+        formatter: '{value}m',
+        margin:1
+      },
+      grid:{
+        left:20
+      }
+    },
+    visualMap: chartType==='bar'?null:{
+      type: 'piecewise',
+      show: false,
+      dimension: 0,
+      seriesIndex: 0,
+      pieces: [
+        {
+          gt: 1,
+          lt: 3,
+          color: 'rgba(0, 0, 180, 0.4)'
+        },
+        {
+          gt: 5,
+          lt: 7,
+          color: 'rgba(0, 0, 180, 0.4)'
+        }
+      ]
+    },
+    series: chartType === 'bar'?[
+      {
+        name:'Distance',
+        data: distances,
+        type: 'bar'
+      },
+      {
+        name:'Time',
+        data: time,
+        type:'bar'
+      }
+    ]:
+    [
+      {
+        type: 'line',
+        name:'Distance',
+        smooth: 0.6,
+        symbol: 'none',
+        lineStyle: {
+          color: '#5470C6',
+          width: 5
+        },
+        markLine: {
+          symbol: ['none', 'none'],
+          label: { show: false },
+          data: [{ xAxis: 1 }, { xAxis: 3 }, { xAxis: 5 }, { xAxis: 7 }]
+        },
+        areaStyle: {},
+        data: data_line
+      }
+    ]
+  };
+  chart.setOption(option);
+  return chart;
+}
+
 Page({
 
   /**
    * 页面的初始数据
    */
+  ec_bar: {
+    onInit: null
+  },
+  ec_line:{
+    onInit:null
+  },
   data: {
-    sport_records:[],
+    sport_records:[{
+      gamesName:"跑步",
+      sportsDistance:"10",
+      sportsTime:"300",
+      createTime:"2024.10.01"
+    },
+    {
+      gamesName:"跑步",
+      sportsDistance:"200",
+      sportsTime:"300",
+      createTime:"2024.10.05"
+    },
+    {
+      gamesName:"跑步",
+      sportsDistance:"700",
+      sportsTime:"300",
+      createTime:"2024.10.10"
+    },
+  {
+      gamesName:"跑步",
+      sportsDistance:"1000",
+      sportsTime:"300",
+      createTime:"2024.10.15"
+    }],
     userinfo:{}
   },
 
@@ -54,6 +199,21 @@ Page({
       }else
       console.log("获取运动信息失败")
     })
+    that.setData({
+      ec_bar: {
+        onInit: (canvas, width, height) => initChart(canvas, width, height, that.data.sport_records, 'bar')
+      },
+      ec_line:{
+        onInit: (canvas, width, height) => initChart(canvas, width, height, that.data.sport_records, 'line')
+      }
+    })
+    // 初始化图表
+    that.selectComponent('#mychart-dom-bar').init((canvas, width, height) => {
+      return initChart(canvas, width, height, that.data.sport_records);
+    });
+    that.selectComponent('#mychart-dom-line').init((canvas, width, height) => {
+      return initChart(canvas, width, height, that.data.sport_records);
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

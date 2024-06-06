@@ -107,8 +107,8 @@
                 },
                 {
                     "name": "",
-                    "pathName": "pages/sportRecords/sportRecords",
-                    "query": "username=testName",
+                    "pathName": "pages/recording/sportRecords/sportRecords",
+                    "query": "",
                     "launchMode": "default",
                     "scene": null
                 },
@@ -136,6 +136,27 @@
                 {
                     "name": "",
                     "pathName": "pages/pyq/circle/index",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/debug/debug",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/recording/sportRecords/sportRecords",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/recording/dietRecords/dietRecords",
                     "query": "",
                     "launchMode": "default",
                     "scene": null

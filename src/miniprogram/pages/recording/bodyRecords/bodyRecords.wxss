@@ -21,3 +21,19 @@
 .tableTitle-bfp{
 	padding-left: 29%;
 }
+
+.ec-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 30vh;
+  }
+.swiper-container{
+  height: 500rpx;
+}
+  ec-canvas {
+    width: 100%;
+    height: 100%;
+  }

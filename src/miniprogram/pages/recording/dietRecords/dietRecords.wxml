@@ -13,10 +13,16 @@
 	  <text class="text-xxl text-bold text-blue cuIcon-titles">饮食记录</text>
   </view>
 </view>
-
 <!--  可视化图表  -->
-<view class="visualization">
-
+<view>
+  <swiper class="swiper-container" indicator-dots="true" autoplay="false" interval="5000" duration="500">
+    <swiper-item class="ec-container">
+      <ec-canvas id="mychart-dom-pie" canvas-id="echart-pie" ec="{{ec_pie}}"></ec-canvas>
+    </swiper-item>
+    <swiper-item class="ec-container">
+      <ec-canvas id="mychart-dom-line" canvas-id="echart-line" ec="{{ec_line}}"></ec-canvas>
+    </swiper-item>
+  </swiper>
 </view>
 
 <!--  展示所有饮食记录  -->

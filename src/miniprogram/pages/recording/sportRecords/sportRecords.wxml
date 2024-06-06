@@ -15,8 +15,17 @@
 </view>
 
 <!--  可视化图表  -->
-<view class="visualization">
 
+
+<view>
+  <swiper class="swiper-container" indicator-dots="true" autoplay="false" interval="5000" duration="500">
+    <swiper-item class="ec-container">
+      <ec-canvas id="mychart-dom-bar" canvas-id="echart-bar" ec="{{ec_bar}}"></ec-canvas>
+    </swiper-item>
+    <swiper-item class="ec-container">
+      <ec-canvas id="mychart-dom-line" canvas-id="echart-line" ec="{{ec_line}}"></ec-canvas>
+    </swiper-item>
+  </swiper>
 </view>
 
 <!--  展示所有运动记录  -->

@@ -1,14 +1,131 @@
 // pages/recording/bodyRecords/bodyRecords.js
 import FitTrackRequests from '../../../utils/FitTrackRequests'
 import FitTrackStorage from '../../../utils/FitTrackStorage'
+import * as echarts from '../../../components/ec-canvas/echarts.min'
+
+function initChart(canvas, width, height, data, chartType) {
+  const chart = echarts.init(canvas, null, {
+    width: width,
+    height: height
+  });
+  canvas.setChart(chart);
+  console.log("data is: " , data)
+  const heartRate = data.map(record => record.heartRate.replace('/min',''))
+  const createTime = data.map(record =>record.createTime)
+  const bodyFatRate = data.map(record => record.bodyFatRate)
+  const weight = data.map(record => record.weight.replace('kg',''))
+  const heartRateNumbers = heartRate.map(hr => parseFloat(hr));
+  const bodyFatRateNumbers = bodyFatRate.map(bfr => parseFloat(bfr));
+  const weightNumbers = weight.map(w => parseFloat(w));
+
+
+  console.log("heartRate: ", heartRate);
+  console.log("createTime: ", createTime);
+  console.log("bodyFatRate: ", bodyFatRate);
+  console.log("weight: ", weight);
+
+  const option = {
+    title: {
+      text: chartType === 'bar'? '身体数据统计\n':'身体状况跟踪',
+      left: 'center',
+      top: 'top'
+    },
+    
+    legend:{
+      data:['weight','bodyFatRate','heartRate'],
+      top: '25rpx'
+    },
+
+    xAxis:{
+      type: 'category',
+      data: createTime
+    },
+
+    yAxis:{
+      type: 'value'
+      
+    },
+
+    series: chartType === 'bar'?[
+      {
+        name:'weight',
+        data: heartRateNumbers,
+        type: 'bar'
+      },
+      {
+        name:'bodyFatRate',
+        data: bodyFatRateNumbers,
+        type:'bar'
+      },
+      {
+        name:'heartRate',
+        data: weightNumbers,
+        type:'bar'
+      }
+
+    ]:
+    [
+      {
+        type: 'line',
+        name:'weight',
+        smooth: 0.6,
+        symbol: 'none',
+        lineStyle: {
+          color: '#5470C6',
+          width: 5
+        },
+
+        data: weightNumbers
+      },
+      {
+        type: 'line',
+        name:'bodyFatRate',
+        smooth: 0.6,
+        symbol: 'none',
+        lineStyle: {
+          color: '#007006',
+          width: 5
+        },
+        data: bodyFatRateNumbers
+      },
+      {
+        type: 'line',
+        name:'heartRate',
+        smooth: 0.6,
+        symbol: 'none',
+        lineStyle: {
+          color: '#3473C5',
+          width: 5
+        },
+        
+        data: heartRateNumbers
+      }
+    ]
+  };
+  chart.setOption(option);
+  return chart;
+}
+
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    ec_bar:{
+      onInit: null
+    },
+    ec_line:{
+      onInit: null
+    },
     body_records:[
-      {weight:"60kg", bfp:"1.5", heartRate:"90/min",date:"2024-05-07"}
+      {weight:"59kg", bodyFatRate:"1.5", heartRate:"90/min",createTime:"05-01"},
+      {weight:"60kg", bodyFatRate:"1.5", heartRate:"92/min",createTime:"05-02"},
+      {weight:"65kg", bodyFatRate:"1.5", heartRate:"91/min",createTime:"05-04"},
+      {weight:"56kg", bodyFatRate:"1.5", heartRate:"85/min",createTime:"05-08"},
+      {weight:"66kg", bodyFatRate:"1.5", heartRate:"85/min",createTime:"05-18"},
+      {weight:"76kg", bodyFatRate:"1.5", heartRate:"95/min",createTime:"05-28"}
     ],
     userinfo:{}
   },
@@ -44,6 +161,21 @@ Page({
       }else
       console.log("获取身体状况信息失败")
     })
+    that.setData({
+      ec_bar: {
+        onInit: (canvas, width, height) => initChart(canvas, width, height, that.data.body_records,'bar')
+      },
+      ec_line:{
+        onInit: (caches, width, height) => initChart(caches, width, height, that.data.body_records,'line')
+      }
+    })
+    //初始化图表
+    that.selectComponent('#mychart-dom-bar').init((canvas, width, height) => {
+      return initChart(canvas, width, height, that.data.body_records);
+    })
+    that.selectComponent('#mychart-dom-line').init((canvas, width, height) => {
+      return initChart(canvas, width, height, that.data.body_records);
+    });
   },
 
   /**
