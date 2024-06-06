@@ -1,6 +1,6 @@
 // FitTrackRequests.js
 const FitTrackStorage = require('./FitTrackStorage');
-const FormData = require('wx-formdata-master/formData');
+// const FormData = require('wx-formdata-master/formData');
 class FitTrackRequests{
     static url_base="http://10.16.203.179:8080"
     static sport_get_all = "/sports"
