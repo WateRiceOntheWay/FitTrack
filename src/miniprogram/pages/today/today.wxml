@@ -144,25 +144,6 @@
         </view>
     </view>
 
-    <!-- 智能建议 -->
-    <view>
-        <!-- 标题 -->
-        <view class="cu-bar">
-            <view class="action">
-                <text class="cuIcon-titles text-blue"></text>
-                <text class="text-xl text-bold">智能建议</text>
-            </view>
-        </view>
-
-
-        <view class="margin-sm radius-lg bg-white shadow">
-            <view class="padding-sm">
-                <view class="margin-sm">
-                    <text>暂无</text>
-                </view>
-            </view>
-        </view>
-    </view>
 
     <!-- 每日信息 -->
     <view>
@@ -178,16 +159,20 @@
 
             <!-- 运动 -->
             <view>
+
+                <view class="padding-left-xs padding-top-xs">
                 <view class="cu-bar">
                     <view class="action">
                         <text class="text-xl">运动</text>
                     </view>
                 </view>
+                </view>
+                <view class="padding-left-sm padding-right-sm">
 
                 <view class="cu-list menu">
 
 
-                    <view class="cu-item">
+                    <view class="cu-item ">
                         <view class="content">
                             <text class="cuIcon-timefill text-blue"></text>
                             <text class="text-grey">运动时长</text>
@@ -218,14 +203,19 @@
                     </view>
                 </view>
             </view>
+            </view>
 
             <!-- 饮食 -->
             <view>
+                <view class="padding-left-xs padding-top-xs">
                 <view class="cu-bar">
                     <view class="action">
                         <text class="text-xl">饮食</text>
                     </view>
                 </view>
+                </view>
+                <view class="padding-left-sm padding-right-sm">
+
 
                 <view class="cu-list menu">
 
@@ -241,14 +231,19 @@
                     </view>
                 </view>
             </view>
+            </view>
 
             <!-- 身体指标 -->
             <view>
+                <view class="padding-left-xs padding-top-xs">
                 <view class="cu-bar">
                     <view class="action">
                         <text class="text-xl">身体指标</text>
                     </view>
                 </view>
+                </view>
+
+                <view class="padding-left-sm padding-right-sm">
 
                 <view class="cu-list menu">
 
@@ -283,9 +278,31 @@
                     </view>
                 </view>
             </view>
+            </view>
 
             <view class="padding-bottom-sm"></view>
 
+        </view>
+    </view>
+
+
+    <!-- 智能建议 -->
+    <view>
+        <!-- 标题 -->
+        <view class="cu-bar">
+            <view class="action">
+                <text class="cuIcon-titles text-blue"></text>
+                <text class="text-xl text-bold">智能建议</text>
+            </view>
+        </view>
+
+
+        <view class="margin-sm radius-lg bg-white shadow">
+            <view class="padding-sm">
+                <view class="margin-sm">
+                    <text>{{summarize_display}}</text>
+                </view>
+            </view>
         </view>
     </view>
 
@@ -342,7 +359,7 @@
     <!-- 更改每日运动目标 -->
     <!-- ModalName: DailyGoal -->
     <view class="cu-modal {{ModalName=='DailyGoal'?'show':''}}">
-        <view class="cu-dialog">
+        <view class="cu-dialog bg-white">
             <view class="cu-bar bg-white justify-end solids-bottom">
                 <view class="content">
                     <text class="text-bold">更改每日运动目标</text>
