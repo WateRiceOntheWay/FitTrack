@@ -20,7 +20,5 @@
       <button class="login-btn" form-type="submit">立即登录</button>
   </form>
       <button class="signup-btn" bind:tap="signup">新用户注册</button>
-    <view class="three-line">一一一一一 第三方登录 一一一一一</view>
-    <button class="login-btn" style="background-color:green;">微信登录</button>
   </view>
 </view>

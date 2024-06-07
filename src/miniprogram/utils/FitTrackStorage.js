@@ -519,7 +519,7 @@ class FitTrackStorage {
             }
         })
 	}
-	
+
 }
 module.exports = FitTrackStorage
 

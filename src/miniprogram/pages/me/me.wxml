@@ -9,6 +9,7 @@
 <view class="me-container">
 
   <!--个人中心标题-->
+  <view class="padding-xs solids-bottom">
   <view class="padding-sm margin-xs radius">
     <view class="cu-bar">
       <view class="action sub-title">
@@ -16,6 +17,7 @@
         <text class="bg-blue"></text>
       </view>
     </view>
+  </view>
   </view>
   <view class="margin-sm radius-lg bg-white shadow">
 		<view class="padding-top"></view>
@@ -178,6 +180,6 @@
     <view class="cuIcon-my">
       <!-- <view class="cu-tag badge"></view> -->
     </view>
-    我
+    个人中心
   </view>
 </view>
