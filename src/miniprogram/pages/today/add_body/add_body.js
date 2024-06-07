@@ -101,7 +101,7 @@ Page({
                                             icon: 'success'
                                         })
                                         wx.navigateTo({
-                                            url:"add_body_success/add_body_success"
+                                            url:"./add_body_success/add_body_success"
                                         });
                                     }
                                     else{
