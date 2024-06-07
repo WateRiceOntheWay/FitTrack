@@ -4,16 +4,17 @@ import FitTrackStorage from '../../../utils/FitTrackStorage'
 import * as echarts from '../../../components/ec-canvas/echarts.min'
 
 function initChart(canvas, width, height, data, chartType) {
+  console.log("chartType is : ",chartType)
   const chart = echarts.init(canvas, null, {
     width: width,
     height: height
   });
   canvas.setChart(chart);
   console.log("data is: " , data)
-  const heartRate = data.map(record => record.heartRate.replace('/min',''))
-  const createTime = data.map(record =>record.createTime)
+  const heartRate = data.map(record => record.heartRate)
+  const createTime = data.map(record =>record.createTime.slice(5,10))
   const bodyFatRate = data.map(record => record.bodyFatRate)
-  const weight = data.map(record => record.weight.replace('kg',''))
+  const weight = data.map(record => record.weight)
   const heartRateNumbers = heartRate.map(hr => parseFloat(hr));
   const bodyFatRateNumbers = bodyFatRate.map(bfr => parseFloat(bfr));
   const weightNumbers = weight.map(w => parseFloat(w));
@@ -49,7 +50,7 @@ function initChart(canvas, width, height, data, chartType) {
     series: chartType === 'bar'?[
       {
         name:'weight',
-        data: heartRateNumbers,
+        data: weightNumbers,
         type: 'bar'
       },
       {
@@ -59,7 +60,7 @@ function initChart(canvas, width, height, data, chartType) {
       },
       {
         name:'heartRate',
-        data: weightNumbers,
+        data: heartRateNumbers,
         type:'bar'
       }
 
@@ -71,7 +72,7 @@ function initChart(canvas, width, height, data, chartType) {
         smooth: 0.6,
         symbol: 'none',
         lineStyle: {
-          color: '#5470C6',
+          color: '#5470c6',
           width: 5
         },
 
@@ -83,7 +84,7 @@ function initChart(canvas, width, height, data, chartType) {
         smooth: 0.6,
         symbol: 'none',
         lineStyle: {
-          color: '#007006',
+          color: '#91cc75',
           width: 5
         },
         data: bodyFatRateNumbers
@@ -94,7 +95,7 @@ function initChart(canvas, width, height, data, chartType) {
         smooth: 0.6,
         symbol: 'none',
         lineStyle: {
-          color: '#3473C5',
+          color: '#fac858',
           width: 5
         },
         
