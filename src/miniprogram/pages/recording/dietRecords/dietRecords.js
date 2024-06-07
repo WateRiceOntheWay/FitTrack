@@ -24,6 +24,26 @@ function processDietDataToPie(data) {
   }));
 }
 
+async function mappingData(data, diet_map) {
+  console.log("data is ",data)
+  let that = this;
+  const result = [];
+
+  // Simulating an asynchronous operation using Promise
+  await Promise.all(data.map(async (record) => {
+    console.log(record)
+    const temp = {};
+    temp["foodName"] = diet_map[record.foodName];
+    temp["calories"] = record.calories;
+    temp["weight"] = record.weight;
+    temp["createTime"] = record.createTime;
+    result.push(temp);
+  }));
+
+  console.log("mapping result is:", result);
+  return result;
+}
+
 function initChart(canvas, width, height, data, chartType){
   const chart = echarts.init(canvas, null, {
     width: width,
@@ -68,7 +88,7 @@ function initChart(canvas, width, height, data, chartType){
         name: 'Access From',
         type: 'pie',
         radius: '80%',
-        center:['55%','55%'],
+        center:['50%','50%'],
         data: data_pie,
         emphasis: {
           itemStyle: {
@@ -103,19 +123,15 @@ Page({
       onInit:null
     },
 
-    diet_records:[
-      {foodName:"饺子",calories:"200",weight:"200",createTime:"05-24"},
-      {foodName:"饺子",calories:"300",weight:"250",createTime:"05-25"},
-      {foodName:"面条",calories:"1000",weight:"500",createTime:"05-27"},
-      {foodName:"饺子",calories:"200",weight:"200",createTime:"05-29"},
-      {foodName:"西瓜",calories:"280",weight:"230",createTime:"05-31"}
-    ],
+    diet_records:[],
+    diet_type_range: ['米饭', '肉类', '蛋类', '豆类', '蔬菜水果', '面食', '果汁', '牛奶', '可乐、雪碧', '水', '咖啡'],
     userinfo:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
+
   onLoad(options) {
     //设置用户信息
     let that = this
@@ -135,6 +151,10 @@ Page({
     FitTrackRequests.getDietAll(that.data.userinfo,getAll,function(res){
       if(res["status"])
       {
+        let tmp = res["dietinfo"];
+        for (var item of tmp){
+          item["foodName"] = that.data.diet_type_range[item["foodName"]];
+        }
         that.setData({
           diet_records:res["dietinfo"]
         })
@@ -142,22 +162,25 @@ Page({
         console.log(that.data.diet_records)
       }else
       console.log("获取饮食信息失败")
+      that.setData({
+        ec_pie: {
+          onInit: (canvas, width, height) => initChart(canvas, width, height, that.data.diet_records,'pie')
+        },
+        ec_line:{
+          onInit: (caches, width, height) => initChart(caches, width, height, that.data.diet_records,'line')
+        }
+      })
+      //初始化图表
+      
+      that.selectComponent('#mychart-dom-pie').init((canvas, width, height) => {
+        return initChart(canvas, width, height, that.data.diet_records);
+      })
+      that.selectComponent('#mychart-dom-line').init((canvas, width, height) => {
+        return initChart(canvas, width, height, that.data.diet_records);
+      });
     })
-    that.setData({
-      ec_pie: {
-        onInit: (canvas, width, height) => initChart(canvas, width, height, that.data.diet_records,'pie')
-      },
-      ec_line:{
-        onInit: (caches, width, height) => initChart(caches, width, height, that.data.diet_records,'line')
-      }
-    })
-    //初始化图表
-    that.selectComponent('#mychart-dom-pie').init((canvas, width, height) => {
-      return initChart(canvas, width, height, that.data.diet_records);
-    })
-    that.selectComponent('#mychart-dom-line').init((canvas, width, height) => {
-      return initChart(canvas, width, height, that.data.diet_records);
-    });
+
+    
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

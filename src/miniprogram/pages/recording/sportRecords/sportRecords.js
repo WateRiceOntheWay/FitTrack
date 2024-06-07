@@ -26,9 +26,9 @@ function initChart(canvas, width, height, data, chartType) {
   });
   canvas.setChart(chart);
   console.log("data is: " , data)
-  const xAxisLables = data.map(record => `${record.createTime} \n ${record.gamesName}`);
+  const xAxisLables = data.map(record => `${record.createTime.slice(5,10)} \n ${record.gamesName}`);
   const distances = data.map(record => record.sportsDistance);
-  const createTime = data.map(record =>record.createTime)
+  const createTime = data.map(record =>record.createTime.slice(5,10))
   const time = data.map(record => record.sportsTime)
   const data_line = processData_line(createTime, distances)
   console.log("data_line_graphy is : ",data_line)
@@ -153,6 +153,7 @@ Page({
       sportsTime:"300",
       createTime:"2024.10.15"
     }],
+    sport_type_range: ['跑步', '骑行', '游泳', '举铁'],
     userinfo:{}
   },
 
@@ -190,8 +191,12 @@ Page({
     FitTrackRequests.getSportsAll(that.data.userinfo,getAll,function(res){
       if(res["status"])
       {
+        let tmp = res["sportinfo"];
+        for(var item of tmp){
+          item["gamesName"] = that.data.sport_type_range[item["gamesName"]];
+        }
         that.setData({
-          sport_records:res["sportinfo"]
+          sport_records:tmp
         })
         console.log("获取运动信息成功")
         console.log(res)
