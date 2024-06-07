@@ -8,15 +8,24 @@
 
     <!-- 标题，记录 -->
 
-    <view class="flex solid-bottom padding-xs justify-start">
-        <view class="bg-blue light padding-sm margin-xs radius basis-xxl">
-            <text class="text-xxl text-bold text-blue cuIcon-titles">记录</text>
+<!--    <view class="flex solid-bottom padding-xs justify-start">-->
+<!--        <view class="bg-blue light padding-sm margin-xs radius basis-xxl">-->
+<!--            <text class="text-xxl text-bold text-blue cuIcon-titles">记录</text>-->
+<!--        </view>-->
+<!--    </view>-->
+    <view class="padding-xs solids-bottom">
+    <view class="padding-sm margin-xs radius">
+        <view class="cu-bar" style="background-color:var(--custom-gray);">
+            <view class="action sub-title">
+                <text class="text-xxxl text-bold text-blue">历史记录</text>
+                <text class="bg-blue"></text>
+            </view>
         </view>
-    </view>
+    </view></view>
 
     <!--  运动卡片 -->
 
-    <view class=" margin-sm radius-lg bg-white margin-top-sm">
+    <view class=" margin-sm radius-lg bg-white margin-top-sm padding-xs shadow">
 
         <!--	卡片标题	-->
 
@@ -66,7 +75,7 @@
         <!--  运动记录展示更多 -->
         <view class=" ">
             <view class="flex flex-wrap ">
-                <view class="more basis-xxl bg-blue light margin-xs padding-sm radius"><button class="cu-btn round lg bg-white" bindtap='more_records_sport'><text style="font-size: small;" class="text-xxl text-bold text-blue">更多>></text></button></view>
+                <view class="more basis-xxl bg-blue light margin-xs padding-sm radius"><button class="cu-btn round lg bg-white shadow" bindtap='more_records_sport'><text style="font-size: small;" class="text-xxl text-bold text-blue">更多 >></text></button></view>
             </view>
         </view>
 
@@ -74,7 +83,7 @@
 
     <!--  饮食卡片 -->
 
-    <view class=" margin-sm radius-lg bg-white margin-top-sm">
+    <view class=" margin-sm radius-lg bg-white margin-top-sm padding-xs shadow">
 
         <!--	卡片标题	-->
 
@@ -125,7 +134,7 @@
         <!--  饮食记录展示更多 -->
         <view class=" ">
             <view class="flex flex-wrap ">
-                <view class="more basis-xxl bg-blue light margin-xs padding-sm radius"><button class="cu-btn round lg bg-white" bindtap='more_records_diet'><text style="font-size: small;" class="text-xxl text-bold text-blue">更多>></text></button></view>
+                <view class="more basis-xxl bg-blue light margin-xs padding-sm radius"><button class="cu-btn round lg bg-white shadow" bindtap='more_records_diet'><text style="font-size: small;" class="text-xxl text-bold text-blue">更多 >></text></button></view>
             </view>
         </view>
 
@@ -134,7 +143,7 @@
     
     <!--  身体状况卡片 -->
 
-    <view class="wrapper-body margin-sm radius-lg bg-white margin-top-sm">
+    <view class="wrapper-body margin-sm radius-lg bg-white margin-top-sm padding-xs shadow">
 
         <!--    卡片标题	-->
 
@@ -185,7 +194,7 @@
         <!--  身体状况记录展示更多 -->
         <view class=" ">
             <view class="flex flex-wrap ">
-                <view class="more basis-xxl bg-blue light margin-xs padding-sm radius"><button class="cu-btn round lg bg-white" bindtap='more_records_body'><text style="font-size: small;" class="text-xxl text-bold text-blue">更多>></text></button></view>
+                <view class="more basis-xxl bg-blue light margin-xs padding-sm radius"><button class="cu-btn round lg bg-white shadow" bindtap='more_records_body'><text style="font-size: small;" class="text-xxl text-bold text-blue">更多 >></text></button></view>
             </view>
         </view>
 
@@ -216,7 +225,7 @@
             <view class="cuIcon-my">
                 <!-- <view class="cu-tag badge"></view> -->
             </view>
-            我
+            个人中心
         </view>
     </view>
 </view>
